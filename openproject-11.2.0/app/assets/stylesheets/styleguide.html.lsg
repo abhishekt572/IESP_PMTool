@@ -1,1 +1,3 @@
 @import ../../../frontend/src/global_styles/**/_*.lsg
+.cl{
+}

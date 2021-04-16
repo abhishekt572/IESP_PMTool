@@ -1,0 +1,37 @@
+I"�<h1 id="openproject502">OpenProject 5.0.2</h1>
+
+<p>OpenProject 5.0.2 contains several bug fixes and additional translations
+for the OpenProject core and plugins.</p>
+
+<p>The following bugs have been fixed with OpenProject 5.0.2:</p>
+
+<ul>
+  <li>The link to create new forum boards was incorrect. It has been fixed
+(<a href="https://community.openproject.org/work_packages/22142/activity">#22142</a>).</li>
+  <li>Creating new documents (using the documents plugin) was not possible
+due to an error. The bug has been fixed
+(<a href="https://community.openproject.org/work_packages/22140/activity">#22140</a>).</li>
+  <li>An error was resolved which prevented work packages from being
+displayed when appending a slash at the end
+(<a href="https://community.openproject.org/work_packages/21997/activity">#21997</a>).</li>
+  <li>Several design fixes have been include
+(<a href="https://community.openproject.org/work_packages/22088/activity">#22088</a>,
+<a href="https://community.openproject.org/work_packages/21876/activity">#21876</a>).</li>
+</ul>
+
+<p>Additionally, the order of default roles has been changed
+(<a href="https://community.openproject.org/work_packages/22044">#22044</a>).</p>
+
+<p>In addition, new translations have been added to OpenProject and the
+plugins.</p>
+
+<p>Thanks to everyone who helped to translate and proof read OpenProject!</p>
+
+<p>To help translate OpenProject, please take a look at the <a href="https://crowdin.com/projects/opf">OpenProject
+CrowdIn projects</a>.</p>
+
+<p>For further information on the release, please refer to the <a href="https://community.openproject.org/versions/781">Changelog
+v.5.0.2</a> take a look at
+<a href="https://github.com/opf/openproject/tree/v5.0.2">GitHub</a>.</p>
+
+:ET

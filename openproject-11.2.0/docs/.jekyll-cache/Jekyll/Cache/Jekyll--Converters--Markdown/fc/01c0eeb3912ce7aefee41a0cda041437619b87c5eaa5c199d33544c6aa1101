@@ -1,0 +1,59 @@
+I"�<h1 id="openproject-404">OpenProject 4.0.4</h1>
+
+<p>OpenProject 4.0.4 (and 4.0.3) have been released which contain several
+bug fixes.<br />
+We advise everyone to update their OpenProject installations to
+OpenProject 4.0.4.</p>
+
+<h2 id="openproject-403">OpenProject 4.0.3</h2>
+
+<p>OpenProject 4.0.3 fixes several bugs relating to the work package table.
+In addition, font errors in Chrome have been addressed.</p>
+
+<ul>
+  <li>Under some circumstances no text was displayed when using Chrome.
+This error has been fixed
+(<a href="https://community.openproject.org/work_packages/17567" title="No text rendered at all on some versions of Chrome (closed)">#17567</a>)</li>
+  <li>Custom fields of type user and version are now properly displayed in
+the work package table
+(<a href="https://community.openproject.org/work_packages/17660" title="Missing user links in work package list for custom fields of type user (closed)">#17660</a>,
+<a href="https://community.openproject.org/work_packages/17630" title="Custom values for CF of type version not properly displayed in work package list (closed)">#17630</a>)</li>
+  <li>Wrong error messages when using queries have been addressed
+(<a href="https://community.openproject.org/work_packages/17572" title="Error message \&quot;Unable to retrieve query\&quot; wrongly displayed when changing WP attributes in query (closed)">#17572</a>)</li>
+  <li>It is now possible to remove grouping options from queries which was
+not possible before
+(<a href="https://community.openproject.org/work_packages/17570" title="Removing grouping not saved on existing queries (closed)">#17570</a>)</li>
+  <li>Errors occuring in subfolder installations of OpenProject have been
+resolved
+(<a href="https://community.openproject.org/work_packages/17566" title="Parent change via wp-detail view stuck at loading in subfolder installation (closed)">#17566</a>,
+<a href="https://community.openproject.org/work_packages/17564" title="Export function throws \&quot;object not found\&quot; error when used in subfolder installation (closed)">#17564</a>)</li>
+  <li>It is possible again to display multiple timelines in a wiki page
+(by using a macro)
+(<a href="https://community.openproject.org/work_packages/17568" title="Not possible to display more than one timeline via macro in wiki (closed)">#17568</a>)</li>
+</ul>
+
+<p>In addition, there has been a small change to the backlogs plugin:</p>
+
+<ul>
+  <li>The function “Copy tasks” has been renamed to “Copy work packages”
+when duplicating work packages with children
+(<a href="https://community.openproject.org/work_packages/17602" title="Rename \&quot;Copy tasks\&quot; to \&quot;Copy work packages\&quot; on copy of work package (with Backlogs enabled) (closed)">#17602</a>).</li>
+</ul>
+
+<h2 id="openproject-404-1">OpenProject 4.0.4</h2>
+
+<p>An additional bug fix has been added with OpenProject 4.0.4:</p>
+
+<ul>
+  <li>Due to a regression it was not possible to group by attributes which
+are not displayed in the work package list. This has been resolved
+(<a href="https://community.openproject.org/work_packages/17738" title="500 on WP table on grouping by non displayed column (closed)">#17738</a>).</li>
+</ul>
+
+<h2 id="list-of-changes">List of changes</h2>
+
+<p>For a complete list of changes, please refer to the <a href="https://community.openproject.org/versions/543">Changelog
+v4.0.3</a> and <a href="https://community.openproject.org/versions/559">Changelog
+v.4.0.4</a>.</p>
+
+:ET

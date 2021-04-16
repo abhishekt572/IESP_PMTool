@@ -1,0 +1,36 @@
+I"Z<h1 id="system-settings">System settings</h1>
+
+<p>There are various project overarching settings that are referred to as <strong>system settings</strong>. To adapt these system settings, navigate to your user name and select -&gt; <em>Administration</em> -&gt; <em>System settings</em>.</p>
+
+<p><img src="image-20201007165721023.png" alt="System-admin-guide-system-settings-11.0" /></p>
+
+<h2 id="overview">Overview</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Popular Topics</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="general-settings">General settings</a></td>
+      <td style="text-align: left">How to configure general system settings, e.g. a welcome text block on the application landing page, attachment size, and much more?</td>
+    </tr>
+    <tr>
+      <td><a href="display-settings">Display settings</a></td>
+      <td style="text-align: left">How to configure languages, date and time formats, week start, and more?</td>
+    </tr>
+    <tr>
+      <td><a href="project-system-settings">System projects settings</a></td>
+      <td style="text-align: left">How to set default project modules and more?</td>
+    </tr>
+    <tr>
+      <td><a href="repositories">Repositories</a></td>
+      <td style="text-align: left">How to integrate SVN or GIT repositories?</td>
+    </tr>
+  </tbody>
+</table>
+
+:ET

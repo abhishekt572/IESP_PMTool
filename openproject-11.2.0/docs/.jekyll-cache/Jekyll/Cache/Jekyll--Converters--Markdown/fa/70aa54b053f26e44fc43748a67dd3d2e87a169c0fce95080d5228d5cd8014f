@@ -1,0 +1,40 @@
+I"Ç<h1 id="operating-openproject">Operating OpenProject</h1>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="./reconfiguring">(Re)Configuring</a></td>
+      <td>How to (re)configure your OpenProject installation</td>
+    </tr>
+    <tr>
+      <td><a href="./backing-up">Backing up</a></td>
+      <td>How to backup your OpenProject data</td>
+    </tr>
+    <tr>
+      <td><a href="./restoring">Restoring</a></td>
+      <td>How to restore from a backup</td>
+    </tr>
+    <tr>
+      <td><a href="./upgrading">Upgrading</a></td>
+      <td>How to upgrade your OpenProject installation</td>
+    </tr>
+    <tr>
+      <td><a href="./monitoring">Monitoring &amp; Logs</a></td>
+      <td>How to monitor your OpenProject installation (logs, health checks)</td>
+    </tr>
+    <tr>
+      <td><a href="./control">Process control</a></td>
+      <td>How to start/stop/restart, execute processes in your OpenProject installation</td>
+    </tr>
+    <tr>
+      <td><a href="./faq">FAQ</a></td>
+      <td>Frequently asked questions</td>
+    </tr>
+  </tbody>
+</table>
+
+<!--
+| [Troubleshooting](./troubleshooting) | How to troubleshoot your OpenProject installation |
+| [Scaling up/down](./scaling) | How to scale your OpenProject installation |
+-->
+:ET

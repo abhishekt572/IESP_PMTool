@@ -1,0 +1,82 @@
+I"�<h1 id="report-a-bug">Report a bug</h1>
+
+<p>If you find a bug please create a bug report.</p>
+
+<ol>
+  <li>Login to or register at the <a href="https://community.openproject.org/login">OpenProject community platform</a>. It’s fast and free.</li>
+  <li>Look for an existing bug report using the search bar in the header navigation on top. If there’s one, please leave a comment or add additional information. Otherwise:</li>
+  <li>Open the <a href="https://community.openproject.org/projects/openproject/work_packages/new?type=1">bug form</a>.</li>
+  <li>Add a precise subject.</li>
+  <li>Add a detailed description using the template.</li>
+  <li>Attach a file (optional).</li>
+  <li>Press <strong>Create</strong>.</li>
+</ol>
+
+<h1 id="information-you-should-add-to-the-bug-description">Information you should add to the bug description</h1>
+
+<h2 id="preconditions-to-reproduce-the-bug">Preconditions to reproduce the bug</h2>
+
+<p>Prior to detailing which steps to take to reproduce the error, the necessary preconditions which have to be met should be stated.</p>
+<ul>
+  <li>Which browser did you use when you experienced the error?</li>
+  <li>Do you receive any error messages in the browser console when the error occurs? Please include the error message if applicable.</li>
+  <li>Please also include the contents of the browser’s developer tool’s network tab where applicable.</li>
+  <li>If you are self-hosting please include logs from <code class="language-plaintext highlighter-rouge">sudo openproject logs</code> gathered while you are reproducing the error.</li>
+</ul>
+
+<p>Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* Forum exists
+* Forum messages exist with many replies
+</code></pre></div></div>
+
+<h2 id="steps-to-reproduce-the-bug">Steps to reproduce the bug</h2>
+
+<ul>
+  <li>The detailed steps that led to the bug should be listed in the description in order to replicate the bug and determine the underlying problem.</li>
+</ul>
+
+<p>Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. Go to forum
+2. Scroll to bottom of messages
+</code></pre></div></div>
+
+<h2 id="actual-behavior">Actual behavior</h2>
+
+<ul>
+  <li>The actual, erroneous behavior should be stated briefly and concisely.</li>
+</ul>
+
+<p>Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* Not possible to switch to next entry in pagination
+</code></pre></div></div>
+
+<h2 id="expected-behavior">Expected behavior</h2>
+
+<ul>
+  <li>If known, the expected behavior of the application should be described concisely.</li>
+</ul>
+
+<p>Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* Possible to switch to next pagination page
+</code></pre></div></div>
+
+<h2 id="screenshots">Screenshots</h2>
+
+<ul>
+  <li>If applicable, a screenshot should be added to the bug report in order to explain the bug visually.
+    <ul>
+      <li>The unintended behavior should be marked in the screenshot (e.g. by using red color).</li>
+    </ul>
+  </li>
+  <li>The screenshot can be attached as a file and can be integrated in the description with the following syntax: “!Name_of_screenshot.png!” (without quotation marks)
+(Notice: <em>Name_of_screenshot</em> should be replaced with the respective name of the file. The file ending (here: <em>.png</em>) has to be adjusted to the appropriate file type of the screenshot.)</li>
+</ul>
+
+<h2 id="example-of-bug-reporting">Example of bug reporting</h2>
+
+<p><img src="https://openproject.org/wp-content/uploads/2014/09/Forum-bug1.png" alt="Report a bug: Bug example" title="Report a bug: Bug example" /></p>
+:ET

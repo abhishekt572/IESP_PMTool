@@ -1,0 +1,25 @@
+I"�<h1 id="openproject5012">OpenProject 5.0.12</h1>
+
+<p>OpenProject 5.0.12 contains several bug fixes:</p>
+
+<ul>
+  <li>An error message on a work package page was not displayed properly.
+This has been
+resolved (<a href="https://community.openproject.org/work_packages/21902">#21902</a>).</li>
+  <li>The button to create versions was not displayed when only inherited
+versions were displayed in a project. This has been
+fixed (<a href="https://community.openproject.org/work_packages/22599">#22599</a>).</li>
+  <li>Several design issues have been resolved
+(<a href="https://community.openproject.org/work_packages/22564/activity">#22564</a>,
+<a href="https://community.openproject.org/work_packages/22570/activity">#22570</a>,
+<a href="https://community.openproject.org/work_packages/22571/activity">#22571</a>,
+<a href="https://community.openproject.org/work_packages/20683/activity">#20683</a>).</li>
+</ul>
+
+<p>For further information on the release, please refer to the <a href="https://community.openproject.org/versions/800">Changelog
+v.5.0.12</a> or take a look
+at <a href="https://github.com/opf/openproject/tree/v5.0.12">GitHub</a>.</p>
+
+<p> </p>
+
+:ET

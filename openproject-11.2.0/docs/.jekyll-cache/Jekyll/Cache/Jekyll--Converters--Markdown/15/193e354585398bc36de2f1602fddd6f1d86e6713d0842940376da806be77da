@@ -1,0 +1,19 @@
+I"„<h1 id="guides-for-infrequent-operations">Guides for infrequent operations</h1>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="./packaged-postgresql-migration">Migrating packaged-based installation from MySQL to PostgreSQL</a></td>
+    </tr>
+    <tr>
+      <td><a href="./docker-postgresql-migration">Migrating docker-based installation from MySQL to PostgreSQL</a></td>
+    </tr>
+    <tr>
+      <td><a href="./migration">Migrating your OpenProject installation to another server</a></td>
+    </tr>
+    <tr>
+      <td><a href="./custom-openid-connect-providers">Configure a custom OpenID Connect provider</a></td>
+    </tr>
+  </tbody>
+</table>
+:ET

@@ -1,0 +1,22 @@
+I"�<h1 id="openproject-424">OpenProject 4.2.4</h1>
+
+<p>OpenProject 4.2.4 contains a bug fix and updated translations.</p>
+
+<p>The following bug has been fixed:</p>
+
+<ul>
+  <li>An English string in the project dependencies was wrong and has been
+fixed
+(<a href="https://community.openproject.org/work_packages/20910">#20910</a>).</li>
+</ul>
+
+<p>Additionally, new translations have been included (including complete
+translations for Portuguese, Brazilian).</p>
+
+<p>For further information on the release, please refer to the <a href="https://community.openproject.org/versions/752">Changelog
+v.4.2.4</a> or take a look
+at <a href="https://github.com/opf/openproject/tree/v4.2.4">GitHub</a>.</p>
+
+<p> </p>
+
+:ET

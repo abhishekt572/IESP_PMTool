@@ -1,0 +1,42 @@
+I"Y<h1 id="manage-work-packages">Manage work packages</h1>
+
+<p>Manage work packages in OpenProject.</p>
+
+<h2 id="overview">Overview</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Popular Topics</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="work-package-settings">Settings</a></td>
+      <td style="text-align: left">Configure general work package settings and defaults, such as display options and more.</td>
+    </tr>
+    <tr>
+      <td><a href="work-package-types">Types</a></td>
+      <td style="text-align: left">Create and manage work package types.</td>
+    </tr>
+    <tr>
+      <td><a href="work-package-status">Status</a></td>
+      <td style="text-align: left">Create and manage work package status.</td>
+    </tr>
+    <tr>
+      <td><a href="work-package-workflows">Workflows</a></td>
+      <td style="text-align: left">Create and manage workflows for work packages in OpenProject.</td>
+    </tr>
+    <tr>
+      <td><a href="custom-actions">Custom actions</a></td>
+      <td style="text-align: left">Create custom actions for work packages (Premium feature)</td>
+    </tr>
+    <tr>
+      <td><a href="attribute-help-texts">Attribute help texts</a></td>
+      <td style="text-align: left">Create and manage attribute help texts in OpenProject (Premium feature)</td>
+    </tr>
+  </tbody>
+</table>
+
+:ET

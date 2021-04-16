@@ -1,0 +1,95 @@
+<h1 id="openproject-600"><strong>OpenProject 6.0.0</strong></h1>
+
+<p>OpenProject 6.0.0 contains many new features, mainly for the work
+package page.</p>
+
+<h2 id="inline-create-for-work-packages"><strong>Inline create for work packages</strong></h2>
+
+<p>OpenProject 6.0 adds the ability to rapidly create a list of work
+packages (e.g. tasks) via the work package list
+(<a href="https://community.openproject.com/work_packages/13702/activity">#13702</a>).</p>
+
+<p>As a result, you can now easily and swiftly create task lists.</p>
+
+<h2 id="inline-edit-in-work-package-list">Inline edit in work package list</h2>
+
+<p>With OpenProject 6.0 it is possible to use inline editing to swiftly
+update work packages (such as tasks, features, milestones) directly from
+the work package
+list (<a href="https://community.openproject.com/work_packages/18404/activity">#18404</a>).</p>
+
+<p>It is no longer necessary to open a separate split screen view. Note,
+that all links (except for ID) have been removed from the work package
+list and form.</p>
+
+<h2 id="automatic-synchronization-between-work-package-split-screen-and-work-package-list">Automatic synchronization between work package split screen and work package list</h2>
+
+<p>The split screen view automatically reflects changes in the work package
+list.  When a work package is created, it is immediately shown in the
+list. Likewise, the work package list directly displays changes on the
+split screen.</p>
+
+<h2 id="configuration-of-visible-work-package-attributes-in-openproject">Configuration of visible work package attributes in OpenProject</h2>
+
+<p>With OpenProject 6.0 you can configure the attributes shown for each
+work package type. For instance you can configure tasks to only include
+information like status and assignee, while milestones and phases show
+the start and due date.</p>
+
+<p>Users can either completely deactivate or initially hide attributes. (to
+be shown when clicking on the “Show all” button on work packages).</p>
+
+<h2 id="extended-help-menu-and-onboarding-video">Extended help menu and onboarding video</h2>
+
+<p>The help menu in OpenProject has been extended. As a result, it now
+includes references to user guides, shortcuts and other relevant
+information.</p>
+
+<p>Additionally, a <em>First steps</em> video makes it easier for new users to
+start working with OpenProject.</p>
+
+<h2 id="usability-improvements"><strong>Usability improvements</strong></h2>
+
+<p>Aside from the main features, OpenProject 6.0 includes several smaller
+usability improvements:</p>
+
+<ul>
+  <li>You can add attachment (e.g. images) to the work package description
+using drag and drop.</li>
+  <li>It is possible to create work packages from the global work package
+list.</li>
+  <li>It is possible to set the project when creating a work package.</li>
+  <li>Users can more easily create work packages on the split and full
+screen through the removed dropdown menu.</li>
+</ul>
+
+<h2 id="improved-design"><strong>Improved design</strong></h2>
+
+<p>OpenProject 6.0 includes several design improvements.</p>
+
+<p> </p>
+
+<h2 id="url-slugs-for-wiki-pages"><strong>URL slugs for wiki pages</strong></h2>
+
+<p>In OpenProject versions prior to 6.0.0., specific characters of wiki
+titles were removed upon saving – especially dots and spaces. Spaces
+were replaced with an underscore, while other characters were removed.<br />
+Still, linking to these pages was possible with either the original
+title (e.g., ‘[[Title with spaces]]’), or the processed title (e.g.,
+‘[[title_with_spaces]]’).<br />
+Starting with OpenProject 6.0.0, titles are allowed to contain arbitrary
+characters. The titles are processed into a permalink (URL slug) upon
+saving.<br />
+This causes the identifiers of wiki pages with non-ascii characters to
+be more visually pleasing and easier to link to. When upgrading to 6.0.,
+permalinks for all your pages will be generated automatically.</p>
+
+<p> </p>
+
+<h2 id="substantial-number-of-bug-fixes"> <strong>Substantial number of bug fixes</strong></h2>
+
+<p>OpenProject 6.0 contains a large number of bugs fixes.</p>
+
+<p>For an extensive overview of bug fixes please refer to the <a href="https://community.openproject.com/projects/openproject/work_packages?query_props=%7B%22c%22:%5B%22id%22,%22type%22,%22status%22,%22subject%22,%22assigned_to%22%5D,%22t%22:%22parent:desc%22,%22f%22:%5B%7B%22n%22:%22fixed_version_id%22,%22o%22:%22%253D%22,%22t%22:%22list_optional%22,%22v%22:%22666%22%7D,%7B%22n%22:%22type_id%22,%22o%22:%22%253D%22,%22t%22:%22list_model%22,%22v%22:%221%22%7D,%7B%22n%22:%22subproject_id%22,%22o%22:%22*%22,%22t%22:%22list_subprojects%22%7D%5D,%22pa%22:1,%22pp%22:20%7D">following
+list</a>.</p>
+

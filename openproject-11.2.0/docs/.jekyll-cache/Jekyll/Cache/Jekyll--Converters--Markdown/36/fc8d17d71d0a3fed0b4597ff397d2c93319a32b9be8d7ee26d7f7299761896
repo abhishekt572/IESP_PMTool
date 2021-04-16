@@ -1,0 +1,66 @@
+I"<h1 id="exporting-work-packages">Exporting work packages</h1>
+
+<p>You can export work packages from your OpenProject instance to other formats using the export functionality.</p>
+
+<h2 id="how-to-trigger-an-export">How to trigger an export</h2>
+
+<p>To export a work packages list or card view to another format, visit the <em>Work packages</em> module or a saved view and click on the settings icon in the top right. Trigger the <strong>Export</strong> dialog from the dropdown menu that opens.</p>
+
+<p><img src="export-gantt-chart.png" alt="Exporting from the table" /></p>
+
+<p>This will open a dialog similar to the following screenshot, where you can select the desired format. Below, we will detail how to control the data being exported as well as the various formats.</p>
+
+<p><img src="dialog.png" alt="The export dialog" /></p>
+
+<h2 id="changing-what-will-be-exported">Changing what will be exported</h2>
+
+<p>From the work packages module, all work packages that are included in the filter list will be exported. Up to a total of 500 work packages can be exported at once.</p>
+
+<div class="alert alert-info" role="alert">
+**Note**: If you need to export more than 500 items, filter the work packages appropriately to export multiple files.
+</div>
+<p>For self-hosted versions of OpenProject you can change this limit in the <a href="../../../system-admin-guide/manage-work-packages/work-package-settings/">work package settings</a> in the system administration.</p>
+
+<p><strong>Columns</strong></p>
+
+<p>The exported file will display the columns that you activated for the work package table. With it, you can control the columns that will be contained in various formats. Please make sure to <a href="../work-package-table-configuration/#save-work-package-views">save</a> the view you configured, as saving is a necessary precondition to keep the selected columns in the export.</p>
+
+<p>Some formats such as PDF will limit the number of columns available due to limitations of the PDF rendering engine to avoid overflowing the available space.</p>
+
+<h2 id="pdf-export">PDF export</h2>
+
+<p>OpenProject has multiple options of exporting the results to PDF:</p>
+
+<ul>
+  <li><strong>PDF</strong> export of the work package list as rows</li>
+  <li><strong>PDF with descriptions</strong> same as above with work package descriptions output. Note that this does not include a fully rendered markdown description, but a stripped version of it due to technical limitations of the PDF rendering engine.</li>
+  <li><strong>PDF with attachments</strong> of work packages with their attachments inlined to fit as best as possible</li>
+  <li><strong>PDF with descriptions and attachments</strong> The above options combined to create a PDF export with work package descriptions and their attachments</li>
+</ul>
+
+<h2 id="excel-xls-export">Excel (XLS) export</h2>
+
+<p>OpenProject can export the table for Microsoft Excel with the following options:</p>
+
+<ul>
+  <li><strong>XLS</strong> a plain sheet that matches the OpenProject work packages table with its columns and work packages as rows matching the selected filter(s).</li>
+  <li><strong>XLS with descriptions</strong> same as above, but with an additional column for work package descriptions, which cannot be selected in the table</li>
+  <li><strong>XLS with relations</strong> Same as XLS, but with additional columns to list each work package relation in a separate row with the relation target and its ID and relation type included in the export</li>
+</ul>
+
+<div class="alert alert-info" role="alert">
+**Note**: To open XLS exported files into Microsoft Excel, ensure you set the encoding to UTF-8. Excel will not auto-detect the encoding or ask you to specify it, but simply open with a wrong encoding under Microsoft Windows.
+</div>
+
+<h2 id="csv-export">CSV export</h2>
+
+<p>OpenProject can export the table into a comma-separated CSV. This file will be UTF-8 encoded.</p>
+
+<div class="alert alert-info" role="alert">
+**Note**: To open CSV exported files into Microsoft Excel, ensure you set the encoding to UTF-8. Excel will not auto-detect the encoding or ask you to specify it, but simply open with a wrong encoding under Microsoft Windows.
+</div>
+
+<h2 id="atom-xml-export">Atom (XML) export</h2>
+
+<p>OpenProject can export the table into a XML-based atom format. This file will be UTF-8 encoded.</p>
+:ET

@@ -1,0 +1,145 @@
+I"<h1 id="time-tracking">Time tracking</h1>
+
+<p>Users can book their time or units spent on an activity within a project directly on work packages,  which gives a clear indication of how much effort the project activities require. You can either log time in the work package view or via a commit message.</p>
+
+<div class="alert alert-info" role="alert">
+**Note**: To use the time tracking functionality, the **Time and costs module** needs to be activated in the [project settings](../../projects/project-settings/modules/).
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Topic</th>
+      <th>Content</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#logging-time-in-the-work-package-view">Logging time</a></td>
+      <td>How to log time to work packages?</td>
+    </tr>
+    <tr>
+      <td><a href="./toggl-integration">Track time with Toggl</a></td>
+      <td>How to stop spent time with Toggl integration?</td>
+    </tr>
+    <tr>
+      <td><a href="#logging-time-via-commit-message">Logging time via commit message</a></td>
+      <td>How to log time via a commit message to a work package?</td>
+    </tr>
+    <tr>
+      <td><a href="#edit-logged-time">Edit logged time</a></td>
+      <td>How to edit logged time on a work package?</td>
+    </tr>
+    <tr>
+      <td><a href="#delete-time-entires">Delete time entries</a></td>
+      <td>How to delete time entries logged to a work package?</td>
+    </tr>
+    <tr>
+      <td><a href="#spent-time-widget-on-the-my-page">Spent time widget on the My Page</a></td>
+      <td>How to easily track and display spent time in the spent time widget on the MyPage?</td>
+    </tr>
+    <tr>
+      <td><a href="#define-hourly-rate-for-labor-costs">Define hourly rate for labor costs</a></td>
+      <td>How to set the hourly rate to track labor costs?</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="logging-time-in-the-work-package-view">Logging time in the work package view</h2>
+
+<p>In order to log spent hours for a certain activity, open the details of the corresponding work package. Select <strong>Log time</strong> from the <strong>More functions</strong> drop down menu, the icon with the three dots in the top right of the work packages details. Or use the <strong>Log time</strong> icon next to <strong>Spent time</strong>.</p>
+
+<p><img src="time-logging-work-package.png" alt="time-logging-work-package" /></p>
+
+<p>You will be directed to the detailed view to log time where you can edit the following:</p>
+
+<ol>
+  <li>The date, for which the time will be logged.</li>
+  <li>The actually logged time (in hours).</li>
+  <li>The <strong>Activity</strong> drop down menu offers a choice of activity  categories, such as coordination or development. The range of categories can vary from project to project and can be edited by a project  administrator or a role with respective permissions.</li>
+  <li>The comment field, where you can note a more detailed description of the activities that you log time for.</li>
+  <li>Don’t forget to <strong>Save</strong> your logged time.</li>
+</ol>
+
+<p><img src="time-logging-pop-up.png" alt="time-logging-pop-up" /></p>
+
+<p>The aggregated time spent on a work package is shown in the work package details view.</p>
+
+<p><img src="spent-time-work-package.png" alt="spent-time-work-package" /></p>
+
+<h2 id="logging-time-via-commit-message">Logging time via commit message</h2>
+
+<p>Note: the “enable time logging” option must be activated under system settings in order to log time via a commit message.</p>
+
+<p>To log time to a work package via a commit message you need to use  the following syntax: Refs #Work package number @amount of hours. For  example refs #123 @2h will log 2 hours for the work package number 123.<img src="3-Log-time-via-commit-message.png" alt="3-Log-time-via-commit-message" /></p>
+
+<h2 id="edit-logged-time">Edit logged time</h2>
+
+<p>To edit logged time, click in the amount of the <strong>Spent time</strong> in the work packages details view.</p>
+
+<p><img src="edit-logged-time-1305994.png" alt="edit-logged-time" /></p>
+
+<p>This will bring you to the time tracking report where you will see all time entries to this work package.</p>
+
+<p>Click on the <strong>Edit</strong> icon next to a time entry in the list.</p>
+
+<p><img src="image-20201005143256420.png" alt="image-20201005143256420" /></p>
+
+<p>The same detailed view to log your time entries will appear where you are now able to apply your changes.</p>
+
+<h2 id="delete-time-entries">Delete time entries</h2>
+
+<p>To delete a time entry, also click on the <strong>Spent time</strong> in the details of a work package (just as to edit a work package).</p>
+
+<p>In the list of time entries, click on the <strong>Delete</strong> icon next to a time entry to drop the logged time.</p>
+
+<p><img src="image-20201005143324624.png" alt="image-20201005143324624" /></p>
+
+<h2 id="track-labor-costs">Track labor costs</h2>
+
+<p>In order to track labor costs, you need to <a href="../cost-tracking/#hourly-rate">define an hourly rate</a> in your user profile first. The labor costs will then be calculated automatically  based on your hours booked and your hourly rate.</p>
+
+<h2 id="spent-time-widget-on-the-my-page">Spent time widget on the My Page</h2>
+
+<p>You can easily track spent time in the <strong>spent time widget on the MyPage</strong> and get an overview about all your activities during a week. It is like a weekly timesheet for yourself.</p>
+
+<p>See more information about the My spent time widget on the <a href="../../../getting-started/my-page/#my-spent-time-widget">MyPage</a>.</p>
+
+<p><img src="image-20200211160311662.png" alt="spent time widget" /></p>
+
+<h2 id="define-hourly-rate-for-labor-costs">Define hourly rate for labor costs</h2>
+
+<p>You can define an hourly rate to <strong>track labor costs per user</strong>. Please navigate to the user profile, e.g. by clicking on a hyper link of the user name on a work package.</p>
+
+<p><img src="User-profile.png" alt="User-profile" /></p>
+
+<p>You will be directed to the user’s profile page.</p>
+
+<p>Here, you can click the <strong>Edit button</strong> on the top right corner of the user profile page.</p>
+
+<p><img src="User-profile-edit.png" alt="User-profile-edit" /></p>
+
+<p>Alternatively, you can navigate to <em>Administration -&gt;Users &amp; Permissions -&gt;Users</em>.</p>
+
+<p>Click on the <strong>Rate history</strong> tab.</p>
+
+<p>You will see a default hourly rate valid for all projects.</p>
+
+<p>If you want to set a different hourly rate for the user on different projects, you can overwrite the default rate with a different rate below in the respective projects.</p>
+
+<p><img src="Rate-history-1574778553695.png" alt="Rate-history" /></p>
+
+<p>To enter a new hourly rate, click on the <strong>Update</strong> icon next to the rate history. You can either set a <strong>default hourly rate</strong> or define a rate for a certain project.</p>
+
+<p><img src="Update-hourly-rate-1574778595938.png" alt="Update-hourly-rate" /></p>
+
+<ol>
+  <li>Enter a date from which the rate is <strong>Valid from</strong>.</li>
+  <li>Enter the (hourly) <strong>Rate</strong>. The currency can only be changed in the system’s Administration settings.</li>
+  <li>You can delete an hourly rate.</li>
+  <li>You can <strong>add a rate</strong> for a different time period.</li>
+  <li><strong>Save</strong> your changes.</li>
+</ol>
+
+<p><img src="Rate-history-change.png" alt="Rate-history-change" /></p>
+:ET

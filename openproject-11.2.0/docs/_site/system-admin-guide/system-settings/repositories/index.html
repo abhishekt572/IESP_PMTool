@@ -1,0 +1,47 @@
+<h1 id="repositories-settings">Repositories settings</h1>
+
+<p>To adapt repositories settings, go to System settings on the tab <strong>Repositories</strong> you can configure the following options.</p>
+
+<ol>
+  <li><strong>Autofetch repository changes</strong>. This option allows to automatically show commits in an OpenProject Repository.</li>
+  <li><strong>Repository disk size cache</strong>. In order to cache the repository disk size (displayed e.g. in repository page).</li>
+  <li><strong>Enable repository management web service</strong>. This option allows communication with SVN- or Git-Clients. If it is deactivated, a repository cannot be created.</li>
+  <li><strong>Define an API key</strong>. This API key is created once and used for communication with an SVN or Git client.</li>
+  <li>Select which <strong>SCM</strong> you want to enabled. You can choose <strong>Git</strong> and/or <strong>Subversion</strong>.</li>
+  <li><strong>Automatic repository vendor type</strong>. Specify the default repository type which is used in new projects.</li>
+  <li><strong>Define repositories encodings</strong>.</li>
+  <li>Define the <strong>maximum number of revisions to be displayed on file log</strong>.</li>
+  <li>Define the <strong>maximum number of files displayed in the repository browser</strong>.</li>
+  <li><strong>Enable caching for authentication request of version control software</strong>. This option allows saving the authentication so that a user doesn’t have to authenticate every time a repository is accessed (for  example during commits).</li>
+</ol>
+
+<p><img src="System-admin-guide-repository.png" alt="System-admin-guide-repository" /></p>
+
+<h2 id="checkout-instructions-for-subversion-and-git">Checkout instructions for Subversion and GIT</h2>
+
+<p>Show checkout instructions for Subversion and GIT.</p>
+
+<ol>
+  <li>Select whether or not to <strong>display checkout instructions</strong> on the repository page.</li>
+  <li><strong>Checkout base URL</strong>. Define the base URL to be used for repositories of new projects.</li>
+  <li><strong>Checkout instruction text</strong>. Used to specify an (optional) instruction text for repositories (can be further specified in project settings).</li>
+</ol>
+
+<p><img src="Sys-admin-system-settings-repositories-checkout-instructions.png" alt="Sys-admin-system-settings-repositories-checkout-instructions" /></p>
+
+<h2 id="referencing-and-fixing-work-packages-in-commit-messages">Referencing and fixing work packages in commit messages</h2>
+
+<ol>
+  <li><strong>Define referencing keywords</strong> for work packages in commit messages.  Used to reference keywords used to link revisions to work packages.</li>
+  <li>Define <strong>fixing keywords for work packages</strong> in commit messages. Fixing keywords allow status or progress changes using certain keywords in commit messages, e.g. changing a work package to closed and set to 100%.</li>
+  <li>Define which <strong>status will be applied</strong> to a work package if a fixing word is used in a commit message.</li>
+  <li>Define which <strong>percentage of done is applied</strong> to a work package if a fixing word is used in a commit message for that work package.</li>
+  <li><strong>Enable time logging</strong>. Activating this option enables <a href="../../../user-guide/time-and-costs/time-tracking/">logging time to a work package </a>via commit message.</li>
+  <li>Define <strong>activity for logged time</strong>. This activity is used for time logging via a commit.</li>
+</ol>
+
+<p><img src="Sys-admin-system-settings-repositories-fixing-commit-messages.png" alt="Sys-admin-system-settings-repositories-fixing-commit-messages" /></p>
+
+<ol>
+  <li>Do not forger to <strong>Save</strong> all your changes.</li>
+</ol>

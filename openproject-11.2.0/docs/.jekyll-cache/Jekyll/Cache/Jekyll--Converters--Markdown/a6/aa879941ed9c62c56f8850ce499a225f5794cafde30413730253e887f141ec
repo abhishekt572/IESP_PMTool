@@ -1,0 +1,66 @@
+I"�<h1 id="automatic-and-manual-scheduling-mode">Automatic and manual scheduling mode</h1>
+
+<div class="glossary">
+To schedule work packages in the Gantt chart there is an **automatic scheduling mode (default)** and a **manual scheduling mode** (new in [release 11.0](../../../release-notes/11-0-0)). To add dependencies between work packages you can set them as predecessor or follower in the Gantt chart. The automatic and manual scheduling modes influence the work packages' behaviour when changing dates of other related work packages.</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Topic</th>
+      <th>Content</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#automatic-scheduling-mode">Automatic scheduling mode</a></td>
+      <td>What happens to work packages, when you connect them in automatic scheduling mode?</td>
+    </tr>
+    <tr>
+      <td><a href="#manual-scheduling-mode">Manual scheduling mode</a></td>
+      <td>What happens to work packages, when you connect them in manual scheduling mode?</td>
+    </tr>
+    <tr>
+      <td><a href="#changing-modes">Changing modes</a></td>
+      <td>How can I change between manual and automatic scheduling mode?</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="automatic-scheduling-mode">Automatic scheduling mode</h2>
+
+<p>The automatic scheduling mode is generally set as <strong>the default mode</strong> for new work packages. For <a href="../#relations-in-the-gantt-chart">dependencies</a> between two work packages this means:</p>
+
+<ul>
+  <li>A work package’s start date is automatically determined by the start date of its earliest starting child.</li>
+  <li>A work package’s finish date is automatically determined by the finish date of its latest ending child.</li>
+  <li>When you move a work package past the set start date of its follower, the followers start date will be adjusted to its predecessor’s finish date. This is not the case the other way round.
+Example: Work package 1 ends on October 5th. Its follower work package 2 starts on October 13th. Now work package 1 gets delayed by ten days, you have to adjust the planning. When you set the finish date of work package 1 to October 15th, the start date of work package 2 will automatically be set to October 16th.</li>
+  <li>You can’t change the dates of a work package with children (if it’s in automatic scheduling mode).</li>
+</ul>
+
+<h2 id="manual-scheduling-mode">Manual scheduling mode</h2>
+
+<p>The manual scheduling mode is <strong>mostly used when creating a top-down project plan</strong> (by defining the main phases first). You can then add child work packages without affecting the original (high-level) project schedule.</p>
+
+<p>Changing to the <strong>manual scheduling mode makes sense if</strong></p>
+
+<ul>
+  <li>you want to set a parent work package’s date independently from the dates of its children, or</li>
+  <li>you don’t want a parent work package’s dates being updated automatically when changing the children’s dates, or</li>
+  <li>you don’t want a follower’s start date be automatically updated when you change the predecessor’s finish date</li>
+</ul>
+
+<video src="https://www.openproject.org/wp-content/uploads/2020/09/OpenProject-Top-down-Scheduling.mp4" type="video/mp4" controls="" style="width:100%"></video>
+
+<h2 id="changing-mode">Changing mode</h2>
+
+<p>You can <strong>activate the manual scheduling mode</strong> by clicking on the date of a work package and selecting the box next to “Manual scheduling”.</p>
+
+<p><img src="image-20200929160916841.png" alt="image-20200929160916841" /></p>
+
+<p>The pin symbol next to the date indicates that a work package is in manual scheduling mode.</p>
+
+<p><img src="image-20200929161237109.png" alt="image-20200929161237109" /></p>
+
+<p>Changing back to automatic scheduling mode works the same way. Please note: When switching from manual scheduling to automatic scheduling some work packages’ dates might be updated according to principles <a href="#automatic-scheduling-mode">stated above</a>.</p>
+:ET

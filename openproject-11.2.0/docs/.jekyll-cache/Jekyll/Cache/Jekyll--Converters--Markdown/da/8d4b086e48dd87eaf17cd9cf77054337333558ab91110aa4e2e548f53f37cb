@@ -1,0 +1,67 @@
+I"�<h1 id="user-settings">User settings</h1>
+
+<p>The user settings sections covers general settings, such as the default language, user deletion and user consent.</p>
+
+<p>User settings are accessibly by administrators from the OpenProject administration.</p>
+
+<p><img src="image-20200211140959585.png" alt="user and permissions settings" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Topic</th>
+      <th>Content</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#default-preferences">Default preferences</a></td>
+      <td>User default preferences.</td>
+    </tr>
+    <tr>
+      <td><a href="#user-deletion">User deletion</a></td>
+      <td>Who can delete users.</td>
+    </tr>
+    <tr>
+      <td><a href="#user-consent">User consent</a></td>
+      <td>User privacy and security.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="default-preferences">Default preferences</h2>
+
+<p><img src="image-20191104163417641.png" alt="image-20191104163417641" /></p>
+
+<p>The default preferences section covers default user settings.</p>
+
+<p>Here, you can specify the default language for new users as well as the default time zone.</p>
+
+<p>The default language is displayed for users when they first sign into OpenProject. They can then choose a different language.</p>
+
+<p>You can also choose if success notifications (e.g. on the work package page) should be hidden automatically.</p>
+
+<p>These settings can be changed by users in their “My Account” page later on.</p>
+
+<h2 id="user-deletion">User deletion</h2>
+
+<p><img src="image-20191104163546817.png" alt="image-20191104163546817" /></p>
+
+<p>In the user deletion section you can determine who should be able to delete user accounts.</p>
+
+<p>By default, only admins are able to delete accounts. If this option is activated, admins can navigate to the user list, select a user account and click on the “Delete” option on the upper right side to delete an account.</p>
+
+<p>Additionally, you can select the option “Users allowed to delete their accounts”. If this option is activated, users can delete their own user accounts from the “My account” page.</p>
+
+<p>If you want to prevent users from deleting their own accounts, it is recommended to deactivate this option.</p>
+
+<h2 id="user-consent">User consent</h2>
+
+<p><img src="image-20191104163858457.png" alt="image-20191104163858457" /></p>
+
+<p>Data privacy and security is a priority in OpenProject. In order to comply with GDPR regulation, a consent form can be configured in OpenProject. When the option “Consent required” is checked, a user consent form is shown for users when they sign into OpenProject for the first time.</p>
+
+<p>By default, OpenProject’s privacy and security policy is referenced in the consent form. If you have any additional information you would like your users to consent to, you can link it in the consent information text.</p>
+
+<p>Furthermore, you can provide the email address of a consent contact. This user can then be notified when a data change or data removal is required.</p>
+:ET

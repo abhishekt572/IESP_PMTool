@@ -1,0 +1,81 @@
+I"ò<h1 id="introduction-to-gantt-charts">Introduction to Gantt charts</h1>
+
+<p>In this document you will get a first introduction to the Gantt charts in OpenProject, i.e. to create and manage a project plan.</p>
+
+<div class="glossary">
+**Gantt charts** in OpenProject are defined as a type of bar chart that shows all the tasks constituting a project. Tasks are listed vertically, with the horizontal axis marking time. The lengths of task bars are to scale with task durations.
+</div>
+
+<p>To find out more about the functionalities for Gantt charts, please visit our <a href="../../user-guide/gantt-chart">user guide for Gantt charts</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Documentation for</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#what-is-a-gantt-chart">What is a Gantt chart?</a></td>
+      <td>Find out what is a Gantt chart in OpenProject.</td>
+    </tr>
+    <tr>
+      <td><a href="#activate-the-gantt-chart-view">Activate the Gantt chart</a></td>
+      <td>How to activate the Gantt chart view in OpenProject?</td>
+    </tr>
+    <tr>
+      <td><a href="#create-a-project-plan">Create a project plan</a></td>
+      <td>How to create a project plan with the Gantt charts?</td>
+    </tr>
+    <tr>
+      <td><a href="#edit-a-project-plan">Edit a project plan</a></td>
+      <td>How to edit a project plan in OpenProject?</td>
+    </tr>
+  </tbody>
+</table>
+
+<video src="https://www.openproject.org/wp-content/uploads/2020/12/OpenProject-Project-Plan-and-Timelines-Gantt-charts.mp4" type="video/mp4" controls="" style="width:100%"></video>
+
+<h2 id="what-is-a-gantt-chart">What is a Gantt chart?</h2>
+
+<p>With Gantt charts in OpenProject you can create and manage a project plan and share the information with your team. You can schedule your tasks and visualize the required steps to complete your project. As a project manager you are directly informed about delays in your project and can act accordingly.</p>
+
+<p>The dynamic Gantt chart in OpenProject displays the phases and milestones in your project as well as relationships between them. Each element in the timeline has both a start as well as a finish date so you are always informed about the current status.</p>
+
+<h2 id="activate-the-gantt-chart-view">Activate the Gantt chart view</h2>
+
+<p>To open the Gantt chart view in OpenProject, the <a href="../projects/#activate-and-deactivate-modules">work packages module needs to be activated</a> in the project settings.</p>
+
+<p>Within your project menu, navigate to the work packages module. Select the <strong>Gantt chart view</strong> in the work package list with the button on the top right.</p>
+
+<p><img src="Activate-Gantt-chart.png" alt="Activate-Gantt-chart" /></p>
+
+<p>You can activate a Gantt chart view from any work package list (or saved query) by selecting the Gantt view from the top.</p>
+
+<p>The Gantt chart then displays all work package types, e.g. phases and milestones, tasks or bugs, in a timeline view.</p>
+
+<p>It shows dependencies between different work packages as well as additional information, e.g. subject, start or due dates.</p>
+
+<h2 id="create-a-project-plan">Create a project plan</h2>
+
+<p>To create a project plan in OpenProject, activate the work package module and select the <a href="#activate-the-gantt-chart-view">Gantt chart view</a>.</p>
+
+<p>You can create new work packages directly in the list by clicking on the <strong>create new work package</strong> link at the bottom of the list. You can change the work package type or other attributes directly in the list view.</p>
+
+<p>Click in the Gantt chart to add an element in the project plan.</p>
+
+<p>You can change the duration or move the element in the project plan via drag and drop.</p>
+
+<p><img src="create-projectplan-1571743591204.gif" alt="create-projectplan" /></p>
+
+<h2 id="edit-a-project-plan">Edit a project plan</h2>
+
+<p>You can edit a project plan by clicking directly in the list and change work package attributes, e.g. Status, Priority or Assignee.</p>
+
+<p>To change the start and end date or the duration of a work package, click directly in the Gantt chart and change it via drag and drop.
+All changes will also be tracked in the work packages <a href="../../user-guide/activity">Activity</a>.</p>
+
+<p><img src="edit-projectplan.gif" alt="edit-projectplan" /></p>
+
+:ET

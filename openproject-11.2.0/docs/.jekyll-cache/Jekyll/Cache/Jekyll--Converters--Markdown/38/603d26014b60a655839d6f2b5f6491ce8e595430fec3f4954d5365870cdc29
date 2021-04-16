@@ -1,0 +1,28 @@
+I"0<h1 id="project-system-settings">Project system settings</h1>
+
+<p>To adapt the system project settings, go to System settings on the tab <strong>Projects</strong> where you can configure the following options.</p>
+
+<h2 id="settings-for-new-projects">Settings for new projects</h2>
+
+<ol>
+  <li>Check if <strong>new projects are public by default</strong>. This means that users without an account can access the project without login.</li>
+  <li>Select <strong>which modules should be activated for newly created projects per default</strong>.</li>
+  <li>Choose whether <strong>sequential project identifiers should be created</strong>. If this option is activated, a project identifier for the next project will be offered automatically, based on the existing project name. For example, if a project “Myproject1” was created, “Myproject2” will be offered as identifier for the next project.</li>
+  <li>The <strong>role given to a user in a new project when the user creates a new project but is not an (global) admin</strong>. This makes sense when a user receives the permission to create a new project via <a href="../../users-permissions/roles-permissions/">global role</a>.</li>
+</ol>
+
+<h2 id="settings-for-the-projects-overview-list">Settings for the Projects Overview List</h2>
+<ol>
+  <li>
+    <p>Choose <strong>which columns should be visible</strong> in the Projects Overview List by default.</p>
+  </li>
+  <li>
+    <p>Define the <strong>settings for the Gantt chart view</strong> displayed when clicking on “Open as Gantt view” in the Projects Overview List. You can choose filters, columns, sorting and more to configure the view. For more information on how the configuration works please refer to the instructions for the <a href="../../../user-guide/work-packages/work-package-table-configuration/">work package table configuration</a> in the User Guide (as the basic principles are the same).</p>
+  </li>
+  <li>
+    <p>Do not forget to <strong>save</strong> your changes.</p>
+  </li>
+</ol>
+
+<p><img src="image-20201005103659097.png" alt="image-20201005103659097" /></p>
+:ET

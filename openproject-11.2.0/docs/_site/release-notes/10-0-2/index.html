@@ -1,0 +1,47 @@
+<h1 id="openproject-1002">OpenProject 10.0.2</h1>
+
+<p>We released <a href="https://community.openproject.com/versions/1395">OpenProject 10.0.2</a>.
+The release contains a security related fix and we urge updating to the newest version.</p>
+
+<h2 id="cve-2019-17092-xss-injection-vulnerability-in-projects-listing-in-versions-before-904-1002">[CVE-2019-17092] XSS injection vulnerability in projects listing in versions before 9.0.4, 10.0.2</h2>
+
+<p>An XSS vulnerability in project list in OpenProject before 9.0.4 and 10.x before 10.0.2 allows remote attackers to inject arbitrary web script or HTML via the sortBy parameter because error messages are mishandled.</p>
+
+<p>This vulnerability has been assigned the CVE identifier CVE-2019-17092.</p>
+
+<p>Versions Affected: Versions &lt;= 9.0.3, 10.0.1
+Fixed Versions: 9.0.4, 10.0.2</p>
+
+<p>Credits
+Thanks to David Haintz from the SEC Consult Vulnerability Lab (https://www.sec-consult.com) for identifying and responsibly disclosing the identified issues.</p>
+
+<p>####</p>
+
+<h4 id="incorrect-setting-results-in-slow-application-and-ram-usage">Incorrect setting results in slow application and RAM usage</h4>
+
+<p>The environment variable <em>WEB_CONCURRENCY</em> has been used by OpenProject for some time to control the number of web workers to be spawned by the Unicorn application server. It is defaulting to 4 workers which should account to around 1 - 1.2GB of RAM usage.</p>
+
+<p>In the upgrade to OpenProject 10, a buildpack from Heroku was updated to control the packaging of the frontend and its assets (our Angular frontend), which appears to be using the same variable for setting internal workers that are unrelated to our setup. This has resulted in the <em>WEB_CONCURRENCY</em> value to be set to a number that would exhaust many servers being set up for OpenProject and in turn resulting in bad performance of OpenProject and any other service.</p>
+
+<p>This has been fixed in this release. We now use the environment variable <em>OPENPROJECT_WEB_WORKERS</em> to control the same setting. If you previously set <em>WEB_CONCURRENCY</em> in your application to a lower or higher number, please also set the <em>OPENPROJECT_WEB_WORKERS</em> variable to the same value.</p>
+
+<p>####</p>
+
+<h4 id="otherbug-fixes-and-changes">OtherBug fixes and changes</h4>
+
+<ul>
+  <li>Fixed: Inconsistent row heights when resizing widgets [<a href="https://community.openproject.com/wp/31048">#31048</a>]</li>
+  <li>Fixed: In Budgets projected unit costs and labor cost is not shown [<a href="https://community.openproject.com/wp/31247">#31247</a>]</li>
+  <li>Fixed: Restart puma workers to cope with potential memory leaks [<a href="https://community.openproject.com/wp/31262">#31262</a>]</li>
+  <li>Fixed: “Enterprise Edition” blue bar would be nicer horizontally [<a href="https://community.openproject.com/wp/31265">#31265</a>]</li>
+</ul>
+
+<p>####</p>
+
+<h4 id="contributions">Contributions</h4>
+
+<p>Thanks to David Haintz from <a href="https://www.sec-consult.com/">SEC Consult Vulnerability Lab</a> for identifying and responsibly disclosing the identified issues.</p>
+
+<p>A big thanks to community members for reporting bugs and helping us identifying and providing fixes.</p>
+
+<p>Special thanks for reporting and finding bugs go to Andrea Pistai</p>

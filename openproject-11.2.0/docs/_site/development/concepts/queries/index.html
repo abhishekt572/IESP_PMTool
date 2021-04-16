@@ -1,0 +1,171 @@
+<h1 id="query">Query</h1>
+
+<p>The Query object is the concept of holding the configuration for a specific work package view as well as computing and outputting its results.  They are fundamental building blocks in OpenProject and used in many modules (Work packages, BIM, boards, timeline, embedded tables).  Their flexibility allows for building complex features with relatively little effort on the backend side. For an OpenProject developer who wants to improve or create new features it is fundamental to understand how queries work.</p>
+
+<p>Most of the communication in OpenProject is organized in work packages. Work packages are managed and displayed in many different places, such as the work package table in the <em>Work packages</em> module, or as cards the <em>Boards</em> module, within the <em>Calendar</em> or in <em>My page</em> widgets, such as charts for instance. Even the list of child work packages within a work package is a query.</p>
+
+<p>For the work packages table, the query object holds the way the table displays (selected columns, display mode) as well as what data it contains (filters, sort criteria).</p>
+
+<p>A query can be persisted by a user or created dynamically through a set of parameters. It can be published and shared with other users of the project or application.</p>
+
+<h2 id="key-takeaways">Key takeaways</h2>
+
+<p><em>Queries …</em></p>
+
+<ul>
+  <li>are configuration objects for both the <em>displaying logic</em> and the <em>data logic</em> of (primarily) work packages and other resources</li>
+  <li>can be saved to the database connected to a user, privately or publicly accessible</li>
+  <li>can be created on the fly through URL / body parameters</li>
+  <li>can be requested through the APIv3 to get the resulting resources collection of the query in a paginated way</li>
+</ul>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<p>The following guides are related:</p>
+
+<ul>
+  <li>
+    <p><a href="../hal-resources">HAL resources</a></p>
+  </li>
+  <li>
+    <p><a href="#TODO:api-overview">Backend API overview</a></p>
+  </li>
+</ul>
+
+<h2 id="query-definition">Query definition</h2>
+
+<p>A query is an object that revolves about two types of information:</p>
+
+<ol>
+  <li>The configuration needed to fetch data from the database (filters, sort criteria, grouping criterion etc.)</li>
+  <li>The way the results retrieved from the database with the above filters are displayed (set of visible columns, highlighting, display mode of the work package table, etc.)</li>
+</ol>
+
+<p>Currently, the Queries endpoint and object is highly specific to work packages, but this is bound to change with more resources becoming queriable. For some other resources such as projects, queries already exists in the backend, but not yet in the frontend application.</p>
+
+<h2 id="api-backend">API Backend</h2>
+
+<p>Queries are regular APIv3 grape endpoints that can be accessed through the <code class="language-plaintext highlighter-rouge">/api/v3/queries</code> namespace. In general, they can be maintained in two ways:</p>
+
+<ol>
+  <li>By accessing a previously saved query by their ID such as <code class="language-plaintext highlighter-rouge">/api/v3/queries/2453</code> (<a href="https://community.openproject.com/api/v3/queries/2453">Example JSON response</a> on community)</li>
+  <li>By setting dynamic GET parameters on a saved or <code class="language-plaintext highlighter-rouge">default</code> query such as <code class="language-plaintext highlighter-rouge">/api/v3/queries/default?columns[]=id</code> (<a href="https://community.openproject.com/api/v3/queries/default?columns[]=id">Example JSON response</a> on community)</li>
+</ol>
+
+<p>The default query <code class="language-plaintext highlighter-rouge">/api/v3/queries/default</code>  and <code class="language-plaintext highlighter-rouge">/api/v3/:project_id/queries/default</code> contains a default set of configuration (back-end and front-end) global and for the given project, respectively. They can only be modified administrators through some global settings.</p>
+
+<p>A number of parameters can be passed to the Query through parameters as elaborated on in <a href="https://docs.openproject.org/api/endpoints/queries/#queries-query">the respective APIv3 documentation</a>.</p>
+
+<p>Clients can define a query once, save it and use it later on to load the same set of filters, columns, and so on. When retrieved from the database (a query id is passed), the query has been previously stored. Saved properties may be overridden through URL parameters, which override the existing saved query.</p>
+
+<h3 id="query-collections-responses">Query collections responses</h3>
+
+<p>Since queries can be saved and should be listed to the user such as in the work package sidebar, they can also be requested as a collection of resources through <code class="language-plaintext highlighter-rouge">/api/v3/queries</code>.  This endpoint can also be filtered. For more details on that, see the <a href="https://docs.openproject.org/api/endpoints/queries/#queries-queries">respective APIv3 section</a>.</p>
+
+<p>This response will end up representing the available queries on the <code class="language-plaintext highlighter-rouge">work packages</code> module sidebar as shown below.</p>
+
+<p><img src="queries-sidebar.png" alt="List of available public queries on community" /></p>
+
+<h3 id="query-resource-haljson-response">Query resource HAL+JSON response</h3>
+
+<p>When accessing a singular query resource, the response will always contain the same set of properties:</p>
+
+<ul>
+  <li><strong>Basic properties</strong> of the query object itself
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">id</code> of the query (if any)</li>
+      <li><code class="language-plaintext highlighter-rouge">name</code> of the query set by the saving user</li>
+      <li><code class="language-plaintext highlighter-rouge">starred</code> whether the user favorited this query (special place in sidebar)</li>
+      <li><code class="language-plaintext highlighter-rouge">public</code> whether the query is shared with other users</li>
+      <li><code class="language-plaintext highlighter-rouge">createdAt</code> / <code class="language-plaintext highlighter-rouge">updatedAt</code> timestamps for the resource</li>
+      <li><code class="language-plaintext highlighter-rouge">_links.project</code> to the project it is saved in (if project-scoped)</li>
+      <li><code class="language-plaintext highlighter-rouge">_links.user</code> reference to the user that saved or requested the query</li>
+    </ul>
+  </li>
+  <li>Properties regarding the <strong>displaying of the query</strong> results such as <code class="language-plaintext highlighter-rouge">timelineVisible</code> (show the gantt chart), <code class="language-plaintext highlighter-rouge">highlightingMode</code> and <code class="language-plaintext highlighter-rouge">showHierarchies</code></li>
+  <li><strong>Embedded HAL links</strong>  und <code class="language-plaintext highlighter-rouge">_embedded</code> related to how the results are to be fetched
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">filters</code> selected filters array</li>
+      <li><code class="language-plaintext highlighter-rouge">columns</code> embedded array of selected <code class="language-plaintext highlighter-rouge">columns</code></li>
+      <li><code class="language-plaintext highlighter-rouge">sortBy</code> array of one or multiple sort criteria.</li>
+      <li><code class="language-plaintext highlighter-rouge">groupBy</code> (optional) information on whether results are aggregated into groups</li>
+    </ul>
+  </li>
+  <li><strong>Results</strong> of work packages embedded in <code class="language-plaintext highlighter-rouge">_embedded.results</code>, showing the total number of matched results, as well as including the requested <em>page</em> of results. The results will contain work package resources and the schema objects necessary to render them to reduce requests.</li>
+</ul>
+
+<h3 id="filtering">Filtering</h3>
+
+<p>A major, but complex functionality of the query is the <code class="language-plaintext highlighter-rouge">filters</code> object to determine what results should be shown. For the user, these filters are shown for example above the work packages table after opening through the <em>Filter</em> button.</p>
+
+<p><img src="filters.png" alt="Work package query filters" /></p>
+
+<p>These filters are also saved within the queries. If you would like to read more about how filters and their syntax work, you will find <a href="https://docs.openproject.org/api/filters/">their own documentation guide here</a>.</p>
+
+<h3 id="exemplary-query-response">Exemplary query response</h3>
+
+<p>Due to the public nature of the OpenProject community, you can check out the following exemplary query response in HAL+JSON: http://community.openproject.com/api/v3/queries/2453</p>
+
+<p>It returns a saved query for the OpenProject 11.0 release, with a type filter <code class="language-plaintext highlighter-rouge">type is not [Idea, Phase, Release]</code> , a version filter <code class="language-plaintext highlighter-rouge">version = 11.0.0</code> and a “show all subprojects” filter with <code class="language-plaintext highlighter-rouge">subProject = all</code> . It is sorted by <code class="language-plaintext highlighter-rouge">type ascending</code>.</p>
+
+<p>The resulting work packages will differ based on the visibility of the work packagges and your permissions in the projects. For more information, check out <a href="../permissions">the concept on permissions</a>.</p>
+
+<h2 id="frontend-usage">Frontend usage</h2>
+
+<p>As the singular Query JSON object encompasses a large amount of different concerns, the frontend splits this resource up into quite a substantial amount of services for isolating the individual behaviors.</p>
+
+<p>This guide will not go into too much detail on the actual components using these services, as they will be subject to change and detailed in another guide.</p>
+
+<h3 id="isolating-query-spaces-in-the-frontend">Isolating query spaces in the frontend</h3>
+
+<p>The work packages module can load multiple queries on a single page. If for example, you open a query and a work package with an embedded table showing (such as showing related or child work packages), the application will request and render two queries and work package tables.</p>
+
+<p><img src="double-query-space.png" alt="Multiple queries and work package tables on one page" /></p>
+
+<p>This can happen several times on other pages too. For example, the board page will load one query per activated column:</p>
+
+<p><img src="boards-multiple-queries.png" alt="Board page multiple queries" /></p>
+
+<p>Each of these queries need their own set of services for handling selected filters, sort criterion and other view related data.</p>
+
+<p>To properly isolate this data, the application has the concept of an <a href="https://github.com/opf/openproject/tree/dev/frontend/src/app/modules/work_packages/query-space/isolated-query-space.ts"><code class="language-plaintext highlighter-rouge">IsolatedQuerySpace</code></a> and associated <code class="language-plaintext highlighter-rouge">IsolatedQuerySpaceDirective</code>, which is an Angular directive that provides a query space (a store object) to its DOM children. This uses the Angular hierarchical injectors functionality, <a href="https://angular.io/guide/hierarchical-dependency-injection">which you can read up on here</a>.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">IsolatedQuerySpace</code> has individually accessible states for every part of the query resource, such as <code class="language-plaintext highlighter-rouge">filters</code> , <code class="language-plaintext highlighter-rouge">columns</code>, <code class="language-plaintext highlighter-rouge">groups</code>, and so on.</p>
+
+<p>Additionally, the logical parts of the query are encapsulated into view services that components of the table can use to modify and update data in the frontend, before saving the query back to the API.</p>
+
+<p>These states are being initialized in the <a href="https://github.com/opf/openproject/tree/dev/frontend/src/app/components/wp-list/wp-states-initialization.service.ts"><code class="language-plaintext highlighter-rouge">WorkPackagesInitializationService</code></a> for the current isolated query space whenever a query is loaded through the designated services. The important services are:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">WorkPackageViewFiltersService</code> for manipulating, adding, and removing filters of the query</li>
+  <li><code class="language-plaintext highlighter-rouge">WorkPackageViewColumnsService</code> for adding, moving, or removing columns and getting available columns for selection</li>
+  <li><code class="language-plaintext highlighter-rouge">WorkPackageViewSortByService</code> for getting and updating the sort criteria object of the query</li>
+  <li><code class="language-plaintext highlighter-rouge">WorkPackageViewGroupByService</code> for getting and updating the grouping property of the query</li>
+  <li><code class="language-plaintext highlighter-rouge">WorkPackageViewTimelineService</code> for identifying and modifying whether the timeline is visible in the table, and what settings it has</li>
+  <li><code class="language-plaintext highlighter-rouge">WorkPackageViewHierarchiesService</code> for manipulating the visible hierarchies in the table and temporarily storing what hierarchies are being shown or collapsed.</li>
+</ul>
+
+<p>There are additional services for handling pagination and other parts of the query that can be controlled individually.</p>
+
+<p>Whenever the frontend updates a state of these services, the original query <em>may</em> be updated due to change observers in the <a href="https://github.com/opf/openproject/blob/dfa6bdb4561488012020ef1e8638c92e2c0fd9f1/frontend/src/app/modules/work_packages/routing/wp-view-base/work-packages-view.base.ts"><code class="language-plaintext highlighter-rouge">WorkPackagesViewBase</code></a> component. They will end up updating the query resource, and in turn updating the view services again. However the frontend will never directly modify the query resource itself to preserve one way data flow.</p>
+
+<h3 id="loading-queries-with-workpackageslistservice">Loading queries with WorkPackagesListService</h3>
+
+<p>First, you’ll need to get hold of a query resource by loading it from the API. This is done through the <a href="https://github.com/opf/openproject/tree/dev/frontend/src/app/components/wp-list/wp-list.service.ts"><code class="language-plaintext highlighter-rouge">WorkPackagesListService</code></a>. It handles streaming of requests through RXJS observables and initializing all the necessary services of the query space.</p>
+
+<p>The easiest use case is loading a query from its saved <code class="language-plaintext highlighter-rouge">id</code> property. This would work as follows:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">wpList</span> <span class="o">=</span> <span class="nx">injector</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">WorkPackagesListService</span><span class="p">);</span>
+<span class="nx">wpList</span>
+  <span class="p">.</span><span class="nx">fromQueryParams</span><span class="p">({</span> <span class="na">query_id</span><span class="p">:</span> <span class="mi">1234</span> <span class="p">})</span>
+  <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">query</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">query</span><span class="p">.</span><span class="nx">results</span><span class="p">.</span><span class="nx">count</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>In practice, you will likely not only access the query resource itself, but rather one of the many <code class="language-plaintext highlighter-rouge">WorkPackageView*Service</code> view services to control <code class="language-plaintext highlighter-rouge">filters</code> and other properties.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">WorkPackagesListService</code> can also update and save existing queries passed to it. This flow will often happen in the <a href="https://github.com/opf/openproject/tree/dev/frontend/src/app/modules/work_packages/routing/partitioned-query-space-page/partitioned-query-space-page.component.ts"><code class="language-plaintext highlighter-rouge">PartitionedQuerySpaceComponent</code></a>, which is the basis for the modules showing work packages as a table or grid such as the <a href="https://github.com/opf/openproject/tree/dev/frontend/src/app/modules/work_packages/routing/wp-view-page/wp-view-page.component.ts"><code class="language-plaintext highlighter-rouge">WorkPackageViewPageComponent</code></a> or the <a href="https://github.com/opf/openproject/tree/dev/frontend/src/app/modules/bim/ifc_models/pages/viewer/ifc-viewer-page.component.ts"><code class="language-plaintext highlighter-rouge">IfcViewerPageComponent</code></a>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">PartionedQuerySpaceComponent</code> instances will be instantiated by the router and listen to URL params to load the corresponding query object. The most prominent example of such a page is the work packages module such as https://community.openproject.com/work_packages.</p>
+
+<p>The partitioning comes from showing a work package table (or cards view) on one side, and a details view of a single work package on another side, splitting the page in two. The width of the split areas can be customized by the user through a drag-handle.</p>
+

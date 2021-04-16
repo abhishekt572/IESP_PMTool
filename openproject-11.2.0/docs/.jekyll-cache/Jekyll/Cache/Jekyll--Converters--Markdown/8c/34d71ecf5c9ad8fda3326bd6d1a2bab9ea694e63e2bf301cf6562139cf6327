@@ -1,0 +1,32 @@
+I"�<h1 id="language-and-display-settings">Language and display settings</h1>
+
+<p>You can configure display settings in OpenProject. Under System settings on the tab <strong>Display</strong> you can configure the following options.</p>
+
+<h2 id="configure-available-languages">Configure available languages</h2>
+
+<p>Choose the languages which you want to activate for your system. Those languages which you will check will appear in the language settings of the user profiles and can be set for the system.</p>
+
+<p><img src="image-20200211152304023.png" alt="available languages" /></p>
+
+<p>At the moment there are more than 30 languages available.</p>
+<div>
+**Note**: Many languages are translated by the Community. We highly appreciate if you want to [help translating OpenProject to your language](../../../development/translate-openproject).
+</div>
+
+<p>You can <a href="../../../getting-started/my-account/#change-your-language">choose your language in your user profile</a>.</p>
+
+<h2 id="time-and-date-formatting">Time and date formatting</h2>
+
+<p>Change time and date formats in OpenProject and configure the display of journal aggregation.</p>
+
+<ol>
+  <li>Configure when the <strong>week starts</strong> (e.g. in the calendar view). Default is based on user’s language. You can also choose to start a week always on Monday, Sunday or Saturdays.</li>
+  <li>Set the <strong>date format</strong>, default is based on user’s language. You can choose various formats to display dates in the system.</li>
+  <li>Set the <strong>time format</strong>, default is based on user’s language. You can choose various formats to display time in the system.</li>
+  <li>Choose the <strong>users display format</strong>, default is Firstname Lastname. You can change to various different formats.</li>
+  <li><strong>Display journals as aggregated within</strong> will enable you to choose a time to combine journals of this timespan, e.g. for work package notifications. This way if you do several updates at in a short period of time, you will not receive a notification for each update but only a notification for the chosen period.</li>
+  <li>Do not forget to <strong>save</strong> your changes.</li>
+</ol>
+
+<p><img src="Sys-admin-display-settings.png" alt="Sys-admin-display-settings" /></p>
+:ET

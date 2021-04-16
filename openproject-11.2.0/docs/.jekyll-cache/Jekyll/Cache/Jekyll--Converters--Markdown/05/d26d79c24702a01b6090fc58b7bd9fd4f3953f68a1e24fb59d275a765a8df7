@@ -1,0 +1,46 @@
+I"<h1 id="work-packages-views">Work packages views</h1>
+
+<p>Work packages can be displayed in different views. They include the same work package(s) but just have a different form to display the work packages.</p>
+
+<ul>
+  <li>List view</li>
+  <li>Split screen view</li>
+  <li>Details view</li>
+  <li>Gantt view</li>
+  <li>Board view</li>
+</ul>
+
+<h2 id="work-package-list-view">Work package list view</h2>
+
+<p>The list view shows all work packages in a list with selected attributes in the columns.</p>
+
+<p><img src="1566306576394.png" alt="1566306576394" /></p>
+
+<p>Find out how to make changes to the work package list view, e.g. change the titles in the header, filter, group or add dependencies.</p>
+
+<h2 id="work-package-split-screen-view">Work package split screen view</h2>
+
+<p>If you are in the work package list, click on the blue info icon at the right end of a work package row to open the split screen view.</p>
+
+<p>Also, the split screen view can be activated or de-activated with the <strong>info button</strong> at the top right of the work packages list, next to the Filter.</p>
+
+<p><img src="split-screen-icon.png" alt="split-screen-icon" /></p>
+
+<p>Once the split screen is open, you can easily navigate through the work package list by clicking in a row of a work package and display the details in the split screen on the right.</p>
+
+<p><img src="1566307254418.png" alt="split-screen-view" /></p>
+
+<h2 id="work-package-full-screen-view">Work package full screen view</h2>
+
+<p>To display  a work package with all its details in full screen mode, double click on a row within the work package list.</p>
+
+<p>Also, you can use the full screen icon in the work package split screen view in the header at the right (next to Watcher).</p>
+
+<p><img src="full-screen-icon-1566373903021.png" alt="full-screen-icon" /></p>
+
+<p>Then, the work package with all its details will be displayed.</p>
+
+<p>The arrow next to the subject will bring you back to the list view.</p>
+
+<p><img src="image-20201217125332403.png" alt="back-to-list-view" /></p>
+:ET

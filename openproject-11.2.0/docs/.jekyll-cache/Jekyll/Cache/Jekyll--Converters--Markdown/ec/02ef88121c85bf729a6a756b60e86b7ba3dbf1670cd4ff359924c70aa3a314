@@ -1,0 +1,25 @@
+I"è<h1 id="openproject-in-univention-app-center">OpenProject in Univention App Center</h1>
+
+<p>Univention App Center is the marketplace in <a href="https://www.univention.com/products/ucs/">Univention Corporate Server (UCS)</a>, an enterprise operating platform for infrastructure and identity management. OpenProject is available in the <a href="https://www.univention.com/appid/openproject/">App Center</a> and comes integrated with the identity management.</p>
+
+<p><strong>App Appliance for easy deployment</strong></p>
+
+<p>With the App Appliance you can easily deploy your own OpenProject server in a virtual environment. The App Appliance consists of UCS and OpenProject already pre-installed. The UCS environment is setup with only a few steps. Download the official OpenProject virtual machine image in one of the following formats:</p>
+
+<ul>
+  <li><a href="https://appcenter.software-univention.de/univention-apps/current/openproject/Univention-App-openproject-vmware.zip">VMware</a></li>
+  <li><a href="https://appcenter.software-univention.de/univention-apps/current/openproject/Univention-App-openproject-ESX.ova">VMware ESXi</a></li>
+  <li><a href="https://appcenter.software-univention.de/univention-apps/current/openproject/Univention-App-openproject-virtualbox.ova">VirtualBox</a></li>
+  <li><a href="https://appcenter.software-univention.de/univention-apps/current/openproject/Univention-App-openproject-KVM.qcow2">KVM</a></li>
+</ul>
+
+<p><strong>Instructions for installation on UCS without App Appliance</strong></p>
+
+<ol>
+  <li>Download and setup Univention Corporate Server (UCS)</li>
+  <li>Install OpenProject via Univention App Center</li>
+  <li>Add user accounts</li>
+</ol>
+
+<p><a href="https://www.univention.com/appid/openproject"> <img alt="Available in Univention App Center" src="https://www.univention.de/wp-content/uploads/2016/03/download_f_univention_app_center_logo.svg" width="200" height="65" /></a></p>
+:ET

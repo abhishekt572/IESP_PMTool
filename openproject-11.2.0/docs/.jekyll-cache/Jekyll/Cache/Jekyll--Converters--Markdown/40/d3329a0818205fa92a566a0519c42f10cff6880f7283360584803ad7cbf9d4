@@ -1,0 +1,311 @@
+I"?<link rel="stylesheet" href="/style.css" />
+
+<h1 id="manage-projects">Manage projects</h1>
+
+<p>In IESP PM TOOL you can create projects to collaborate with your team members, track issues, document and share information with stakeholders, organize things. A project is a way to structure and organize your work in IESP PM TOOL.</p>
+
+<p>Your projects can be available publicly or internally. IESP PM TOOL does not limit the number of projects, neither in the Community Edition nor in the Enterprise cloud or in Enterprise on-premises edition.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Topic</th>
+      <th>Content</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="../../getting-started/projects/">Select a project</a></td>
+      <td>Open a project which you want to work at.</td>
+    </tr>
+    <tr>
+      <td><a href="../../getting-started/projects/#create-a-new-project">Create a new project</a></td>
+      <td>Find out how to create a new project in IESP PM TOOL.</td>
+    </tr>
+    <tr>
+      <td><a href="#create-a-subproject">Create a subproject</a></td>
+      <td>Create a subproject of an existing project.</td>
+    </tr>
+    <tr>
+      <td><a href="#project-structure">Project structure</a></td>
+      <td>Find out how to set up a project structure.</td>
+    </tr>
+    <tr>
+      <td><a href="#project-settings">Project settings</a></td>
+      <td>Configure further settings for your projects, such as description, project hierarchy structure, or setting it to public.</td>
+    </tr>
+    <tr>
+      <td><a href="#change-the-project-hierarchy">Change the project hierarchy</a></td>
+      <td>You can change the hierarchy by selecting the parent project (“subproject of”).</td>
+    </tr>
+    <tr>
+      <td><a href="#set-a-project-to-public">Set a project to public</a></td>
+      <td>Make a project accessible for (at least) all users within your instance.</td>
+    </tr>
+    <tr>
+      <td><a href="#create-a-project-template">Create a project template</a></td>
+      <td>Configure a project and set it as template to copy it for future projects.</td>
+    </tr>
+    <tr>
+      <td><a href="#use-a-project-template">Use a project template</a></td>
+      <td>Create a new project based on an existing template project.</td>
+    </tr>
+    <tr>
+      <td><a href="#copy-a-project">Copy a project</a></td>
+      <td>Copy an existing project.</td>
+    </tr>
+    <tr>
+      <td><a href="#archive-a-project">Archive a project</a></td>
+      <td>Find out how to archive completed projects.</td>
+    </tr>
+    <tr>
+      <td><a href="#delete-a-project">Delete a project</a></td>
+      <td>How to delete a project?</td>
+    </tr>
+    <tr>
+      <td><a href="#view-all-projects">View all projects</a></td>
+      <td>Get an overview of all your projects in the projects overview list.</td>
+    </tr>
+    <tr>
+      <td><a href="#project-overarching-reports">Project overarching reports</a></td>
+      <td>How to create project overarching reports across multiple projects?</td>
+    </tr>
+  </tbody>
+</table>
+
+<video src="https://www.openproject.org/wp-content/uploads/2020/12/OpenProject-Projects-Introduction.mp4" type="video/mp4" controls="" style="width:100%"></video>
+
+<h2 id="select-a-project">Select a project</h2>
+
+<p>Find out in our Getting started guide <a href="../../getting-started/projects/">how to open an existing project</a> in IESP PM TOOL.</p>
+
+<h2 id="create-a-new-project">Create a new project</h2>
+
+<p>Find out in our Getting started guide how to <a href="../../getting-started/projects/#create-a-new-project">create a new project</a> in IESP PM TOOL.</p>
+
+<h2 id="create-a-subproject">Create a subproject</h2>
+
+<p>To create a subproject for an existing project, navigate to the <a href="#project-settings">project settings</a> -&gt; <em>Information</em> and click on the green <strong>+ Subproject</strong> button.</p>
+
+<p>Follow the instructions to <a href="../../getting-started/projects/#create-a-new-project">create a new project</a>.</p>
+
+<p><img src="image-20200921153208651.png" alt="create-a-subproject" /></p>
+
+<h2 id="project-structure">Project structure</h2>
+
+<p>Projects build a structure in IESP PM TOOL. You can have parent projects and sub-projects. A project can represent an organizational unit of a company, e.g. to have issues separated:</p>
+
+<ul>
+  <li>Company (Parent project)
+    <ul>
+      <li>Marketing (Sub-project)</li>
+      <li>Sales</li>
+      <li>HR</li>
+      <li>IT</li>
+      <li>…</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Also, projects can be for overarching teams working on one topic:</p>
+
+<ul>
+  <li>Launch a new product
+    <ul>
+      <li>Design</li>
+      <li>Development</li>
+      <li>…</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Or, a project can be to separate products or customers.</p>
+
+<ul>
+  <li>Product A
+    <ul>
+      <li>Customer A</li>
+      <li>Customer B</li>
+      <li>Customer C</li>
+    </ul>
+  </li>
+</ul>
+
+<p>IESP PM TOOL, for example, uses the projects to structure the different modules/plugin development:</p>
+
+<p><img src="1566214944644.png" alt="project-structure" /></p>
+
+<div class="alert alert-info" role="alert">
+**Please note**: You have to be a [member](../members/#add-members) of a project in order to see the project and to work in a project.
+</div>
+
+<h2 id="project-settings">Project Settings</h2>
+
+<p>You can specify further advanced settings for your project. Navigate to your project settings by <a href="#select-a-project">selecting a project</a>, and click -&gt; <em>Project settings</em> -&gt; <em>Information</em>.</p>
+
+<ul>
+  <li>
+    <p>You can define whether the project should have a parent by selecting <strong>Subproject of</strong>. This way, you can <a href="#change-the-project-hierarchy">change the project hierarchy</a>.</p>
+  </li>
+  <li>
+    <p>Enter a detailed description for your project.</p>
+  </li>
+  <li>
+    <p>You see the default project <strong>Identifier</strong>. The identifier will be shown in the URL.</p>
+  </li>
+</ul>
+
+<div class="alert alert-info" role="alert">
+**Note**: The Identifier cannot be changed later after creating the project.
+
+</div>
+
+<ul>
+  <li>
+    <p>You can set a project to <strong>Public</strong>. This means it can be accessed without signing in to IESP PM TOOL.</p>
+  </li>
+  <li>
+    <p>Click the blue <strong>Create</strong> button in order to save your new project. Or click the blue <strong>Save</strong> button to save your changes.</p>
+  </li>
+</ul>
+
+<p><img src="image-20200131100735316.png" alt="project settings" /></p>
+
+<p>Find out more detailed information about the <a href="project-settings">Project settings</a>.</p>
+
+<h3 id="change-the-project-hierarchy">Change the project hierarchy</h3>
+
+<p>To change the project’s hierarchy, navigate to the <a href="project-settings">project settings</a> -&gt; <em>Information</em> and change the <strong>Subproject of</strong> field.</p>
+
+<p>Press the blue <strong>Save</strong> button to apply your changes.</p>
+
+<p><img src="User-guide-change-subproject.png" alt="User-guide-change-subproject" /></p>
+
+<h3 id="set-a-project-to-public">Set a project to public</h3>
+
+<p>If you want to set a project to public, you can do so by ticking the box next to “Public” in the <a href="project-settings">project settings</a> <em>-&gt;Information</em>.</p>
+
+<p>Setting a project to public will make it accessible to all people within your IESP PM TOOL instance. 
+(Should your instance be <a href="../../system-admin-guide/authentication/authentication-settings">accessible without authentication</a> this option will make the project visible to the general public outside your registered users, too)</p>
+
+<h3 id="create-a-project-template">Create a project template</h3>
+
+<p>You can create a project template in IESP PM TOOL by <a href="../../getting-started/#create-a-project">creating a new project</a> and configuring your project to your needs. Name the project so you can identify it as a template, e.g. “Project XY [template]”.</p>
+
+<p>Set up everything that you want to have available for future projects.</p>
+
+<ul>
+  <li>Adding project members.</li>
+  <li>Selecting the modules.</li>
+  <li>Setting up a default project structure in the Gantt chart.</li>
+  <li>Creating your work package templates.</li>
+  <li>…</li>
+</ul>
+
+<p>Navigate to the <a href="project-settings">project settings</a> and click <strong>Set as template</strong> in the upper right corner. You can remove a project from the template collection on the same spot.</p>
+
+<div class="alert alert-info" role="alert">
+**Please note**: The option to set a project as template or to remove it from templates is only available for Administrators.
+</div>
+
+<p><img src="image-20200921120538872.png" alt="image-20200921120538872" /></p>
+
+<h3 id="use-a-project-template">Use a project template</h3>
+
+<p>You can create a new project by using an existing template. This causes the properties of the project template to be copied to the new project. Find out in our Getting started guide how to <a href="../../getting-started/projects/#create-a-new-project">create a new project</a> in IESP PM TOOL. 
+Another way for using a template project would be to <a href="#copy-a-project">copy it</a>.</p>
+
+<video src="https://www.openproject.org/wp-content/uploads/2020/12/OpenProject-Project-Templates.mp4" type="video/mp4" controls="" style="width:100%"></video>
+
+<h3 id="copy-a-project">Copy a project</h3>
+
+<p>You can copy an existing project by navigating to the <a href="project-settings">project settings</a> and clicking <strong>Copy project</strong> in the upper right of the project settings.</p>
+
+<p><img src="User-guide-copy-project.png" alt="User-guide-copy-project" /></p>
+
+<p>Give the new project a name. Select which modules and settings you want to copy and whether or not you want to notify users via email during copying. 
+You can copy existing <a href="../agile-boards">boards</a> (apart from the Subproject board) and the <a href="../project-overview/#project-overview">Project overview</a> dashboards along with your project, too.</p>
+
+<p><img src="image-20201007172029375.png" alt="copy-project-screen-11.0" /></p>
+
+<p>For further configuration open the <strong>Advanced settings</strong>. Here you can specify (among other things) the project’s URL (identifier), its visibility and status. Furthermore you can set values for custom fields (not shown in the screenshot).</p>
+
+<p><img src="image-20201007172208540.png" alt="advanced-settings-project" /></p>
+
+<p>Then click the blue <strong>Copy</strong> button.</p>
+
+<h3 id="archive-a-project">Archive a project</h3>
+
+<p>In order to archive a project, navigate to the <a href="project-settings">project settings</a>, and click the <strong>Archive project</strong> button. Then, the project cannot be selected from the project selection anymore. It is still available in the <strong>View all projects</strong> dashboard if you expand the filter and select the Archived projects.</p>
+<div class="alert alert-info" role="alert">
+**Note**: This option is only available for Administrators.
+</div>
+
+<p><img src="User-guide-archive-project.png" alt="User-guide-archive-project" /></p>
+
+<p><img src="1566219072615.png" alt="archived-projects" /></p>
+
+<h3 id="delete-a-project">Delete a project</h3>
+
+<p>If you want to delete a project, navigate to the <a href="project-settings">project settings</a>. Click the button <strong>Delete project</strong> on the top right of the page.</p>
+
+<p><img src="User-guide-delete-project.png" alt="User-guide-delete-project" /></p>
+
+<p>Also, you can delete a project via the <a href="#view-all-projects">projects overview</a>.</p>
+<div class="alert alert-info" role="alert">
+**Note**: This option is only available for Administrators.
+</div>
+
+<h2 id="view-all-projects">View all projects</h2>
+
+<p>To get an overview of all your projects, select the <strong>View all projects</strong> option from the <strong>Select a project</strong> menu in the top left header navigation.</p>
+
+<p><img src="1566293251039.png" alt="view all projects" /></p>
+
+<p>You will then get a list of all your projects in OpenProject. You can use this projects overview to <strong>create a multi project status dashboard</strong> if you include your own <a href="../../system-admin-guide/custom-fields/custom-fields-projects/">project custom fields</a>, e.g. custom status options, Accountable, Project duration, and more.</p>
+
+<p><strong>Please note:</strong> Project custom fields are a premium feature and will only be displayed here for Enterprise on-premises and Enterprise cloud.</p>
+
+<p>With the <strong>arrow</strong> on the right you can display the <strong>project description</strong>.</p>
+
+<p>With the horizontal <strong>three dots</strong> icon on the right side of the list you can open <strong>further features</strong>, such as <a href="#create-a-subproject">creating a new subproject</a>, <a href="project-settings">project settings</a>, <a href="#archive-a-project">archiving a project</a>, <a href="#copy-a-project">copying</a> and <a href="#delete-a-project">deleting a project</a>. Please note that you have to be a System Administrator in OpenProject to access these features.</p>
+
+<p><img src="image-20201005092427629.png" alt="projects-overview" /></p>
+
+<p>You can choose the <strong>columns displayed by default</strong> in the <a href="../../system-admin-guide/system-settings/project-system-settings">System Settings</a> in the Administration. To access it quickly use the <strong>vertical three dots</strong> icon on the upper right.</p>
+
+<p><img src="image-20201210234705031.png" alt="configure-columns-for-view-all-projects" /></p>
+
+<p>To change the order of the displayed <a href="../../system-admin-guide/custom-fields">custom fields</a> (columns) follow the instructions here: <a href="/system-admin-guide/custom-fields/custom-fields-projects/#displaying-project-custom-fields">Displaying a project custom field</a></p>
+
+<p>To <strong>display the work packages</strong> of all your projects <strong>in a Gantt chart</strong> click on the <strong>Open as Gantt view</strong> icon on the upper right. This is a shortcut to quickly get to the report described in the <a href="#project-overarching-reports">chapter below</a>. 
+The Gantt chart view can be configured in the <a href="../../system-admin-guide/system-settings/project-system-settings">System Settings</a> in the Administration.</p>
+
+<p><img src="image-20201007161248903.png" alt="open-global-gantt-chart" /></p>
+
+<h2 id="project-overarching-reports">Project overarching reports</h2>
+
+<p>Often you need to see information about more than one project at once and want to create project overarching reports.</p>
+
+<p>Click on the <strong>Modules</strong> icon with the dots in the header navigation. These are the project overarching modules in OpenProject.<img src="overarching-modules.png" alt="overarching-modules" /></p>
+
+<p>Here you will find</p>
+
+<ul>
+  <li>The <a href="#view-all-projects">global projects list</a></li>
+  <li>The global work packages list (see below)</li>
+  <li>The global news overview</li>
+  <li>The global time and costs module</li>
+</ul>
+
+<h3 id="global-work-packages-list">Global work packages list</h3>
+
+<p>Select <strong>Work packages</strong> from the drop down menu <strong>Modules</strong> in the upper right (nine squares). Now, you will see all work packages in the projects for which you have the required <a href="../..//system-admin-guide/users-permissions/roles-permissions/">permissions</a>.</p>
+
+<p>In this project overarching list, you can search, filter, group by, sort, highlight and save views the same way as in the <a href="../work-packages/work-package-table-configuration">work package list</a> in each project.</p>
+
+<p>You can group by projects by clicking in the header of the work package list next to PROJECT and select <strong>Group by</strong>. Collapsing the groups will allow you an <strong>overview of the projects’ aggregated milestones</strong> as described <a href="../../user-guide/work-packages/work-package-table-configuration/#aggregation-by-project">here</a>.</p>
+
+<p><img src="project-overarching-report.gif" alt="project-overarching-report" /></p>
+
+:ET

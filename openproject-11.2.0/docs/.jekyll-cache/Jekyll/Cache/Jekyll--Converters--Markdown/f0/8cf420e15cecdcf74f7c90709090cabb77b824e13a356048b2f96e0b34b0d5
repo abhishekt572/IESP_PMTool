@@ -1,0 +1,41 @@
+I"�	<h1 id="openproject-405">OpenProject 4.0.5</h1>
+
+<p>OpenProject 4.0.5 has been released which contains several bug fixes.<br />
+We advise everyone to update their OpenProject installations.</p>
+
+<p>The following bugs have been fixed in the core:</p>
+
+<ul>
+  <li>When sorting by a version in the work package list, the result was
+not shown but an unclear error message displayed
+(<a href="https://community.openproject.org/work_packages/17928" title="Sorting by version leads to 500 in experimental API (\&quot;Unable to retrieve query from URL\">#17928</a> (closed)”)).</li>
+  <li>Clicking on the project name in a timeline let to “Page not found”
+(<a href="https://community.openproject.org/work_packages/17819" title="[Regression] Page not found when clicking on project link in timeline (NaN in link) (closed)">#17819</a>).</li>
+  <li>The “Close” icon of modals was cut off
+(<a href="https://community.openproject.org/work_packages/17818" title="[Regression] Close icon of modals is cut off (closed)">#17818</a>).</li>
+  <li>Dates in the work package list were sometimes not displayed properly
+(<a href="https://community.openproject.org/work_packages/17043" title="Single bad translation on work package table. (closed)">#17043</a>).
+Thanks a lot to <a href="https://community.openproject.org/users/35400">Mike
+Lewis</a> for reporting
+this error!</li>
+</ul>
+
+<p>Additionally, the work package export via CSV is working properly again
+(<a href="https://community.openproject.org/work_packages/16813" title="CSV Export is fixed (closed)">#16813</a>).
+Before, only the default columns were displayed in the exported file.<br />
+A big thanks goes to <a href="https://github.com/TribesTom">Thomas Tribolet</a> for
+fixing this bug!</p>
+
+<p>Finally, syntax highlighting is working again (e.g. in the wiki and
+repository):</p>
+
+<p><img src="http://1t1rycb9er64f1pgy2iuseow-wpengine.netdna-ssl.com/wp-content/uploads/2015/01/SyntaxHighlighting.png" alt="SyntaxHighlighting" /></p>
+
+<p>In the Translations plugin an error was fixed which caused translations
+in the work package list not to be displayed properly
+(<a href="https://community.openproject.org/work_packages/17944" title="Missing js files added (closed)">#17944</a>).<br />
+For a complete list of changes, please refer to the <a href="https://community.openproject.org/versions/566">Changelog
+v4.0.5</a> or take a look
+at <a href="https://github.com/opf/openproject/tree/v4.0.5">GitHub</a>.</p>
+
+:ET

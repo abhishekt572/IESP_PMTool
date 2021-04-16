@@ -1,0 +1,314 @@
+I"PG<h1 id="rich-text-wysiwyg-editor-in-openproject">Rich text (WYSIWYG) editor in OpenProject</h1>
+
+<p>Starting with version 8.0.0, OpenProject features a quasi-WYSIWYG editor, powered by <a href="https://ckeditor5.github.io/">CKSource CKEditor5</a>. The underlying format is GitHub-flavored CommonMark (<a href="https://github.github.com/gfm/">GFM</a>). All previous textile-based content will be migrated when upgrading to OpenProject 8.0.</p>
+
+<div class="alert alert-info" role="alert">
+**Please note:** 
+In some resources such as work packages or comments, the editor does not exhibit all functionality such as macros or image upload.
+In the work package split screen view (details view) you may have to use the three vertical dots to access additional features of the editor.
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Topic</th>
+      <th>Content</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#basic-formatting">Basic formatting</a></td>
+      <td>Basic formatting elements in the WYSIWYG editor</td>
+    </tr>
+    <tr>
+      <td><a href="#image-handling">Image handling</a></td>
+      <td>How to add images in the WYSIWYG editor?</td>
+    </tr>
+    <tr>
+      <td><a href="#macros">Macros</a></td>
+      <td>Available macros in the WYSIWYG editor</td>
+    </tr>
+    <tr>
+      <td><a href="#links-to-openproject-resources">Links to OpenProject resources</a></td>
+      <td>How to link to resources like wikis, projects, meetings?</td>
+    </tr>
+    <tr>
+      <td><a href="#embedding-of-work-package-attributes-and-project-attributes">Embedding of work package attributes and project attributes</a></td>
+      <td>How to embed attributes and attribute help texts?</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="basic-formatting">Basic formatting</h2>
+
+<p>The CKEditor5 build in OpenProject supports basic text styles, such as bold and italic formatting, headings,
+strike-through, inline code, and quotes as well as inline image handling. Pasting content such as images or rich text is also supported, while unsupported styling will be stripped by the editor.</p>
+
+<h3 id="line-breaks">Line breaks</h3>
+
+<p>Instead of creating a new paragraph with Enter, you can also press <code class="language-plaintext highlighter-rouge">SHIFT+Enter</code> to create a line break without creating a new paragraph.</p>
+
+<h3 id="links">Links</h3>
+
+<p>Create hyperlinks by pressing the tool-bar (optionally with some selected text), or by pressing <code class="language-plaintext highlighter-rouge">CTRL+k</code> to open a popup to enter the link href.</p>
+
+<h3 id="widgets-and-newlines">Widgets and Newlines</h3>
+
+<p>CKEditor uses widgets to display block elements such as images, tables, and other elements that are not inline. You can select most widgets by pressing on it - The only exception to that is the table widget, it has a little select knob at the top left to select the entire table.</p>
+
+<p>When you have a widget selected, you can remove or cut it. You can create a newline below it by selecting the widget and pressing <code class="language-plaintext highlighter-rouge">ENTER</code> or <code class="language-plaintext highlighter-rouge">↓ (ARROW DOWN)</code>, or a newline above it by pressing <code class="language-plaintext highlighter-rouge">SHIFT+enter</code> or <code class="language-plaintext highlighter-rouge">↑ (ARROW UP)</code>. This is especially needed when the widget is the first or last element on the page to insert a line below or above it.</p>
+
+<h3 id="code-blocks">Code Blocks</h3>
+
+<p>As CKEditor5 currently does not provide support for code blocks, OpenProject can display, but not edit code blocks within the CKEditor instance. A code block can be edited through a modal window within a <code class="language-plaintext highlighter-rouge">CodeMirror</code> editor instance. This has the advantage of providing syntax highlighting and code sensing (<a href="https://codemirror.net/mode/">for supported languages</a>).</p>
+
+<h3 id="tables">Tables</h3>
+
+<p>The GFM extension of the CommonMark specs adds a definition for table syntax which the CKEditor build of OpenProject supports. This definition requires all tables to have a heading row. For tables created with CKEditor without heading rows, a HTML table is output instead. This matches the behavior of, e.g., GitHub.</p>
+
+<h3 id="autoformatting">Autoformatting</h3>
+
+<p>CKEditor5 allows certain CommonMark-like <a href="https://ckeditor5.github.io/docs/nightly/ckeditor5/latest/features/autoformat.html">autoformatting keyboard strokes</a>:</p>
+
+<ul>
+  <li>Create bold or italic styles by typing <code class="language-plaintext highlighter-rouge">**will become bold**</code>, <code class="language-plaintext highlighter-rouge">_will become italic_</code>,</li>
+  <li>Create heading of different indentation with <code class="language-plaintext highlighter-rouge">#</code>, <code class="language-plaintext highlighter-rouge">##</code>, <code class="language-plaintext highlighter-rouge">###</code>,  …</li>
+  <li>Create a bulleted list by starting the line with <code class="language-plaintext highlighter-rouge">* </code> or <code class="language-plaintext highlighter-rouge">-</code> and a space</li>
+  <li>Create a numbered list by starting the line with <code class="language-plaintext highlighter-rouge">1.</code> or <code class="language-plaintext highlighter-rouge">1)</code>  and a space</li>
+</ul>
+
+<h2 id="image-handling">Image handling</h2>
+
+<p>In supported resources of OpenProject where attachments are allowed, you can add images to the page by either</p>
+
+<ul>
+  <li>using the toolbar button,</li>
+  <li>pasting an image from your clipboard,</li>
+  <li>or drag &amp; drop an image onto the editor.</li>
+</ul>
+
+<p>The attachment will be automatically uploaded and stored as an attachment.</p>
+
+<h2 id="macros">Macros</h2>
+
+<p>OpenProject has supported macros on textile formatted pages and continues to do so with the WYSIWYG editor. Note that macros are not expanded while editing the page, instead a placeholder is shown.</p>
+
+<p>You can find the macros here in the text editor:
+<img src="image-20201109183018255.png" alt="Macros text editor" /></p>
+
+<h3 id="table-of-contents">Table of contents</h3>
+
+<p>Where applicable, the table of contents (TOC) macro will output a listing of all headings on the current page.</p>
+
+<h3 id="work-package-button">Work package button</h3>
+
+<p>Configure a button or link to target the work package creation screen in the current project. You can preselect a work package type that should be selected, making it easy to guide the users to the work package creation form.</p>
+
+<h3 id="include-wiki-page">Include wiki page</h3>
+
+<p>Include the content of a given wiki page in the current, or another visible project.ww</p>
+
+<h3 id="embed-work-package-table-and-gantt-chart">Embed work package table and Gantt chart</h3>
+
+<p>This is the most flexible macro that provides extensive functionality regarding the inclusion of dynamic work package tables with all the potential of the regular work package table.</p>
+
+<p>By adding an embedded work package table through the toolbar, you can configure the table view (such as columns, grouping, filters, and further properties) in a popup window.</p>
+
+<p>The rendered page will then fetch the work package table results dynamically, respecting the visibility for each user.</p>
+
+<p>Use it to embed views in other pages, create reporting of multiple results, or to embed a Gantt chart view.</p>
+
+<h2 id="links-to-openproject-resources">Links to OpenProject resources</h2>
+
+<p>As with the textile formatting syntax, you can link to other resources within OpenProject using the same shortcuts as before. Create links to a:</p>
+
+<ul>
+  <li><strong>wiki page</strong>: <code class="language-plaintext highlighter-rouge">[[Wiki page]]</code></li>
+  <li><strong>wiki page with separate link name</strong>: <code class="language-plaintext highlighter-rouge">[[Wiki page|The text of the link]]</code></li>
+  <li><strong>wiki page in the Sandbox project</strong>: <code class="language-plaintext highlighter-rouge">[[Sandbox:Wiki page]]</code></li>
+  <li><strong>work package with ID12</strong>:  <code class="language-plaintext highlighter-rouge">#12</code></li>
+  <li><strong>work package with ID 12 with subject and type</strong>: <code class="language-plaintext highlighter-rouge">##12</code></li>
+  <li><strong>work package with ID 12 with subject, type, status, and dates</strong>: <code class="language-plaintext highlighter-rouge">###12</code></li>
+  <li><strong>version by ID or name</strong>: <code class="language-plaintext highlighter-rouge">version#3</code>,  <code class="language-plaintext highlighter-rouge">version:"Release 1.0.0"</code></li>
+  <li><strong>project by ID/name</strong>:  <code class="language-plaintext highlighter-rouge">project#12</code> , <code class="language-plaintext highlighter-rouge">project:"My project name"</code></li>
+  <li><strong>attachment by filename</strong>: <code class="language-plaintext highlighter-rouge">attachment:filename.zip</code></li>
+  <li><strong>meeting by ID/name</strong>:  <code class="language-plaintext highlighter-rouge">meeting#12</code> , <code class="language-plaintext highlighter-rouge">meeting:"My meeting name"</code></li>
+  <li><strong>document by ID/name</strong>:  <code class="language-plaintext highlighter-rouge">document#12</code> , <code class="language-plaintext highlighter-rouge">document:"My document name"</code></li>
+  <li><strong>user by id or login</strong>: <code class="language-plaintext highlighter-rouge">user#4</code> , <code class="language-plaintext highlighter-rouge">user:"johndoe"</code></li>
+  <li><strong>a forum message by ID</strong>: <code class="language-plaintext highlighter-rouge">message#1218</code></li>
+  <li><strong>repository revision 43</strong>: <code class="language-plaintext highlighter-rouge">r43</code></li>
+  <li><strong>commit by hash:</strong> <code class="language-plaintext highlighter-rouge">commit:f30e13e4</code></li>
+  <li><strong>To a source file in the repository</strong>: <code class="language-plaintext highlighter-rouge">source:"some/file"</code></li>
+</ul>
+
+<p>To avoid processing these items, preceding them with a bang <code class="language-plaintext highlighter-rouge">!</code> character such as <code class="language-plaintext highlighter-rouge">!#12</code> will prevent linking to a work package with ID 12.</p>
+
+<h3 id="autocompletion-for-work-packages-and-users">Autocompletion for work packages and users</h3>
+
+<p>For work packages and users, typing <code class="language-plaintext highlighter-rouge">#</code> or <code class="language-plaintext highlighter-rouge">@</code> will open an autocompleter for visible work packages and users, respectively.</p>
+
+<h2 id="embedding-of-work-package-attributes-and-project-attributes">Embedding of work package attributes and project attributes</h2>
+
+<p>You can embed specific attributes of work packages or projects using a certain syntax.
+Examples:</p>
+
+<ul>
+  <li><strong>Linking to the subject of work package with id #1234</strong>: <code class="language-plaintext highlighter-rouge">workPackageValue:1234:subject</code></li>
+  <li><strong>Linking to the current project’s status</strong>: <code class="language-plaintext highlighter-rouge">projectValue:status</code></li>
+  <li><strong>Linking to the subject of work package with subject “Project start”</strong>: <code class="language-plaintext highlighter-rouge">workPackageValue:"Project start":subject</code></li>
+</ul>
+
+<div class="alert alert-info" role="alert">
+**Please note**: Referencing a work package by subject results in only looking for work packages with that given subject in the current project (if any). If you need to cross-reference work packages, use their ID to pinpoint the work package you want to reference.
+</div>
+
+<h3 id="embedding-attribute-help-texts">Embedding attribute help texts</h3>
+<p>You can also embed attribute values and <a href="../../system-admin-guide/attribute-help-texts/">their help texts</a> by using <code class="language-plaintext highlighter-rouge">workPackageLabel</code> instead: <code class="language-plaintext highlighter-rouge">workPackageLabel:1234:status</code> would output the translated label for “Status” and (if exists), the corresponding help text for it.</p>
+
+<div class="alert alert-info" role="alert">
+**Please note**: These macros will only be expanded in the frontend. For each individual user, the correct permissions will be checked and the macro will result in an error if the user is not allowed to view the respective resource.    
+</div>
+
+<h3 id="available-attributes-for-work-packages">Available attributes for work packages</h3>
+
+<p>The following list contains all supported attribute names for the <code class="language-plaintext highlighter-rouge">workPackageValue</code> and <code class="language-plaintext highlighter-rouge">workPackageLabel</code> macros, where <code class="language-plaintext highlighter-rouge">1234</code> stands for the <a href="../work-packages">work package ID</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Attribute</strong></th>
+      <th>Usage example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><em>Custom Fields</em></td>
+      <td><code class="language-plaintext highlighter-rouge">workPackageValue:1234:"Name of the work package custom field"</code></td>
+    </tr>
+    <tr>
+      <td>Assigned user</td>
+      <td><code class="language-plaintext highlighter-rouge">workPackageValue:1234:assignee</code></td>
+    </tr>
+    <tr>
+      <td>Author</td>
+      <td><code class="language-plaintext highlighter-rouge">workPackageValue:1234:author</code></td>
+    </tr>
+    <tr>
+      <td>Category</td>
+      <td><code class="language-plaintext highlighter-rouge">workPackageValue:1234:category</code></td>
+    </tr>
+    <tr>
+      <td>Creation date</td>
+      <td><code class="language-plaintext highlighter-rouge">workPackageValue:1234:createdAt</code></td>
+    </tr>
+    <tr>
+      <td>Finish date</td>
+      <td><code class="language-plaintext highlighter-rouge">workPackageValue:1234:dueDate</code></td>
+    </tr>
+    <tr>
+      <td>Estimated time</td>
+      <td><code class="language-plaintext highlighter-rouge">workPackageValue:1234:estimatedTime</code></td>
+    </tr>
+    <tr>
+      <td>Parent work package</td>
+      <td><code class="language-plaintext highlighter-rouge">workPackageValue:1234:parent</code></td>
+    </tr>
+    <tr>
+      <td>Priority</td>
+      <td><code class="language-plaintext highlighter-rouge">workPackageValue:1234:priority</code></td>
+    </tr>
+    <tr>
+      <td>Project</td>
+      <td><code class="language-plaintext highlighter-rouge">workPackageValue:1234:project</code></td>
+    </tr>
+    <tr>
+      <td>Remaining hours</td>
+      <td><code class="language-plaintext highlighter-rouge">workPackageValue:1234:remainingTime</code> (sic!)</td>
+    </tr>
+    <tr>
+      <td>Responsible user</td>
+      <td><code class="language-plaintext highlighter-rouge">workPackageValue:1234:responsible</code></td>
+    </tr>
+    <tr>
+      <td>Spent time</td>
+      <td><code class="language-plaintext highlighter-rouge">workPackageValue:1234:spentTime</code></td>
+    </tr>
+    <tr>
+      <td>Start date</td>
+      <td><code class="language-plaintext highlighter-rouge">workPackageValue:1234:startDate</code></td>
+    </tr>
+    <tr>
+      <td>Status</td>
+      <td><code class="language-plaintext highlighter-rouge">workPackageValue:1234:status</code></td>
+    </tr>
+    <tr>
+      <td>Subject / Title</td>
+      <td><code class="language-plaintext highlighter-rouge">workPackageValue:1234:subject</code></td>
+    </tr>
+    <tr>
+      <td>Work package type</td>
+      <td><code class="language-plaintext highlighter-rouge">workPackageValue:1234:type</code></td>
+    </tr>
+    <tr>
+      <td>Date of last update</td>
+      <td><code class="language-plaintext highlighter-rouge">workPackageValue:1234:updatedAt</code></td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td><code class="language-plaintext highlighter-rouge">workPackageValue:1234:version</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="available-attributes-for-projects">Available attributes for projects</h3>
+
+<p>The following list contains all supported attribute names for the <code class="language-plaintext highlighter-rouge">projectValue</code>  and <code class="language-plaintext highlighter-rouge">projectLabel</code> macros. The examples all show references to the <em>current</em> project the document is rendered in. They can also reference another project with <code class="language-plaintext highlighter-rouge">projectValue:"Identifier of the project":attribute</code>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Attribute</strong></th>
+      <th>Usage example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><em>Custom Fields</em></td>
+      <td><code class="language-plaintext highlighter-rouge">projectValue:"Name of the project custom field"</code></td>
+    </tr>
+    <tr>
+      <td>Project active? (boolean)</td>
+      <td><code class="language-plaintext highlighter-rouge">projectValue:active</code></td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td><code class="language-plaintext highlighter-rouge">projectValue:description</code></td>
+    </tr>
+    <tr>
+      <td>Identifier of the project</td>
+      <td><code class="language-plaintext highlighter-rouge">projectValue:identifier</code></td>
+    </tr>
+    <tr>
+      <td>Name of the project</td>
+      <td><code class="language-plaintext highlighter-rouge">projectValue:name</code></td>
+    </tr>
+    <tr>
+      <td>Status</td>
+      <td><code class="language-plaintext highlighter-rouge">projectValue:status</code></td>
+    </tr>
+    <tr>
+      <td>Status description</td>
+      <td><code class="language-plaintext highlighter-rouge">projectValue:statusExplanation</code></td>
+    </tr>
+    <tr>
+      <td>Parent project</td>
+      <td><code class="language-plaintext highlighter-rouge">projectValue:parent</code></td>
+    </tr>
+    <tr>
+      <td>Project public? (boolean)</td>
+      <td><code class="language-plaintext highlighter-rouge">projectValue:public</code></td>
+    </tr>
+  </tbody>
+</table>
+
+:ET

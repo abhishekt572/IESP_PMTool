@@ -1,0 +1,24 @@
+I"¯<h1 id="openproject-1063">OpenProject 10.6.3</h1>
+
+<p>We released <a href="https://community.openproject.com/versions/1441">OpenProject 10.6.3</a>.
+The release contains several bug fixes and we recommend updating to the newest version.</p>
+
+<!--more-->
+<h4 id="bug-fixes-and-changes">Bug fixes and changes</h4>
+
+<ul>
+  <li>Fixed: Arrow next to parent task still shown after removing subtask [<a href="https://community.openproject.com/wp/33109">#33109</a>]</li>
+  <li>Fixed: Multiple spaces in project name causes problems [<a href="https://community.openproject.com/wp/33344">#33344</a>]</li>
+  <li>Fixed: Number indicator for MultiSelect user fields is not visible in table [<a href="https://community.openproject.com/wp/33452">#33452</a>]</li>
+  <li>Fixed: Cannot remove user from project after adding and removing group user is part of [<a href="https://community.openproject.com/wp/33659">#33659</a>]</li>
+  <li>Fixed: Number of watchers not shown when opening work package in full screen (through double-click) [<a href="https://community.openproject.com/wp/33685">#33685</a>]</li>
+  <li>Changed: Donâ€™t poll queries in boards in inactive tabs [<a href="https://community.openproject.com/wp/33707">#33707</a>]</li>
+</ul>
+
+<h4 id="contributions">Contributions</h4>
+<p>A big thanks to community members for reporting bugs and helping us identifying and providing fixes.</p>
+
+<p>Special thanks for reporting and finding bugs go to</p>
+
+<p>Piotr F</p>
+:ET

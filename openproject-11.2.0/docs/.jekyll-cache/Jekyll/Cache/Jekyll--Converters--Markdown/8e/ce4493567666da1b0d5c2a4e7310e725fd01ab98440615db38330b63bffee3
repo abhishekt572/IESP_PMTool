@@ -1,0 +1,27 @@
+I"Ã<h1 id="openproject504">OpenProjectÂ 5.0.4</h1>
+
+<p>OpenProject 5.0.4 contains several bug fixes and performance
+improvements:</p>
+
+<ul>
+  <li>Copying projects works properly again
+(<a href="https://community.openproject.org/work_packages/22126/activity">#22126</a>).</li>
+  <li>Several work package related errors have been fixed
+(<a href="https://community.openproject.org/work_packages/22149/activity">#22149</a>,
+<a href="https://community.openproject.org/work_packages/22122/activity">#22122</a>,
+<a href="https://community.openproject.org/work_packages/21976/activity">#21976</a>,
+<a href="https://community.openproject.org/work_packages/21952/activity">#21952</a>).</li>
+  <li>The performance on the work package page has been improved
+(<a href="https://community.openproject.org/work_packages/22100/activity">#22100</a>,
+<a href="https://community.openproject.org/work_packages/22183/activity">#22183</a>).</li>
+  <li>In addition, several design bugs have been fixed
+(<a href="https://community.openproject.org/work_packages/22144/activity">#22144</a>,
+<a href="https://community.openproject.org/work_packages/22065/activity">#22065</a>,
+<a href="https://community.openproject.org/work_packages/22047/activity">#22047</a>).</li>
+</ul>
+
+<p>For further information on the release, please refer to the <a href="https://community.openproject.org/versions/779">Changelog
+v.5.0.4</a> take a look at
+<a href="https://github.com/opf/openproject/tree/v5.0.4">GitHub</a>.</p>
+
+:ET

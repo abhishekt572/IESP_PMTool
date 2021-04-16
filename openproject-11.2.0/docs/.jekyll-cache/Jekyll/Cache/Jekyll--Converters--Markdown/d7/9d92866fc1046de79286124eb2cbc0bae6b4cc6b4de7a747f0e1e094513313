@@ -1,0 +1,114 @@
+I"'<h1 id="manage-ldap-authentication">Manage LDAP Authentication</h1>
+
+<div class="alert alert-info" role="alert">
+**Note**: In order to be able to access the administration panel and manage LDAP authentication you need to be a system admin.
+</div>
+
+<p>To see the list of all available LDAP (Lightweight Directory Access  Protocol) authentications navigate to - &gt; <em>Administration</em> and select <em>-&gt; Authentication</em> -&gt; <em>LDAP Authentication</em> from the menu on the left. You will see the list of all available authentications already created.</p>
+
+<h2 id="add-a-new-ldap-authentication">Add a new LDAP authentication</h2>
+
+<p>To create a new LDAP authentication click on the respective icon.</p>
+
+<p><img src="Sys-admin_ldap-authentication.png" alt="Sys-admin_ldap-authentication" /></p>
+
+<p>You will then be able to specify the LDAP configuration. This can be  any directory service compatible with the LDAPv3 standard, such as  Microsoft Active Directory or openLDAP. The configuration depends on the specific database/applications, through which the authentication with  OpenProject is intended.</p>
+
+<p>The following screenshots contain an exemplary configuration for a  new LDAP authentication mode. In the following, we will go through all  available options.</p>
+
+<h4 id="ldap-connection-details-and-security">LDAP connection details and security</h4>
+
+<p><img src="ldap-host-and-security.png" alt="Adding a new LDAP authentication server" /></p>
+
+<p>In the upper section, you have to specify the connection details of your LDAP server as well as the connection encryption to use.</p>
+
+<ul>
+  <li><strong>Name:</strong> Arbitrary identifier used to show which authentication source a user is coming from (e.g., in the <a href="https://www.openproject.org/help/administration/manage-users/">Administration &gt; Users view</a>)</li>
+  <li><strong>Host:</strong> Full hostname to the LDAP server</li>
+  <li><strong>Port :</strong> LDAP port. Will usually be 389 for LDAP and StartTLS and 636 for LDAP over SSL connections.</li>
+  <li><strong>Connection encryption</strong>: Select the appropriate connection encryption.
+    <ul>
+      <li>For unencrypted connections, select <code class="language-plaintext highlighter-rouge">none</code>  . No TLS/SSL connection will be established, your connection will be unsecure</li>
+      <li>For LDAPS connections (LDAP over SSL), use <code class="language-plaintext highlighter-rouge">simple_tls</code> , this is an older SSL encryption pattern that uses SSL certificates, but <strong>DOES NOT VERIFY THEM</strong>. Implicit trust in the connection will be placed, but the connection will be encrypted. Some older LDAP servers only support this option</li>
+      <li><strong>Recommended option</strong>: <code class="language-plaintext highlighter-rouge">start_tls</code> will use TLS to encrypt the connection after connecting to the LDAP server on the unencrypted PORT (<code class="language-plaintext highlighter-rouge">389</code> by default).</li>
+      <li><a href="https://www.rubydoc.info/gems/ruby-net-ldap/Net/LDAP">Click here to read more details into what these options mean for connection security.</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Allowing untrusted certificates for LDAP connections</strong></p>
+
+<p>If you use <code class="language-plaintext highlighter-rouge">start_tls</code> , certificate details and host names will be verified on connections as recommended for security. In case you use a custom untrusted certificate authority (CA) that your LDAP is connecting to, you can place this CA in your system’s trusted CA store if possible. For some distributions, you will need to specify this CA manually to OpenProject.</p>
+
+<p>You can do this by using the <a href="https://docs.openproject.org/installation-and-operations/configuration/">advanced configuration</a> function of OpenProject. You can define the CA path by setting the following ENV variable:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">OPENPROJECT_LDAP__TLS__OPTIONS_CA__FILE</span><span class="o">=</span><span class="s2">"/path/to/the/root-ca.crt"</span>
+</code></pre></div></div>
+
+<p>or by extending your production configuration of <code class="language-plaintext highlighter-rouge">config/configuration.yml</code> with the following segment:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>production:
+  # .. other settings ..
+  
+  # ldap_tls_options:
+  #   ca_file: "/path/to/the/root-ca.crt"
+</code></pre></div></div>
+
+<p>You can set other TLS options for the LDAP auth source connection. They are passed as the <code class="language-plaintext highlighter-rouge">tls_options</code> to the Net::LDAP gem and ultimately end up in the <code class="language-plaintext highlighter-rouge">SSLContext</code> setting of Ruby. You can define the TLS version and other advanced options in case your connections needs it. Most users will not need to change this however.</p>
+
+<p>See the following resources for more information:</p>
+
+<ul>
+  <li>https://github.com/ruby-ldap/ruby-net-ldap/blob/master/lib/net/ldap.rb</li>
+  <li>https://ruby.github.io/openssl/OpenSSL/SSL/SSLContext.html</li>
+</ul>
+
+<h4 id="ldap-system-user-credentials">LDAP system user credentials</h4>
+
+<p><img src="ldap-system-user.png" alt="Defining the system user of the connection" /></p>
+
+<p>Next, you will need to enter a system user that has READ access to the users for identification and synchronization purposes. Note that most operations to the LDAP during authentication will not be using these credentials, but the user-provided credentials in the login form in order to perform a regular user bind to the LDAP.</p>
+
+<ul>
+  <li><strong>Account:</strong> The full DN of a system users used for  looking up user details in the LDAP. It must have read permissions under the Base DN. This will not be used for the user bind upon  authentication.</li>
+  <li><strong>Password:</strong> The bind password of the system user’s DN above.</li>
+</ul>
+
+<h4 id="ldap-details">LDAP details</h4>
+
+<p><img src="ldap-details.png" alt="Defining the details of the connection" /></p>
+
+<p>Next you can define what sections OpenProject will look for in the LDAP and also if users should be created automatically in OpenProject when they are accessing it. Let’s look at the available options:</p>
+
+<ul>
+  <li><strong>Base DN</strong>: Enter the Base DN to search within for users and groups in the LDAP tree</li>
+  <li><strong>Filter string</strong>: Enter an optional <a href="https://tools.ietf.org/search/rfc4515">LDAP RFC4515 filter string</a> to further reduce the returned set of users. This allows you to restrict access to OpenProject with a very flexible filter. For group synchronization, only users matching this filter will be added as well.</li>
+  <li><strong>Automatic user creation:</strong> Check to automatically  create users in OpenProject when they first login in OpenProject. It  will use the LDAP attribute mapping below to fill out required  attributes. The user will be forwarded to a registration screen to  complete required attributes if they are missing in the LDAP.</li>
+</ul>
+
+<h4 id="attribute-mapping">Attribute mapping</h4>
+
+<p><img src="ldap-attribute-mapping.png" alt="Defining the attribute map for users" /></p>
+
+<p>The attribute mapping is used to identify attributes of OpenProject with attributes of the LDAP directory. At least the <em>login</em> attribute is required to create DNs from the login credentials.</p>
+
+<ul>
+  <li><strong>Login:</strong> The login attribute in the ldap. Will be used to construct the DN from <code class="language-plaintext highlighter-rouge">login-attribute=value,</code>. Most often, this will be <em>uid.</em></li>
+  <li><strong>First name:</strong> The attribute name in the LDAP that maps to first name. Most often, this will be <em>givenName.</em> If left empty, user will be prompted to enter upon registration if <strong>automatic user creation</strong> is true.</li>
+  <li><strong>Last name:</strong> The attribute name in the LDAP that maps to last name. Most often, this will be <em>sn.</em> If left empty, user will be prompted to enter upon registration if <strong>automatic user creation</strong> is true.</li>
+  <li><strong>Email:</strong> The attribute name in the LDAP that maps to the user’s mail address. This will usually be <em>mail.</em> If left empty, user will be prompted to enter upon registration if <strong>automatic user creation</strong> is true.</li>
+  <li><strong>Admin:</strong> Specify an attribute that if it has a truthy value, results in the user in OpenProject becoming an admin account.  Leave empty to never set admin status from LDAP attributes.</li>
+</ul>
+
+<p>Lastly, click on <em>Create</em> to save the LDAP authentication  mode. You will be redirected to the index page with the created  authentication mode. Click the <em>test</em>  button to create a test connection using the system user’s bind credentials.</p>
+
+<p><img src="ldap-index-page.png" alt="LDAP authentication mode created" /></p>
+
+<p>With the <a href="https://www.openproject.org/enterprise-edition/">OpenProject Enterprise Edition</a> it is possible to <a href="./ldap-group-synchronization">synchronize LDAP and OpenProject groups</a>.</p>
+
+<h2 id="multiple-ldap-connections">Multiple LDAP connections</h2>
+
+<p>OpenProject supports multiple LDAP connections to source users from. The user’s authentication source is remembered the first time it is created (but can be switched in the administration backend). This ensures that the correct connection / LDAP source will be used for the user.</p>
+
+<p>Duplicates in the unique attributes (login, email) are not allowed and a second user with the same attributes will not be able to login. Please ensure that amongst all LDAP connections, a unique attribute is used that does not result in conflicting logins.</p>
+:ET

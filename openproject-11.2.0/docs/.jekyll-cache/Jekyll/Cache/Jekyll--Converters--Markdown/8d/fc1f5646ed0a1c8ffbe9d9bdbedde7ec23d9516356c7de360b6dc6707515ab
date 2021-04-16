@@ -1,0 +1,34 @@
+I"U<h1 id="openproject-1001">OpenProject 10.0.1</h1>
+
+<p>We released <a href="https://community.openproject.com/versions/1393">OpenProject 10.0.1</a>.
+The release contains several bug fixes and we recommend updating to the newest version.</p>
+
+<h4 id="bug-fixes-and-changes">Bug fixes and changes</h4>
+
+<ul>
+  <li>Fixed: Misaligned checkboxes in text editor [<a href="https://community.openproject.com/wp/31066">#31066</a>]</li>
+  <li>Fixed: Wrong cursor icon when editing custom text widget [<a href="https://community.openproject.com/wp/31092">#31092</a>]</li>
+  <li>Fixed: Work package subject changes formatting when switching between show and edit mode [<a href="https://community.openproject.com/wp/31136">#31136</a>]</li>
+  <li>Fixed: Custom field label cut off in project details widget [<a href="https://community.openproject.com/wp/31144">#31144</a>]</li>
+  <li>Fixed: Attachments not showing until new attachment is uploaded [<a href="https://community.openproject.com/wp/31148">#31148</a>]</li>
+  <li>Fixed: WP disappears when dragging work package in board [<a href="https://community.openproject.com/wp/31157">#31157</a>]</li>
+  <li>Fixed: Announcements: missing localisation, wrong date and missing formatting options [<a href="https://community.openproject.com/wp/31159">#31159</a>]</li>
+  <li>Fixed: Action board: Adding a list will reset the manual left/right order of lists. [<a href="https://community.openproject.com/wp/31161">#31161</a>]</li>
+  <li>Fixed: Installed 10.0.0 incorrect security badge [<a href="https://community.openproject.com/wp/31178">#31178</a>]</li>
+  <li>Fixed: Translation missing on instance dashboard page [<a href="https://community.openproject.com/wp/31180">#31180</a>]</li>
+  <li>Fixed: Input fields misplaced for CF in enumerations [<a href="https://community.openproject.com/wp/31193">#31193</a>]</li>
+  <li>Fixed: Inconsistent table button in Budget settings [<a href="https://community.openproject.com/wp/31194">#31194</a>]</li>
+  <li>Fixed: Colors can no longer be deleted [<a href="https://community.openproject.com/wp/31200">#31200</a>]</li>
+  <li>Fixed: Attempting to add filter to project list crashes browser tab [<a href="https://community.openproject.com/wp/31202">#31202</a>]</li>
+  <li>Fixed: Clicking back button from full-view created work package leads to full-view-create [<a href="https://community.openproject.com/wp/31204">#31204</a>]</li>
+  <li>Fixed: Attachments lose their name on download [<a href="https://community.openproject.com/wp/31205">#31205</a>]</li>
+  <li>Changed: Complete missing translations for 10.0 [<a href="https://community.openproject.com/wp/31147">#31147</a>]</li>
+</ul>
+
+<h4 id="contributions">Contributions</h4>
+
+<p>A big thanks to community members for reporting bugs and helping us identifying and providing fixes.</p>
+
+<p>Special thanks for reporting and finding bugs go to
+Stefano Stucchi, Kris Davie</p>
+:ET

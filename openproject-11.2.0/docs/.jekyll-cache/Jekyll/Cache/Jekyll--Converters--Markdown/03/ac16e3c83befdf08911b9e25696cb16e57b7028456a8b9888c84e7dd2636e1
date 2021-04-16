@@ -1,0 +1,62 @@
+I"Ç<h1 id="project-settings">Project settings</h1>
+
+<p>Customize your project in the project settings.</p>
+
+<p>Open a project via the Select a project drop-down menu and navigate to -&gt; <em>Project settings</em> in the project menu.</p>
+
+<p><img src="User-guide-open-project-settings.png" alt="User-guide-open-project-settings" /></p>
+
+<div class="alert alert-info" role="alert">
+**Note**: You have to be a project admin in order to see and access the project settings.
+</div>
+
+<h2 id="overview">Overview</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Documentation for</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="project-information">Project information</a></td>
+      <td>Define project name, subproject, description, project status, and much more.</td>
+    </tr>
+    <tr>
+      <td><a href="modules">Modules</a></td>
+      <td>Activate or deactivate modules in a project.</td>
+    </tr>
+    <tr>
+      <td><a href="work-package-types">Work package types</a></td>
+      <td>Activate or deactivate work package types in a project.</td>
+    </tr>
+    <tr>
+      <td><a href="work-package-categories">Work package categories</a></td>
+      <td>Create and manage work package categories.</td>
+    </tr>
+    <tr>
+      <td><a href="custom-fields">Custom fields</a></td>
+      <td>Activate or deactivate custom fields for a project.</td>
+    </tr>
+    <tr>
+      <td><a href="versions">Versions</a></td>
+      <td>Create and manage versions in a project.</td>
+    </tr>
+    <tr>
+      <td><a href="repository">Repository</a></td>
+      <td>Activate and manage a SVN or GIT repository for a project.</td>
+    </tr>
+    <tr>
+      <td><a href="activities-time-tracking">Activities (time tracking)</a></td>
+      <td>Activate or deactivate Activities (for time tracking) in a project.</td>
+    </tr>
+    <tr>
+      <td><a href="backlogs-settings">Backlogs settings</a></td>
+      <td>Manage backlogs settings for a project.</td>
+    </tr>
+  </tbody>
+</table>
+
+:ET

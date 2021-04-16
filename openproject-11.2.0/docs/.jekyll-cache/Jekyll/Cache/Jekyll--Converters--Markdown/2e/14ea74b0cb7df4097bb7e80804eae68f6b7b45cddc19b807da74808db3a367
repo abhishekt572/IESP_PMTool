@@ -1,0 +1,75 @@
+I"Ø<h1 id="create-work-packages">Create Work packages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Topic</th>
+      <th>Content</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#how-to-create-work-packages">Create Work packages</a></td>
+      <td>How to create a new Work package in a project?</td>
+    </tr>
+    <tr>
+      <td><a href="#add-attachments-to-work-packages">Add attachments to a Work package</a></td>
+      <td>How to add attachments to a Work package?</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="how-to-create-work-packages">How to create Work packages</h2>
+
+<p>There are two ways to create new Work packages:</p>
+
+<ul>
+  <li>Work packages can be <a href="#create-a-work-package-in-the-list-view">created in-line in the Work package list</a> (just like Excel) to quickly create multiple Work packages.</li>
+  <li>Work packages can be <a href="#create-a work-package-in-the-split-screen-view">created in a split screen</a> which allows you to specify detailed information from the start.</li>
+</ul>
+
+<p>Work packages always belong to a project. Therefore, you first need to <a href="../../../getting-started/#open-an-existing-project">select a project</a>.</p>
+
+<p>Then, navigate to the Work package module in the project navigation.</p>
+
+<p><img src="1566302949658.png" alt="work-packages-module" /></p>
+
+<h3 id="create-a-work-package-in-the-list-view">Create a Work package in the list view</h3>
+
+<p>To create new Work packages directly in line in the list view, click on the <strong>+ Create new Work package</strong> link below the list.</p>
+
+<p><img src="create-split-screen.png" alt="create-split-screen" /></p>
+
+<p>The new Work package appears in a green row. Type in the subject of the Work package, change attributes, such as Type or Status directly in the list and hit Enter to save the changes.</p>
+
+<p><img src="1566303144875.png" alt="create-work-package-list" /></p>
+
+<p>This way, you can quickly and easily create new Work packages in the list, just like Excel.</p>
+
+<h3 id="create-a-work-package-in-the-split-screen-view">Create a Work package in the split screen view</h3>
+
+<p>In order to enter detailed information to the Work package from the start, you can create a Work package in the split screen view. In the Work package module, click the green <strong>+ Work package</strong> button and select the type of Work package you want to create.</p>
+
+<p><img src="1566303633018.png" alt="select-work-package-type" /></p>
+
+<p>The new Work package form will open in the split screen view. Enter all information, such as description, assignee, status, priority, due date and more.</p>
+
+<p>Click the green <strong>Save</strong> button.</p>
+
+<p><img src="1566303947314.png" alt="" /></p>
+
+<p>To find out <strong>how to create a child Work package</strong> please click <a href="../work-package-relations-hierarchies/#adding-a-child-work-package">here</a>.</p>
+
+<h2 id="add-attachments-to-work-packages">Add attachments to Work packages</h2>
+
+<p>You can directly add images, e.g. via copy and paste to the <strong>Work package description</strong>. You can also use the toolbar above the Work package description and click the Insert image icon:</p>
+
+<p><img src="1566304978459.png" alt="insert-image" /></p>
+
+<p>Also, at the bottom of the Work package form you can add files via drag and drop or select the file from a folder to upload it to the Work package.</p>
+
+<p><img src="1566305040178.png" alt="add-file" /></p>
+
+<p>Find out how to <a href="#edit-work-packages">edit existing Work packages</a>.</p>
+
+:ET

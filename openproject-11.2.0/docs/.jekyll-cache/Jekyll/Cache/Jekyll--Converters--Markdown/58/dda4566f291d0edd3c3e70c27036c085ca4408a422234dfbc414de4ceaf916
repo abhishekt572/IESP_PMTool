@@ -1,0 +1,22 @@
+I"Ý
+<h1 id="application-start-page">Application start page</h1>
+
+<p>On the <strong>application start page</strong> (home page) you will get an overview about important information.</p>
+
+<p><strong>To get to the application start page, click on the logo in the header of the application.</strong></p>
+
+<p><img src="User-guide-application-start-page.png" alt="User-guide-application-start-page" /></p>
+
+<ol>
+  <li><strong>Welcome text block</strong> to welcome your team members, share important project information, or any other information. You can configure the <a href="../../system-admin-guide/system-settings/general-settings/#welcome-block-text">welcome text</a> block under -&gt; <em>Administration</em> -&gt; <em>System settings</em> -&gt; <em>General</em>.</li>
+  <li>The <strong>projects block</strong> displays your latest project. You can <a href="../../getting-started/#create-project">create a new project</a> or <a href="../../getting-started/projects/#view-all-projects">view all projects</a>.</li>
+  <li>The <strong>new features block</strong> displays feature announcements and developments of the latest releases of OpenProject.</li>
+  <li>The <strong>Users block</strong> displays latest registered users on the instance. You can <a href="../../getting-started/invite-members/">invite new users</a> with the green <strong>+ Invite users</strong> button.</li>
+  <li>The <strong>My Account block</strong> links to important account settings, such as the <a href="../../getting-started/my-account/#edit-your-user-information">user profile</a>, the <a href="../../getting-started/my-page/">My page</a>, and the <a href="../../getting-started/sign-in-registration/#reset-your-password">change password</a> section.</li>
+  <li>The <strong>latest news block</strong> displays latest news from all your projects. Click on the link of the news to read the details.</li>
+  <li>The <strong>OpenProject Community block</strong> displays links to important community information, such as release notes, forum, or the API documentation.</li>
+  <li><strong>Administration block</strong> displays links to important system administration resources. Also, the <a href="../../system-admin-guide/system-settings/general-settings/">application security badge</a> will be displayed when activated.</li>
+  <li>The <strong>Billing block</strong> will be displayed for the <a href="../../cloud-edition-guide">OpenProject Cloud Edition</a>. The <strong>Enterprise Edition</strong> block will be displayed for the <a href="../../enterprise-edition-guide">OpenProject Enterprise Edition</a>). You will get links to the respective section.</li>
+  <li>At the bottom of the page, you will get links to <strong>user guides, glossary, system shortcuts, and the community forum</strong>.</li>
+</ol>
+:ET

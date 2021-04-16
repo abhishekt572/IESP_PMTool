@@ -1,0 +1,94 @@
+<h1 id="openproject-710">OpenProject 7.1.0</h1>
+
+<p>OpenProject 7.1.0 improves timeline queries, provides additional
+customization options and improves the design. There are also several
+bug fixes included.</p>
+
+<h2 id="features-4">Features (4)</h2>
+
+<ul>
+  <li>The style of the sidebar has been updated
+(<a href="https://community.openproject.com/projects/openproject/work_packages/25556/activity">#25556</a>).</li>
+  <li>The timeline zoom factor is now saved in queries: When you open a
+saved timeline query the same zoom level as before is shown
+(<a href="https://community.openproject.com/projects/openproject/work_packages/25318/activity">#25318</a>).</li>
+  <li>As a user of the <a href="https://www.openproject.org/hosting/">Cloud
+Edition</a> or <a href="https://www.openproject.org/enterprise-edition/">Enterprise
+Edition</a>, you can
+now upload a custom favicon which is shown in the browser. You can
+also set a touch icon which is shown on smartphones (e.g. when
+setting a
+bookmark)(<a href="https://community.openproject.com/projects/openproject/work_packages/25517/activity">#25517</a>).</li>
+  <li>Users of the Cloud Edition and Enterprise Edition can now also set
+white headers and there are two additional configuration options:
+Setting the hover background color and the hover font color
+(<a href="https://community.openproject.com/projects/openproject/work_packages/25275/activity">#25275</a>).</li>
+</ul>
+
+<h2 id="bug-fixes-20">Bug fixes (20)</h2>
+
+<ul>
+  <li>Deactivated groupings on the work package page were not properly
+saved in queries. This has been fixed.
+(<a href="https://community.openproject.com/projects/openproject/work_packages/25606/activity">#25606</a>)</li>
+  <li>When grouping by assignee while the author is shown as a column, the
+same groups were shown multiple times. This has been resolved.
+(<a href="https://community.openproject.com/projects/openproject/work_packages/25605/activity">#25605</a>)</li>
+  <li>In some cases type-specific attributes were not shown for work
+packages. This has been fixed.
+(<a href="https://community.openproject.com/projects/openproject/work_packages/25594/activity">#25594</a>)</li>
+  <li>Deep links to a repository page redirected back to the root
+repository page. This has been resolved.</li>
+  <li>We fixed an error prevented users from scrolling the work package
+query menu.
+(<a href="https://community.openproject.com/projects/telekom/work_packages/25572/activity">#25572</a>)</li>
+  <li>When filtering for Boolean work package custom fields incorrect
+results were shown. This has been resolved.</li>
+  <li>Bulk deleting work packages which contain time entries caused an
+error. This has been fixed.
+(<a href="https://community.openproject.com/projects/openproject/work_packages/25569/activity">#25569</a>)</li>
+  <li>Long text work package custom fields were not shown in correct size
+in work package fullscreen mode. This has been resolved.</li>
+  <li>Categories with long names caused rows in the work package table to
+span multiple lines. This has been fixed.</li>
+  <li>Exported work package CSV files could not be opened properly if the
+ID was displayed as the first column. This has been resolved.
+(<a href="https://community.openproject.com/projects/openproject/work_packages/25536/activity">#25536</a>)</li>
+  <li>Search results for work package relations showed HTML attributes.
+This has been fixed.
+(<a href="https://community.openproject.com/projects/openproject/work_packages/25534/activity">#25534</a>)</li>
+  <li>We fixed an error that caused work package attributes to sometimes
+not be saved properly when editing in quick succession.</li>
+  <li>There was an error that caused Boolean custom fields to always be
+set to “True” after copying a work package – even when the value was
+set to “False” in the original work package. This has been
+fixed.</li>
+  <li><span class="explanatory-dictionary-highlight" data-definition="explanatory-dictionary-definition-17">Timeline</span>
+relationships between milestones and phases were sometimes not shown
+correctly. This has been addressed.</li>
+  <li>In some cases the hierarchy mode was only applied after clicking the
+respective icon multiple times. This has been resolved.</li>
+  <li>When saving an query that has been added to the side menu, the new
+query was not shown as part of the side menu. We fixed this issue.</li>
+  <li>Several design bugs have been fixed
+(<a href="https://community.openproject.com/projects/openproject/work_packages/25595/activity">#25595</a>,
+<a href="https://community.openproject.com/projects/openproject/work_packages/25371/activity">#25371</a>,
+<a href="https://community.openproject.com/projects/openproject/work_packages/25356/activity">#25356</a>,
+<a href="https://community.openproject.com/projects/openproject/work_packages/25298/activity">#25298</a>).</li>
+</ul>
+
+<h2 id="deprecations">Deprecations</h2>
+
+<ul>
+  <li>The calendar module is now marked deprecated and will be removed as
+part of OpenProject 8.0.0. An appropriate warning has been added to
+the module.</li>
+</ul>
+
+<p>Thanks a lot to the community, in particular to Peter F, Jochen Gehlbach
+and Ole Odendahl for reporting bugs!</p>
+
+<p>For further information on the release, please refer to the <a href="https://community.openproject.com/versions/836">Changelog
+v7.1.0</a> or take a look
+at <a href="https://github.com/opf/openproject/tree/v7.1.0">GitHub</a>.</p>
+

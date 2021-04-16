@@ -1,0 +1,17 @@
+I"�<h1 id="openproject-1061">OpenProject 10.6.1</h1>
+
+<p>We released <a href="https://community.openproject.com/versions/1437">OpenProject 10.6.1</a>.
+The release contains several bug fixes and we recommend updating to the newest version.</p>
+
+<!--more-->
+<h4 id="bug-fixes-and-changes">Bug fixes and changes</h4>
+
+<ul>
+  <li>Fixed: Second page is cut off when exporting to PDF [<a href="https://community.openproject.com/wp/33203">#33203</a>]</li>
+  <li>Fixed: Cannot focus “Log time” by keyboard (accessibility) [<a href="https://community.openproject.com/wp/33380">#33380</a>]</li>
+  <li>Fixed: Inconsistent confirmation modal for deleting a time entry [<a href="https://community.openproject.com/wp/33447">#33447</a>]</li>
+  <li>Fixed: Error “Resource” not found when trying to upload Gif to comment [<a href="https://community.openproject.com/wp/33486">#33486</a>]</li>
+  <li>Fixed: Rename work package permission “Manage subtasks” to “Manage work package hierarchies” [<a href="https://community.openproject.com/wp/33520">#33520</a>]</li>
+  <li>Fixed: Ungrouped cost report issues n requests to cost entries api for n entries displayed [<a href="https://community.openproject.com/wp/33522">#33522</a>]</li>
+</ul>
+:ET

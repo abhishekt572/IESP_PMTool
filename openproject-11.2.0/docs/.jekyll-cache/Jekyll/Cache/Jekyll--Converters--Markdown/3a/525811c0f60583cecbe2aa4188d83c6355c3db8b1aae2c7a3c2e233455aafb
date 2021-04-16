@@ -1,0 +1,31 @@
+I"z<h1 id="openproject-3011">OpenProject 3.0.11</h1>
+
+<p>The release 3.0.11 of OpenProject fixes a couple of security threats
+(<a href="https://community.openproject.org/work_packages/5567" title="[security] fixed back url verification (closed)">#5567</a>
+and
+<a href="https://community.openproject.org/work_packages/14782" title="Disable redirection to a different subdirectory after login (closed)">#14782</a>)
+and raises the Rails version to
+<a href="http://weblog.rubyonrails.org/2014/7/2/Rails_3_2_19_4_0_7_and_4_1_3_have_been_released/">3.2.19</a>.
+So we advise everybody to update their OpenProject installation.</p>
+
+<p>When doing so you also benefit from a couple of usability bugfixes. Most
+notably, the preview functionality now works again throughout the
+application
+(<a href="https://community.openproject.org/work_packages/14775" title="Preview not working for new forum messages (closed)">#14775</a>)
+and if you are using the the <a href="https://github.com/finnlabs/openproject-backlogs">backlogs
+plugin</a> it now shows
+the story points in the work package page
+(<a href="https://community.openproject.org/work_packages/7922" title="Story Points not visible in WP Show (closed)">#7922</a>).</p>
+
+<p>With the integration of the repository-authentication plugin into
+OpenProject
+(<a href="https://community.openproject.org/work_packages/14783" title="Port whole functionality of openproject-repository_authentication into the core (closed)">#14783</a>),
+it is now once again possible to manage authentication and authorisation
+of SVN repositories with OpenProject. The same will be allowed for Git
+repositories with OpenProject 4.0
+(<a href="https://community.openproject.org/work_packages/3708" title="Release OpenProject 4.0 (closed)">#3708</a>).</p>
+
+<p>For a complete list of changes, please refere to the <a href="https://community.openproject.org/versions/423">OpenProject 3.0.11
+query</a>.</p>
+
+:ET

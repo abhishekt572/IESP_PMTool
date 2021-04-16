@@ -1,0 +1,20 @@
+I"‹<h1 id="openproject-408">OpenProject 4.0.8</h1>
+
+<p>OpenProject 4.0.8 has been released which containsÂ a performance bug
+fix.</p>
+
+<p>We advise everyone to update their OpenProject installation.</p>
+
+<p>In OpenProject 4.0.7 some projects reacted very slowly when the project
+contained project members which had a lot of memberships. This error
+occurred especially in OpenProject instances with a large number of
+projects. Since this error significantly reduced the usability, it has
+been fixed in OpenProject 4.0.8.
+(<a href="https://community.openproject.org/work_packages/18889" title="#18889">#18889</a>).</p>
+
+<p>To get an overview of the new version, please refer to the <a href="https://community.openproject.org/versions/615" title="Changelog v.4.0.8">Changelog
+v.4.0.8</a>
+or take a look at
+<a href="https://github.com/opf/openproject/tree/v4.0.8" title="GitHub OpenProject 4.0.8">GitHub</a>.</p>
+
+:ET

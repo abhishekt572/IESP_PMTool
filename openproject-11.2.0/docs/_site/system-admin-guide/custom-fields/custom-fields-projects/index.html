@@ -1,0 +1,52 @@
+<h1 id="manage-and-display-custom-fields-in-the-project-list-premium-feature">Manage and display custom fields in the project list (Premium feature)</h1>
+
+<p>As a user of <a href="https://www.openproject.org/enterprise-edition/">OpenProject Enterprise on-premises</a> or <a href="https://www.openproject.org/hosting/">OpenProject Enterprise cloud</a> you can customize the work package list and show additional project information by adding custom fields to the project list, e.g. adding accountable, project due date, progress, and more.</p>
+
+<h2 id="creating-a-custom-field-for-projects">Creating a custom field for projects</h2>
+
+<p>To create a new custom field for projects, navigate to -&gt; <em>Administration</em> -&gt; <em>Custom fields</em> and select the tab <strong>Project</strong>. 
+Click on the link <strong>Create a new custom field</strong> to create a project custom field.</p>
+
+<p><img src="Sys-admin-create-custom-field-projects.png" alt="Sys-admin-create-custom-field-projects" /></p>
+
+<ol>
+  <li>In the newly opened create form provide a <strong>name</strong> to display in the project list (e.g. Project accountable).</li>
+  <li>Choose a <strong>format</strong> for the custom field, e.g. List.</li>
+  <li><strong>Enter the possible values</strong> which can be selected (for a list). This is not relevant if you choose e.g. text format.</li>
+  <li>Define if the custom field should be <strong>required</strong>.</li>
+  <li>If you check <strong>visible</strong> it will also be visible for all users (non-admins) in the project overview and displayed in the project details widget on the <a href="../../../user-guide/project-overview/">Project Overview</a>.</li>
+  <li>Define if the custom field for projects should be <strong>searchable</strong>.</li>
+  <li>Click <strong>Save</strong> to create the custom field.</li>
+</ol>
+
+<p><img src="Sys-admin-custom-fields-projects.png" alt="Sys-admin-custom-fields-projects" /></p>
+
+<h2 id="populating-a-project-custom-field">Populating a project custom field</h2>
+
+<p>Once you created the custom field you can set a value for it in the <a href="../../../user-guide/projects/project-settings/">project settings</a>.</p>
+
+<p>To do this navigate to a project and select <em>Project settings</em> from the side menu. The project custom field is visible under <em>Information</em>. As a project manager you can populate or edit the project custom field.</p>
+
+<p><img src="Sys-admin-custom-fields-project-settings.png" alt="Sys-admin-custom-fields-project-settings" /></p>
+
+<h2 id="displaying-project-custom-fields">Displaying project custom fields</h2>
+
+<p>If you selected <em>Visible</em> in the custom fields settings, the custom field for projects is also available in the <a href="../../../user-guide/projects/#view-all-projects">View all projects</a> overview.</p>
+
+<p>Navigate to this project list by selecting <em>View all projects</em> from the project selection menu on the top left side.</p>
+
+<p><img src="Sys-admin-view-all-projects-1579704910470.png" alt="Sys-admin-view-all-projects" /></p>
+
+<p>In the list of all projects you will see the project custom fields displayed as a columns in the project list. Therefore, you can easily communicate project information across multiple projects.</p>
+
+<p><img src="Sys-admin-display-project-custom-field.png" alt="Sys-admin-display-project-custom-field" /></p>
+
+<div class="alert alert-info" role="alert">
+**Please note**: The visibility settings of the project custom fields will be overruled by [these settings](../../system-settings/project-system-settings/#settings-for-the-project-overview-list) for the projects overview list.
+</div>
+
+<p>To change the <strong>order of the project custom fields’ columns</strong>, change it in -&gt; <em>Administration</em> -&gt; <em>Custom fields</em> by using the sorting <strong>arrows</strong>.</p>
+
+<p><img src="image-20201007163002544.png" alt="image-20201007163002544" /></p>
+
+<p>Furthermore, the project custom fields will also be displayed in the Project details widget on the <a href="../../../user-guide/project-overview/">project overview page</a>.</p>

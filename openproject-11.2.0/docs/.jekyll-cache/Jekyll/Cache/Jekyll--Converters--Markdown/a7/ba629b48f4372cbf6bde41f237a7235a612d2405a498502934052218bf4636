@@ -1,0 +1,29 @@
+I"I<h1 id="openproject-1112">OpenProject 11.1.2</h1>
+
+<p>We released <a href="https://community.openproject.com/versions/1466">OpenProject 11.1.2</a>.
+The release contains several bug fixes and we recommend updating to the newest version.</p>
+
+<!--more-->
+<h4 id="bug-fixes-and-changes">Bug fixes and changes</h4>
+
+<ul>
+  <li>Fixed: Add table option not displayed properly when at bottom of page [<a href="https://community.openproject.com/wp/31502">#31502</a>]</li>
+  <li>Fixed: .png images keep disappearing from description and from attachments [<a href="https://community.openproject.com/wp/35180">#35180</a>]</li>
+  <li>Fixed: Internal error when setting start / end date in work package [<a href="https://community.openproject.com/wp/35352">#35352</a>]</li>
+  <li>Fixed: Summary view in work package module shows vertical instead of horizontal words [<a href="https://community.openproject.com/wp/35679">#35679</a>]</li>
+  <li>Fixed: Wrong journal entry [<a href="https://community.openproject.com/wp/35682">#35682</a>]</li>
+  <li>Fixed: Relative URL installations with Docker broken [<a href="https://community.openproject.com/wp/35775">#35775</a>]</li>
+  <li>Fixed: Cannot edit markdown content with work package links in certain scenarios [<a href="https://community.openproject.com/wp/35786">#35786</a>]</li>
+  <li>Fixed: 500 on deletion of used document category [<a href="https://community.openproject.com/wp/35827">#35827</a>]</li>
+  <li>Fixed: Uninitialized constant Net::LDAP::LdapError [<a href="https://community.openproject.com/wp/35829">#35829</a>]</li>
+  <li>Fixed: Incoming email: Priority is not overridable by default [<a href="https://community.openproject.com/wp/35949">#35949</a>]</li>
+  <li>Fixed: Conflicting modifications error when uploading images in WP description [<a href="https://community.openproject.com/wp/35957">#35957</a>]</li>
+</ul>
+
+<h4 id="contributions">Contributions</h4>
+<p>A big thanks to community members for reporting bugs and helping us identifying and providing fixes.</p>
+
+<p>Special thanks for reporting and finding bugs go to</p>
+
+<p>Richard Tretzel, Stefan Binder</p>
+:ET

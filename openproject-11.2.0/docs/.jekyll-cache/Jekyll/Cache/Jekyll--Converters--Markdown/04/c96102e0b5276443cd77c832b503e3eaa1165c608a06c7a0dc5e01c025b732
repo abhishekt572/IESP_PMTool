@@ -1,0 +1,15 @@
+I"L<h1 id="openproject5020">OpenProject 5.0.20</h1>
+
+<p>OpenProject 5.0.20 contains a Rail security update. It upgrades Rails to
+4.2.7.1 to address the following
+CVEs:</p>
+
+<p><a href="https://groups.google.com/forum/#!topic/ruby-security-ann/WccgKSKiPZA">CVE-2016-6317</a><br />
+<a href="https://groups.google.com/forum/#!topic/ruby-security-ann/8B2iV2tPRSE">CVE-2016-6316</a></p>
+
+<p>We strongly recommend the update to the current version.</p>
+
+<p>For further information on the release, please take a look at
+<a href="https://github.com/opf/openproject/tree/v5.0.20">GitHub</a>.</p>
+
+:ET

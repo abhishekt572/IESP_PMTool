@@ -1,0 +1,90 @@
+I"õ<h1 id="introduction-to-work-packages">Introduction to Work Packages</h1>
+
+<p>In this document you will get a first introduction to work packages. You will find out how to create and update work packages in a project.</p>
+
+<p>For further documentation, please visit our <a href="../../user-guide/work-packages">user guide for work packages</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Topic</th>
+      <th>Content</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#what-is-a-work-package?">What is a work package?</a></td>
+      <td>Find out what a work package in OpenProject is.</td>
+    </tr>
+    <tr>
+      <td><a href="#create-a-new-work-package">Create a new work package</a></td>
+      <td>How to create a new work package in  a project?</td>
+    </tr>
+    <tr>
+      <td><a href="#open-and-edit-a-work-package">Open and edit a work package</a></td>
+      <td>How to open and make changes to an existing work package?</td>
+    </tr>
+    <tr>
+      <td><a href="#activity-of-work-packages">Activity of work packages</a></td>
+      <td>See all changes in a work package.</td>
+    </tr>
+  </tbody>
+</table>
+
+<video src="https://www.openproject.org/wp-content/uploads/2020/12/OpenProject-Work-Packages.mp4" type="video/mp4" controls="" style="width:100%"></video>
+
+<h2 id="what-is-a-work-package">What is a work package?</h2>
+
+<p>A work package in OpenProject can basically be everything you need to keep track off within your projects. It can be e.g. a task, a feature, a bug, a risk, a milestone or a project phase. These different kinds of work packages are called <strong>work package types</strong>.</p>
+
+<h2 id="create-a-new-work-package">Create a new work package</h2>
+
+<p>To get started, create a new work package in your project, <a href="#open-an-existing-project">open the project</a> with the project drop-down menu, navigate to the <strong>module work packages</strong> in the project menu.</p>
+
+<p>Within the work packages module, click the green + Create button to create a new work package. In the drop down menu, choose which type of work package you want to create, e.g. a task or a milestone.</p>
+
+<p><img src="create-work-package-1569611257373.png" alt="create-work-package" /></p>
+
+<p>A split screen view is opened with the new work package form on the right and the list of already existing work packages on the left.</p>
+
+<p>If there are not yet any work packages in the project, you will see a message that there are no work packages to be displayed in the list.</p>
+
+<p>In the empty form on the right, you can enter all relevant information for this work package, e.g. the subject and a description, set an assignee, a due date or any other field. The fields you can populate are called <strong>work package attributes</strong>. Also, you can add attachments with copy &amp; paste or with drag and drop.</p>
+
+<p>Click the green <strong>Save</strong> button to create the work package.</p>
+
+<p><img src="split-screen-work-packages.png" alt="split-screen-work-packages" /></p>
+
+<p>The work package will the be displayed in the list view:</p>
+
+<p><img src="1569611758166.png" alt="list-view-work-package" /></p>
+
+<h2 id="open-and-edit-a-work-package">Open and edit a work package</h2>
+
+<p>To open and edit an existing work package from the list, select the work package in the list which you want to edit and click on the <strong>open details view</strong> icon in the work package list or on top of the list to open the split screen view. Other ways to open it would be to double-click on the work package or to click on the work package ID.</p>
+
+<p><img src="open-details-view-work-packages.png" alt="open-details-view-work-packages" /></p>
+
+<p>By clicking through the list on the left hand side you will see the details of each work package on the right in the split screen.</p>
+
+<p>Click in any of the fields to <strong>update a work package</strong>, e.g. description. Click the checkmark at the bottom of the input field to save changes.</p>
+
+<p><img src="1569612205009.png" alt="edit-work-package" /></p>
+
+<p>To <strong>update the status</strong>, click on the highlighted displayed status on top of the form and select the new status from the drop-down.</p>
+
+<p><img src="1569612428626.png" alt="update-status" /></p>
+
+<h2 id="activity-of-work-packages">Activity of work packages</h2>
+
+<p>To keep informed about all changes to a work package, open the <strong>ACTIVITY</strong> tab in the details view.</p>
+
+<p>Here you will see all changes which have been made to this work package.</p>
+
+<p>You can also insert a comment at the end of the Activity list.</p>
+
+<p><img src="activity-work-packages.png" alt="activity-work-packages" /></p>
+
+<p>To find out more about the work package functionalities, please visit our detailed <a href="../../user-guide/work-packages">user guide for work packages</a>.</p>
+
+:ET

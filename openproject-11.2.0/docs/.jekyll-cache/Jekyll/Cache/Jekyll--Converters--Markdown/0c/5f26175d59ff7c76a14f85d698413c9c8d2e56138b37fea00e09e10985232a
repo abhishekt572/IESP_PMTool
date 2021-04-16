@@ -1,0 +1,60 @@
+I"»<h1 id="openproject-90">OpenProject 9.0</h1>
+
+<p>OpenProject 9.0 introduces a board view to support agile project management with Kanban. In addition, you can define work package templates to rapidly create new work packages with a pre-defined structure. Each user can now add their own custom work package views to their my page.</p>
+
+<p>Read below to get a detailed overview of what is new in OpenProject 9.</p>
+
+<p><img src="release-teaser.jpg" alt="OpenProject 9" /></p>
+
+<h2 id="board-view-enterprise--cloud-edition">Board view (Enterprise / Cloud Edition)</h2>
+
+<p>The board view is a new module for OpenProject and allows Scrum and Kanban-style agile project mangement. You can display display a board view with the different statuses shown as columns (similarly to a Kanban board) and quickly update the status. Alternatively, you can define a basic board with custom names or display versions as columns (e.g. to plan your roadmap).</p>
+
+<p>Since boards display work packages - just like the work packages list - you can easily combine traditional and agile project management. Simply schedule your tasks in the Gantt chart and work on them from the boards view.</p>
+
+<p>To use boards you need to use either the Cloud Edition or the Enterprise Edition. If you currently use the Community Edition and would like to give boards a try, simply <a href="">request an Enterprise Edition trial license</a>.</p>
+
+<p><a href="">Learn more about Boards for Scrum and Agile Project Management.</a></p>
+
+<h2 id="work-package-templates">Work package templates</h2>
+
+<p>You can define templates for work package types. Templates are automatically displayed in the work package description when you create a new type (e.g. a bug) for which a template is defined. This makes it easier to quickly create new work packages with similar information while reducing errors.</p>
+
+<p>Templates can be configured in the work package type configuration.</p>
+
+<p><img src="template.png" alt="img" /></p>
+
+<h2 id="work-package-widget-on-my-page">Work package widget on My Page</h2>
+
+<p>On the My Page, each user can add work package widgets and customize which work packages to display.</p>
+
+<p>You can filter and group by work package attributes and also display Gantt charts in the widgets.</p>
+
+<h2 id="updated-work-package-list">Updated work package list</h2>
+
+<p>Assignees are now directly displayed as avatars in the work package page. Additionally, the work package type selection has been updated.</p>
+
+<p><img src="improved-design.png" alt="Improved design" /></p>
+
+<h2 id="improved-usability">Improved usability</h2>
+
+<p>OpenProject is even more user-friendly: You can add attachments (e.g. images) directly to meetings (agenda / minutes).</p>
+
+<p>Creating work packages on the global work package list is now easier as well: When you select a type, only the projects in which the types are ativated can be selected in the project menu.</p>
+
+<p>Filters and work package attributes are improved and support auto-completion.</p>
+
+<p>For an overview of all new improvements, take a look at the <a href="https://community.openproject.com/projects/openproject/work_packages?query_props={&quot;c&quot;%3A[&quot;id&quot;%2C&quot;subject&quot;%2C&quot;type&quot;%2C&quot;status&quot;%2C&quot;assignee&quot;%2C&quot;version&quot;]%2C&quot;hi&quot;%3Atrue%2C&quot;g&quot;%3A&quot;&quot;%2C&quot;t&quot;%3A&quot;id%3Aasc&quot;%2C&quot;f&quot;%3A[{&quot;n&quot;%3A&quot;status&quot;%2C&quot;o&quot;%3A&quot;!&quot;%2C&quot;v&quot;%3A[&quot;6&quot;]}%2C{&quot;n&quot;%3A&quot;version&quot;%2C&quot;o&quot;%3A&quot;%3D&quot;%2C&quot;v&quot;%3A[&quot;853&quot;]}%2C{&quot;n&quot;%3A&quot;subprojectId&quot;%2C&quot;o&quot;%3A&quot;*&quot;%2C&quot;v&quot;%3A[]}%2C{&quot;n&quot;%3A&quot;type&quot;%2C&quot;o&quot;%3A&quot;%3D&quot;%2C&quot;v&quot;%3A[&quot;6&quot;%2C&quot;8&quot;]}]%2C&quot;pa&quot;%3A1%2C&quot;pp&quot;%3A100}">feature list</a>.</p>
+
+<h2 id="substantial-number-of-bug-fixes">Substantial number of bug fixes</h2>
+
+<p>OpenProject 9.0 contains a large number of bugs fixes.</p>
+
+<p>For an extensive overview of bug fixes please refer to the <a href="https://community.openproject.com/projects/openproject/work_packages?query_props={&quot;c&quot;%3A[&quot;id&quot;%2C&quot;subject&quot;%2C&quot;type&quot;%2C&quot;status&quot;%2C&quot;assignee&quot;]%2C&quot;hi&quot;%3Afalse%2C&quot;g&quot;%3A&quot;&quot;%2C&quot;t&quot;%3A&quot;id%3Adesc&quot;%2C&quot;f&quot;%3A[{&quot;n&quot;%3A&quot;version&quot;%2C&quot;o&quot;%3A&quot;%3D&quot;%2C&quot;v&quot;%3A[&quot;853&quot;]}%2C{&quot;n&quot;%3A&quot;type&quot;%2C&quot;o&quot;%3A&quot;%3D&quot;%2C&quot;v&quot;%3A[&quot;1&quot;]}%2C{&quot;n&quot;%3A&quot;subprojectId&quot;%2C&quot;o&quot;%3A&quot;*&quot;%2C&quot;v&quot;%3A[]}]%2C&quot;pa&quot;%3A1%2C&quot;pp&quot;%3A20}">following list</a>.</p>
+
+<h2 id="upgrading-your-installation-to-openproject-90">Upgrading your installation to OpenProject 9.0.</h2>
+
+<p>If youâ€™re using the OpenProject Cloud Edition, you are already running on the latest version of OpenProject 9.0. For your local installations, there are some minor changes you need to do in order to perform the upgrade.</p>
+
+<p><a href="../../installation-and-operations/operation/upgrading">Please visit our upgrade guides for more information</a>.</p>
+:ET

@@ -1,0 +1,174 @@
+I"ž<link rel="stylesheet" href="/style.css" />
+
+<h1 id="forums">Forums</h1>
+
+<p>In the forum in IESP PM TOOL you can discuss topics in a project with the team: post questions, comment on it and document answers.</p>
+
+<div class="glossary"> **Forum** is defined as a module used to display forums and forum entries. The module has to be activated in the project settings and a forum has to be created in the forums tab in the project settings to be displayed in the side navigation.
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Topic</th>
+      <th>Content</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#open-a-forum">Open a forum</a></td>
+      <td>How to open an existing forum?</td>
+    </tr>
+    <tr>
+      <td><a href="#create-a-new-message-in-a-forum">Create a new message</a></td>
+      <td>How to create a new message in a forum?</td>
+    </tr>
+    <tr>
+      <td><a href="#reply-to-a-forum-message">Reply to a message</a></td>
+      <td>How to add a reply to an existing forum message?</td>
+    </tr>
+    <tr>
+      <td><a href="#watch-a-frum">Watch a forum</a></td>
+      <td>How to keep informed about changes in a forum, e.g. new messages or replies?</td>
+    </tr>
+    <tr>
+      <td><a href="#edit-a-forum-message">Edit a forum message</a></td>
+      <td>How to edit a message in a forum?</td>
+    </tr>
+    <tr>
+      <td><a href="#delete-a-forum-message">Delete a forum message</a></td>
+      <td>How to delete a message within a forum?</td>
+    </tr>
+    <tr>
+      <td><a href="#create-a-new-forum">Create a new forum</a></td>
+      <td>How to create a new forum?</td>
+    </tr>
+    <tr>
+      <td><a href="#manage-forums">Manage forums</a></td>
+      <td>How to sort, edit or delete a forum?</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="open-a-forum">Open a forum</h2>
+
+<p>To work in the forum in IESP PM TOOL, select the menu item <strong>Forums</strong> in the project navigation.</p>
+
+<p><img src="image-20191119100717879.png" alt="Forums" /></p>
+
+<p>You will get a list of all existing forums within a project as well as a short description for it, the number of topics, messages as well as the last message within one forum.</p>
+
+<p>Click on the Forum title to open an existing forum.</p>
+
+<h2 id="create-a-new-message-in-a-forum">Create a new message in a forum</h2>
+
+<p>To <strong>add a new message</strong> within an existing forum, click the green <strong>+ Message</strong> button on the top right of the selected forum.</p>
+
+<p><img src="Forum_add-message.png" alt="Forum_add-message" /></p>
+
+<p>Enter the <strong>subject of the message</strong>.</p>
+
+<p>You can choose whether the message should be <strong>Sticky</strong>. A sticky message always appears on top of the selected forum.</p>
+
+<p>Select if a message should be <strong>Locked</strong>. Then it can no longer be edited or commented by the project team.</p>
+
+<p>Enter a description which will then appears next to the message title in the forum. You can add a file if needed.</p>
+
+<p>Click the blue <strong>Create</strong> button to create the new message for this forum.</p>
+
+<p><img src="image-20191119102209845.png" alt="Forum new message details" /></p>
+
+<p>The <strong>new forum message has been created</strong>.</p>
+
+<p><img src="image-20191119103331490.png" alt="new forum message" /></p>
+
+<h2 id="reply-to-a-forum-message">Reply to a forum message</h2>
+
+<p>To add a <strong>reply to an existing message</strong> in a forum, click on the Subject in order to open the message.</p>
+
+<p>Click the blue <strong>Reply</strong> button underneath the forum message.</p>
+
+<p><img src="Forum-message-reply.png" alt="Forum-message-reply" />Enter your <strong>Message content</strong> what you want to add as a reply to the existing message.</p>
+
+<p>You can choose to also <strong>add a file</strong> if needed.</p>
+
+<p>Click the blue <strong>Submit</strong> button in order to save your reply message.</p>
+
+<p><img src="image-20191119105329892.png" alt="Reply to a forum message" /></p>
+
+<p>The reply has been added under the existing forum message.</p>
+
+<p><img src="image-20191119105630149.png" alt="reply to existing forum message" /></p>
+
+<h2 id="watch-a-forum">Watch a forum</h2>
+
+<p>To keep informed about changes in a forum, e.g. new messages or new replies, you can add yourself as a <strong>Watcher</strong> of a forum.</p>
+
+<p><a href="#open-a-forum">Open an existing forum</a> from the list.</p>
+
+<p>You will get a list of all messages within this forum.</p>
+
+<p>Click the <strong>Watch</strong> icon in the top right corner of the forum.</p>
+
+<p>You will then be notified via e-mail according to your <a href="/getting-started/my-account/#email-notifications">e-mail notifications</a> about new massages and replies in a forum.</p>
+
+<p><img src="Forum-watcher.png" alt="Forum-watcher" /></p>
+
+<p>The icon will then change to Unwatch.</p>
+
+<h3 id="watch-a-message">Watch a message</h3>
+
+<p>If you watch a forum you will automatically watch all messages within this forum. Alternatively, you can also <strong>watch only certain messages</strong> within a forum where you want to be informed about changes.</p>
+
+<p>This way, you select the message first by clicking on the subject, and then click the Watch button on the top right corner in the message details.</p>
+
+<p><img src="Forum_watch-message.png" alt="Forum_watch-message" /></p>
+
+<h2 id="unwatch-a-forum">Unwatch a forum</h2>
+
+<p>To unwatch a forum in order to not be informed via e-mail about new messages and replies in a forum, click the <strong>Unwatch button</strong> on the top right of the forum.</p>
+
+<p><img src="Forum-unwatch.png" alt="Forum-unwatch" /></p>
+
+<h3 id="unwatch-a-message">Unwatch a message</h3>
+
+<p>The same applies to <strong>unwatch a message</strong>. Just select the message first which you do not want to watch any longerand click the <strong>Unwatch</strong> button.</p>
+
+<h2 id="edit-a-forum-message">Edit a forum message</h2>
+
+<p>To <strong>edit a message in a forum</strong> select the message from the forum and in the message details click the <strong>Edit</strong> button in the top right corner of the message.</p>
+
+<p><img src="Forum_edit-message.png" alt="Forum_edit-message" /></p>
+
+<p>The message details will then be opened. You can make your changes  and click the <strong>blue Save button</strong>.</p>
+
+<p><img src="image-20191119113940355.png" alt="Edit a message" /></p>
+
+<h2 id="delete-a-forum-message">Delete a forum message</h2>
+
+<p>To <strong>delete a message in a forum</strong>, select the message which you want to delete and press the <strong>Delete</strong> button in the top right corner of the message details.</p>
+
+<p><img src="Forum_delete-message.png" alt="Forum_delete-message" /></p>
+
+<h2 id="create-a-new-forum">Create a new forum</h2>
+
+<p>To create a new forum in your project, navigate to -&gt; <em>Forums</em> and click the green <strong>+ Forum</strong> button.</p>
+
+<p><img src="User-guide-create-new-forum.png" alt="User-guide-create-new-forum" /></p>
+
+<p>Enter a name and description for the new forum. Press the blue <strong>Create</strong> button so save the new forum.</p>
+
+<p><img src="image-20200213093639380.png" alt="create new forum" /></p>
+
+<h2 id="manage-forums">Manage forums</h2>
+
+<p>If you want to change the order of the forums in your project, want to edit a forum, or delete a form, go to the -&gt; <em>Forums</em> overview list in your project.</p>
+
+<ol>
+  <li>Click the <strong>arrows (up or down) to change the order</strong> of the forums and sort them differently in the forum list in your project.</li>
+  <li>Click the <strong>edit icon to change the name or description</strong> of your form.</li>
+  <li>Click the delete icon to <strong>delete a forum</strong> from your project.</li>
+</ol>
+
+<p><img src="User-guide-manage-forums.png" alt="User-guide-manage-forums" /></p>
+:ET

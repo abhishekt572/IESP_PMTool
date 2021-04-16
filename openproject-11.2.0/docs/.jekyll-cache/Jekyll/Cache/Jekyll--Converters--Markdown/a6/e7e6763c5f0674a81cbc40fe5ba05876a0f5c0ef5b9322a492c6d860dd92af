@@ -1,0 +1,32 @@
+I"Þ<link rel="stylesheet" href="/style.css" />
+
+<h1 id="documents">Documents</h1>
+
+<p>This module allows uploading documents directly to the project under project menu item <em>Documents</em> and categorizing documents.</p>
+
+<h2 id="add-a-new-document-to-the-project">Add a new document to the project</h2>
+
+<p>To upload a document select Documents from the project menu and click <em>New Document</em>. You can select the document category from the ones that you have  created under project administration settings. See in the Admin Guide  how to create a new document category.</p>
+
+<p>Name the document and add a short description. After you have uploaded the file, do not forget to click Save.</p>
+
+<p><img src="image-20200130110857682.png" alt="documents" /></p>
+
+<p>The uploaded documents are visible to all project members who have the necessary permission.</p>
+
+<div class="alert alert-info" role="alert">
+**Note**: There is no versioning of documents. It is simply and upload of documents to the respective project.
+</div>
+
+<h2 id="edit-or-delete-a-project-document">Edit or delete a project document</h2>
+
+<p>You can edit or delete documents anytime. To do that, navigate to the Documents overview and select the document you want to edit. By  selecting <em>Edit</em> or <em>Delete</em> respectively you can either  adjust the document file and related information or remove the file  permanently. You can add the file again at a later point.</p>
+
+<p><img src="image-20200130111121885.png" alt="edit or delete document" /></p>
+
+<h2 id="frequently-asked-questions-faq">Frequently asked questions (FAQ)</h2>
+
+<h3 id="is-there-a-size-limit-for-uploading-documents-to-the-iesp-pm-tool-cloud-edition">Is there a size limit for uploading documents to the IESP PM TOOL Cloud Edition?</h3>
+
+<p>There is no limit in IESP PM TOOL in terms of the number of files that you can upload and work with in IESP PM TOOL. There is only a restriction in terms of the maximum file size: A file can have a size up to 256 MB.</p>
+:ET

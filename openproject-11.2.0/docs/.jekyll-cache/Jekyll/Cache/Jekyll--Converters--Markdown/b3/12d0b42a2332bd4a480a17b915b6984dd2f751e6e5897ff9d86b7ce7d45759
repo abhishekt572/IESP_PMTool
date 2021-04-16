@@ -1,0 +1,102 @@
+I"&<h1 id="system-administration-guide">System Administration guide</h1>
+
+<p>Welcome to the OpenProject <strong>System Administration guide</strong>.</p>
+
+<p>In order to make changes to settings affecting your entire OpenProject environment, you need to navigate to the OpenProject administration.</p>
+
+<p>If you are an administrator on your OpenProject environment,  you can access the administration by clicking on your user Avatar in the upper right corner and selecting -&gt;<em>Administration</em> from the dropdown menu.</p>
+
+<p>Click on one of the categories in order to proceed with the configuration.</p>
+
+<p><img src="image-20201006154046435.png" alt="image-20201006154046435" /></p>
+
+<h2 id="overview">Overview</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Topic</th>
+      <th style="text-align: left">Content</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="./users-permissions">Users and permissions</a></td>
+      <td style="text-align: left">How to manage users, groups and permissions in OpenProject?</td>
+    </tr>
+    <tr>
+      <td><a href="./manage-work-packages">Work packages</a></td>
+      <td style="text-align: left">How to configure work packages, types, status and workflows?</td>
+    </tr>
+    <tr>
+      <td><a href="./custom-fields">Custom fields</a></td>
+      <td style="text-align: left">Set custom fields for work packages, Spent time, projects, versions, users, groups and more.</td>
+    </tr>
+    <tr>
+      <td><a href="./attribute-help-texts">Attribute help texts</a></td>
+      <td style="text-align: left">Add help texts to explain attributes (including custom fields) in projects and work packages.</td>
+    </tr>
+    <tr>
+      <td><a href="./enumerations">Enumerations</a></td>
+      <td style="text-align: left">Set enumerations, e.g. work package priorities, time tracking activities, document categories, and more.</td>
+    </tr>
+    <tr>
+      <td><a href="./system-settings">System settings</a></td>
+      <td style="text-align: left">Configure your system settings, e.g. a welcome text block on the landing page, display settings, repositories, and more.</td>
+    </tr>
+    <tr>
+      <td><a href="./email">Email</a></td>
+      <td style="text-align: left">Configure email settings in OpenProject. How to configure email notifications and your email provider? How to set up incoming email?</td>
+    </tr>
+    <tr>
+      <td><a href="./authentication">Authentication</a></td>
+      <td style="text-align: left">Configure authentication methods in OpenProject, e.g. OAuth, OpenID, Two-factor-authentication, LDAP, and more.</td>
+    </tr>
+    <tr>
+      <td><a href="./announcement">Announcement</a></td>
+      <td style="text-align: left">How to create a system announcement?</td>
+    </tr>
+    <tr>
+      <td><a href="./design">Design</a></td>
+      <td style="text-align: left">Create your own design and make it compliant to your company’s Corporate Identity, upload logo and customize colors.</td>
+    </tr>
+    <tr>
+      <td><a href="./colors">Colors</a></td>
+      <td style="text-align: left">Configure colors used in the system, e.g. status colors, work package types, priorities and more.</td>
+    </tr>
+    <tr>
+      <td><a href="./time-and-costs">Time and costs</a></td>
+      <td style="text-align: left">Configure your currency and create cost types in OpenProject.</td>
+    </tr>
+    <tr>
+      <td><a href="./backlogs">Backlogs</a></td>
+      <td style="text-align: left">Configure your backlogs settings in OpenProject, e.g. story types to be displayed in the backlogs, task types, and more.</td>
+    </tr>
+    <tr>
+      <td><a href="./plugins">Plugins</a></td>
+      <td style="text-align: left">Manage plugins in OpenProject.</td>
+    </tr>
+    <tr>
+      <td><a href="./webhooks">Webhooks</a></td>
+      <td style="text-align: left">Add and manage webhooks in OpenProject.</td>
+    </tr>
+    <tr>
+      <td><a href="information">Information</a></td>
+      <td style="text-align: left">View the latest system information status.</td>
+    </tr>
+    <tr>
+      <td><a href="github-integration">GitHub Integration</a></td>
+      <td style="text-align: left">How to combine GitHub and OpenProject.</td>
+    </tr>
+    <tr>
+      <td><a href="../enterprise-edition-guide/">Enterprise on-premises</a></td>
+      <td style="text-align: left">Upgrading your Community Edition to Enterprise on-premises and other administrative topics.</td>
+    </tr>
+    <tr>
+      <td><a href="../cloud-edition-guide/">Enterprise cloud</a></td>
+      <td style="text-align: left">Manage your OpenProject Enterprise cloud and other administrative topics.</td>
+    </tr>
+  </tbody>
+</table>
+
+:ET

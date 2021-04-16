@@ -1,0 +1,24 @@
+<h1 id="openproject-304">OpenProject 3.0.4</h1>
+
+<p>The most important changes in OpenProject 3.0.4 are the fix to the
+<code class="language-plaintext highlighter-rouge">reposman</code> (see
+<a href="https://github.com/opf/openproject/blob/dev/extra/svn/reposman.rb#L103"><code class="language-plaintext highlighter-rouge">extra/svn/reposman.rb</code></a>)
+script and fixes for making OpenProject subfolder installations less of
+a hassle.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">reposman</code> script was setting the wrong file (system) permissions
+for private repositories, which resulted in public and private
+repositories to always have the same file (system) permissions defined.</p>
+
+<p>We also incorporated some changes to make subfolder installations easier
+and to behave more like you would expect it to work. From now on it is
+possible to just edit the configuration (see
+<a href="https://github.com/opf/openproject/blob/dev/config/configuration.yml.example#L122"><code class="language-plaintext highlighter-rouge">config/configuration.yml</code></a>)
+and set the <code class="language-plaintext highlighter-rouge">rails_relative_url_root</code> parameter to a proper value and
+the installation should work. There is no need to change the<code class="language-plaintext highlighter-rouge">config.ru</code>
+file or other configurations anymore. Regardless of whether you are
+using passenger or any other application server.</p>
+
+<p>For a full list of fixes we made please see the <a href="https://community.openproject.com/versions/316">changelog
+v 3.0.4</a></p>
+

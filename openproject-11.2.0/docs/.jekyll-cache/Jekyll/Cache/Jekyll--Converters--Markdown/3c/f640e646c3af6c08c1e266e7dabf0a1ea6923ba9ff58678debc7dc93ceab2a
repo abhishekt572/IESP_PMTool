@@ -1,0 +1,89 @@
+I"6 <h1 id="development-at-github">Development at GitHub</h1>
+
+<p>This guide will introduce you to how we at OpenProject develop OpenProject with Git, and how to contribute code. For other ways on how to contribute to OpenProject, <a href="../#contributor-code-of-conduct">please see the contribution guide</a>.</p>
+
+<p>The OpenProject core is developed fully at our GitHub repository at https://github.com/opf/openproject. In the course of this guide, we assume that you are familiar with Git. If you need a refresher on certain topics, we recommend the <a href="https://git-scm.com/book/en/v2">free Pro Git online book</a> as a resource for all topics on Git.</p>
+
+<h1 id="branching-model">Branching model</h1>
+
+<p>OpenProject works with a git branching model similar to Git Flow to organize development and stable branches. The important branches are:</p>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">dev</code></strong>:  Contains the current development version of OpenProject. Almost all development is made against this branch, with the exception of <a href="#bugs-and-hotfixes">bugfixes and minor changes</a></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">release/X.Y</code></strong>:  Multiple of these branches may exist, they are maintenance branches or maintained or stale older releases of OpenProject. These branches will include bugfixes and changes for the next patch release of OpenProject.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">stable/X</code></strong>:  Multiple of these branches exist containing the latest stable <code class="language-plaintext highlighter-rouge">X.y.z</code> release of OpenProject. These branches are used for building docker images and packages from and are usually never pushed to directly except during an automated release process.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">feature/X</code></strong>: These are temporary branches used by developers to develop features or other changes that are targeting the dev branch. They are opened as a pull request for reviewing and testing. When they are ready to merge, they will be merged into the <code class="language-plaintext highlighter-rouge">dev</code> branch.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">(bug)fix/X</code></strong>: These are temporary branches used by developers to provide bug fixes and regression tests. They can be created against <code class="language-plaintext highlighter-rouge">dev</code> on a new major or minor release during stabilization, but most often, you will want to create a bugfix against a current production release. In this case, open the pull request against the most recent <code class="language-plaintext highlighter-rouge">release/X.Y</code> branch so that the bugfix will be available in the immediate next patch release. Ensure that the version of the corresponding OpenProject bug ticket matches the release branch version.</li>
+</ul>
+
+<p>The following is an overview of the processes that happen during the release of a new major release and the bug fixing phase afterwards leading to patch releases being made.</p>
+
+<p><img src="branching-diagram.png" alt="Overview of the branches" /></p>
+
+<h1 id="contribution-flow">Contribution flow</h1>
+
+<p>The basic overview of how to contribute code to OpenProject is as follows.</p>
+
+<ol>
+  <li><a href="#fork-openproject">Fork the OpenProject repository</a> and create a local development branch</li>
+  <li>Develop your change. Please see the sections on <a href="../concepts/">development concepts</a> for further information on development topics.</li>
+  <li><a href="#create-a-pull-request">Create a pull request</a> on our repository.  Please see and review <a href="../code-review-guidelines">code style and review</a> for guidelines on how to submit a pull request and requirements for getting your changes merged.</li>
+  <li>We will evaluate your pull review and changes.</li>
+</ol>
+
+<h2 id="fork-openproject">Fork OpenProject</h2>
+
+<p>For contributing source code, please follow the git workflow below:</p>
+
+<ul>
+  <li>Use GitHub UI to fork the <a href="https://github.com/opf/openproject">OpenProject repository</a> https://github.com/opf/openproject.</li>
+  <li>Clone your fork to your development machine:</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone git@github.com/&lt;username&gt;/openproject
+</code></pre></div></div>
+
+<p>Make sure you’re on the right branch. The main development branch is <code class="language-plaintext highlighter-rouge">dev</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout dev
+</code></pre></div></div>
+
+<p>Add the original OpenProject repository as a remote, so you can fetch changes:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote add upstream git@github.com:opf/openproject
+</code></pre></div></div>
+
+<p>Update your local git branch to the core branch</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git pull upstream/dev
+</code></pre></div></div>
+
+<p>Create a feature branch:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout -b feature/&lt;short description of your feature&gt;
+</code></pre></div></div>
+
+<p>Make your changes, then push the branch into your <strong>own</strong> repository:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push origin &lt;your feature branch&gt;
+</code></pre></div></div>
+
+<h2 id="create-a-pull-request">Create a Pull Request</h2>
+
+<p>Create a pull request against a branch of of the &lt;opf/openproject&gt; repository, containing a <strong>clear description</strong> of what the pull request attempts to change and/or fix.</p>
+
+<p>If your pull request <strong>does not contain a description</strong> for what it does and what it’s intentions are, we will reject it. If you are working on a specific work package from the <a href="https://community.openproject.com/projects/openproject/work_packages">list</a>, please include a link to that work package in the description, so we can track your work.</p>
+
+<p>The core contributor team will then review your pull request according to our <a href="https://www.openproject.org/open-source/development-free-project-management-software/code-review-guideliness/">code review guideline</a>. Please note that you can add commits after the pull request has been created by pushing to the branch in your fork.</p>
+
+<h3 id="features">Features</h3>
+
+<p>New features are always added to the current <code class="language-plaintext highlighter-rouge">dev</code> branch, which is the development version of the next major or minor OpenProject version.</p>
+
+<h3 id="bugs-and-hotfixes">Bugs and hotfixes</h3>
+
+<p>Bugfixes for one of the actively supported versions of OpenProject should be issued against the respective branch. For that, we maintain at least one <code class="language-plaintext highlighter-rouge">release/X.Y</code> branch for OpenProject releases X.Y.Z. For example, the OpenProject release branch for 11.0 would be <code class="language-plaintext highlighter-rouge">release/11.0</code> and contains all releases between <code class="language-plaintext highlighter-rouge">11.0.0</code> until <code class="language-plaintext highlighter-rouge">11.0.X</code> .</p>
+
+<p>A fix for the current version (called “Hotfix” and the branch ideally being named <code class="language-plaintext highlighter-rouge">fix/XYZ</code>) should target <code class="language-plaintext highlighter-rouge">release/*</code> and a fix for the former version (called “Backport” and the branch ideally being named <code class="language-plaintext highlighter-rouge">backport/XYZ</code>) should target <code class="language-plaintext highlighter-rouge">backport/*</code>. We will try to merge hotfixes into dev branch but if that is no trivial task, we might ask you to create another PR for that.</p>
+
+:ET

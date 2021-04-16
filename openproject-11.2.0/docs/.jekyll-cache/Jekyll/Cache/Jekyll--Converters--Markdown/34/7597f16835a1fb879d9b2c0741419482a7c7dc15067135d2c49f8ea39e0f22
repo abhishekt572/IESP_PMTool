@@ -1,0 +1,46 @@
+I"<h1 id="email-settings">Email settings</h1>
+
+<p>Configure <strong>email settings</strong> in OpenProject, i.e. Email notifications and incoming email configuration.</p>
+
+<p>Navigate to -&gt; <em>Administration</em> -&gt; <em>Emails</em>.</p>
+
+<h1 id="email-notifications-settings">Email notifications settings</h1>
+
+<p>To adapt email notification settings, go to Email and choose <em>Email notifications</em>.</p>
+
+<ol>
+  <li><strong>Emission email address</strong>. This email Address will be shown as the sender for the email notifications sent by OpenProject (for example,  when a work package is changed).</li>
+  <li>Activate <strong>blind carbon copy recipients</strong> (bcc).</li>
+  <li>Define if the email should be formatted in <strong>plain text</strong> (no HTML).</li>
+  <li>Select the default notification options. The default notification can be adapted in the <a href="../../../getting-started/my-account/#email-notifications">user profile</a>.</li>
+  <li>Select for which <strong>actions email notification should be sent</strong>. You have the possibility to check all or uncheck all at the top right.</li>
+</ol>
+
+<p><img src="System-admin-guide-emails.png" alt="System-admin-guide-emails" /></p>
+
+<h2 id="configure-email-header-and-email-footer">Configure email header and email footer</h2>
+
+<p>Configure your notification email header and footer which will be sent out for email notifications from the system.</p>
+
+<ol>
+  <li><strong>Formulate header and/or footer</strong> for the email notifications. These are used for all the email notifications from OpenProject (e.g. when  creating a work package).</li>
+  <li><strong>Choose a language</strong> for which the email header and footer will apply.</li>
+  <li><strong>Send a test email</strong>.</li>
+  <li>Do not forget to <strong>save</strong> your changes.<img src="Sys-admin-email-notifications-email-header-footer.png" alt="Sys-admin-email-notifications-email-header-footer" /></li>
+</ol>
+
+<h2 id="incoming-emails-settings">Incoming emails settings</h2>
+
+<p>To adapt incoming email settings, go to <em>Email</em> -&gt; <em>Incoming Email</em>. Here you can configure the following options.</p>
+
+<ol>
+  <li><strong>Define after which lines an email should be truncated</strong>. This setting allows shortening email after the entered lines.</li>
+  <li>Specify a <strong>regular expression</strong> to truncate emails.</li>
+  <li><strong>Ignore mail attachment</strong> of the specified names in this list.</li>
+  <li>Do not forget to <strong>save</strong> the changes.</li>
+</ol>
+
+<p><img src="System-admin-guide-incoming-email.png" alt="System-admin-guide-incoming-email" /></p>
+
+<p><strong>To set up incoming email</strong>, please visit our <a href="../../installation-and-operations/configuration/incoming-emails/">Operations guide</a>.</p>
+:ET

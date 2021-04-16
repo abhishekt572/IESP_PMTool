@@ -1,0 +1,95 @@
+h1 {
+    font-size: 30px;
+    font-weight: 500;
+    border-bottom: 2px solid #707070;
+    padding-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px
+}
+table {
+     width: 100%;
+     border-collapse: collapse;
+     overflow-x: auto;
+     margin: 15px auto;
+     word-wrap: break-word;
+     clear: both
+}
+ table thead {
+     background: #f2f2f2
+}
+ table tbody {
+     border-top: 3px solid #dfdfdf
+}
+ table tbody:first-child {
+     border-top: 0
+}
+ table tbody tr>td {
+     max-width: 100%;
+     min-width: 100px
+}
+ table tbody code {
+     word-wrap: break-word
+}
+ table td,table th {
+     text-align: left;
+     padding: 7px 10px;
+     border: 1px solid #dfdfdf;
+     font-size: 15px
+}
+ html {
+     font-family: sans-serif;
+     line-height: 1.15;
+     -webkit-text-size-adjust: 100%;
+     -webkit-tap-highlight-color: rgba(51,51,51,0)
+}
+ hr {
+     box-sizing: content-box;
+     height: 0;
+     overflow: visible
+}
+ h1,h2,h3,h4,h5,h6 {
+     margin-top: 0;
+     margin-bottom: .5rem
+}
+ article,aside,figcaption,figure,footer,header,hgroup,main,nav,section {
+     display: block
+}
+ body {
+     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+     font-size: 1rem;
+     font-weight: 400;
+     line-height: 1.5;
+     text-align: left;
+     background-color: #f9f9f9;
+     width: 90%;
+     margin: auto
+}
+ code,code span {
+     font-family: Menlo,DejaVu Sans Mono,Liberation Mono,Consolas,Ubuntu Mono,Courier New,andale mono,lucida console,monospace
+}
+ li code,p code,table code {
+     color: #5f8341;
+     background-color: rgba(95,131,65,.1)
+}
+ a>code {
+     color: #1b69b6
+}
+ hr {
+     border: 0;
+     border-top: 1px solid #dfdfdf;
+     width: 100%
+}
+ h2,h3,h4,h5,h6 {
+     border-bottom: 1px solid #ccc;
+     line-height: 1.4;
+     padding-bottom: 5px
+}
+ h2 code,h3 code,h4 code,h5 code,h6 code {
+     color: #5f8341;
+     background-color: rgba(95,131,65,.1)
+}
+img {
+	width: 60%;
+	height: auto;
+	margin-left: 25%;
+}

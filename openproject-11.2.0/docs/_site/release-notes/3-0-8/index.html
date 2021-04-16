@@ -1,0 +1,40 @@
+<h1 id="openproject-308">OpenProject 3.0.8</h1>
+
+<p>The <a href="https://github.com/opf/openproject/tree/v3.0.8">3.0.8 bugfix release of
+OpenProject</a> addresses a
+variety of bugs from filtering
+(<a href="https://community.openproject.org/work_packages/7169" title="Filtering for assignee's role returns wrong results (closed)">#7169</a>)
+to accessibility
+(<a href="https://community.openproject.org/work_packages/10834" title="Some links are readout before the header (closed)">#10834</a>)
+and performance limitations when copying projects
+(<a href="https://community.openproject.org/work_packages/12299" title="App server blocked when copying large project (closed)">#12299</a>).
+For the later, delayed job is employed to ensure that the app server
+will still answer while large projects are copied. Please bear in mind
+that for this to happen you need to have <a href="https://github.com/collectiveidea/delayed_job">delayed job
+running</a>.</p>
+
+<p>For a complete list of changes to OpenProject, please refer to the
+<a href="https://community.openproject.com/projects/openproject/roadmap">version’s
+packages</a>.</p>
+
+<p>However, this is only half of the truth. With the OpenProject 3.0.8
+release we chose to alter our release process. While the changes for the
+release process of OpenProject itself are minor, you will notice that
+the <a href="http://openproject.org/projects/plugins">plugins listed on
+OpenProject.org</a> now all have
+3.0.8 as their most recent version. This was done with the intend of
+easing deployment. Subsequent releases will follow this schema as well.
+It is our commitment to ensure that plugins with a specific release
+number (e.g. 3.0.8) will work flawlessly with an OpenProject of the same
+number. We therefore encourage you to always update OpenProject and
+installed plugins to the same release in synch. The most easy way of
+doing this is to follow the stable branches for every plugin and
+OpenProject.</p>
+
+<p>We are aware that this change in versioning has some weird side effects.
+The most noticeable is the <a href="https://github.com/finnlabs/openproject-costs">costs
+plugin</a> falling back from
+version 5.0.4 to 3.0.8. While this might be confusing, we are convinced
+that keeping versions in lockstep will convey the intended compatibility
+much better than every other mechanism.</p>
+

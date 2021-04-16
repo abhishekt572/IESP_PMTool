@@ -1,0 +1,34 @@
+I"�<h1 id="openproject5019">OpenProject 5.0.19</h1>
+
+<p>OpenProject 5.0.19 contains several bug fixes:</p>
+
+<ul>
+  <li>An error has been resolved which prevented the assignment of work
+packages to groups when editing a work package
+(<a href="https://community.openproject.com/work_packages/23099/activity">#23099</a>).</li>
+  <li>An error in the calculation of the progress of work packages with
+children has been fixed
+(<a href="https://community.openproject.com/work_packages/23251/activity">#23251</a>).</li>
+  <li>The burndown chart on the backlogs page was broken when a language
+other than English was selected. This has been fixed
+(<a href="https://community.openproject.com/work_packages/23253/activity">#23253</a>).</li>
+  <li>The context menu on the backlogs page did not disappear when an
+entry was selected. This has been resolved
+(<a href="https://community.openproject.com/work_packages/22837/activity">#22837</a>).</li>
+  <li>It was not possible to delete files attached to a budget. This has
+been fixed
+(<a href="https://community.openproject.com/work_packages/23110/activity">#23110</a>).</li>
+  <li>When creating or editing budgets and assigning groups for the
+planned labor costs, “Deleted user” was shown instead of the group
+name. This has been resolved
+(<a href="https://community.openproject.com/work_packages/23057/activity">#23057</a>).</li>
+  <li>A security error has been fixed which allowed Angular injections in
+texts
+(<a href="https://community.openproject.com/work_packages/23073/activity">#23073</a>).</li>
+</ul>
+
+<p>For further information on the release, please refer to the <a href="https://community.openproject.com/versions/810">Changelog
+v.5.0.19</a> or take a look
+at <a href="https://github.com/opf/openproject/tree/v5.0.19">GitHub</a>.</p>
+
+:ET

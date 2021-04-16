@@ -1,0 +1,127 @@
+I"�<h1 id="openproject-400">OpenProject 4.0.0</h1>
+
+<h2 id="omniauth-integration-for-openproject">OmniAuth integration for OpenProject</h2>
+
+<p>It is possible to extend OpenProject by using Omni-Auth providers. Users
+can for example use the <a href="https://community.openproject.org/projects/auth-plugins">OpenProject Auth
+plugin</a> for an
+easy integration with OmniAuth strategy providers such as Google.</p>
+
+<ul>
+  <li>Authentication in OpenProject via OmniAuth provider</li>
+  <li>Easier integration with OmniAuth providers (such as Google) via
+OpenProject Auth plugin</li>
+  <li>Easier implementation of OmniAuth strategies</li>
+  <li>Multiple authentication provider can be integrated and are shown in
+the login screen</li>
+</ul>
+
+<h2 id="integrated-toolbar-on-work-package-page">Integrated toolbar on work package page</h2>
+
+<p>OpenProject 4.0 replaces the old filter and options section on the work
+package page with a convenient integrated toolbar.<br />
+Now users no longer need to leave the work package list in order to use
+many features that were previously only available on a separate
+configuration page.<br />
+In addition, filters are now expandable and it is possible to create
+work packages right from the work package table.<br />
+Accessing, filtering and changing the work package page has become even
+more intuitive.</p>
+
+<ul>
+  <li>Expandable filter section</li>
+  <li>Instantly applied work package filters</li>
+  <li>Work package creation from work package table</li>
+  <li>Two different views: Work package table and split-screen</li>
+  <li>Create new queries based on existing ones (Save as)</li>
+</ul>
+
+<h2 id="integrated-query-title-on-work-package-page">Integrated query title on work package page</h2>
+
+<p>The query selection is now integrated in the work package title. Queries
+are being persisted.</p>
+
+<ul>
+  <li>Title includes query selection</li>
+  <li>Auto-completion of queries is supported</li>
+  <li>Selected query is persisted</li>
+</ul>
+
+<h2 id="column-header-functions-in-work-package-table">Column header functions in work package table</h2>
+
+<p>To provide users with a maximum of flexibility and convenience, it is
+possible to perform some of the most frequently used actions in the work
+package table right on a column header.</p>
+
+<ul>
+  <li>Perform often used functions right on the column header</li>
+  <li>Sort by column</li>
+  <li>Group by column attribute</li>
+  <li>Hide / Remove column</li>
+  <li>Add new column</li>
+</ul>
+
+<h2 id="split-screen-mode-added-to-work-package-page">Split screen mode added to work package page</h2>
+
+<p>A split screen mode has been added to the work package table which
+allows to display the work package details view alongside the work
+package table, allowing a quick overview of work packages details
+without leaving the overview page.<br />
+The included work package details pane is separated in the different
+tabs <strong>Overview, Activity, Relations, Watchers</strong> and <strong>Attachments</strong>,
+allowing users to see the most important information at a glance.</p>
+
+<ul>
+  <li>Expandable work package details pane</li>
+  <li>“Overview” tab for general work package information</li>
+  <li>“Activity” tab showing history</li>
+  <li>“Relations” tab for dependencies</li>
+  <li>“Watchers” tab to follow work package</li>
+  <li>“Attachments” tab showing attached documents</li>
+</ul>
+
+<h2 id="improved-design">Improved design</h2>
+
+<p>Several design changes have been made to improve the readability and
+overall usability of OpenProject.</p>
+
+<ul>
+  <li>Bigger line spacing in work package table</li>
+  <li>Table background single color white</li>
+  <li>All-cap headings throughout the application</li>
+  <li>New hovering color in work package table</li>
+  <li>Changed headlines</li>
+  <li>Round avatars</li>
+</ul>
+
+<h2 id="many-accessibility-improvements">Many accessibility improvements</h2>
+
+<p>Numerous accessibility improvements – especially in the work package
+page.</p>
+
+<ul>
+  <li>Work package page very accessible</li>
+  <li>Extension of work package context menu to include option to activate
+work package split screen</li>
+  <li>Keyboard shortcuts and access key fully functional in work package
+page</li>
+</ul>
+
+<h2 id="new-plugins-released">New plugins released</h2>
+
+<ul>
+  <li>OpenProject Auth plugin
+(<a href="https://community.openproject.org/news/66-plugin-providing-an-api-for-authentication-plugins-released">News</a>,
+<a href="https://github.com/opf/openproject-auth_plugins">GitHub</a>,
+<a href="https://community.openproject.org/projects/auth-plugins">Project</a>)</li>
+  <li>OpenProject GitHub integration plugin
+(<a href="https://community.openproject.org/news/57-openproject-github-integration-plugin-released">News</a>,
+<a href="https://github.com/finnlabs/openproject-github_integration">GitHub</a>,
+<a href="https://community.openproject.org/projects/github-integration?jump=news">Project</a>)</li>
+</ul>
+
+<h2 id="substantial-number-of-bug-fixes">Substantial Number of Bug Fixes</h2>
+
+<p>A large number of bugs have been fixed with the release of OpenProject
+4.0.</p>
+:ET

@@ -1,0 +1,33 @@
+I"�<h1 id="openproject-702">OpenProject 7.0.2</h1>
+
+<p>The release contains several bug fixes and an urgent fix for a
+regression concerning the display of the subject attribute in Firefox.</p>
+
+<p>We recommend the update to the current version.</p>
+
+<h2 id="bug-fixes-6">Bug fixes (6)</h2>
+
+<ul>
+  <li>[Firefox only] Work packages subject only show three dots
+(<a href="https://community.openproject.com/work_packages/25520">#25520</a>)</li>
+  <li>Work packages in list cannot be selected next to subject (in
+hierarchy mode)
+(<a href="https://community.openproject.com/work_packages/25493">#25493</a>)</li>
+  <li>“View” link on repository page links to landing page
+(<a href="https://community.openproject.com/work_packages/25487">#25487</a>)</li>
+  <li>Custom colors for work package loading animation
+(<a href="https://community.openproject.com/work_packages/25481">#25481</a>)</li>
+  <li>Invalid SQL statement produced by watchers filter
+(<a href="https://community.openproject.com/work_packages/25480">#25480</a>)</li>
+  <li>Selectable versions for version filter not sorted
+(<a href="https://community.openproject.com/work_packages/25465">#25465</a>)</li>
+</ul>
+
+<p>Thanks a lot to the community, in particular to Peter Spiess-Knafl for
+reporting bugs!</p>
+
+<p>For further information on the release, please refer to the <a href="https://community.openproject.com/versions/837">Changelog
+v7.0.2</a> or take a look
+at <a href="https://github.com/opf/openproject/tree/v7.0.2">GitHub</a>.</p>
+
+:ET

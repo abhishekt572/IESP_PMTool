@@ -1,0 +1,269 @@
+I"Ê&<h1 id="introduction-to-openproject">Introduction to OpenProject</h1>
+
+<p>Welcome to OpenProject! We are glad to have you here. In this section we will cover an introduction to project management with OpenProject as well as general topics regarding OpenProject.</p>
+
+<h2 id="overview">Overview</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Popular Topics</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#about-openproject">About OpenProject</a></td>
+      <td style="text-align: left">What is OpenProject?</td>
+    </tr>
+    <tr>
+      <td><a href="#first-steps-to-get-started">First steps to get started</a></td>
+      <td style="text-align: left">The first steps to get started with OpenProject.</td>
+    </tr>
+    <tr>
+      <td><a href="#the-entire-project-management-life-cycle">The entire Project Management Life-Cycle</a></td>
+      <td style="text-align: left">Find out more how OpenProject supports the different project phases.</td>
+    </tr>
+    <tr>
+      <td><a href="#openproject-products">OpenProject products</a></td>
+      <td style="text-align: left">What is the difference between the Community, Cloud and Enterprise Edition?</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="about-openproject">About OpenProject</h2>
+
+<p>OpenProject is free and <strong>open source software</strong> for <strong>classical as well as agile project management</strong> to support your team along <a href="#the-entire-project-management-life-cycle">the entire project life-cycle</a>. OpenProject is available in more than 30 languages.</p>
+
+<p>OpenProject is licensed under <strong>GNU GPL V3</strong>. The source code is freely published on <a href="https://github.com/opf/openproject">GitHub</a>. We understand free as in free speech. We do offer <a href="#openproject-products">paid subscriptions</a> for our software.</p>
+
+<p>OpenProject exists since 2011 and is a fork of the deprecated ChiliProject which was a fork of Redmine.</p>
+
+<h2 id="first-steps-to-get-started">First steps to get started</h2>
+
+<p>To get started with OpenProject, there are a few easy steps to follow:</p>
+
+<ol>
+  <li><a href="#sign-in-and-registration">Get an account and sign in</a></li>
+  <li><a href="#projects">Create a new project</a></li>
+  <li><a href="#invite-members">Invite team members to collaborate</a></li>
+  <li><a href="#create-work-package">Create work packages</a></li>
+  <li><a href="#gantt-chart-introduction">Set up a project plan</a></li>
+</ol>
+
+<h2 id="the-entire-project-management-life-cycle">The entire Project Management Life-Cycle</h2>
+
+<p>OpenProject offers a full feature set to <strong>support project teams along the entire project management process:</strong></p>
+
+<p><img src="1565860195298.png" alt="Project Management Life-Cycle" /></p>
+
+<p>OpenProject enables project collaboration and communication without system interruption from the initial project idea until project closure and documentation.</p>
+
+<p>The following sections provide links to the documentation for each project phase:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Project phase</th>
+      <th>Documentation for</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#project-concept-and-initiation">Project concept and initiation</a></td>
+      <td>Collect ideas and specify project scope and deliverables:  set up a project, document initial ideas, project description, invite members.</td>
+    </tr>
+    <tr>
+      <td><a href="#project-definition-and-planning">Project definition and planning</a></td>
+      <td>Create a project overview with detailed information, set up a project plan, create your roadmap.</td>
+    </tr>
+    <tr>
+      <td><a href="#project-launch-or-execution">Project launch or execution</a></td>
+      <td>Manage all project activities, such as tasks, deliverables, risks, features, bugs, change requests. Use agile boards with your teams, document meetings, share news.</td>
+    </tr>
+    <tr>
+      <td><a href="#project-performance-and-control">Project performance and control</a></td>
+      <td>Create and manage project budgets, track and evaluate time and costs. Have custom reports for accurate, current insight into project performance and allocated resources.</td>
+    </tr>
+    <tr>
+      <td><a href="#project-close">Project close</a></td>
+      <td>Document project achievements, lessons learned, best practices and easily summarize the main results of a project. Archive projects for later reference and lessons learned.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="project-concept-and-initiation">Project concept and initiation</h3>
+
+<p>OpenProject supports the initial set-up and configuration of a project structure.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Features</th>
+      <th>Documentation for</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Create a new project</td>
+      <td>Create and set up a new project in OpenProject.</td>
+    </tr>
+    <tr>
+      <td>Set up a project structure</td>
+      <td>Create a project hierarchy to structure your work in OpenProject.</td>
+    </tr>
+    <tr>
+      <td>Document ideas</td>
+      <td>Create first ideas, tasks, rough milestones.</td>
+    </tr>
+    <tr>
+      <td>Project description</td>
+      <td>Describe the goal and the way to reach them for your project.</td>
+    </tr>
+    <tr>
+      <td>Invite members</td>
+      <td>Invite your team to collaborate in OpenProject.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="project-definition-and-planning">Project definition and planning</h3>
+
+<p>Create a project overview with more detailed information, set up your project plan, structure your work, create a roadmap.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Features</th>
+      <th>Documentation for</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Project overview</td>
+      <td>Create a project overview with important project information.</td>
+    </tr>
+    <tr>
+      <td>Project plan</td>
+      <td>Set up a project timeline.</td>
+    </tr>
+    <tr>
+      <td>Structure your work</td>
+      <td>Create work packages and structure your work</td>
+    </tr>
+    <tr>
+      <td>Roadmap planning</td>
+      <td>Create a roadmap for your project.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="project-launch-or-execution">Project launch or execution</h3>
+
+<p>Manage all project activities, such as tasks, deliverables, risks, features, bugs, change requests in the work packages. Use agile boards with your teams. Document meetings, share news.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Features</th>
+      <th>Documentation for</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Work packages</td>
+      <td>Create and manage all project deliverables, tasks, features, risks, and more.</td>
+    </tr>
+    <tr>
+      <td>Boards</td>
+      <td>Manage your work with an Agile approach in the flexible boards view.</td>
+    </tr>
+    <tr>
+      <td>Meetings</td>
+      <td>Plan and document your project meetings and share minutes with all your team.</td>
+    </tr>
+    <tr>
+      <td>News</td>
+      <td>Share project news with your team.</td>
+    </tr>
+    <tr>
+      <td>Wiki</td>
+      <td>Document all important project information and keep it up to date with your team.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="project-performance-and-control">Project performance and control</h3>
+
+<p>Create and manage project budgets, track and evaluate time and costs. Have custom reports for accurate, current insight into project performance and allocated resources.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Features</th>
+      <th>Documentation for</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Dashboard</td>
+      <td>Visualize your progress within a project or project overarching (coming soon).</td>
+    </tr>
+    <tr>
+      <td>Budgets</td>
+      <td>Create and manage budgets in your project.</td>
+    </tr>
+    <tr>
+      <td>Time tracking</td>
+      <td>Track time for any work within your project.</td>
+    </tr>
+    <tr>
+      <td>Track unit costs</td>
+      <td>Track unit costs for your project.</td>
+    </tr>
+    <tr>
+      <td>Time and cost reporting</td>
+      <td>Have accurate detailed reports of current spent time and costs within your project.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="project-close">Project close</h3>
+
+<p>Document project achievements, lessons learned, best practices and easily summarize the main results of a project. Archive projects for later reference and lessons learned.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Features</th>
+      <th>Documentation for</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Wiki</td>
+      <td>Document all relevant project information, lessons learned, best practices, results, and more.</td>
+    </tr>
+    <tr>
+      <td>Project archive</td>
+      <td>Archive your project for further reference and documentation.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="openproject-products">OpenProject products</h2>
+
+<h3 id="what-is-the-difference-between-the-community-enterprise-cloud-and-enterprise-on-premises-edition">What is the difference between the Community, Enterprise cloud and Enterprise on-premises edition?</h3>
+
+<p>OpenProject can be used in three different editions, either on-premises or as software-as-a-service.</p>
+
+<p><img src="1569586019132.png" alt="openproject versions" /></p>
+
+<ul>
+  <li><a href="https://www.openproject.org/download-and-installation/">Community edition</a>: self-installed on-premise.</li>
+  <li><a href="https://www.openproject.org/hosting/">Enterprise cloud edition</a>: we host it, incl. premium features and support.</li>
+  <li><a href="https://www.openproject.org/enterprise-edition/">Enterprise on-premises edition</a>: self-hosted version, incl. premium features and support.</li>
+</ul>
+
+<p>To compare the features side by side, please visit our <a href="https://www.openproject.org/pricing/#features">Feature Comparison</a> page.</p>
+:ET

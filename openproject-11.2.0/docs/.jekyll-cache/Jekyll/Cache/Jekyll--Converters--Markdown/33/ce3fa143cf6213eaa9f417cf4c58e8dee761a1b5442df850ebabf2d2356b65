@@ -1,0 +1,18 @@
+I"ö<h1 id="openproject-406-released">OpenProject 4.0.6 released</h1>
+
+<p>OpenProject 4.0.6 has been released which contains a bug fix for font
+problems on Windows 7.</p>
+
+<p>Several users reported problems when displaying fonts in Windows 7.<br />
+In some cases letters or entire words were not displayed.</p>
+
+<p>With OpenProject 4.0.6, a fix has been introduced which addresses this
+problem
+(<a href="https://community.openproject.org/work_packages/8753" title="#8753">#8753</a>).</p>
+
+<p>To get an overview of the new version, please refer to the <a href="https://community.openproject.org/versions/592" title="Changelog v4.0.6">Changelog
+v.4.0.6</a>
+or take a look at
+<a href="https://github.com/opf/openproject/tree/v4.0.6" title="GitHub">GitHub</a>.</p>
+
+:ET

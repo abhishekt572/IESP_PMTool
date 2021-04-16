@@ -1,0 +1,20 @@
+I"�<h1 id="openproject-1065">OpenProject 10.6.5</h1>
+
+<p>We released <a href="https://community.openproject.com/versions/1446">OpenProject 10.6.5</a>.
+The release contains several bug fixes and we recommend updating to the newest version.</p>
+
+<!--more-->
+<h4 id="bug-fixes-and-changes">Bug fixes and changes</h4>
+
+<ul>
+  <li>Fixed: Comments get repeated when entering several comments within 5 minutes [<a href="https://community.openproject.com/wp/33744">#33744</a>]</li>
+  <li>Fixed: Wrong (abusive) translations on avatar change page in russian localization.  [<a href="https://community.openproject.com/wp/33888">#33888</a>]</li>
+</ul>
+
+<h4 id="contributions">Contributions</h4>
+<p>A big thanks to community members for reporting bugs and helping us identifying and providing fixes.</p>
+
+<p>Special thanks for reporting and finding bugs go to</p>
+
+<p>Christoph Arnold, Антон Сміян</p>
+:ET

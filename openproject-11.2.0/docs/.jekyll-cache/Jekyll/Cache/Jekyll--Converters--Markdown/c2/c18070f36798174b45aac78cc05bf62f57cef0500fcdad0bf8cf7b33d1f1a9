@@ -1,0 +1,33 @@
+I"ä	<h1 id="reconfiguring-openproject">(Re)configuring OpenProject</h1>
+
+<h2 id="packaged-installation">Packaged installation</h2>
+
+<p>For packaged installations, you can restart the configuration process by issuing the following command on the server where OpenProject runs:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>openproject reconfigure
+</code></pre></div></div>
+
+<p>This will restart the installation wizard, and allow you to modify any of the choices that you previously selected. If a configuration option doesnâ€™t need to be modified, just hit <code class="language-plaintext highlighter-rouge">ENTER</code> to proceed to the next screen.</p>
+
+<p>The wizard configuration is stored in <code class="language-plaintext highlighter-rouge">/etc/openproject/installer.dat</code>.</p>
+
+<p>The wizard will automatically set environment variables to be used by OpenProject. Those variables can be manipulated with the CLI tool that ships with OpenProject:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">sudo openproject config</code> will display the list of environment variables set.</li>
+  <li><code class="language-plaintext highlighter-rouge">sudo openproject config:get KEY</code> allows you to get the value of single environment variable.</li>
+  <li><code class="language-plaintext highlighter-rouge">sudo openproject config:set KEY VALUE</code> allows you to set a new value for a single environment variable.</li>
+</ul>
+
+<h2 id="docker-installation">Docker installation</h2>
+
+<p>For the Compose-based docker installation, you should update the <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> file and add any <a href="../../configuration/environment">environment variable</a> that you may require. Docker Compose supports <a href="https://docs.docker.com/compose/extends/">file overrides</a> so you may also want to use that. Then simply issue the following command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose up -d
+</code></pre></div></div>
+
+<p>For all-in-one docker installations, you should update the environment file given to the <code class="language-plaintext highlighter-rouge">--env-file</code> docker option, and issue the following command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker restart openproject
+</code></pre></div></div>
+:ET

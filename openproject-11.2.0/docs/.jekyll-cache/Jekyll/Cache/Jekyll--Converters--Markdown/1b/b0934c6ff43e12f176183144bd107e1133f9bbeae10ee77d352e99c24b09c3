@@ -1,0 +1,58 @@
+I"f<h1 id="openproject5016">OpenProject 5.0.16</h1>
+
+<p>OpenProject 5.0.16 contains several bug
+    fixes:</p>
+
+<ul>
+  <li><span class="explanatory-dictionary-highlight" data-definition="explanatory-dictionary-definition-7">Work
+package</span> links (via ## and ###) in emails sent when
+watching forums were not displayed properly. This has been fixed
+(<a href="https://community.openproject.org/work_packages/22728/activity">#22728</a>).</li>
+  <li>An error on the work package page has been fixed which caused
+multiple work packages to be created when clicking the “Create”
+button multiple times
+(<a href="https://community.openproject.org/work_packages/22735/activity">#22735</a>).</li>
+  <li>The selected work package type when creating a new child work
+package was not based on the type order displayed in the
+administration. This has been adjusted
+(<a href="https://community.openproject.org/work_packages/22639/activity">#22639</a>).</li>
+  <li>Due to an error the project list could not be accessed in the
+accessibility mode. This has been fixed.</li>
+  <li>The star icon in the project list showing which project the user is
+a member in was missing. It has been added
+(<a href="https://community.openproject.org/work_packages/22692/activity">#22692</a>).</li>
+  <li>In the cost report, the cells were not displayed properly when
+applying a grouping in the report. This has been fixed
+(<a href="https://community.openproject.org/work_packages/22762/activity">#22762</a>).</li>
+  <li>In the Task board the option to adjust the column width was only
+shown when the burndown chart option was available. It has been
+adjusted to always be displayed
+(<a href="https://community.openproject.org/work_packages/22297/activity">#22297</a>).</li>
+  <li>Several design issues have been fixed
+(<a href="https://community.openproject.org/work_packages/22805/activity">#22805</a>,
+<a href="https://community.openproject.org/work_packages/22802/activity">#22802</a>,
+<a href="https://community.openproject.org/work_packages/22803/activity">#22803</a>,
+<a href="https://community.openproject.org/work_packages/22732/activity">#22732</a>,
+<a href="https://community.openproject.org/work_packages/22716/activity">#22716</a>,
+<a href="https://community.openproject.org/work_packages/22705/activity">#22705</a>,
+<a href="https://community.openproject.org/work_packages/22686/activity">#22686</a>,
+<a href="https://community.openproject.org/work_packages/21902/activity">#21902</a>).</li>
+</ul>
+
+<p>Furthermore, the performance on the work package page has been improved
+(<a href="https://community.openproject.org/work_packages/22586/activity">#22586</a>,
+<a href="https://community.openproject.org/work_packages/22669/activity">#22669</a>)
+and several new icons have been added to the administration
+(<a href="https://community.openproject.org/work_packages/22063/activity">#22063</a>).</p>
+
+<p>In addition, an error has been fixed which prevented the proper use to
+the <a href="https://community.openproject.org/projects/task-connector">TaskConnector for MS
+Project</a>.
+This is now fully functional again
+(<a href="https://community.openproject.org/work_packages/22390/activity">#22390</a>).</p>
+
+<p>For further information on the release, please refer to the <a href="https://community.openproject.org/versions/804">Changelog
+v.5.0.16</a> or take a look
+at <a href="https://github.com/opf/openproject/tree/v5.0.16">GitHub</a>.</p>
+
+:ET

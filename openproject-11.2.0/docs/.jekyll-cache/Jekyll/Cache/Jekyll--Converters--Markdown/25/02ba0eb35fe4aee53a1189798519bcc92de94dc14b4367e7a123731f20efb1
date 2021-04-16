@@ -1,0 +1,25 @@
+I"B<h1 id="webhooks">Webhooks</h1>
+
+<p>You can set up webhooks for OpenProject in order to integrate OpenProject with other applications. A scenario is for example to signal the creation of a time log in OpenProject to a billing application.</p>
+
+<p>Navigate to -&gt; <em>Administration</em> -&gt; <em>Webhooks</em> to set up your webhooks in OpenProject.</p>
+
+<p>Press the green <strong>+ Webhook</strong> button to add a new webhook to OpenProject.</p>
+
+<p><img src="image-20201007133753887.png" alt="image-20201007133753887" /></p>
+
+<p>You can configure the following options for webhooks:</p>
+
+<ol>
+  <li>Choose a <strong>name</strong> identifying the webhook.</li>
+  <li><strong>Payload URL</strong> defines the endpoint, called when the webhook is triggered.</li>
+  <li>Freely choose an additional <strong>description</strong> to further identify the intent of the respective webhook.</li>
+  <li>By defining a <strong>Signature secret</strong> you guarantee that the sender of the payload request is actually OpenProject. The client will then check this signature secret.</li>
+  <li><strong>Enable</strong> if <strong>the webhook</strong> should be active.</li>
+  <li><strong>Set the events</strong> for which the webhook should be activate, i.e. webhook for updating or creating projects or work packages, or for creating time entries.</li>
+  <li><strong>Select for which projects the webhook should be active</strong>. You can choose all projects or only specific projects. For example if you select the project “System admin guide”, an event (ie. create a new time entry) will be fired via the webhook. This will only happen if a user logs time within the selected projects.</li>
+  <li>Press the blue <strong>Create</strong> button to save your changes.</li>
+</ol>
+
+<p><img src="image-20201007140523324.png" alt="Add new webhook screenshot" /></p>
+:ET

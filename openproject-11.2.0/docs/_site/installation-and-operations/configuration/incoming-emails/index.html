@@ -1,0 +1,236 @@
+<h1 id="configuring-inbound-emails">Configuring inbound emails</h1>
+
+<p>OpenProject is able to receive incoming emails and create and update work packages and reply in forums depending on the content of the email.
+If you’re using the Enterprise cloud you can skip the Setup section, as the settings are already configured.</p>
+
+<h2 id="setup">Setup</h2>
+
+<p>Receiving emails is done via a rake task that fetches emails from an email server, parses them and performs actions depending on the content of the email. This rake task can be executed manually or automatically, e.g. with the help of a Cron job.</p>
+
+<p>The rake task <code class="language-plaintext highlighter-rouge">redmine:email:receive_imap</code> fetches emails via IMAP and parses them.</p>
+
+<p><strong>Packaged installation</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openproject run bundle <span class="nb">exec </span>rake redmine:email:receive_imap <span class="nv">host</span><span class="o">=</span><span class="s1">'imap.gmail.com'</span> <span class="nv">username</span><span class="o">=</span><span class="s1">'test_user'</span> <span class="nv">password</span><span class="o">=</span><span class="s1">'password'</span> <span class="nv">port</span><span class="o">=</span>993 <span class="nv">ssl</span><span class="o">=</span><span class="nb">true </span><span class="nv">allow_override</span><span class="o">=</span><span class="nb">type</span>,project <span class="nv">project</span><span class="o">=</span>test_project
+</code></pre></div></div>
+
+<p><strong>Docker installation</strong></p>
+
+<p>The docker installation has a <a href="https://github.com/opf/openproject/blob/dev/docker/cron">“cron-like” daemon</a> that will imitate the above cron job. You need to specify the following ENV variables (e.g., to your env list file)</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">IMAP_SSL</code> set to true or false depending on whether the ActionMailer IMAP connection requires implicit TLS/SSL</li>
+  <li><code class="language-plaintext highlighter-rouge">IMAP_PORT</code> <code class="language-plaintext highlighter-rouge">IMAP_HOST</code> set to the IMAP host and port of your connection</li>
+  <li><code class="language-plaintext highlighter-rouge">IMAP_USERNAME</code> and <code class="language-plaintext highlighter-rouge">IMAP_PASSWORD</code></li>
+</ul>
+
+<p>Optional ENV variables:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">IMAP_CHECK_INTERVAL=600</code> Interval in seconds to check for new mails (defaults to 10minutes)</li>
+  <li><code class="language-plaintext highlighter-rouge">IMAP_ALLOW_OVERRIDE</code> Attributes writable (true for all), comma-separated list as specified in <code class="language-plaintext highlighter-rouge">allow_override</code> configuration.</li>
+</ul>
+
+<p>Available arguments for this rake task that specify the email behavior are</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>key</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">host</code></td>
+      <td>address of the email server</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">username</code></td>
+      <td>the name of the user that is used to connect to the email server</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">password</code></td>
+      <td>the password of the user</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">port</code></td>
+      <td>the port that is used to connect to the email server</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ssl</code></td>
+      <td>specifies if SSL should be used when connecting to the email server</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">folder</code></td>
+      <td>the folder to fetch emails from (default: INBOX)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">move_on_success</code></td>
+      <td>the folder emails that were successfully parsed are moved to (instead of deleted)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">move_on_failure</code></td>
+      <td>the folder emails that were ignored are moved to</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Available arguments that change how the work packages are handled:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>key</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">project</code></td>
+      <td>identifier of the target project</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">tracker</code></td>
+      <td>name of the target tracker</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">category</code></td>
+      <td>name of the target category</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">priority</code></td>
+      <td>name of the target priority</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">status</code></td>
+      <td>name of the target status</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">version</code></td>
+      <td>name of the target version</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">type</code></td>
+      <td>name of the target type</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">priority</code></td>
+      <td>name of the target priority</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">unknown_user</code></td>
+      <td>ignore: email is ignored (default), accept: accept as anonymous user, create: create a user account</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">allow_override</code></td>
+      <td>specifies which attributes may be overwritten though specified by previous options. Comma separated list</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="format-of-the-emails">Format of the emails</h2>
+
+<p>Please note: It’s important to use the plain text editor of your email client (instead of the HTML editor) to avoid misinterpretations (e.g. for the project name).</p>
+
+<h3 id="work-packages">Work packages</h3>
+
+<h4 id="sending-user-address">Sending user address</h4>
+
+<p>The address the mail is sent from must match an existing account in order to map the user action.
+If a matching account is found, the mail handler impersonates the user to create the ticket.</p>
+
+<p>If no matching account is found, the mail is rejected. To override this behavior and allow unknown mail address
+to create work packages, set the option <code class="language-plaintext highlighter-rouge">no_permission_check=1</code> and specify with <code class="language-plaintext highlighter-rouge">unknown_user=accept</code></p>
+
+<p><strong>Note</strong>: This feature only provides a mapping of mail to user account, it does not authenticate the user based on the mail. Since you can easily spoof mail addresses, you should not rely on the authenticity of work packages created that way.</p>
+
+<p><strong>Users with mail suffixes</strong></p>
+
+<p>If you’re used to using mail accounts with suffix support such as Google Mail, where you can specify <code class="language-plaintext highlighter-rouge">account+suffix@googlemail.com</code>, you will receive mails to that account but respond with your regular account <code class="language-plaintext highlighter-rouge">account@googlemail.com</code> . To mitigate this, OpenProject by default will expand searching for mail addresses <code class="language-plaintext highlighter-rouge">account@domain</code> to accounts <code class="language-plaintext highlighter-rouge">account+suffix@domain</code>  through regex searching the mail column. If you do not wish that behavior or want to customize the prefix, alter the setting <code class="language-plaintext highlighter-rouge">mail_suffix_separators</code> by running <code class="language-plaintext highlighter-rouge">bundle exec rails runner "Setting.mail_suffix_separators = ''"</code></p>
+
+<h4 id="attributes">Attributes</h4>
+
+<p>The Attributes you can use in your email are the same whether you create or update a work package.</p>
+
+<p>Only the <code class="language-plaintext highlighter-rouge">project</code> attribute is a bit special:</p>
+
+<p>You must either add <code class="language-plaintext highlighter-rouge">project</code> to the set of allowed overridden attributes with <code class="language-plaintext highlighter-rouge">allow_override=project,..</code> in order to use it in a mail,
+OR set it as fixed variable with <code class="language-plaintext highlighter-rouge">project=identifier</code>.</p>
+
+<p>The subject of the work package that shall be created is derived from the subject of the email. The body of the email gets parsed and all lines that contain recognized keys are removed. What is left will become the description.</p>
+
+<p>Other available keys for the email are:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Project</td>
+      <td>sets the project. Use the project identifier</td>
+      <td>Project:test_project</td>
+    </tr>
+    <tr>
+      <td>Assignee</td>
+      <td>sets the assignee. Use the email or login of the user</td>
+      <td>Assignee:test.nutzer@example.org</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>sets the type</td>
+      <td>type:Milestone</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>sets the version</td>
+      <td>version:v4.1.0</td>
+    </tr>
+    <tr>
+      <td>Start date</td>
+      <td>sets the start date</td>
+      <td>start date:2015-02-28</td>
+    </tr>
+    <tr>
+      <td>Due date</td>
+      <td>sets the finish date</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Done ratio</td>
+      <td>sets the done ratio. Use a number</td>
+      <td>Done ratio:40</td>
+    </tr>
+    <tr>
+      <td>Status</td>
+      <td>sets the status</td>
+      <td>Status:closed</td>
+    </tr>
+    <tr>
+      <td>priority</td>
+      <td>sets the priority</td>
+      <td>priority:High</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>If you want to set a custom field just use the name as it is displayed in your browser, e.g. <code class="language-plaintext highlighter-rouge">Custom field:new value</code></p>
+
+<p><strong>Notice: The keys are not case-sensitive but the values you want to set are.</strong></p>
+
+<h4 id="attachments">Attachments</h4>
+
+<p>If you create or update a work package via email the attachments of the email will be attached to the relevant work package.</p>
+
+<h4 id="watchers">Watchers</h4>
+
+<p>If you create a work package via email and sent it to another email (to or bcc) OpenProject will search for a user with this email and add it as watcher.</p>
+
+<h3 id="truncate-emails">Truncate Emails</h3>
+
+<p>In the administator’s setting you can specify lines after which an email will not be parsed anymore. That is useful if you want to reply to an email automatically sent to you from OpenProject. E.g. you could set it to <code class="language-plaintext highlighter-rouge">--Truncate here--</code> and insert this line into your email below the updates you want to perform. Find out more <a href="../../../system-admin-guide/email/#incoming-emails-settings">here</a>.</p>

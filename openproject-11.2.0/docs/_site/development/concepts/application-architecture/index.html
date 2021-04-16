@@ -1,0 +1,60 @@
+<h1 id="application-architecture">Application architecture</h1>
+
+<p>OpenProject is a hybrid application consisting of a Ruby on Rails monolith with an Angular application serving specific modules of the OpenProject frontend. Strategically, the application is shifting towards a single-page application. However, many of the views are still generated largely by Rails and only extended by Angular components.</p>
+
+<p>All requests to the application are still responded by Rails. In some of the responses, only the root Angular component is rendered to bootstrap the Angular frontend. On these pages, <a href="https://github.com/ui-router/angular">UI-Router for Angular</a> parses the URL to determine what module/frontend route to load and show.</p>
+
+<p>In the following, we’ll take a look at the two main ways the Rails templates will interact or trigger the Angular frontend.</p>
+
+<h2 id="exemplary-frontend-view-request">Exemplary frontend view request</h2>
+
+<p>Let’s take a look at how the request to <code class="language-plaintext highlighter-rouge">/projects/identifier/work_packages</code> would be handled by Rails and Angular (excluding any external actual HTTP requests to the web server)</p>
+
+<ol>
+  <li>Rails receives the request and according to its <a href="https://github.com/opf/openproject/blob/dev/config/routes.rb#L257"><code class="language-plaintext highlighter-rouge">config/routes.rb</code></a>, will handle the request with the <a href="https://github.com/opf/openproject/blob/dev/app/controllers/work_packages_controller.rb#L66-L81">WorkPackagesController#index action</a>.</li>
+  <li>This controller responds with <a href="https://github.com/opf/openproject/blob/dev/app/views/work_packages/index.html.erb">an index template</a> that only renders some details but otherwise, will output the <code class="language-plaintext highlighter-rouge">&lt;openproject-base&gt;</code> Angular root component that is defined in the <a href="https://github.com/opf/openproject/blob/dev/app/views/layouts/angular.html.erb#L39"><code class="language-plaintext highlighter-rouge">Rails angular layout</code></a>.</li>
+  <li>The rendered response is returned to the Browser and Angular is initialized globally once in <a href="https://github.com/opf/openproject/blob/dev/frontend/src/main.ts#L48-L49"><code class="language-plaintext highlighter-rouge">frontend/src/main.ts</code></a>.</li>
+  <li>As the <code class="language-plaintext highlighter-rouge">&lt;openproject-base&gt;</code> component contains a ui-router <a href="https://github.com/opf/openproject/blob/dev/frontend/src/app/modules/router/base/application-base.component.ts#L37"><code class="language-plaintext highlighter-rouge">[ui-ref]</code></a> directive, the ui-router will start parsing the URL and looks for a route definition that matches. It will end up matching <code class="language-plaintext highlighter-rouge">root.work-packages</code> <a href="https://github.com/opf/openproject/blob/dev/frontend/src/app/modules/work_packages/routing/work-packages-routes.ts#L49">defined in the work packages’ module routes file</a>.</li>
+  <li>From there, the flow is as with a single-page application. The router mounts that component and the Angular frontend will use the APIv3 to fetch and render the application table.</li>
+</ol>
+
+<p>This will result in a page on which the majority of the content has been rendered by Angular. Only the toolbar, basic page structure, and upper side menu has been rendered by Rails.</p>
+
+<p><img src="work-packages-table.png" alt="Work packages table" /></p>
+
+<p>This approach has the significant disadvantage to go through the entire Rails stack first to output a response that is mostly irrelevant for the Angular application, and both systems (Rails and Angular) need a somewhat duplicated routing information. The long-term goal is to move to a single-page application and avoid the first two steps.</p>
+
+<h2 id="exemplary-rails-view-request-augmented-by-angular">Exemplary Rails view request augmented by Angular</h2>
+
+<p>A response that is fully controlled by Rails but extended by some Angular components in the frontend might look as follows. Let’s take a look at the request to <a href="https://docs.openproject.org/system-admin-guide/manage-work-packages/work-package-types/#work-package-form-configuration">edit a type’s form configuration</a> <code class="language-plaintext highlighter-rouge">/types/1/edit/form_configuration</code>:</p>
+
+<ol>
+  <li>
+    <p>Rails receives the request and according to its <a href="https://github.com/opf/openproject/blob/dev/config/routes.rb#L257"><code class="language-plaintext highlighter-rouge">config/routes.rb</code></a>, will handle the request with the <a href="https://github.com/opf/openproject/blob/dev/app/controllers/types_controller.rb#L71-L82">TypesController#edit action</a> with its tab set to <code class="language-plaintext highlighter-rouge">form_configuration</code>.</p>
+  </li>
+  <li>
+    <p>This controller responds with <a href="https://github.com/opf/openproject/blob/dev/app/views/types/edit.html.erb">an edit template</a> that will include the <a href="https://github.com/opf/openproject/blob/dev/app/views/types/form/_form_configuration.html.erb#L77-L83">type form partial</a>. In this component, an Angular component is explicitly output that will be bootstrapped on page load.</p>
+  </li>
+  <li>
+    <p>The rendered response is returned to the Browser and Angular is initialized globally once in <a href="https://github.com/opf/openproject/blob/dev/frontend/src/main.ts#L48-L49"><code class="language-plaintext highlighter-rouge">frontend/src/main.ts</code></a>.</p>
+  </li>
+  <li>
+    <p>A global service, the <a href="https://github.com/opf/openproject/blob/dev/frontend/src/app/globals/dynamic-bootstrapper.ts"><code class="language-plaintext highlighter-rouge">DynamicBootstrapper</code></a>, looks for elligible components to bootstrap in the rendered template and forces the global angular application to bootstrap this component. This may result in many dom-separated components in the page to be bootstrapped by Angular for dynamic content.</p>
+  </li>
+  <li>
+    <p>This triggers the <a href="https://github.com/opf/openproject/blob/dev/frontend/src/app/modules/admin/types/type-form-configuration.component.ts"><code class="language-plaintext highlighter-rouge">FormConfigurationComponent</code></a> to be initialized and allows the application to include a highly dynamic component (drag &amp; drop organization of attributes) to be used on an admin form that otherwise has no connection to Angular.</p>
+
+    <p><img src="form-configuration.png" alt="Exemplary form configuration" /></p>
+  </li>
+</ol>
+
+<h1 id="evolution-of-the-application">Evolution of the application</h1>
+
+<p>Historically, OpenProject has been forked from <a href="https://www.redmine.org/">Redmine</a> and modified from a primarily software-development focused flow into a general project management application suite. A Ruby on Rails monolith was used to serve the entire application, frontend and API. Javascript was used to extend some of the functionality with Prototype.js and jQuery on existing, Rails-rendered pages.</p>
+
+<p>The monolith was turned into a hybrid application with semi-separated JavaScript frontend by the <a href="https://github.com/opf/openproject/pull/913">introduction of AngularJS in 2014</a> for a redesign of the <a href="https://docs.openproject.org/user-guide/work-packages/work-package-views/#work-packages-views">work package table</a>. The Rails monolith was and is still rendering a large potion of the frontend however. The AngularJS frontend was served from within Rails and not separated. Therefore, the application frontend is not a single-page application yet.</p>
+
+<p>Due to performance issues with AngularJS digest cycles and a large number of components, the work package table was <a href="https://github.com/opf/openproject/pull/5117">refactored into a plain JavaScript renderer</a> end of 2016. Finally, in early 2018, the application frontend was <a href="https://github.com/opf/openproject/pull/5984">migrated from AngularJS to Angular</a> during the course of a few releases.</p>
+
+<p><a href="https://github.com/opf/openproject/pull/7385">In early 2019</a>, the rest of AngularJS code was removed and the frontend switched to the Angular CLI with Ahead-of-Time compilation (AOT).</p>
+

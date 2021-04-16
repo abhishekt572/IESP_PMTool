@@ -1,0 +1,412 @@
+<h1 id="openproject-advanced-configuration">OpenProject advanced configuration</h1>
+
+<p>OpenProject can be configured either via the <code class="language-plaintext highlighter-rouge">config/configuration.yml</code> file, <a href="environment/">environment variables</a> or a mix of both.
+While the latter is probably a bad idea, the environment variable option is often helpful for automatically deploying production systems.
+Using the configuration file is probably the simplest way of configuration.</p>
+
+<p>You can find a list of options below and an example file in <a href="https://github.com/opf/openproject/blob/dev/config/configuration.yml.example">config/configuration.yml.example</a></p>
+
+<h2 id="environment-variables">Environment variables</h2>
+
+<p>Configuring OpenProject through environment variables is detailed <a href="environment/">in this separate guide</a>.</p>
+
+<h2 id="list-of-options">List of options</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">attachments_storage_path</code></li>
+  <li><code class="language-plaintext highlighter-rouge">autologin_cookie_name</code> (default: ‘autologin’),</li>
+  <li><code class="language-plaintext highlighter-rouge">autologin_cookie_path</code> (default: ‘/’)</li>
+  <li><code class="language-plaintext highlighter-rouge">autologin_cookie_secure</code> (default: false)</li>
+  <li><code class="language-plaintext highlighter-rouge">database_cipher_key</code>     (default: nil)</li>
+  <li><code class="language-plaintext highlighter-rouge">scm_git_command</code> (default: ‘git’)</li>
+  <li><code class="language-plaintext highlighter-rouge">scm_subversion_command</code> (default: ‘svn’)</li>
+  <li><a href="#local-checkout-path"><code class="language-plaintext highlighter-rouge">scm_local_checkout_path</code></a> (default: ‘repositories’)</li>
+  <li><code class="language-plaintext highlighter-rouge">force_help_link</code> (default: nil)</li>
+  <li><code class="language-plaintext highlighter-rouge">session_store</code>: <code class="language-plaintext highlighter-rouge">active_record_store</code>, <code class="language-plaintext highlighter-rouge">cache_store</code>, or <code class="language-plaintext highlighter-rouge">cookie_store</code> (default: cache_store)</li>
+  <li><code class="language-plaintext highlighter-rouge">drop_old_sessions_on_logout</code> (default: true)</li>
+  <li><code class="language-plaintext highlighter-rouge">drop_old_sessions_on_login</code> (default: false)</li>
+  <li><a href="#auth-source-sso"><code class="language-plaintext highlighter-rouge">auth_source_sso</code></a> (default: nil)</li>
+  <li><a href="#omniauth-direct-login-provider"><code class="language-plaintext highlighter-rouge">omniauth_direct_login_provider</code></a> (default: nil)</li>
+  <li><a href="#disable-password-login"><code class="language-plaintext highlighter-rouge">disable_password_login</code></a> (default: false)</li>
+  <li><a href="#attachments-storage"><code class="language-plaintext highlighter-rouge">attachments_storage</code></a> (default: file)</li>
+  <li><a href="#direct-uploads"><code class="language-plaintext highlighter-rouge">direct_uploads</code></a> (default: true)</li>
+  <li><a href="#fog-download-url-expires-in"><code class="language-plaintext highlighter-rouge">fog_download_url_expires_in</code></a> (default: 21600)</li>
+  <li><a href="#hidden-menu-items"><code class="language-plaintext highlighter-rouge">hidden_menu_items</code></a> (default: {})</li>
+  <li><a href="#disabled-modules"><code class="language-plaintext highlighter-rouge">disabled_modules</code></a> (default: [])</li>
+  <li><a href="#blacklisted-routes"><code class="language-plaintext highlighter-rouge">blacklisted_routes</code></a> (default: [])</li>
+  <li><a href="#global-basic-auth"><code class="language-plaintext highlighter-rouge">global_basic_auth</code></a></li>
+  <li><a href="#apiv3_enable_basic_auth"><code class="language-plaintext highlighter-rouge">apiv3_enable_basic_auth</code></a></li>
+  <li><a href="#enterprise-limits"><code class="language-plaintext highlighter-rouge">enterprise_limits</code></a></li>
+</ul>
+
+<h2 id="setting-session-options">Setting session options</h2>
+
+<p>Use <code class="language-plaintext highlighter-rouge">session_store</code> to define where session information is stored. In order to store sessions in the database and use the following options, set that configuration to <code class="language-plaintext highlighter-rouge">:active_record_store</code>.</p>
+
+<p><strong>Delete old sessions for the same user when logging in</strong> (Disabled by default)</p>
+
+<p>To enable, set the configuration option <code class="language-plaintext highlighter-rouge">drop_old_sessions_on_login</code> to true.</p>
+
+<p><strong>Delete old sessions for the same user when logging out</strong> (Enabled by default)</p>
+
+<p>To disable, set the configuration option <code class="language-plaintext highlighter-rouge">drop_old_sessions_on_logout</code> to false.</p>
+
+<h3 id="disable-password-login">disable password login</h3>
+
+<p><em>default: false</em></p>
+
+<p>If you enable this option you have to configure at least one omniauth authentication
+provider to take care of authentication instead of the password login.</p>
+
+<p>All username/password forms will be removed and only a list of omniauth providers
+presented to the users.</p>
+
+<h3 id="auth-source-sso">auth source sso</h3>
+
+<p><em>default: nil</em></p>
+
+<p>Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>auth_source_sso:
+  header: X-Remote-User
+  
+  # Optional secret to be passed by the header in form
+  # of a colon-separted userinfo string
+  # e.g., X-Remote-User "username:s3cret"
+  secret: s3cr3t
+  # Uncomment to make the header optional.
+  # optional: true
+</code></pre></div></div>
+
+<p>Can be used to automatically login a user defined through a custom header
+sent by a load balancer or reverse proxy in front of OpenProject,
+for instance in a Kerberos Single Sign-On (SSO) setup via apache.
+The header with the given name has to be passed to OpenProject containing the logged in
+user and the defined global secret as in <code class="language-plaintext highlighter-rouge">$login:$secret</code>.</p>
+
+<h3 id="omniauth-direct-login-provider">omniauth direct login provider</h3>
+
+<p><em>default: nil</em></p>
+
+<p>Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>omniauth_direct_login_provider: google
+</code></pre></div></div>
+
+<p>Per default the user may choose the usual password login as well as several omniauth providers on the login page and in the login drop down menu. With his configuration option you can set a specific omniauth provider to be used for direct login. Meaning that the login provider selection is skipped and the configured provider is used directly instead.</p>
+
+<p>If this option is active /login will lead directly to the configured omniauth provider and so will a click on ‘Sign in’ (as opposed to opening the drop down menu).</p>
+
+<p>Note that this does not stop a user from manually navigating to any other
+omniauth provider if additional ones are configured.</p>
+
+<h3 id="gravatar-images">Gravatar images</h3>
+
+<p>OpenProject uses gravatar images with a <code class="language-plaintext highlighter-rouge">404</code> fallback by default to render an internal, initials-based avatar.
+You can override this behavior by setting <code class="language-plaintext highlighter-rouge">gravatar_fallback_image</code> to a different value to always render Gravatars</p>
+
+<p>For supported values, please see https://en.gravatar.com/site/implement/images/</p>
+
+<h3 id="attachments-storage">Attachments storage</h3>
+
+<p>You can modify the folder that attachments are stored locally. Use the <code class="language-plaintext highlighter-rouge">attachments_storage_path</code> configuration variable for that. But ensure that you move the existing paths. To find out the current path on a packaged installation, use <code class="language-plaintext highlighter-rouge">openproject config:get ATTACHMENTS_STORAGE_PATH</code>.</p>
+
+<p>To update the path, use <code class="language-plaintext highlighter-rouge">openproject config:set ATTACHMENTS_STORAGE_PATH="/path/to/new/folder"</code>. Ensure that this is writable by the <code class="language-plaintext highlighter-rouge">openproject</code> user.</p>
+
+<h3 id="attachment-storage-type">attachment storage type</h3>
+
+<p><em>default: file</em></p>
+
+<p>Attachments can be stored using fog as well. You will have to add further configuration through <code class="language-plaintext highlighter-rouge">fog</code>, e.g. for Amazon S3:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>attachments_storage: fog
+fog:
+  directory: bucket-name
+  credentials:
+    provider: 'AWS'
+    aws_access_key_id: 'AKIAJ23HC4KNPWHPG3UA'
+    aws_secret_access_key: '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'
+    region: 'eu-west-1'
+</code></pre></div></div>
+
+<p>In order to set these values through ENV variables, use:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;pre&gt;
+OPENPROJECT_ATTACHMENTS__STORAGE=fog
+OPENPROJECT_FOG_CREDENTIALS_AWS__ACCESS__KEY__ID="AKIAJ23HC4KNPWHPG3UA"
+OPENPROJECT_FOG_CREDENTIALS_AWS__SECRET__ACCESS__KEY="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"
+OPENPROJECT_FOG_CREDENTIALS_PROVIDER=AWS
+OPENPROJECT_FOG_CREDENTIALS_REGION="eu-west-1"
+OPENPROJECT_FOG_DIRECTORY=uploads
+&lt;/pre&gt;
+
+</code></pre></div></div>
+
+<h4 id="backend-migration">backend migration</h4>
+
+<p>You can migrate attachments between the available backends. One example would be that you change the configuration from
+the file storage to the fog storage. If you want to put all the present file-based attachments into the cloud,
+you will have to use the following rake task:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rake attachments:copy_to[fog]
+</code></pre></div></div>
+
+<p>It works the other way around too:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rake attachments:copy_to[file]
+</code></pre></div></div>
+
+<p>Note that you have to configure the respective storage (i.e. fog) beforehand as described in the previous section.
+In the case of fog you only have to configure everything under <code class="language-plaintext highlighter-rouge">fog</code>, however. Don’t change <code class="language-plaintext highlighter-rouge">attachments_storage</code>
+to <code class="language-plaintext highlighter-rouge">fog</code> just yet. Instead leave it as <code class="language-plaintext highlighter-rouge">file</code>. This is because the current attachments storage is used as the source
+for the migration.</p>
+
+<h3 id="direct-uploads">direct uploads</h3>
+
+<p><em>default: true</em></p>
+
+<p>When using fog attachments uploaded in the frontend will be posted directly
+to the cloud rather than going through the OpenProject servers. This allows large attachments to be uploaded
+without the need to increase the <code class="language-plaintext highlighter-rouge">client_max_body_size</code> for the proxy in front of OpenProject.
+Also it prevents web processes from being blocked through long uploads.</p>
+
+<p>If, for what ever reason, this is undesirable, you can disable this option.
+In that case attachments will be posted as usual to the OpenProject server which then uploads the file
+to the remote storage in an extra step.</p>
+
+<p><strong>Note</strong>: This only works for S3 right now. When using fog with another provider this configuration will be <code class="language-plaintext highlighter-rouge">false</code>. The same goes for when no fog storage is configured, or when the <code class="language-plaintext highlighter-rouge">use_iam_profile</code> option is used in the fog credentials when using S3.</p>
+
+<h3 id="fog-download-url-expires-in">fog download url expires in</h3>
+
+<p><em>default: 21600</em></p>
+
+<p>Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fog_download_url_expires_in: 60
+</code></pre></div></div>
+
+<p>When using remote storage for attachments via fog - usually S3 (see <a href="#attachments-storage"><code class="language-plaintext highlighter-rouge">attachments_storage</code></a> option) -
+each attachment download will generate a temporary URL.
+This option determines how long these links will be valid.</p>
+
+<p>The default is 21600 seconds, that is 6 hours, which is the maximum expiry time
+allowed by S3 when using IAM roles for authentication.</p>
+
+<h3 id="overriding-the-help-link">Overriding the help link</h3>
+
+<p>You can override the default help menu of OpenProject by specifying a <code class="language-plaintext highlighter-rouge">force_help_link</code> option to
+the configuration. This value is used for the href of the help link, and the default dropdown is removed.</p>
+
+<h3 id="setting-an-impressum-legal-notice-link">Setting an impressum (legal notice) link</h3>
+
+<p>You can set a impressum link for your OpenProject instance by setting <code class="language-plaintext highlighter-rouge">impressum_link</code> to an absolute URL.</p>
+
+<h3 id="hidden-menu-items">hidden menu items</h3>
+
+<p><em>default: {}</em></p>
+
+<p>You can disable specific menu items in the menu sidebar for each main menu (such as Administration and Projects).
+The following example disables all menu items except ‘Users’, ‘Groups’ and ‘Custom fields’ under ‘Administration’:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hidden_menu_items:
+  admin_menu:
+    - roles
+    - types
+    - statuses
+    - workflows
+    - enumerations
+    - settings
+    - ldap_authentication
+    - colors
+    - project_types
+    - export_card_configurations
+    - plugins
+    - info
+</code></pre></div></div>
+
+<p>The configuration can be overridden through environment variables.
+You have to define one variable for each menu.
+For instance ‘Roles’ and ‘Types’ under ‘Administration’ can be disabled by defining the following variable:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OPENPROJECT_HIDDEN__MENU__ITEMS_ADMIN__MENU='roles types'
+</code></pre></div></div>
+
+<h3 id="blacklisted-routes">blacklisted routes</h3>
+
+<p><em>default: []</em></p>
+
+<p>You can blacklist specific routes
+The following example forbid all routes for above disabled menu:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>blacklisted_routes:
+  - 'admin/info'
+  - 'admin/plugins'
+  - 'export_card_configurations'
+  - 'project_types'
+  - 'colors'
+  - 'settings'
+  - 'admin/enumerations'
+  - 'workflows/*'
+  - 'statuses'
+  - 'types'
+  - 'admin/roles'
+</code></pre></div></div>
+
+<p>The configuration can be overridden through environment variables.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OPENPROJECT_BLACKLISTED__ROUTES='admin/info admin/plugins'
+</code></pre></div></div>
+
+<h3 id="disabled-modules">disabled modules</h3>
+
+<p><em>default: []</em></p>
+
+<p>Modules may be disabled through the configuration.
+Just give a list of the module names either as an array or as a string with values separated by spaces.</p>
+
+<p><strong>Array example:</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>disabled_modules:
+  - backlogs
+  - meetings
+</code></pre></div></div>
+
+<p><strong>String example:</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>disabled_modules: backlogs meetings
+</code></pre></div></div>
+
+<p>The option to use a string is mostly relevant for when you want to override the disabled modules via ENV variables:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OPENPROJECT_DISABLED__MODULES='backlogs meetings'
+</code></pre></div></div>
+
+<h2 id="local-checkout-path">local checkout path</h2>
+
+<p><em>default: “repositories”</em></p>
+
+<p>Remote git repositories will be checked out here.</p>
+
+<h3 id="apiv3-basic-auth-control">APIv3 basic auth control</h3>
+
+<p><strong>default: true</strong></p>
+
+<p>You can enable basic auth access to the APIv3 with the following configuration option:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apiv3_enable_basic_auth: true
+</code></pre></div></div>
+
+<h3 id="global-basic-auth">global basic auth</h3>
+
+<p><em>default: none</em></p>
+
+<p>You can define a global set of credentials used to authenticate towards API v3.
+Example section for <code class="language-plaintext highlighter-rouge">configuration.yml</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>default:
+  authentication:
+    global_basic_auth:
+      user: admin
+      password: admin
+</code></pre></div></div>
+
+<h2 id="security-badge">Security badge</h2>
+
+<p>OpenProject now provides a release indicator (security badge) that will inform administrators of an OpenProject
+installation on whether new releases or security updates are available for your platform.</p>
+
+<p>If enabled, this option will display a badge with your installation status at Administration &gt; Information right next to the release version,
+and on the home screen. It is only displayed to administrators.</p>
+
+<p>The badge will match your current OpenProject version against the official OpenProject release database to alert you of any updates or known vulnerabilities.
+To ensure the newest available update can be returned, the check will include your installation type, current version, database type, enterprise status and an anonymous unique ID of the instance.
+To localize the badge, the user’s locale is sent. No personal information of your installation or any user within is transmitted, processed, or stored.</p>
+
+<p>To disable rendering the badge, uncheck the setting at Administration &gt; System settings &gt; General or pass
+the configuration flag <code class="language-plaintext highlighter-rouge">security_badge_displayed: false</code> .</p>
+
+<h2 id="cache-options">Cache options:</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">rails_cache_store</code>: <code class="language-plaintext highlighter-rouge">memcache</code> for <a href="http://www.memcached.org/">memcached</a> or <code class="language-plaintext highlighter-rouge">memory_store</code> (default: <code class="language-plaintext highlighter-rouge">file_store</code>)</li>
+  <li><code class="language-plaintext highlighter-rouge">cache_memcache_server</code>: The memcache server host and IP (default: <code class="language-plaintext highlighter-rouge">127.0.0.1:11211</code>)</li>
+  <li><code class="language-plaintext highlighter-rouge">cache_expires_in</code>: Expiration time for memcache entries (default: <code class="language-plaintext highlighter-rouge">0</code>, no expiry)</li>
+  <li><code class="language-plaintext highlighter-rouge">cache_namespace</code>: Namespace for cache keys, useful when multiple applications use a single memcache server (default: none)</li>
+</ul>
+
+<h2 id="asset-options">Asset options:</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">rails_asset_host</code>: A custom host to use to serve static assets such as javascript, CSS, images, etc. (default: <code class="language-plaintext highlighter-rouge">nil</code>)</li>
+</ul>
+
+<h2 id="onboarding-variables">Onboarding variables:</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">onboarding_video_url</code>: An URL for the video displayed on the onboarding modal. This is only shown when the user logs in for the first time.</li>
+</ul>
+
+<h3 id="enterprise-limits">Enterprise Limits</h3>
+
+<p>If using an Enterprise token there are certain limits that apply.
+You can configure how these limits are enforced.</p>
+
+<h4 id="fail_fast"><code class="language-plaintext highlighter-rouge">fail_fast</code></h4>
+
+<p><em>default: false</em></p>
+
+<p>If you set <code class="language-plaintext highlighter-rouge">fail_fast</code> to true, new users cannot be invited or registered if the user limit has been reached.
+If it is false then you can still invite and register new users but their activation will fail until the
+user limit has been increased (or the number of active users decreased).</p>
+
+<p>Configured in the <code class="language-plaintext highlighter-rouge">configuration.yml</code> like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>enterprise:
+  fail_fast: true
+</code></pre></div></div>
+
+<p>Or through the environment like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OPENPROJECT_ENTERPRISE_FAIL__FAST=true
+</code></pre></div></div>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="./environment">List of supported environment variables</a></td>
+      <td>The full list of environment variables you can use to override the default configuration</td>
+    </tr>
+    <tr>
+      <td><a href="./ssl">Configuring SSL</a></td>
+      <td>How to configure SSL so that your OpenProject installation is available over HTTPS</td>
+    </tr>
+    <tr>
+      <td><a href="./outbound-emails">Configuring outbound emails</a></td>
+      <td>How to configure outbound emails for notifications, etc.</td>
+    </tr>
+    <tr>
+      <td><a href="./incoming-emails">Configuring inbound emails</a></td>
+      <td>How to configure inbound emails for work package updates directly from an email</td>
+    </tr>
+    <tr>
+      <td><a href="./database">Configuring a custom database</a></td>
+      <td>How to use an external database</td>
+    </tr>
+    <tr>
+      <td><a href="./server">Configuring a custom web server</a></td>
+      <td>How to use a custom web server (e.g. NginX) with your OpenProject installation</td>
+    </tr>
+    <tr>
+      <td><a href="#TODO">Configuring a custom caching server</a></td>
+      <td>TODO: How to use a custom caching server with your OpenProject installation</td>
+    </tr>
+    <tr>
+      <td><a href="./repositories">Configuring Git and Subversion repositories</a></td>
+      <td>How to integrate Git and Subversion repositories into OpenProject</td>
+    </tr>
+    <tr>
+      <td><a href="./plugins">Adding plugins</a></td>
+      <td>How to add plugins to your OpenProject installation</td>
+    </tr>
+  </tbody>
+</table>

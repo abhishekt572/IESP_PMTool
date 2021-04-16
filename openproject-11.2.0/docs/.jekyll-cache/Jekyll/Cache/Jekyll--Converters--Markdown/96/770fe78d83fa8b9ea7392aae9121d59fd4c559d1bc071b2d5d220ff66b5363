@@ -1,0 +1,68 @@
+I",<h1 id="openproject-82">OpenProject 8.2</h1>
+
+<p>OpenProject 8.2 includes several improvements, such as a modernized
+calendar as well as many usability improvements.</p>
+
+<p>Users of the <a href="https://www.openproject.org/hosting/">Cloud Edition</a> and
+<a href="https://www.openproject.org/enterprise-edition/">Enterprise Edition</a>
+can change work packages to a read-only mode to avoid unwanted changes.
+Additionally, embedded work package now also support relations.</p>
+
+<h2 id="modernized-calendar-view">Modernized calendar view</h2>
+
+<p>The existing calendar view has been replaced with a new, modern calendar
+view with OpenProject 8.2. This affects all existing calendar views
+(e.g. in a project, on the
+<span class="explanatory-dictionary-highlight" data-definition="explanatory-dictionary-definition-57">My
+page</span>).</p>
+
+<p><img src="https://1t1rycb9er64f1pgy2iuseow-wpengine.netdna-ssl.com/wp-content/uploads/2018/12/Calendar-1024x605.png" alt="Calendar" /></p>
+
+<h2 id="usability-improvements">Usability improvements</h2>
+
+<p>OpenProject 8.2 includes many usability improvements which make
+OpenProject easier and smoother to use. Some examples of usability
+improvements include:</p>
+
+<ul>
+  <li>Create a version from the roadmap and backlog page.</li>
+  <li>Change a work package parent directly from the breadcrumb.</li>
+  <li>A “Related to” relation is created automatically when copying a work
+package.</li>
+  <li>The OpenProject search searches the current project and subprojects
+by default.</li>
+</ul>
+
+<h2 id="read-only-mode-for-work-packages-enterprise-edition--cloud-edition">Read-only mode for work packages (Enterprise Edition / Cloud Edition)</h2>
+
+<p>Users of the Enterprise Edition and Cloud Edition can define read-only
+work package statuses. When you change a work package’s status to a
+read-only status, the work package can no longer be modified. This
+allows you to avoid users to e.g. make changes to a work package once it
+has been approved.</p>
+
+<p><img src="https://1t1rycb9er64f1pgy2iuseow-wpengine.netdna-ssl.com/wp-content/uploads/2018/12/Read-only-mode-work-packages-1024x432.png" alt="Read-only mode work
+packages" /></p>
+
+<h2 id="embedded-work-packages-with-other-relation-types-enterprise-edition--cloud-edition">Embedded work packages with other relation types (Enterprise Edition / Cloud Edition)</h2>
+
+<p>With OpenProject 8.2 the embed work package capability introduced with
+OpenProject 8 is extended to be used with other relation types besides
+hierarchical relationships.</p>
+
+<p><img src="https://1t1rycb9er64f1pgy2iuseow-wpengine.netdna-ssl.com/wp-content/uploads/2018/12/WorkPackage-Table-1024x457.png" alt="Embedded work package
+table" /></p>
+
+<h2 id="technical-improvements-and-bug-fixes">Technical improvements and bug fixes</h2>
+
+<p>The OpenProject API now allows you to update times in OpenProject
+(<a href="https://community.openproject.com/projects/openproject/work_packages/29003/activity">#29003</a>)
+and delete time entries
+(<a href="https://community.openproject.com/projects/openproject/work_packages/29029/activity">#29029</a>),
+OpenProject 8.2 contains a large number of smaller improvements and bug
+fixes.</p>
+
+<p>For an overview, please take a look at the <a href="https://community.openproject.com/projects/openproject/work_packages?query_props=%7B%22c%22%3A%5B%22id%22%2C%22subject%22%2C%22type%22%2C%22status%22%2C%22assignee%22%2C%22version%22%5D%2C%22hi%22%3Atrue%2C%22g%22%3A%22%22%2C%22t%22%3A%22parent%3Aasc%22%2C%22f%22%3A%5B%7B%22n%22%3A%22status%22%2C%22o%22%3A%22*%22%2C%22v%22%3A%5B%5D%7D%2C%7B%22n%22%3A%22version%22%2C%22o%22%3A%22%3D%22%2C%22v%22%3A%5B%221253%22%5D%7D%2C%7B%22n%22%3A%22type%22%2C%22o%22%3A%22%3D%22%2C%22v%22%3A%5B%221%22%5D%7D%2C%7B%22n%22%3A%22subprojectId%22%2C%22o%22%3A%22*%22%2C%22v%22%3A%5B%5D%7D%5D%2C%22pa%22%3A1%2C%22pp%22%3A20%7D">list of bug
+fixes</a>.</p>
+
+:ET

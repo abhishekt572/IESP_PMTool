@@ -1,0 +1,83 @@
+I"�<h1 id="backing-up-your-openproject-installation">Backing up your OpenProject installation</h1>
+
+<p>We advise to backup your OpenProject installation regularly — especially before upgrading to a newer version.</p>
+
+<h2 id="what-should-be-backed-up">What should be backed up</h2>
+
+<p>In general the following parts of your OpenProject installation should be backed up:</p>
+
+<ul>
+  <li>Data stored in the database</li>
+  <li>Configuration files</li>
+  <li>Uploaded files (attachments)</li>
+  <li>Repositories (subversion, git) if applicable</li>
+</ul>
+
+<h2 id="package-based-installation-debrpm">Package-based installation (DEB/RPM)</h2>
+
+<p>The DEB/RPM packages provide a backup tool which can be used to take a snapshot
+of the current OpenProject installation. This tool will create a backup of
+all parts mentioned above. The backup tool is invoked by executing the following
+command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>openproject run backup
+</code></pre></div></div>
+
+<p>The command will create backup files in the following location on your system:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/var/db/openproject/backup
+</code></pre></div></div>
+
+<p>The content of that directory should look very similar to the following.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@ip-10-0-0-228:/home/admin# <span class="nb">ls</span> <span class="nt">-al</span> /var/db/openproject/backup/
+total 1680
+drwxr-xr-x 2 openproject openproject    4096 Nov 19 21:00 <span class="nb">.</span>
+drwxr-xr-x 6 openproject openproject    4096 Nov 19 21:00 ..
+<span class="nt">-rw-r-----</span> 1 openproject openproject 1361994 Nov 19 21:00 attachments-20191119210038.tar.gz
+<span class="nt">-rw-r-----</span> 1 openproject openproject    1060 Nov 19 21:00 conf-20191119210038.tar.gz
+<span class="nt">-rw-r-----</span> 1 openproject openproject     126 Nov 19 21:00 git-repositories-20191119210038.tar.gz
+<span class="nt">-rw-r-----</span> 1 openproject openproject  332170 Nov 19 21:00 postgresql-dump-20191119210038.pgdump
+<span class="nt">-rw-r-----</span> 1 openproject openproject     112 Nov 19 21:00 svn-repositories-20191119210038.tar.gz
+</code></pre></div></div>
+
+<p>You should then copy those dump files to a secure location, for instance an S3 bucket or some sort of backup server.</p>
+
+<h2 id="docker-based-installation">Docker-based installation</h2>
+
+<p>If you are using docker-compose, then the data volumes are managed by Docker and you should have a look at the <a href="https://docs.docker.com/storage/volumes/">official Docker documentation</a> for instructions on how to backup.</p>
+
+<p>If you are using the all-in-one container, then you can simply backup any local volumes that you chose to bind-mount with the <code class="language-plaintext highlighter-rouge">-v</code> option when launching the container. For instance if you launched the container with:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo mkdir</span> <span class="nt">-p</span> /var/lib/openproject/<span class="o">{</span>pgdata,assets<span class="o">}</span>
+
+docker run <span class="nt">-d</span> <span class="nt">-p</span> 8080:80 <span class="nt">--name</span> openproject <span class="nt">-e</span> <span class="nv">SECRET_KEY_BASE</span><span class="o">=</span>secret <span class="se">\</span>
+  <span class="nt">-v</span> /var/lib/openproject/pgdata:/var/openproject/pgdata <span class="se">\</span>
+  <span class="nt">-v</span> /var/lib/openproject/assets:/var/openproject/assets <span class="se">\</span>
+  openproject/community:10
+</code></pre></div></div>
+
+<p>Then you would need to backup the <code class="language-plaintext highlighter-rouge">/var/lib/openproject</code> folder (for instance to S3 or FTP server).</p>
+
+<h3 id="dumping-the-database">Dumping the database</h3>
+
+<p>When using docker-compose you can simply dump the database from the database container.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker exec -it db_1 pg_dump -U postgres -d openproject -x -O &gt; openproject.sql
+</code></pre></div></div>
+
+<p>This assumes that the database container is called <code class="language-plaintext highlighter-rouge">db_1</code>. Find out the actual name on your host using <code class="language-plaintext highlighter-rouge">docker ps | postgres</code>.</p>
+
+<h4 id="all-in-one-container">All-in-one container</h4>
+
+<p>If you need a regular dump of the database you can get one using <code class="language-plaintext highlighter-rouge">pg_dump</code> like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker exec -e PGPASSWORD=openproject -it $OP_CONTAINER_NAME pg_dump -U openproject -h localhost -d openproject -x -O &gt; openproject.sql
+</code></pre></div></div>
+
+<p>Where <code class="language-plaintext highlighter-rouge">$OP_CONTAINER_NAME</code> is the name of your OpenProject container. If you don’t know it you can find it using <code class="language-plaintext highlighter-rouge">docker ps | grep openproject</code>.</p>
+
+<h3 id="importing-the-dump-into-a-new-container">Importing the dump into a new container</h3>
+
+<p>Follow the instructions in the <a href="../restoring/#restoring-a-dump">restoring section</a> to import a dump into a new container.</p>
+:ET

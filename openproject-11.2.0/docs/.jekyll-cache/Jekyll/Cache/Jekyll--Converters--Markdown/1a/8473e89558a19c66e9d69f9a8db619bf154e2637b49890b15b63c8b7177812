@@ -1,0 +1,174 @@
+I"�'<link rel="stylesheet" href="/style.css" />
+
+<h1 id="gantt-charts">Gantt charts</h1>
+
+<div class="glossary">
+The **Gantt chart** in IESP PM TOOL displays the work packages in a timeline. You can collaboratively create and manage your project plan. Have your project timelines available for all team members and share up-to-date information with stakeholders. You can add start and finish dates and adapt it with drag and drop in the Gantt chart. Also, you can add dependencies, predecessor or follower within the Gantt chart.
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Topic</th>
+      <th>Content</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#activate-the-gantt-chart">Activate the Gantt chart</a></td>
+      <td>How to activate the Gantt chart in IESP PM TOOL?</td>
+    </tr>
+    <tr>
+      <td><a href="#create-a-new-element-in-the-gantt-chart">Create a new element</a></td>
+      <td>How to add a new item to the Gantt chart?</td>
+    </tr>
+    <tr>
+      <td><a href="#relations-in-the-gantt-chart">Relations in the Gantt chart</a></td>
+      <td>Create and display dependencies in the Gantt chart.</td>
+    </tr>
+    <tr>
+      <td><a href="#understanding-the-colours-and-lines-in-the-gantt-chart">Understanding the colours and lines in the Gantt chart</a></td>
+      <td>What do the clamps, lines and symbols in the Gantt chart mean?</td>
+    </tr>
+    <tr>
+      <td><a href="#gantt-chart-configuration">Gantt chart configuration</a></td>
+      <td>How to configure the view of your Gantt chart, e.g. add labels?</td>
+    </tr>
+    <tr>
+      <td><a href="#synchronize-data-between-IESP PM TOOL-and-excel">Synchronize data between IESP PM TOOL and Excel</a></td>
+      <td>How to synchronize data from IESP PM TOOL to Excel?</td>
+    </tr>
+    <tr>
+      <td><a href="#gantt-chart-views">Gantt chart views</a></td>
+      <td>How to zoom in and out and activate the Zen mode?</td>
+    </tr>
+  </tbody>
+</table>
+
+<video src="https://www.openproject.org/wp-content/uploads/2020/12/OpenProject-Project-Plan-and-Timelines-Gantt-charts.mp4" type="video/mp4" controls="" style="width:100%"></video>
+
+<h2 id="activate-the-gantt-chart">Activate the Gantt chart</h2>
+
+<p>A Gantt chart can be activated in any work package list, to display the work packages in a timeline view.</p>
+
+<p>To activate the Gantt chart, select the <strong>Gantt</strong> icon at the top right of the work package list.</p>
+
+<p><img src="activate-gantt.gif" alt="activate-gantt" /></p>
+
+<h2 id="create-a-new-element-in-the-gantt-chart">Create a new element in the Gantt chart</h2>
+
+<p>To add a work package (e.g. phase, milestone or task) to a Gantt chart, click the <strong>+ Create new work package</strong> link at the bottom of the work package list view.</p>
+
+<p>You can add a subject and make changes to type, status or more fields.</p>
+
+<p>In the <strong>Gantt chart</strong> you can schedule the work package with drag and drop and change the duration.</p>
+
+<p>To <strong>change the order of an item</strong> in the Gantt chart, click the <strong>drag and drop</strong> icon (6 dots) at the left hand side of the work package row. Drag the item to the new position. The blue horizontal line indicates the new position to drop the element.</p>
+
+<p><img src="create-new-element-gantt-chart.gif" alt="create-new-element-gantt-chart" /></p>
+
+<h3 id="how-to-change-the-duration-of-an-element-in-the-gantt-chart">How to change the duration of an element in the Gantt chart?</h3>
+
+<p>To change the duration of a work package in the Gantt chart view, hover over the work package in the Gantt chart and use the little arrows on its ends to adjust the start date or finish date. This will shorten or prolong its duration.
+To move a work package on the time line just click on it and drag and drop it to the desired point of time. This will change its start and finish date.</p>
+
+<h2 id="relations-in-the-gantt-chart">Relations in the Gantt chart</h2>
+
+<p>In the Gantt chart you can track dependencies of work packages (e.g. phases, milestones, tasks). This way you can get an easy overview of what needs to be done in which order, e.g. what tasks need to be completed to achieve a milestone.</p>
+
+<p>To add a dependency right-click on an element in the Gantt chart.</p>
+
+<p>In the menu, choose <strong>Add predecessor</strong> or <strong>Add follower</strong>.</p>
+
+<p>Select the item to which you want to create a dependency. The precede and follow relation is marked with a small blue line in the Gantt chart.</p>
+
+<p><img src="dependencies-gantt-chart-1566556144225.gif" alt="dependencies-gantt-chart" /></p>
+
+<p><em>IESP PM TOOL does not yet include a baseline feature to compare scheduled versions. However, we are aware of the need for it and documented it. Please check here https://community.openproject.com/projects/openproject/work_packages/26448/activity for an update.</em></p>
+
+<p>To find out about <strong>how work packages behave</strong>, when you move their predecessor or follower or change the date of a child work package please read our guide for the <a href="scheduling">Automatic and manual scheduling mode</a>.</p>
+
+<h2 id="understanding-the-colours-and-lines-in-the-gantt-chart">Understanding the colours and lines in the Gantt chart</h2>
+
+<ul>
+  <li>A <strong>blue line</strong> connects two work packages, they are predecessor and follower.</li>
+  <li>The <strong>vertical red dotted line</strong> indicates today’s date.</li>
+  <li>A <strong>black clamp</strong> indicates the duration from the start date of a work packages earliest starting child until the end date of a work packages latest ending child.</li>
+  <li>A <strong>red clamp</strong> indicates the same as the black clamp, with an important difference: The clamp turns red if the dates derived from the children are before or after the manually scheduled dates (of this parent work package).
+The clambs are black in case the derived dates are within the set dates (of this parent).</li>
+  <li>A <strong>diamond symbol</strong> stands for a milestone.</li>
+  <li>A <strong>bar</strong> stands for work packages like phases and tasks.</li>
+</ul>
+
+<h2 id="gantt-chart-configuration">Gantt chart configuration</h2>
+
+<p>To open the Gantt chart configuration, please open the <strong>settings</strong> icon with the three dots on the upper right of the work package module.
+Choose <strong>Configure view …</strong> and select the tab <strong>Gantt chart</strong>.</p>
+
+<p>Here you can <strong>adapt the Zoom level</strong>, or choose Auto zoom which will select a Zoom level which best fits to your browser size to have optimal results on a page.</p>
+
+<p>Also, you have <strong>Label Configuration</strong> for your Gantt chart. You can add up to three additional labels within the chart: On the left, on the right and on the far right. Just select which additional information you would need to have in the Gantt chart. This can be especially relevant if you want to print your Gantt chart.</p>
+
+<p>Click the <strong>Apply</strong> button to save your changes.</p>
+
+<p><img src="configure-gantt-chart.gif" alt="configure-gantt-chart" /></p>
+
+<h3 id="how-to-export-data-from-a-gantt-diagram">How to export data from a Gantt diagram?</h3>
+
+<p>To export the data from your Gantt chart there are several possibilities:</p>
+
+<ul>
+  <li><a href="../work-packages/edit-work-package/#export-work-packages">Export via the work package view</a></li>
+  <li><a href="#how-to-print-a-gantt-chart">Print (e.g. to PDF)</a></li>
+  <li><a href="#synchronize-data-between-IESP PM TOOL-and-Excel">Synchronize data from IESP PM TOOL to Excel</a> &lt;-&gt; MS Project</li>
+</ul>
+
+<h3 id="how-to-print-a-gantt-chart">How to print a Gantt chart?</h3>
+
+<p>The Gantt chart can be printed via the browser’s printing function. It is optimized for Chrome.</p>
+
+<p>First, make sure to <strong>add the labels</strong> you will need in the Gantt chart, e.g. Start date, Finish date, Subject, in the <a href="#gantt-chart-configuration">Gantt chart configuration</a>.</p>
+
+<p>Choose the <strong>Auto zoom</strong> by clicking on the Auto zoom button on top of the Gantt chart.</p>
+
+<p>Optimize the screen by dragging the Gantt chart to the far left so that only the Gantt chart is seen.</p>
+
+<p>Then, <strong>press CTRL + P</strong> to print the Gantt chart view.</p>
+
+<p>Make sure you select <strong>Landscape</strong> as a print layout.</p>
+
+<p>In the settings, enable the <strong>Background graphics</strong> for printing.</p>
+
+<p>Press the <strong>Print</strong> button.</p>
+
+<p><img src="print-gantt-chart.gif" alt="print-gantt-chart" /></p>
+
+<p>For other browsers, please simply follow the browser’s printing instruction to optimize results.</p>
+
+<h2 id="synchronize-data-between-iesp-pm-tool-and-excel">Synchronize data between IESP PM TOOL and Excel</h2>
+
+<p>You can synchronize your work package data between IESP PM TOOL and Excel (two-way synchronization). By extension you could import MS Project files - by saving them as Excel files and importing them into IESP PM TOOL. You can download a free Excel synchronization template to do this.</p>
+
+<p>Follow our <a href="../integrations/Excel Synchronization">Step by step guide how to synchronize your Excel Sheet with IESP PM TOOL</a>.</p>
+
+<h2 id="gantt-chart-views">Gantt chart views</h2>
+
+<h3 id="zoom-in-the-gantt-chart">Zoom in the Gantt chart</h3>
+
+<p>To zoom in and zoom out in the Gantt chart view, click on the button with the <strong>+</strong> and <strong>- icon</strong> on top of the chart.</p>
+
+<p><img src="Gantt-chart-zoom.png" alt="Gantt-chart-zoom" /></p>
+
+<h3 id="auto-zoom">Auto zoom</h3>
+
+<p>Select the <strong>auto zoom button</strong> on top of the Gantt chart to have the best view of your Gantt chart.</p>
+
+<p><img src="Gantt-chart-autozoom.png" alt="Gantt-chart-autozoom" /></p>
+
+<h3 id="zen-mode">Zen mode</h3>
+
+<p>The zen mode gives you more space to focus on the tasks at hand. It’s almost like activating the full screen view in your browser. To exit press the <em>Esc</em> key or click on the <strong>zen mode</strong> symbol again.</p>
+
+<p><img src="image-20201007164653327.png" alt="image-20201007164653327" /></p>
+
+:ET

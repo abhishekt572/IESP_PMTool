@@ -1,0 +1,49 @@
+I";<h1 id="adding-plugins-debrpm-packages">Adding plugins (DEB/RPM packages)</h1>
+
+<div class="alert alert-info" role="alert">
+**Note**: this guide only applies if you've installed OpenProject using our DEB/RPM packages.
+</div>
+
+<p>A number of plugins exist for use with OpenProject. Most plugins that are maintained by us are shipping with OpenProject, however there are several plugins contributed by the community.</p>
+
+<p>Previously, using them in a packaged installation was not possible without losing your changes on every upgrade. With the following steps, you can now use third party plugins.</p>
+
+<div class="alert alert-info" role="alert">
+**Note**: We cannot guarantee upgrade compatibility for third party plugins nor do we provide support for them. Please carefully check whether the plugins you use are available in newer versions before upgrading your installation.
+</div>
+
+<h2 id="add-a-custom-gemfile">Add a custom Gemfile</h2>
+
+<p>If you have a plugin you wish to add to your packaged OpenProject installation, create a separate Gemfile with the Gem dependencies, such as the following:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>group :opf_plugins do
+  gem 'openproject-emoji', git: 'https://github.com/tessi/openproject-emoji.git', :branch =&gt; 'op-5-stable'
+end
+</code></pre></div></div>
+
+<p>The group <code class="language-plaintext highlighter-rouge">:opf_plugins</code> is generally recommended, but only required for plugins with custom frontend code that is picked up by webpack and output into their respective bundles.</p>
+
+<p>We suggest to store the Gemfile under <code class="language-plaintext highlighter-rouge">/etc/openproject/Gemfile.custom</code>, but the choice is up to you, just make sure the openproject user is able to read it.</p>
+
+<h2 id="propagate-the-gemfile-to-the-package">Propagate the Gemfile to the package</h2>
+
+<p>You have to tell your installation to use the custom gemfile via a config setting:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openproject config:set CUSTOM_PLUGIN_GEMFILE=/etc/openproject/Gemfile.custom
+</code></pre></div></div>
+
+<p>If your plugin links into the Angular frontend, you will need to set the following environment variable to ensure it gets recompiled. Please note that NPM dependencies will be installed during the installation, and the angular CLI compilation will take place which will delay the configuration process by a few minutes.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openproject config:set RECOMPILE_ANGULAR_ASSETS="true"
+</code></pre></div></div>
+
+<h2 id="re-run-the-installer">Re-run the installer</h2>
+
+<p>To re-bundle the application including the new plugins, as well as running migrations and precompiling their assets, simply re-run the installer while using the same configuration as before.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openproject configure
+</code></pre></div></div>
+
+<p>Using configure will take your previous decisions in the installer and simply re-apply them, which is an idempotent operation. It will detect the Gemfile config option being set and re-bundle the application with the additional plugins.</p>
+
+:ET

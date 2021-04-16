@@ -1,0 +1,91 @@
+<h1 id="process-control-for-your-openproject-installation">Process control for your OpenProject installation</h1>
+
+<h2 id="packaged-installation">Packaged installation</h2>
+
+<h4 id="restart-all-the-openproject-processes">Restart all the OpenProject processes</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>openproject restart
+</code></pre></div></div>
+
+<h4 id="run-commands-like-rake-tasks-or-rails-console">Run commands like rake tasks or rails console</h4>
+
+<p>The OpenProject command line tool supports running rake tasks and known scripts. For instance:</p>
+
+<p>Get the current version of OpenProject</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>openproject run bundle <span class="nb">exec </span>rake version
+</code></pre></div></div>
+
+<p>Launch an interactive console to directly interact with the underlying Ruby on Rails application:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>openproject run console
+</code></pre></div></div>
+
+<p>Manually launch the database migrations:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>openproject run rake db:migrate
+</code></pre></div></div>
+
+<p>Check the version of Ruby used by OpenProject:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>openproject run ruby <span class="nt">-v</span>
+</code></pre></div></div>
+
+<h4 id="scaling-the-number-of-web-workers">Scaling the number of web workers</h4>
+
+<p>Note: Depending on your free RAM on your system, we recommend you raise the default number of web processes. The default from 9.0.3 onwards is 4 web processes. Each worker will take roughly 300-400MB RAM.</p>
+
+<p>We recommend at least 4 web processes. Please check your current web processes count with:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>openproject config:get OPENPROJECT_WEB_WORKERS
+</code></pre></div></div>
+
+<p>If it returns nothing, the default process count of <code class="language-plaintext highlighter-rouge">4</code> applies. To increase or decrease the process count, call</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>openproject config:set <span class="nv">OPENPROJECT_WEB_WORKERS</span><span class="o">=</span>number
+</code></pre></div></div>
+
+<p>Where <code class="language-plaintext highlighter-rouge">number</code> is a positive number between 1 and <code class="language-plaintext highlighter-rouge">round(AVAILABLE_RAM * 1.5)</code>.</p>
+
+<p>After changing these values, simply restart the web process:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>openproject restart web
+</code></pre></div></div>
+
+<h2 id="docker-based-installation">Docker-based installation</h2>
+
+<h4 id="run-commands-like-rake-tasks-or-rails-console-1">Run commands like rake tasks or rails console</h4>
+
+<p>You can spawn an interactive shell in your docker container to run commands in the OpenProject environment.</p>
+
+<p>First, find out the container ID of your web process with:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Ensure the containers are running with the following output</span>
+docker ps | gre web_1
+
+<span class="c"># save the container ID as a env variable $CID</span>
+<span class="nb">export </span><span class="nv">CID</span><span class="o">=</span><span class="si">$(</span>docker ps | <span class="nb">grep </span>web_1 | <span class="nb">cut</span> <span class="nt">-d</span><span class="s1">' '</span> <span class="nt">-f</span> 1<span class="si">)</span>
+</code></pre></div></div>
+
+<p>We can now run commands against that container</p>
+
+<p>Run a bash shell in the container</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker <span class="nb">exec</span> <span class="nt">-it</span> <span class="nv">$CIT</span> bash
+</code></pre></div></div>
+
+<p>Get the current version of OpenProject</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker <span class="nb">exec</span> <span class="nt">-it</span> <span class="nv">$CIT</span> bash <span class="nt">-c</span> <span class="s2">"RAILS_ENV=production rails version"</span>
+</code></pre></div></div>
+
+<p>In case of using kubernetes, the command is a bit different</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl <span class="nb">exec</span> <span class="nt">-it</span> <span class="o">{</span>POD_ID<span class="o">}</span> <span class="nt">--</span> bash <span class="nt">-c</span> <span class="s2">"RAILS_ENV=production bundle exec rails console"</span>
+</code></pre></div></div>
+
+<p>Launch an interactive console to directly interact with the underlying Ruby on Rails application:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker <span class="nb">exec</span> <span class="nt">-it</span> <span class="nv">$CIT</span> bash <span class="nt">-c</span> <span class="s2">"RAILS_ENV=production rails console"</span>
+</code></pre></div></div>
+

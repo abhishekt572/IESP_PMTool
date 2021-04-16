@@ -1,0 +1,16 @@
+I"î<h1 id="cve-2019-17092-xss-injection-vulnerability-in-projects-listing-in-versions-before-904-1002">[CVE-2019-17092] XSS injection vulnerability in projects listing in versions before 9.0.4, 10.0.2</h1>
+
+<p>An XSS vulnerability in project list in OpenProject before 9.0.4 and 10.x before 10.0.2 allows remote attackers to inject arbitrary web script or HTML via the sortBy parameter because error messages are mishandled.</p>
+
+<p>This vulnerability has been assigned the CVE identifier CVE-2019-17092.</p>
+
+<p>Versions Affected: Versions &lt;= 9.0.3, 10.0.1
+Fixed Versions: 9.0.4, 10.0.2</p>
+
+<h2 id="credits">Credits</h2>
+<p>Thanks to David Haintz from the SEC Consult Vulnerability Lab (https://www.sec-consult.com) for identifying and responsibly disclosing the identified issues.</p>
+
+<h4 id="contributions">Contributions</h4>
+
+<p>Thanks to David Haintz from <a href="https://www.sec-consult.com/">SEC Consult Vulnerability Lab</a> for identifying and responsibly disclosing the identified issues.</p>
+:ET

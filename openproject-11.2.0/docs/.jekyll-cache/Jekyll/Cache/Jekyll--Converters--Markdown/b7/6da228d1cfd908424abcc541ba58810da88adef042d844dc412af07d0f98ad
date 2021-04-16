@@ -1,0 +1,58 @@
+I"<h1 id="openproject604">OpenProject 6.0.4</h1>
+
+<p>OpenProject 6.0.4 contains several bug and accessibility fixes.</p>
+
+<p><strong>The following bugs have been fixed in OpenProject 6.0.4:</strong></p>
+
+<ul>
+  <li>The <em>+ New
+<span class="explanatory-dictionary-highlight" data-definition="explanatory-dictionary-definition-45">Project</span></em>
+button was displayed even to users who didn’t have the permission to
+create new work packages
+(<a href="https://community.openproject.com/work_packages/23881/activity">#23881</a>).</li>
+  <li><span class="explanatory-dictionary-highlight" data-definition="explanatory-dictionary-definition-7">Work
+package</span> attribute were sometimes not saved properly when
+multiple attributes were changed in quick succession
+(<a href="https://community.openproject.com/work_packages/23859">#23589</a>).</li>
+  <li>In the work package split screen the subject was not updated when it
+was changed in the work package list
+(<a href="https://community.openproject.com/work_packages/23879">#23879</a>).</li>
+  <li>The project list on the work package screen appeared to be ordered
+randomly. It’s now sorted alphabetically
+(<a href="https://community.openproject.com/work_packages/23786/activity">#23786</a>).</li>
+  <li>The global setting to display work packages from subprojects in main
+projects did not work
+(<a href="https://community.openproject.com/work_packages/23814/activity">#23814</a>).</li>
+  <li>The <em>Cancel</em> button on wiki pages was missing
+(<a href="https://community.openproject.com/work_packages/23829/activity">#23829</a>).</li>
+  <li>The link to add additional work package attachments on the wiki page
+redirected users to the landing page instead
+(<a href="https://community.openproject.com/work_packages/23820/activity">#23820</a>).</li>
+  <li><span class="explanatory-dictionary-highlight" data-definition="explanatory-dictionary-definition-8">Wiki</span>
+menu items were showing the slug instead of the title
+(<a href="https://community.openproject.com/work_packages/23818/activity">#23818</a>).</li>
+  <li>The <em>Send for review</em> button on the meeting page did not work when a
+timezone was set
+(<a href="https://community.openproject.com/work_packages/23758">#23758</a>).</li>
+  <li>Cost reports grouped by year and months were displayed in the wrong
+order
+(<a href="https://community.openproject.com/work_packages/23773/activity">#23773</a>).</li>
+  <li>Several styling errors have been fixed
+(<a href="https://community.openproject.com/work_packages/23808/activity">#23808</a>,
+<a href="https://community.openproject.com/work_packages/23834/activity">#23834</a>).</li>
+  <li>Several missing translations have been added (e.g.
+<a href="https://community.openproject.com/work_packages/23877/activity">#23877</a>).</li>
+</ul>
+
+<p>Thanks a lot to the community, in particular to Marc Vollmer, for
+<a href="https://www.openproject.org/development/report-a-bug/">reporting
+bugs</a>!</p>
+
+<p>For further information on the release, please refer to the <a href="https://community.openproject.com/versions/816">Changelog
+v.6.0.4</a> or take a look
+at <a href="https://github.com/opf/openproject/tree/v6.0.4">GitHub</a>.</p>
+
+<p>You can try OpenProject for free. For a free 30 day trial create your
+OpenProject instance on <a href="https://openproject.org/">OpenProject.org</a>.</p>
+
+:ET

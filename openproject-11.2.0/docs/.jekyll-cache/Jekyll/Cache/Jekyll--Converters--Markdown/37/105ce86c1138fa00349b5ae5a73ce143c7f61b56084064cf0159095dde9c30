@@ -1,0 +1,92 @@
+I"�<h1 id="getting-started-guide">Getting started guide</h1>
+
+<p>Welcome to the OpenProject <strong>Getting started guide</strong>.</p>
+
+<p>Here you will learn about the <strong>first steps with OpenProject</strong>. If you need more detailed explanations of all features, please visit the respective section in our <a href="../user-guide/">user guide</a>.</p>
+
+<h2 id="overview">Overview</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Popular Topics</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="openproject-introduction">Introduction to OpenProject</a></td>
+      <td style="text-align: left">Get an introduction about project management with OpenProject.</td>
+    </tr>
+    <tr>
+      <td><a href="sign-in-registration">Sign in and registration</a></td>
+      <td style="text-align: left">Find out how you can register and sign in to OpenProject.</td>
+    </tr>
+    <tr>
+      <td><a href="projects">Create a project</a></td>
+      <td style="text-align: left">How to create and set up a new project?</td>
+    </tr>
+    <tr>
+      <td><a href="invite-members">Invite team members</a></td>
+      <td style="text-align: left">How to invite new members?</td>
+    </tr>
+    <tr>
+      <td><a href="work-packages-introduction">Work packages</a></td>
+      <td style="text-align: left">Learn how to create and edit work packages.</td>
+    </tr>
+    <tr>
+      <td><a href="gantt-chart-introduction">Gantt chart</a></td>
+      <td style="text-align: left">Find out how to create a project plan.</td>
+    </tr>
+    <tr>
+      <td><a href="boards-introduction">Boards</a></td>
+      <td style="text-align: left">How to work with Agile Boards?</td>
+    </tr>
+    <tr>
+      <td><a href="my-account">My account</a></td>
+      <td style="text-align: left">How to configure My Account?</td>
+    </tr>
+    <tr>
+      <td><a href="my-page">My page</a></td>
+      <td style="text-align: left">Find out more about a personal My page dashboard.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="5-steps-to-get-started">5 steps to get started</h2>
+
+<p>Watch a short 3-minute introduction video to get started with OpenProject in 5 easy steps:</p>
+
+<ol>
+  <li>Create a project</li>
+  <li>Add team members</li>
+  <li>Create work packages</li>
+  <li>Create a project plan</li>
+  <li>Filter, group and create reports</li>
+</ol>
+
+<video src="https://www.openproject.org/wp-content/uploads/2020/12/5-steps-to-get-started-with-OpenProject.mp4" type="video/mp4" controls="" style="width:100%"></video>
+
+<h2 id="openproject-product-demo-video">OpenProject product demo video</h2>
+
+<p>Watch a <strong>comprehensive OpenProject product introduction</strong> video to learn how to work with OpenProject using traditional and agile project management.</p>
+
+<video src="https://www.openproject.org/wp-content/uploads/2020/12/OpenProject-product-demo-webinar-2.mp4" type="video/mp4" controls="" style="width:100%"></video>
+
+<h2 id="frequently-asked-questions---faq">Frequently asked questions - FAQ</h2>
+
+<h3 id="is-openproject-free-of-charge">Is OpenProject free of charge?</h3>
+
+<p>We offer three different versions of OpenProject. Please get an overview of the different OpenProject Editions <a href="https://www.openproject.org/pricing/">here</a>. The (on-premise) OpenProject Community edition is completely free. The Enterprise cloud and Enterprise on-premises edition offer premium features, hosting and support and thus we are charging for it. Nevertheless, we offer free 14 days trials for the Enterprise versions so that you can get to know their benefits. If you prefer to use the free OpenProject Community edition, you can follow these <a href="https://www.openproject.org/download-and-installation/">installation instructions</a>, please note that you need a Linux server to install the Community edition. It is always possible to upgrade from the Community to the Enterprise cloud and Enterprise on-premises edition - check out the premium features <a href="https://www.openproject.org/enterprise-edition/">here</a>.</p>
+
+<h3 id="how-do-i-get-access-to-the-openproject-premium-features">How do I get access to the OpenProject premium features?</h3>
+
+<p>We offer the premium functions of OpenProject (incl. boards) for two different OpenProject variants:</p>
+<ul>
+  <li>For the OpenProject Enterprise cloud edition (hosted by us),</li>
+  <li>For the self-hosted (on-premises) OpenProject Enterprise on-premises edition</li>
+</ul>
+
+<p>If you want to run OpenProject on your own server the OpenProject Enterprise on-premises edition is the right option.
+Have you already installed the <a href="https://www.openproject.org/download-and-installation/">OpenProject Community edition</a>? If yes, you can request a trial license for the OpenProject Enterprise on-premises edition by clicking on the button <a href="https://www.openproject.org/enterprise-edition/">“Free trial license”</a> and test the Enterprise on-premises edition for 14 days for free.</p>
+:ET

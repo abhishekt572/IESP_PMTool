@@ -1,0 +1,50 @@
+<h1 id="openproject-303">OpenProject 3.0.3</h1>
+
+<p>The release of OpenProject 3.0.2 was postponed due to a critical
+security issue, which was fixed in Ruby on Rails. So we skipped 3.0.2
+and bring you <a href="https://github.com/opf/openproject/tree/v3.0.3">3.0.3</a>
+with this issue resolved.</p>
+
+<p>If you want to know more about the vulnerability check out Rafael
+França’s <a href="http://weblog.rubyonrails.org/2014/5/6/Rails_3_2_18_4_0_5_and_4_1_1_have_been_released/">blog
+post</a>
+about the Rails release.</p>
+
+<p>In addition we fixed a possible cross-site scripting attack that
+involved tricking OpenProject with a faked MIME type when uploading
+attachments.</p>
+
+<p>In conclusion it is strongly recommended to upgrade your 3.0 based
+deployments to version 3.0.3 as soon as possible. The <a href="https://github.com/opf/openproject/tree/v3.0.3">OpenProject 3.0.3
+tag</a> and
+the <a href="https://github.com/opf/openproject/tree/dev"><code class="language-plaintext highlighter-rouge">dev</code></a> branches both
+include the security fixes.</p>
+
+<p> </p>
+
+<h2 id="bug-fixes">Bug Fixes:</h2>
+
+<p>There was a regression in MRI Ruby 2.1.1 that changed some return values
+of Ruby’s internal class <code class="language-plaintext highlighter-rouge">Hash</code> and led to several failing tests. This
+change is intended for Ruby 2.2 but due to their semantic versioning
+scheme shouldn’t have been incorporated in 2.1.1. Check out <a href="https://www.ruby-lang.org/en/news/2014/03/10/regression-of-hash-reject-in-ruby-2-1-1/">this blog
+post</a>
+if you want to know more about it.</p>
+
+<p>From now on we consider version 1 of our API as deprecated. It will be
+completely removed with the next major release of OpenProject. Please
+update any client libraries accordingly. As a heads up: we are actively
+working on version 3 of our API and will deprecate version 2 rather
+sooner than later as well.</p>
+
+<p>We also brought back the ability to use the database to store your
+session data. Even though the feature has always been inside Rails’
+source code it was difficult to configure it in OpenProject. You can now
+use your <code class="language-plaintext highlighter-rouge">configuration.yml</code> as well as the respective environment
+variable to configure the session store. See
+<a href="https://github.com/opf/openproject/blob/dev/config/configuration.yml.example#L149"><code class="language-plaintext highlighter-rouge">config/configuration.yml.example</code></a>
+if you want to know how to do that exactly.</p>
+
+<p>And here is the full changelog
+<a href="https://community.openproject.com/versions/313">3.0.3</a></p>
+

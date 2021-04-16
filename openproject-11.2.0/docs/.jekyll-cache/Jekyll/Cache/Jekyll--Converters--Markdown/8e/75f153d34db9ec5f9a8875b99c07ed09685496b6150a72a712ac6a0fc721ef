@@ -1,0 +1,51 @@
+I"�
+<h1 id="openproject615">OpenProject 6.1.5</h1>
+
+<p>This patch release contains several bug fixes. We recommend to update
+your OpenProject installation to this version.</p>
+
+<h2 id="features-1">Features (1)</h2>
+
+<ul>
+  <li>The OpenProject Favicon was updated to a new color
+(<a href="https://community.openproject.com/projects/openproject/work_packages/24459/activity">#24459</a>).</li>
+</ul>
+
+<h2 id="bug-fixes-11">Bug fixes (11)</h2>
+
+<ul>
+  <li>On the packaged installation the “Send iCalendar” button in meetings
+caused an error.</li>
+  <li>The breadcrumb was partially hidden when following the link to
+activities
+(<a href="https://community.openproject.com/projects/openproject/work_packages/24477/activity">#24477</a>).</li>
+  <li>The work package toolbar menu was not visible on small screens
+(<a href="https://community.openproject.com/projects/openproject/work_packages/24679/activity">#24679</a>).</li>
+  <li><span class="explanatory-dictionary-highlight" data-definition="explanatory-dictionary-definition-7">Work
+package</span> split screen on mobile was not displayed correctly
+(<a href="https://community.openproject.com/projects/openproject/work_packages/24699/activity">#24699</a>).</li>
+  <li>An error message related to remaining hours was shown when editing
+child work packages
+(<a href="https://community.openproject.com/projects/openproject/work_packages/24553/activity">#24553</a>).</li>
+  <li>Sorting by date in time reports and cost reports did not work
+correctly
+(<a href="https://community.openproject.com/projects/openproject/work_packages/24567/activity">#24567</a>).</li>
+  <li>Duplicated wiki pages could not be removed
+(<a href="https://community.openproject.com/projects/openproject/work_packages/24582/activity">#24582</a>).</li>
+  <li>Error shown when editing a user and using a reverse proxy server
+(<a href="https://community.openproject.com/projects/openproject/work_packages/24622/activity">#24622</a>).</li>
+  <li>Inactive users were shown on the homescreen of the OpenProject
+instance
+(<a href="https://community.openproject.com/projects/openproject/work_packages/24657/activity">#24657</a>).</li>
+  <li>Links in the breadcrumb were missing
+(<a href="https://community.openproject.com/projects/openproject/work_packages/24706/activity">#24706</a>,
+<a href="https://community.openproject.com/projects/openproject/work_packages/24676/activity">#24676</a>).</li>
+  <li>The PDF export showed an internal error when using certain font
+types.</li>
+</ul>
+
+<p>For further information on the release, please refer to the <a href="https://community.openproject.com/versions/828">Changelog
+v.6.1.5</a> or take a look
+at <a href="https://github.com/opf/openproject/tree/v6.1.5">GitHub</a>.</p>
+
+:ET

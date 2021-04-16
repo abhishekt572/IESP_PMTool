@@ -1,0 +1,25 @@
+I"�<h2 id="bug-assigned-to-filter-returns-work-packages-set-to-assignees-group">Bug: Assigned to filter returns work packages set to assignee’s group.</h2>
+
+<p>When filtering by <em>Assigned to</em> with a single user selected, the filter
+returns work packages assigned to that user. Since OpenProject 7.0,  it
+also returns work packages assigned to any of the groups the user is a
+member of. This is a side effect of a deliberate change made in 7.0.
+Some customers depend on returning only the work packages assigned to
+the single user. This bugfix release restores the original behavior.</p>
+
+<p>If you want to filter for this exact behavior, a new filter named
+<em><span class="pl-s"><span class="explanatory-dictionary-highlight" data-definition="explanatory-dictionary-definition-95">Assignee</span>
+or belonging group</span></em> is now added that returns:</p>
+
+<ul>
+  <li><strong>when filtering for a single user</strong>: Work packages assigned to this
+user, and any group it belongs to</li>
+  <li><strong>when filtering for a group</strong>: Work packages assigned to this
+group, and any users within</li>
+</ul>
+
+<p>Bug reference: <a href="https://community.openproject.com/wp/26207">#26207</a></p>
+
+<p> </p>
+
+:ET

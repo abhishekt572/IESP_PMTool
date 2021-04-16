@@ -1,0 +1,32 @@
+<h1 id="openproject-1041">OpenProject 10.4.1</h1>
+
+<p>We released <a href="https://community.openproject.com/versions/1417">OpenProject 10.4.1</a>.
+The release contains several bug fixes and we recommend updating to the newest version.</p>
+
+<!--more-->
+
+<h3 id="time-entry-corruption-in-1040-update">Time entry corruption in 10.4.0 update</h3>
+
+<p>The migration scripts that ran as part of the OpenProject 10.4.0 upgrade include an unfortunate bug that leads to some installations suffering data loss. Installations, that had time entry activities enabled/disabled per project, will have all their time entries assigned to a single time entry activity.</p>
+
+<p>If you have updated to 10.4.0 and were using project-based time entry activities, please use the following guide to restore them:</p>
+
+<p><a href="https://docs.openproject.org/installation-and-operations/misc/time-entries-corrupted-by-10-4/">Fixing time entries corrupted by upgrading to 10.4.0</a>.</p>
+
+<h4 id="bug-fixes-and-changes">Bug fixes and changes</h4>
+
+<ul>
+  <li>Fixed: Can not delete queries on community.openproject.com [<a href="https://community.openproject.com/wp/32326">#32326</a>]</li>
+  <li>Fixed: Special characters displayed as ASCII code in My Spent Time widget [<a href="https://community.openproject.com/wp/32328">#32328</a>]</li>
+  <li>Fixed: Custom Design gone after change color schema [<a href="https://community.openproject.com/wp/32356">#32356</a>]</li>
+  <li>Fixed: Project activities no more filtered when logging time [<a href="https://community.openproject.com/wp/32358">#32358</a>]</li>
+  <li>Fixed: Cost control - activity types lost after upgrade to 10.4 [<a href="https://community.openproject.com/wp/32360">#32360</a>]</li>
+  <li>Fixed: Unexpected submit when using IME [<a href="https://community.openproject.com/wp/32423">#32423</a>]</li>
+</ul>
+
+<h4 id="contributions">Contributions</h4>
+<p>A big thanks to community members for reporting bugs and helping us identifying and providing fixes.</p>
+
+<p>Special thanks for reporting and finding bugs go to</p>
+
+<p>Freddy Trotin, Harald Holzmann, Wojciech Niziński, Kanta Ebihara</p>

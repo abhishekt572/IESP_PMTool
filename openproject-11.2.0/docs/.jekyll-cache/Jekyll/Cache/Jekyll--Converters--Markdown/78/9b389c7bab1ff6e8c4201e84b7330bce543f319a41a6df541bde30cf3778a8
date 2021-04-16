@@ -1,0 +1,55 @@
+I"k<h1 id="oauth-applications">OAuth applications</h1>
+
+<p>To activate and configure oauth applications, navigate to -&gt; <em>Administration</em> -&gt; <em>Authentication</em> and choose -&gt; <em>Oauth applications</em>.</p>
+
+<h2 id="add-a-new-authentication-application-for-oauth">Add a new authentication application for oauth</h2>
+
+<p>To add a new oauth application, click the green <strong>+ Add</strong> button.</p>
+
+<p><img src="Sys-admin-authenticatoin-oauth-applications.png" alt="Sys-admin-authenticatoin-oauth-applications" /></p>
+
+<p>You can configure the following options to add your oauth application.</p>
+
+<ol>
+  <li>Enter the <strong>name</strong> of your oauth application.</li>
+  <li><strong>Define redirect URLs</strong> where authorized users can be redirected to.</li>
+  <li>Check if the application will be used <strong>confidentially</strong>.</li>
+  <li>Choose <strong>client credential flows</strong> and define a user on whose behalf requests will be performed.</li>
+  <li>Press the blue <strong>Create</strong> button to add your oauth application.</li>
+</ol>
+
+<p><img src="Sys-admin-authentication-add-oauth-application.png" alt="Sys-admin-authentication-add-oauth-application" /></p>
+
+<h2 id="oauth-endpoints">Oauth endpoints</h2>
+
+<p>The authentication endpoints are at</p>
+
+<ul>
+  <li>Auth URL: <code class="language-plaintext highlighter-rouge">https://example.com/oauth/authorize</code></li>
+  <li>Access Token URL: <code class="language-plaintext highlighter-rouge">https://example.com/oauth/token</code></li>
+</ul>
+
+<h2 id="performing-request-to-the-openproject-api-with-oauth-token">Performing request to the OpenProject API with OAuth token</h2>
+
+<p>The following CURL command fetches all projects from the API V3:</p>
+
+<p><code class="language-plaintext highlighter-rouge">curl --location --request GET 'https://example.com/api/v3/projects' --header 'Authorization: Bearer &lt;your-access-token&gt;'</code></p>
+
+<h2 id="using-postman-with-oauth">Using Postman with oauth?</h2>
+
+<p>Set redirect URLs to <code class="language-plaintext highlighter-rouge">urn:ietf:wg:oauth:2.0:oob</code> in both, for your application (see step 2 above) and 
+within Postman.</p>
+
+<p>In Postman the configuration should look like this (Replace `` with your host, 
+i.e. <code class="language-plaintext highlighter-rouge">https://example.com</code>)</p>
+
+<p><img src="Sys-admin-authentication-oauth-postman.png" alt="Sys-admin-authentication-add-oauth-application" /></p>
+
+<h2 id="cors-headers">CORS headers</h2>
+
+<p>By default, the OpenProject API is <em>not</em> responding with any CORS headers.
+If you want to allow cross-domain AJAX calls against your OpenProject instance, you need to enable CORS headers being returned.</p>
+
+<p>Please see <a href="https://docs.openproject.org/system-admin-guide/system-settings/api-settings/">our API settings documentation</a> on
+how to selectively enable CORS.</p>
+:ET

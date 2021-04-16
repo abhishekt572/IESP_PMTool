@@ -1,0 +1,20 @@
+I"L<h1 id="api-system-settings">API system settings</h1>
+
+<p>In the API settings, you can selectively control whether foreign applications may access your OpenProject
+API endpoints from within the browser.</p>
+
+<h2 id="cross-origin-resource-sharing-cors">Cross-Origin Resource Sharing (CORS)</h2>
+
+<p>To enable CORS headers being returned by the <a href="https://docs.openproject.org/api/">OpenProject APIv3</a>,
+enable the check box on this page.</p>
+
+<p>You will then have to enter the allowed values for the Origin header that OpenProject will allow access to.
+This is necessary, since authenticated resources of OpenProject cannot be accessible to all origins with the <code class="language-plaintext highlighter-rouge">*</code> header value.</p>
+
+<p>For more information on the concepts of Cross-Origin Resource Sharing (CORS), please see:</p>
+
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">an overview of CORS from MDN</a>.</li>
+  <li><a href="https://auth0.com/blog/cors-tutorial-a-guide-to-cross-origin-resource-sharing/">a tutorial on CORS by Auth0</a></li>
+</ul>
+:ET

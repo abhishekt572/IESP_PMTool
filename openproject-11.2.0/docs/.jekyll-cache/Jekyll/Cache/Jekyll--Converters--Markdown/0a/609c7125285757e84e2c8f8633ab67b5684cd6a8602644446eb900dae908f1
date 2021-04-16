@@ -1,0 +1,22 @@
+I"=<h1 id="openproject-732">OpenProject 7.3.2</h1>
+
+<h2 id="bug-fixes-2">Bug fixes (2)</h2>
+
+<ul>
+  <li>Multi-select values could not properly be selected. This affected
+for instance work package filters and multi-select custom fields.
+[<a href="https://community.openproject.com/wp/26611">#26611</a>]</li>
+  <li>The breadcrumb in the roles and permissions in the administration
+was not shown properly.
+[<a href="https://community.openproject.com/wp/26563">#26563</a>]</li>
+</ul>
+
+<p>Thanks a lot to the community, in particular to Chris Jornlin and Steve
+Manning for reporting bugs!</p>
+
+<p>For further information on the 7.3.2 release, please refer to
+the <a href="https://community.openproject.com/versions/852">Changelog
+v7.3.2</a> or take a look
+at <a href="https://github.com/opf/openproject/tree/v7.3.2">GitHub</a>.</p>
+
+:ET

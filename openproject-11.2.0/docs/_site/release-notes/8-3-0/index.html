@@ -1,0 +1,162 @@
+<h1 id="openproject-830">OpenProject 8.3.0</h1>
+
+<p>We released
+<a href="https://community.openproject.com/versions/1319">OpenProject 8.3.0</a>.<br />
+The release contains several bug fixes and we recommend updating to the
+newest version.</p>
+
+<h4 id="notable-changes">Notable changes</h4>
+
+<p> </p>
+
+<p><strong>Modernized
+<span class="explanatory-dictionary-highlight" data-definition="explanatory-dictionary-definition-57"><span class="explanatory-dictionary-highlight" data-definition="explanatory-dictionary-definition-57">My
+page</span></span> grid implementation</strong></p>
+
+<p>OpenProject 8.3. introduces a grid-style dashboard that is now being
+rolled out to
+the <em><span class="explanatory-dictionary-highlight" data-definition="explanatory-dictionary-definition-57"><span class="explanatory-dictionary-highlight" data-definition="explanatory-dictionary-definition-57">My
+page</span></span></em>. Additional pages will be converted to this grid in
+the future, and additional common widgets will be
+created.</p>
+
+<p><img src="https://1t1rycb9er64f1pgy2iuseow-wpengine.netdna-ssl.com/wp-content/uploads/2019/03/Grit-MyPage-1-1024x522.png" alt="Grit-MyPage" /></p>
+
+<p><strong>Improved search functionality</strong></p>
+
+<p>The global search functionality of OpenProject has been extended to
+auto-suggest work package results and provides improved action buttons
+to search globally or in the current project.</p>
+
+<p><img src="https://1t1rycb9er64f1pgy2iuseow-wpengine.netdna-ssl.com/wp-content/uploads/2019/03/Search-1024x626.png" alt="OpenProject
+Search" /></p>
+
+<p><strong>Autocompletion of work package attributes</strong></p>
+
+<p>List-style attributes of work packages (including custom field lists)
+have been modified to provide a filterable
+autocompleter.</p>
+
+<p><img src="https://1t1rycb9er64f1pgy2iuseow-wpengine.netdna-ssl.com/wp-content/uploads/2019/03/Auto-complete-1024x634.png" alt="Auto-complete" /></p>
+
+<p><strong>Improved error reporting for work package bulk editing</strong></p>
+
+<p>When bulk editing work packages (multiple selected work packages in the
+table &gt; right click and select bulk edit), erroneous work packages were
+only reported by their ID. OpenProject 8.3 prints all errors on the bulk
+edit page to correct them on the spot.</p>
+
+<p><strong>Packaged installation uses PostgreSQL</strong></p>
+
+<p>The packaged installation of OpenProject now suggests to install
+PostgreSQL instead of MySQL. For users with previous installations,
+nothing will change and their installed MySQL version will be kept. New
+users are suggested to use either the autoinstall method of PostgreSQL,
+or provide a database connection manually using the database URL. <a href="https://www.openproject.org/download-and-installation/">See
+the FAQ for more
+information</a>.</p>
+
+<p><strong>OAuth2 API implementation</strong></p>
+
+<p>The Openproject APIv3 can now be authenticated using the OAuth2
+standard. To register an OAuth applications, visit the new module under
+Administration &gt; OAuth applications.</p>
+
+<p> </p>
+
+<h4 id="bug-fixes-and-changes">Bug fixes and changes</h4>
+
+<ul>
+  <li>Feature: OAuth2 authorization flow
+[<a href="https://community.openproject.com/wp/28952">#28952</a>]</li>
+  <li>Feature: Global Search: Autocompletion on work package subjects
+[<a href="https://community.openproject.com/wp/29218">#29218</a>]</li>
+  <li>Feature: Auto completion for work package attributes
+[<a href="https://community.openproject.com/wp/29257">#29257</a>]</li>
+  <li>Feature: Migrate existing my page data
+[<a href="https://community.openproject.com/wp/29357">#29357</a>]</li>
+  <li>Feature: Global search defaults on work packages and shows a table
+as result [<a href="https://community.openproject.com/wp/29388">#29388</a>]</li>
+  <li>Feature: Better error reporting for bulk edit
+[<a href="https://community.openproject.com/wp/29561">#29561</a>]</li>
+  <li>Feature: Automatic calculation of work packages per pagination based
+on widget height
+[<a href="https://community.openproject.com/wp/29467">#29467</a>]</li>
+  <li>Changed: Draw work packages without end date up to the current date
+in timeline
+[<a href="https://community.openproject.com/wp/25471">#25471</a>]</li>
+  <li>Changed: Deactivate option “Use current date as start date for new
+work packages” by default
+[<a href="https://community.openproject.com/wp/29468">#29468</a>]</li>
+  <li>Changed: When sending iCalendar invitation, include email to user
+who sends out invitation
+[<a href="https://community.openproject.com/wp/29485">#29485</a>]</li>
+  <li>Changed: Projects are now being deleted in a background job.</li>
+  <li>Fixed: Problems when exporting in unified diff
+[<a href="https://community.openproject.com/wp/26599">#26599</a>]</li>
+  <li>Fixed: In repository module diff does not escape HTML tags that are
+present in the compared code
+[<a href="https://community.openproject.com/wp/26614">#26614</a>]</li>
+  <li>Fixed: Incompatible browsers warning not shown in IE11 and older FF
+[<a href="https://community.openproject.com/wp/28484">#28484</a>]</li>
+  <li>Fixed: Table menu in WYSIWYG editor is cut off on smaller screens
+[<a href="https://community.openproject.com/wp/28815">#28815</a>]</li>
+  <li>Fixed: Upgrading reverts protocol to HTTP
+[<a href="https://community.openproject.com/wp/28954">#28954</a>]</li>
+  <li>Fixed: Icon texts are not consistently used in tables
+[<a href="https://community.openproject.com/wp/29072">#29072</a>]</li>
+  <li>Fixed: Blank circles before work package’s type after upgrading to
+8.1 [<a href="https://community.openproject.com/wp/29082">#29082</a>]</li>
+  <li>Fixed: Dependencies for fulltext search in work package attachments
+not installed with packager installation
+[<a href="https://community.openproject.com/wp/29085">#29085</a>]</li>
+  <li>Fixed: Sorting doesn’t work with 8.1 when also using Hierachy
+[<a href="https://community.openproject.com/wp/29122">#29122</a>]</li>
+  <li>Fixed: Very large custom field is killing web browser
+[<a href="https://community.openproject.com/wp/29136">#29136</a>]</li>
+  <li>Fixed:
+<span class="explanatory-dictionary-highlight" data-definition="explanatory-dictionary-definition-80"><span class="explanatory-dictionary-highlight" data-definition="explanatory-dictionary-definition-80">Delete</span></span>
+projects in delayed job
+[<a href="https://community.openproject.com/wp/29214">#29214</a>]</li>
+  <li>Fixed: SVN fails to get changesets in subfolders which start at a
+revision greater than 1
+[<a href="https://community.openproject.com/wp/29402">#29402</a>]</li>
+  <li>Fixed: “Set Parent” not translated in work package view
+[<a href="https://community.openproject.com/wp/29447">#29447</a>]</li>
+  <li>Fixed: WP content does not close right side gap
+[<a href="https://community.openproject.com/wp/29448">#29448</a>]</li>
+  <li>Fixed: Redundant type declaration in relations tab
+[<a href="https://community.openproject.com/wp/29460">#29460</a>]</li>
+  <li>Fixed: Better error handling on attachment max size exceeded
+[<a href="https://community.openproject.com/wp/29461">#29461</a>]</li>
+  <li>Fixed: Improve structure for news section
+[<a href="https://community.openproject.com/wp/29464">#29464</a>]</li>
+  <li>Fixed: Editor dropdown is cut off when opened to top
+[<a href="https://community.openproject.com/wp/29482">#29482</a>]</li>
+  <li>Fixed: Custom fields for groups throw error message when set
+[<a href="https://community.openproject.com/wp/29486">#29486</a>]</li>
+  <li>Fixed: Column shifts when opening autocompleter
+[<a href="https://community.openproject.com/wp/29492">#29492</a>]</li>
+  <li>Fixed: Gantt chart not properly aligned when using groups
+[<a href="https://community.openproject.com/wp/29497">#29497</a>]</li>
+  <li>Fixed: White space between first table row and header
+[<a href="https://community.openproject.com/wp/29521">#29521</a>]</li>
+  <li>Fixed: Different font sizes on WP page
+[<a href="https://community.openproject.com/wp/29528">#29528</a>]</li>
+  <li>Fixed: Cannot select category because font is invisible
+[<a href="https://community.openproject.com/wp/29531">#29531</a>]</li>
+  <li>Fixed: Search bar too long on mobile Safari browser
+[<a href="https://community.openproject.com/wp/29553">#29553</a>]</li>
+  <li>Fixed: Docker incoming-mails not logged
+[<a href="https://community.openproject.com/wp/29575">#29575</a>]</li>
+</ul>
+
+<h4 id="contributions">Contributions</h4>
+
+<p>A big thanks to community members for reporting bugs and helping us
+identifying and providing fixes.</p>
+
+<p>Special thanks for reporting and finding bugs go to Nicolas Salguero,
+Andy Shilton, Ricardo Vigatti, Michael Johannessen, Wojtek Chrobok, Timo
+Lösch.</p>
+

@@ -1,0 +1,28 @@
+I"…<h1 id="manage-project-information">Manage project information</h1>
+
+<p>Manage your project information in the Project settings: select a project and open the -&gt; <em>Project Settings</em> -&gt; <em>Information</em>.</p>
+
+<p><strong>To view all details about managing projects</strong>, view our <a href="../../">projects section</a>.</p>
+
+<p>You will have the following options in the project settings.</p>
+
+<ol>
+  <li>Set a <strong>name for your project</strong>. The name will be displayed in the project list.</li>
+  <li>Set <strong>custom fields</strong>, e.g. Responsible Department, Risk assessment, Project ID, Project accountable, etc. (if activated in the -&gt; <em>Administration</em> -&gt; <em>Custom fields</em> -&gt; within the custom fields for projects). Find out more about project custom fields <a href="../../../../system-admin-guide/custom-fields/custom-fields-projects/">here</a>.</li>
+  <li>Select the <strong>parent project</strong>.</li>
+  <li>Add a project <strong>description</strong>.</li>
+  <li>Display or edit the <strong>project identifier</strong>. This is the part of the project name shown in the URL, e.g. /demo-project.</li>
+  <li>This check-box sets a project to <strong>public</strong>. This ways users will be able to access the project without being a member of it.</li>
+  <li>Set a <strong>project status</strong>. The project status can be displayed in the <a href="../../../project-overview">project overview</a>. If you want to set additional or different status options you can create and use a <a href="../../../../system-admin-guide/custom-fields/custom-fields-projects">project custom field</a>.</li>
+  <li>Add a <strong>project status description</strong>. The status description will be shown on the <a href="../../../project-overview">project overview</a> page.</li>
+  <li>Display the required disk storage information.</li>
+  <li><strong>Save</strong> your changes.</li>
+  <li><strong>Create a new subproject</strong> for this project with the green <strong>+ Subproject</strong> button.</li>
+  <li><strong>Copy the project</strong>. When <a href="../../#copy-a-project">copying a project</a> you can choose which modules youâ€™d like to copy.</li>
+  <li><strong>Archive a project</strong>. This way the <a href="../../#archive-a-project">archived project</a> will not appear in the project selection anymore and cannot be accessed by team members. You can view archived projects in the view all projects list.</li>
+  <li><strong>Set as template</strong> or <strong>Remove from templates</strong>. By <a href="../../#create-a-project-template">setting a project as template</a> it can be copied multiple times to create similar projects.</li>
+  <li><strong>Delete a project</strong>. By <a href="../../#delete-a-project">deleting a project</a> the whole project with all included information will be removed.</li>
+</ol>
+
+<p><img src="image-20201010152113743.png" alt="project-information" /></p>
+:ET

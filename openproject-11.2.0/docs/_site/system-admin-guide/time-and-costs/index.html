@@ -1,0 +1,58 @@
+<h1 id="time-and-costs">Time and costs</h1>
+
+<p>You can configure costs in OpenProject and create cost types to track unit costs. Also, you can configure the currency you want to use for your cost reports.</p>
+
+<p>Navigate to -&gt; <em>Administration</em> -&gt; <em>Time and costs</em>.</p>
+
+<h2 id="settings">Settings</h2>
+
+<p>Navigate to -&gt; <em>Administration</em> -&gt; <em>Time and costs</em> -&gt; <em>Settings</em> to define settings for OpenProject costs.</p>
+
+<ol>
+  <li>Configure the <strong>currency used in the system, e.g. EUR</strong>.</li>
+  <li><strong>Specify the format of the currency</strong>, if the number should be before or after the currency, e.g. 10 EUR, or $ 10.</li>
+  <li>Press the blue <strong>Apply</strong> button to save your changes.</li>
+</ol>
+
+<p><img src="image-20201006155423521.png" alt="image-20201006155423521" /></p>
+
+<h2 id="create-and-manage-cost-types">Create and manage cost types</h2>
+
+<p>You can create and manage <strong>cost types</strong> to <a href="../../user-guide/time-and-costs/cost-tracking/">book unit costs to work packages in OpenProject</a>.</p>
+
+<p>Navigate to -&gt; <em>Administration</em> -&gt; <em>Time and costs</em> -&gt; <em>Cost types</em> to create and manage unit costs types.</p>
+
+<p>Click the green <strong>+ Cost type</strong> button to create a new cost type.</p>
+
+<p>You can set the following options:</p>
+
+<ol>
+  <li>Enter a <strong>name</strong> for the cost type.</li>
+  <li>Define the <strong>unit name</strong> for this cost type, e.g. Euro, piece, day, etc.</li>
+  <li>Set the <strong>pluralized unit name</strong>, e.g. Euros, pieces, days, etc.</li>
+  <li>Choose if the cost type should be the <strong>default cost type</strong> when booking new unit costs.</li>
+  <li>Define the Rate history and <strong>set a date</strong> from which this cost type should be valid and <strong>set a rate</strong> (in the specified unit) for this date.</li>
+  <li>With the + icon you can add <strong>additional rates for other dates</strong>.</li>
+  <li>The delete icon will <strong>remove a rate</strong> for a certain date.</li>
+  <li>Do not forget to <strong>save</strong> your changes.</li>
+</ol>
+
+<p><img src="Sys-admin-budgets-cost-types.png" alt="Sys-admin-budgets-cost-types" /></p>
+
+<p>In the overview list of all cost types you can define the following.</p>
+
+<ol>
+  <li><strong>Filter for cost types at a certain fixed date</strong> in the list</li>
+  <li>Choose whether also locked cost types should be displayed</li>
+  <li>Press the blue <strong>apply</strong> button: This way you will get the cost types with the rate (at the chosen fixed date) displayed in the list below.</li>
+  <li>Click on the name of a cost type to <strong>edit an existing cost type</strong>.</li>
+  <li><strong>Set a current rate</strong> (for the current valid from period) and press the save icon to apply it.</li>
+  <li><strong>Lock</strong> a cost type.
+Please note that you <strong>can only lock but not delete</strong> cost types.</li>
+</ol>
+
+<p><img src="Sys-admin-budgets-cost-types-list-1579853898118.png" alt="Sys-admin-budgets-cost-types-list" /></p>
+
+<div class="alert alert-info" role="alert">
+**Note**: With cost types you can also book any kind of units to work packages, e.g. vacation days, leaves, travel days, etc.. Just choose 1 as a unit. This way, you could e.g. track vacation days against a vacation budget and evaluate the days in the [cost reporting](../../user-guide/time-and-costs/reporting/).
+</div>

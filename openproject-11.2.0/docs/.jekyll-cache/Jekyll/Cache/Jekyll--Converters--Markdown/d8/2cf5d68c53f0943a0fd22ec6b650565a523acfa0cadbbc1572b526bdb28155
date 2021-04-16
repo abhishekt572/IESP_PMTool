@@ -1,0 +1,158 @@
+I";.<h1 id="release-notes-openproject-1060">Release notes OpenProject 10.6.0</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Release notes</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#openproject-1060">OpenProject 10.6.0</a></td>
+      <td style="text-align: left">What is new for OpenProject 10.6.0?</td>
+    </tr>
+    <tr>
+      <td><a href="#openproject-1060-bim-edition">OpenProject 10.6.0 BIM Edition for construction project management</a></td>
+      <td style="text-align: left">What is new for the construction project management for the building industry in OpenProject 10.5.0?</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="openproject-1060">OpenProject 10.6.0</h1>
+
+<p>The new release of the open source project management software brings improved table formatting, quicker time logging, the Slovenian translation, better overview over activities and  much more usability improvements and bug fixes.</p>
+
+<h3 id="better-styling-of-tables-with-improved-table-formatting-options">Better styling of tables with improved table formatting options</h3>
+
+<p>With the new release of OpenProject you can now customize your tables in the text editor even more. When integrating a table in a work  package description, a meeting, the wiki or news, format it the way you  want to. The new additional options are:</p>
+
+<ul>
+  <li>limiting of the table’s and cell’s width,</li>
+  <li>choose a color for the grid and the cell’s background (HEX/XSL or standard color palette),</li>
+  <li>padding in cells,</li>
+  <li>alignment within the cell, and</li>
+  <li>defining a CSS rule to break long words in cells.</li>
+</ul>
+
+<p><img src="table-format.png" alt="table-format" /></p>
+
+<h3 id="quicker-time-logging-on-work-packages">Quicker time logging on work packages</h3>
+
+<p>From now on, time logging is even  quicker. You won’t have to leave your current work environment to log  time. For example, directly in the work package you will find an icon to log time. When you click on it, you can log your time in a pop-up window.</p>
+
+<p><img src="time-logging.png" alt="time-logging" /></p>
+
+<p>Also, you can log time to a work package directly from your work  package list view if you include the SPENT TIME as a column to the list. Clicking on the Log time will also open a pop-up window to book your  spent time.</p>
+
+<p><img src="time-log-work-package-1103367.png" alt="time-log-work-package" /></p>
+
+<h3 id="support-of-slovenian-language">Support of Slovenian language</h3>
+
+<p>We are very happy that OpenProject is now 100% translated into Slovenian.  Zabavaj se!</p>
+
+<p><img src="https://1t1rycb9er64f1pgy2iuseow-wpengine.netdna-ssl.com/wp-content/uploads/2020/05/flag-slovenia-300x200.jpg" alt="flag-slovenia" /></p>
+
+<h3 id="attribution-of-cards-to-a-project">Attribution of cards to a project</h3>
+
+<p>OpenProject 10.6 will upgrade the card view of work packages. To make clear what card belongs to what project, the project name will be shown on the card.</p>
+
+<p><img src="card-view-subproject.png" alt="card-view-subproject" /></p>
+
+<h3 id="improved-assignee-board-if-there-are-no-members-in-a-project">Improved assignee board if there are no members in a project</h3>
+
+<p>If you are creating an agile boards by assignees, you will get  notified if there are no members in your project. You will also get  notified if you are trying to add another assignee list to your board  even though there is no more member left.</p>
+
+<p><img src="asssignee-board-notification.png" alt="asssignee-board-notification" /></p>
+
+<h3 id="various-usability-improvements-and-bug-fixes">Various usability improvements and bug fixes</h3>
+
+<p>Furthermore, the <strong>styling of the news widget</strong> on the project overview page as well as the start page has been improved. Going forward, the <strong>Activity module is only showing one activity per minute</strong> per user per work package and type of change. That means the changes per minute are aggregated.</p>
+
+<h4 id="all-bug-fixes-and-changes">All bug fixes and changes</h4>
+
+<ul>
+  <li>Epic: Aggregate activity entries [<a href="https://community.openproject.com/wp/23744">#23744</a>]</li>
+  <li>Fixed: Date picker allows selection a year for only the next 10 years. Needs to increase. [<a href="https://community.openproject.com/wp/29413">#29413</a>]</li>
+  <li>Fixed: Weird date format at meetings page [<a href="https://community.openproject.com/wp/32986">#32986</a>]</li>
+  <li>Fixed: [Work packages] Custom fields for long text [<a href="https://community.openproject.com/wp/33143">#33143</a>]</li>
+  <li>Fixed: .xls exports of cost reports use incorrect decimal precision [<a href="https://community.openproject.com/wp/33149">#33149</a>]</li>
+  <li>Fixed: Button to log time is shown even if I do not have the permissions [<a href="https://community.openproject.com/wp/33152">#33152</a>]</li>
+  <li>Fixed: Main menu element is not correctly highlighted when creating a new category [<a href="https://community.openproject.com/wp/33154">#33154</a>]</li>
+  <li>Fixed: Main menu resizer icon not draggable [<a href="https://community.openproject.com/wp/33187">#33187</a>]</li>
+  <li>Fixed: Work Package - Comment can only be edited once per description call [<a href="https://community.openproject.com/wp/33200">#33200</a>]</li>
+  <li>Fixed: Assignee board breaks in sub url [<a href="https://community.openproject.com/wp/33202">#33202</a>]</li>
+  <li>Fixed: Logged time widget does not update correctly [<a href="https://community.openproject.com/wp/33217">#33217</a>]</li>
+  <li>Fixed: OAuth settings and docs both do not provide information for endpoints [<a href="https://community.openproject.com/wp/33241">#33241</a>]</li>
+  <li>Fixed: Time Tracking Issue After update OpenProject 10.5.2 (PostgreSQL) [<a href="https://community.openproject.com/wp/33310">#33310</a>]</li>
+  <li>Fixed: Timeout / error 500 when setting current unit cost rate [<a href="https://community.openproject.com/wp/33319">#33319</a>]</li>
+  <li>Fixed: Form misplaced after error [<a href="https://community.openproject.com/wp/33324">#33324</a>]</li>
+  <li>Fixed: Create child in work package list does not create parent-child relationship [<a href="https://community.openproject.com/wp/33329">#33329</a>]</li>
+  <li>Fixed: Oauth endpoints need to allow target hosts in CSP header “form-action” [<a href="https://community.openproject.com/wp/33336">#33336</a>]</li>
+  <li>Fixed: Time logging not possible with custom field of type “version” [<a href="https://community.openproject.com/wp/33378">#33378</a>]</li>
+  <li>Fixed: Mailing configuration appears not to be reloaded in workers [<a href="https://community.openproject.com/wp/33413">#33413</a>]</li>
+  <li>Fixed: layout bug when setting new parent [<a href="https://community.openproject.com/wp/33449">#33449</a>]</li>
+  <li>Fixed: Clicking on info icon on card view doesn’t do anything [<a href="https://community.openproject.com/wp/33451">#33451</a>]</li>
+  <li>Fixed: Fetching recent work packages when logging time fails with internal error [<a href="https://community.openproject.com/wp/33472">#33472</a>]</li>
+  <li>Changed: Show Project name in Card View [<a href="https://community.openproject.com/wp/31556">#31556</a>]</li>
+  <li>Changed: Use angular modal for time logging throughout the application [<a href="https://community.openproject.com/wp/32126">#32126</a>]</li>
+  <li>Changed: Add icon “Log time” close to spent time attribute in work packages details view [<a href="https://community.openproject.com/wp/32129">#32129</a>]</li>
+  <li>Changed: Make cancel buttons consistent [<a href="https://community.openproject.com/wp/32919">#32919</a>]</li>
+  <li>Changed: Improve styling for the news widget [<a href="https://community.openproject.com/wp/32926">#32926</a>]</li>
+  <li>Changed: Add notification message to assignee board when no project members [<a href="https://community.openproject.com/wp/33073">#33073</a>]</li>
+  <li>Changed: Extend token structure with attributes company and domain [<a href="https://community.openproject.com/wp/33129">#33129</a>]</li>
+  <li>Changed: Move “log time” icon outside of the hover highlighting [<a href="https://community.openproject.com/wp/33307">#33307</a>]</li>
+  <li>Changed: Allow defining CA path of LDAP connection [<a href="https://community.openproject.com/wp/33345">#33345</a>]</li>
+  <li>Changed: Enable more table features in texteditor [<a href="https://community.openproject.com/wp/33349">#33349</a>]</li>
+  <li>Changed: Enable Projects for outgoing Webhooks [<a href="https://community.openproject.com/wp/33355">#33355</a>]</li>
+  <li>Changed: New Features teaser for 10.6 [<a href="https://community.openproject.com/wp/33470">#33470</a>]</li>
+</ul>
+
+<h2 id="openproject-1060-bim-edition">OpenProject 10.6.0 BIM Edition</h2>
+
+<p>OpenProject BIM 10.6 released with improved BCF Management. We released OpenProject BIM 10.6. The new release contains improvements  for BIM project management for the building industry, especially with  improved features for BCF Management.</p>
+
+<h3 id="improved-bcf-xml-import">Improved BCF XML Import</h3>
+
+<p>The import of BCF XML files will check the version to be 2.1 before  importing. If it’s an older version the import will not start to avoid  errors.</p>
+
+<h3 id="maximum-size-for-ifc-files-increased">Maximum size for IFC files increased</h3>
+
+<p>The maximum size for IFC files has been increased to 500 MB.</p>
+
+<h3 id="improved-permissions-for-bcf-management">Improved permissions for BCF Management</h3>
+
+<p>We introduced a separate permission for deleting BCF issues.</p>
+
+<h4 id="further-improvements-and-bug-fixes">Further improvements and bug fixes</h4>
+
+<ul>
+  <li>Changed: Bim error on console when creating a global Work Package.</li>
+  <li>Changed: Since 2.1 BCF-XML files should have suffix .bcf instead of .bcfzip.</li>
+  <li>Changed: BCF-XML import screens have “Work Package” module active in main menu.</li>
+  <li>Changed: Redirect loop for viewpoint URL when no IFC in project.</li>
+  <li>Changed: On boarding tour: Non-admins can’t complete onboarding as they lack permissions for viewing boards.</li>
+</ul>
+
+<h4 id="how-can-you-try-the-openproject-bim-edition">How can you try the OpenProject BIM Edition?</h4>
+
+<p>Please note that the OpenProject BIM Edition is under continuous  development. The current version is only a first state, which will be  continuously enhanced with important build specific functions.</p>
+
+<p>Test OpenProject BIM 10.6 immediately, <a href="https://start.openproject.com/go/bim">create a free test instance</a> for the OpenProject BIM Edition.</p>
+
+<h3 id="credits-and-contributions">Credits and contributions</h3>
+
+<p>A big thanks to community members for reporting bugs and helping us identifying and providing fixes.</p>
+
+<p>Special thanks for reporting and finding bugs go to
+Marc Vollmer, Ricardo Vigatti, Sébastien VITA, Tino Breddin, Lukas Zeil, Rajesh Vishwakarma, Gio @ Enuan, Harald Holzmann.</p>
+
+<ul>
+  <li>DBI AG for sponsoring the BCF Management.</li>
+  <li>Lindsay Kay for the integration of the 3D Modell viewer, <a href="https://xeokit.io/">xeokit</a>, as well as for improving the camera control in the IFC viewer.</li>
+  <li><a href="https://blog.dangl.me/categories/BIM">Georg Dangl</a> for developing the Revit Integration in OpenProject.</li>
+  <li>All the developers, designers, project managers who have contributed to OpenProject.</li>
+  <li>Every dedicated user who has reported bugs and supported the community by asking and answering questions in the <a href="https://community.openproject.org/projects/openproject/boards">forum</a>.</li>
+  <li>All the engaged users who provided translations on <a href="https://crowdin.com/projects/opf">CrowdIn</a>.</li>
+</ul>
+:ET

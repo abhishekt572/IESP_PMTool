@@ -1,0 +1,25 @@
+I"S<h1 id="configuring-a-custom-database-server">Configuring a custom database server</h1>
+
+<h2 id="package-based-installation">Package-based installation</h2>
+
+<p>Simply run <code class="language-plaintext highlighter-rouge">sudo openproject reconfigure</code>, and when the database wizard is displayed, select the <strong>Use an existing PostgreSQL database</strong> option and fill in the required details (<a href="../../installation/packaged/#step-1-postgresql-database-configuration">cf the initial configuration section</a>)</p>
+
+<h2 id="docker-based-installation">Docker-based installation</h2>
+
+<p>If you run the all-in-one container, you can simply pass a custom
+<code class="language-plaintext highlighter-rouge">DATABASE_URL</code> environment variable on the docker command-line, which could
+point to an external database.</p>
+
+<p>Example:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">-d</span> ... <span class="nt">-e</span> <span class="nv">DATABASE_URL</span><span class="o">=</span>mysql2://user:pass@host:port/dbname openproject/community:10
+</code></pre></div></div>
+
+<p>If you run the Compose based docker stack, you can simply override the <code class="language-plaintext highlighter-rouge">DATABASE_URL</code> environment variable, and remove the <code class="language-plaintext highlighter-rouge">db</code> service from the <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> file. Then you can restart the stack with:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose down
+docker-compose up -d
+</code></pre></div></div>
+
+<p>In both cases the seeder will be run when you (re)launch OpenProject to make sure that the database gets the migrations and demo data as well.</p>
+:ET

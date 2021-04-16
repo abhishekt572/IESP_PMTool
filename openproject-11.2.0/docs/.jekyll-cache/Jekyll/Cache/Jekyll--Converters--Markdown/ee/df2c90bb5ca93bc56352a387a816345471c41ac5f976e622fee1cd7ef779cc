@@ -1,0 +1,14 @@
+I"§<h1 id="two-factor-authentication-premium-feature">Two-factor authentication (Premium feature)</h1>
+
+<p>To activate and <strong>configure two-factor authentication</strong> for OpenProject, navigate to -&gt; <em>Administration</em> -&gt; <em>Authentication</em> and choose -&gt; <em>two-factor authentication</em>.</p>
+
+<p>You can configure the following options:</p>
+
+<ol>
+  <li><strong>Enforce two-factor authentication (2FA) for the whole system</strong>. All users will be forced to <a href="../../../getting-started/my-account/#two-factor-authentication-premium-feature">register a 2FA device</a> on their next login.</li>
+  <li><strong>Remember 2FA login for a given number of days</strong>, e.g. 30 days.</li>
+  <li>Press the blue <strong>Apply</strong> button to save your changes.</li>
+</ol>
+
+<p><img src="Sys-admin-authentication-two-factor-authentication.png" alt="Sys-admin-authentication-two-factor-authentication" /></p>
+:ET

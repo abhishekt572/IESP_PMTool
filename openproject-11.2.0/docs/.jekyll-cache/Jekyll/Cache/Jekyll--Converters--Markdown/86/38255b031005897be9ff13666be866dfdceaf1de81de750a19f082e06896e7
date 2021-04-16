@@ -1,0 +1,34 @@
+I"å<h1 id="openproject-402">OpenProject 4.0.2</h1>
+
+<p>OpenProject 4.0.2 was released today which contains several security and
+bug fixes.<br />
+We advise everyone to update their OpenProject installations.</p>
+
+<p>With OpenProject 4.0.2 the Rails version has been updated to 3.2.21
+(<a href="https://community.openproject.org/work_packages/17467" title="Updating Rails to 3.2.21 (closed)">#17467</a>).<br />
+In addition, several bugs have been fixed:</p>
+
+<ul>
+  <li>An error preventing work packages from being created with an
+activated split screen has been resolved
+(<a href="https://community.openproject.org/work_packages/17333" title="Not possible to create work package from work package page with activated split screen (wrong link) (closed)">#17333</a>)</li>
+  <li>Errors with regards to time tracking have been fixed
+(<a href="https://community.openproject.org/work_packages/17500" title="Permission for 'spent time' not applied on legacy WP view and list of time entries (closed)">#17500</a>,
+<a href="https://community.openproject.org/work_packages/17499" title="Spent time not part of work package API (closed)">#17499</a>,
+<a href="https://community.openproject.org/work_packages/17222" title="[TimeEntries] spent_on date always displays the current date (closed)">#17222</a>)</li>
+  <li>Timelines embedded via wiki macros are now properly sized
+(<a href="https://community.openproject.org/work_packages/17353" title="[Wiki] Timelines macro does not have sufficient width (closed)">#17353</a>)</li>
+  <li>Custom fields of type version are now displayed in the work package
+split screen
+(<a href="https://community.openproject.org/work_packages/17354" title="Value for custom fields of type version not displayed in details pane (closed)">#17354</a>)</li>
+  <li>Accessibility improvements have been made
+(<a href="https://community.openproject.org/work_packages/17230" title="[Accessibility] Star/Watch icon in Details pane not accessible  (closed)">#17230</a>).</li>
+</ul>
+
+<p>A big thanks to everyone involved in fixing and reporting those bugs!</p>
+
+<p>For a complete list of changes, please refer to the <a href="https://community.openproject.org/versions/532">Changelog
+v4.0.2</a> or to
+<a href="https://github.com/opf/openproject/tree/v4.0.2">Github</a>.</p>
+
+:ET

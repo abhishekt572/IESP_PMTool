@@ -1,0 +1,26 @@
+I"�<h1 id="openproject-409">OpenProject 4.0.9</h1>
+
+<p>OpenProject 4.0.9 has been released with an important security bug fix
+and several bug fixes. We advise everyone to update their OpenProject
+installation.</p>
+
+<p>For details on the security bug fix, please have a look at the following
+work package:
+<a href="https://community.openproject.org/work_packages/19243" title="#19243">#19243</a>.<br />
+This error also occurred temporarily on the <a href="https://start.openproject.com/" title="OpenProject demo environments">OpenProject demo
+environments</a>.
+However, login information has not been affected by this error.</p>
+
+<p>Thanks to L for pointing out this security error.</p>
+
+<p>In the meeting plugin, a bug has been fixed which caused an internal
+error when the notification could not be delivered to one or several of
+the recipients
+(<a href="https://community.openproject.org/work_packages/19263" title="#19263">#19263</a>).</p>
+
+<p>For further information on the release, please refer to the <a href="https://github.com/opf/openproject/releases/tag/v4.0.9" title="Changelog version 4.0.9">Changelog
+v.4.0.9</a> or
+take a look
+at<a href="https://github.com/opf/openproject/tree/v4.0.9" title="GitHub">GitHub</a>.</p>
+
+:ET

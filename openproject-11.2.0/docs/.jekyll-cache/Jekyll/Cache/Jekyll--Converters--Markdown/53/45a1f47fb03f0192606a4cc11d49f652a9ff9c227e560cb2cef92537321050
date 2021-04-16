@@ -1,0 +1,17 @@
+I"X<h1 id="openproject-902">OpenProject 9.0.2</h1>
+
+<p>We released <a href="https://community.openproject.com/versions/1359">OpenProject 9.0.2</a>.
+The release contains several bug fixes and we recommend updating to the newest version. If you’re running OpenProject with a relative URL root (e.g., under domain.example.org/openproject), this update should fix <a href="https://community.openproject.com/wp/30372">an installation issue related to Sass compilation</a> as well as <a href="https://community.openproject.com/wp/30370">an error trying to use create new boards</a>.</p>
+
+<h4 id="bug-fixes-and-changes">Bug fixes and changes</h4>
+
+<ul>
+  <li><strong>Fixed</strong>: Wiki TOC doesn’t render headings properly [<a href="https://community.openproject.com/wp/30245">#30245</a>]</li>
+  <li><strong>Fixed</strong>: Cannot create new boards in installations with relative_url_root set [<a href="https://community.openproject.com/wp/30370">#30370</a>]</li>
+  <li><strong>Fixed</strong>: Sass compilation fails on packaged installations with relative_url_root set [<a href="https://community.openproject.com/wp/30372">#30372</a>]</li>
+  <li><strong>Fixed</strong>: Chrome is logged out when accessing pages with images on S3 storage [<a href="https://community.openproject.com/wp/28652">#28652</a>]</li>
+  <li><strong>Fixed</strong>: OpenProject logo on My page does not redirect to landing page [<a href="https://community.openproject.com/wp/30376">#30376</a>]</li>
+  <li><strong>Fixed</strong>: The PDF export is cut off after the first page [<a href="https://community.openproject.com/wp/29929">#29929</a>]</li>
+</ul>
+
+:ET

@@ -1,0 +1,20 @@
+I"g<h1 id="openproject-401">OpenProject 4.0.1</h1>
+
+<p> </p>
+
+<p>OpenProject 4.0.1 was released.<br />
+The release fixes installation errors caused by an old version of
+Sprockets and provides several important security fixes (including a
+Rails update).<br />
+We advise anyone to update their OpenProject installation.</p>
+
+<p>Packager support for easier installation has been extended to also
+include RHEL, CentOS and Ubuntu
+(<a href="https://community.openproject.org/work_packages/17165" title="Packaged based installer for RHEL, CentOS and Ubuntu (closed)">#17165</a>).<br />
+Find the current packager version of OpenProject here: <a href="https://packager.io/gh/opf/openproject">OpenProject
+Packager installation</a>.</p>
+
+<p>For a complete list of changes, please refer to the <a href="https://community.openproject.org/versions/530">OpenProject 4.0.1
+query</a>.</p>
+
+:ET

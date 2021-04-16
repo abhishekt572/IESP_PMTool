@@ -1,0 +1,32 @@
+I"�<h1 id="openproject612">OpenProject 6.1.2</h1>
+
+<p>This patch release contains some small features and minor bug fixes. We
+recommend to update your OpenProject installation to this version.</p>
+
+<h2 id="features-5">Features (5)</h2>
+
+<ul>
+  <li>Added missing auth fields to user
+endpoint <a href="https://community.openproject.com/projects/openproject/work_packages/24503/activity">24503</a>.</li>
+  <li>Allow users to be uniquely identified by
+login <a href="https://community.openproject.com/projects/openproject/work_packages/24504/activity">24504</a>.</li>
+  <li>Configuration option to hide login field during signup (email
+only) <a href="https://community.openproject.com/projects/openproject/work_packages/24505/relations">24505</a>.</li>
+  <li>Configuration option for registration footer
+<a href="https://community.openproject.com/projects/openproject/work_packages/24404/activity">24404</a>.</li>
+  <li>Remove length constraints of category
+name <a href="https://community.openproject.com/projects/openproject/work_packages/24446/activity">24446</a>.</li>
+</ul>
+
+<h2 id="bug-fixes-16">Bug fixes (16)</h2>
+
+<p>You can find a detailed list of the bug
+fixes <a href="https://community.openproject.com/versions/822">here.</a></p>
+
+<h2 id="credits">Credits</h2>
+
+<p>Special thanks to <a href="https://github.com/dwiesent">Dirk Wiesenthal</a> from
+<a href="https://www.univention.de/">Univention</a> for helping us to improve our
+users api.</p>
+
+:ET

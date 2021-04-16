@@ -1,0 +1,13 @@
+I"<h1 id="openproject-428">OpenProject 4.2.8</h1>
+
+<p>OpenProject 4.2.8 contains a bug fix which caused some problems when
+installing OpenProject via Packager.</p>
+
+<p>In addition, new translations have been added. Thanks to everyone who
+helped to translate and proof read OpenProject!</p>
+
+<p>For further information on the release, please refer to the <a href="https://community.openproject.org/versions/773">Changelog
+v.4.2.8</a> or take a look
+at <a href="https://github.com/opf/openproject/tree/v4.2.8">GitHub</a>.</p>
+
+:ET

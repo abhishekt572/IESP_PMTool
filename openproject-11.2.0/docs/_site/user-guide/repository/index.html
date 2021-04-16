@@ -1,0 +1,47 @@
+<h1 id="repository-for-source-code-control">Repository for source code control</h1>
+
+<p><strong>Repository</strong> is defined as a document management system that allows users to manage files and folders via different version control system (SVN or Git).</p>
+
+<div class="alert alert-info" role="alert">
+**Note**: in order to use Repository functionality please make sure that the Repository module is [activated in the project settings](../projects/project-settings/modules/).
+</div>
+
+<h2 id="repository-browser-view">Repository browser view</h2>
+
+<p>An important part of working on a project as a team is sharing files and source code. Keeping track of the latest versions can sometimes be a challenge. Therefore, OpenProject provides two types of version control systems (Git and Subversion) which – after being properly configured – can be used to store relevant data in the different projects.</p>
+
+<p>In OpenProject you can view the files under <em>Repository</em>. Please keep in mind that from your OpenProject website you can only view or download the files. For committing new files you need an SVN- or Git-client.</p>
+
+<p>In order to be able to edit files and to upload the updated versions to repository, you need to check out your repository. The following steps assume you have configured your OpenProject repository to work with subversion (but many of the options are very similar or identical when using Git). Please check out the repository and save it locally through an SVN client of your choice.</p>
+
+<p><img src="User-guide_repository.png" alt="User-guide_repository" /></p>
+
+<p>Below the list of files you can see the latest revisions and the changing comments. If you select a specific file, you will see the list its revisions.</p>
+
+<p>You can create a comparison of two versions to see the changes made for specific files. Please keep in mind that this comparison option is available for single files, so a specific file has to be selected, not a folder. Hint: the comparison only works for plain Text Files (e.g. xml, yaml, json, html, etc.) and not for Binary Files (e.g. pdf, ppt, doc, images, audio- or archive files, etc.).</p>
+
+<p><img src="User-guide-repository3.png" alt="User-guide-repository3" /></p>
+
+<h2 id="working-with-an-svn-or-git-client">Working with an SVN or Git client</h2>
+
+<p>The data contained in a project repository can be downloaded to your computer using one of several clients, for example <a href="https://tortoisesvn.net/">Tortoise SVN</a> for Subversion, and the <a href="https://git-scm.com/">git client</a> or <a href="https://git-scm.com/downloads/guis">one of the recommended GUI clients</a> for Git.</p>
+
+<p>The specifics of working of the selected version control client may vary. Please refer to the documentation of your version control software client for more information.
+If you choose to use Tortoise SVN, you will find a good guide <a href="http://tortoisesvn.net/docs/release/TortoiseSVN_en/tsvn-dug.html">here</a>.
+For Git, we recommend the <a href="https://git-scm.com/book/en/v2">Pro Git guide</a>.</p>
+
+<p>The specifics of working of the selected version control client may vary. Please refer to the documentation of your version control software client for more information. If you choose to use Tortoise SVN, you will find a good guide <a href="http://tortoisesvn.net/docs/release/TortoiseSVN_en/tsvn-dug.html">here</a>.</p>
+
+<h2 id="referencing-work-packages">Referencing work packages</h2>
+
+<p>In the commit message you can reference a workpackge ID (e.g. #1234). In the repository settings (Administration -&gt; System settings -&gt; Repository) you can define keywords that change the status of the referenced work package (e.g. fixes #1234 or closes #1234).</p>
+
+<p>In any textile field you can reference revisions by putting an “r” in front of the revision number (e.g. r123).</p>
+
+<h2 id="configure-repositories-in-openproject">Configure Repositories in OpenProject</h2>
+
+<p>Please see our system admin guide <a href="../../system-admin-guide/system-settings/repositories/">how to configure repositories in OpenProject</a>.</p>
+
+<h2 id="repository-integration">Repository integration</h2>
+
+<p>See our Installation and operations guide how to <a href="../../installation-and-operations/configuration/repositories/#repository-integration-in-openproject">integrate repositories in Openproject</a>.</p>

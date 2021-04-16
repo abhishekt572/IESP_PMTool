@@ -1,0 +1,12 @@
+I"+<h1 id="manage-activities-for-time-tracking">Manage activities for time tracking</h1>
+
+<p>You can configure Activities for time tracking in the System <em>Administration</em> -&gt; <em>Enumerations</em>. You can activate or deactivate time tracking activities per project.</p>
+
+<div class="glossary">**Time tracking** is defined as a module which allows users to log time on work packages. Once the time tracking module is activated, time can be logged via the action menu of a work package.</div>
+<p>Navigate to the -&gt; Project settings -&gt; <em>Activities (time tracking)</em>.</p>
+
+<p>Select the activities which you want to activate for time tracking in your project. Press the blue Save button to apply your changes.</p>
+
+<p><img src="image-20200211134150920.png" alt="time tracking activities" /></p>
+
+:ET

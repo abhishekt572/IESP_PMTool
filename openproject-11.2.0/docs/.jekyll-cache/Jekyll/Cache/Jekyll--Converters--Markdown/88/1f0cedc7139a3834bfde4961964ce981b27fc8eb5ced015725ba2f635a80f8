@@ -1,0 +1,43 @@
+I"k	<h1 id="configuring-a-custom-web-server">Configuring a custom web server</h1>
+
+<p>Both the packaged and docker-based installations ship with Apache as the default web server, because the Git and SVN repository integrations (when OpenProject manages the repositories) only work with that web server.</p>
+
+<p>For a packaged-based installation, if for instance you wish to use NginX, you will need to skip the web server installation when asked in the initial configuration, and then configure NginX yourself so that it forwards traffic to the OpenProject web process (listening by default on 127.0.0.1:6000).If using SSL/TLS, please ensure you set the header value <code class="language-plaintext highlighter-rouge">X-Forwarded-Proto https</code> so OpenProject can correctly produce responses.</p>
+
+<p>For a docker-based installation, you will need to use the (recommended) Compose stack, which will allow you to swap the <code class="language-plaintext highlighter-rouge">proxy</code> container with whatever server you want to use.</p>
+
+<p>For instance you could define a new proxy server like this:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">services</span><span class="pi">:</span>
+  <span class="s">...</span>
+  <span class="s">proxy</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">nginx</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">./nginx.conf:/etc/nginx/conf.d/default.conf:ro</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">8080:80"</span>
+  <span class="s">...</span>
+</code></pre></div></div>
+
+<p>And the corresponding NginX configuration file would look like:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># default.conf
+upstream web {
+    server web:8080;
+}
+
+server {
+        listen 80;
+        server_name _;
+
+        location / {
+            proxy_pass_header  Server;
+            proxy_set_header   Host $http_host;
+            proxy_redirect     off;
+            proxy_set_header   X-Real-IP $remote_addr;
+            proxy_set_header   X-Scheme $scheme;
+            proxy_pass         http://web/;
+        }
+}
+</code></pre></div></div>
+:ET

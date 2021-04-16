@@ -1,0 +1,35 @@
+I"Œ<h1 id="activate-the-enterprise-on-premises-edition">Activate the Enterprise on-premises edition</h1>
+
+<p>The OpenProject Enterprise on-premises edition builds on top of the Community edition.</p>
+
+<p>In order to upgrade your OpenProject Community edition to the Enterprise on-premises edition, sign into your OpenProject environment with an administrator account.</p>
+
+<p><strong>Click on your user avatar in the upper right corner</strong> (1) and select <strong>Administration</strong> from the dropdown menu (2).</p>
+
+<p><img src="Enterprise-Admin.png" alt="Enterprise-Admin" /></p>
+
+<p>Next, select <strong>Enterprise Edition</strong> from the menu items (3).</p>
+
+<p><img src="image-20210120113056133.png" alt="enterprise-select-menu" /></p>
+
+<p>Do you already have an Enterprise on-premises token?</p>
+
+<p>Yes: Then you can proceed entering your token as described below.</p>
+
+<p>No: Then you will need to <a href="#order-the-enterprise-on-premises-edition">order your Enterprise on-premises token</a> or <a href="../enterprise-trial">request a trial token</a> first.</p>
+
+<p>In the Enterprise on-premises edition section, copy and paste the full content of your Enterprise on-premises support token into the input field and press the blue <strong>Save</strong> button.</p>
+
+<p><img src="activate-enterprise-on-premises-token.png" alt="insert-enterprise-on-premises-token" /></p>
+
+<p>Your Enterprise on-premises edition is now active.</p>
+
+<h2 id="order-the-enterprise-on-premises-edition">Order the Enterprise on-premises edition</h2>
+
+<p>If you want to <strong>order the Enterprise on-premises edition</strong> click on the <strong>+ Order Enterprise Edition</strong> button shown on the page. You can also <a href="../enterprise-trial">request a trial token</a> to test the premium features included in the Enterprise on-premises edition.</p>
+
+<p><img src="Upgrade-to-Enterprise-on-premises.png" alt="Order-Enterprise-on-premises" /></p>
+
+<p>Once you purchased an Enterprise on-premises edition token or received a trial token you can <a href="#activate-the-enterprise-edition">activate it by pasting the token in the designated area of the Enterprise Edition section</a>.</p>
+
+:ET

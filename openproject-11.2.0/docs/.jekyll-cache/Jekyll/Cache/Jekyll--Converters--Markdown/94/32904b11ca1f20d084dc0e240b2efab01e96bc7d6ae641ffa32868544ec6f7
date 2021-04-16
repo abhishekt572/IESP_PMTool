@@ -1,0 +1,91 @@
+I"�)<h1 id="development-concept-translations">Development concept: Translations</h1>
+
+<p>OpenProject is currently being translated in over 40 languages. We use a cloud translation service called <a href="https://crowdin.com/project/openproject">Crowdin</a> for allowing the community and professional translators to contribute translations to OpenProject.</p>
+
+<p>Not all translations are fully translated, and they will fallback to english strings for the untranslated portions.</p>
+
+<p><img src="translations-overview.png" alt="Overview of translation and their progress" /></p>
+
+<h2 id="key-takeaways">Key takeaways</h2>
+
+<p><em>Translations in OpenProject…</em></p>
+
+<ul>
+  <li>depend on the <a href="https://guides.rubyonrails.org/i18n.html">I18n yaml-based Rails standard</a> for translation files</li>
+  <li>are split into backend and frontend strings</li>
+</ul>
+
+<h2 id="i18n-definitions">I18n definitions</h2>
+
+<p>The OpenProject localizable strings are stored in the <a href="https://guides.rubyonrails.org/i18n.html">Rails-standard I18n YAML files</a>. The core only manages english source strings in <code class="language-plaintext highlighter-rouge">en.yml</code> and <code class="language-plaintext highlighter-rouge">js-en.yml</code> files. The can be found at <code class="language-plaintext highlighter-rouge">config/locales/en.yml</code> and <code class="language-plaintext highlighter-rouge">config/locales/js-en.yml</code>, respectively.</p>
+
+<p>Additionally, modules can define their own translations, such as <code class="language-plaintext highlighter-rouge">modules/budgets/config/locales/en.yml</code>.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">js-en.yml</code> are not special on their own, but are simply prefixed with the <code class="language-plaintext highlighter-rouge">js:</code> key at the beginning of the while. This means all translations within are prefixed with the <code class="language-plaintext highlighter-rouge">js.</code> key.  This is picked up by <a href="https://github.com/fnando/i18n-js"><code class="language-plaintext highlighter-rouge">I18n.js</code></a>, a Ruby gem and frontend library that helps outputting javascript objects for the frontend. Only strings that are prefixed with <code class="language-plaintext highlighter-rouge">js.</code> and some internals will end up in the frontend due to the config we applied in <a href="https://github.com/opf/openproject/blob/dev/config/i18n-js.yml"><code class="language-plaintext highlighter-rouge">config/i18n-js.yml</code></a>. The translations are output by the take task <code class="language-plaintext highlighter-rouge">./bin/rails i18n:js:export</code> and are output to <code class="language-plaintext highlighter-rouge">frontend/src/locales/{language}.js</code>.</p>
+
+<h2 id="using-i18n-in-your-rails-code">Using I18n in your Rails code</h2>
+
+<p>You are likely familiar already with the <code class="language-plaintext highlighter-rouge">I18n.t</code> helper provided by Rails. We simply use this helper to localize strings. Translations are simply loaded by Rails and available everywhere in the application.</p>
+
+<p>Let’s say want to add a specific label to a work package page and use that in a HTML ruby file, you should go through this way:</p>
+
+<p>You have to add the below rows to the appropriate <code class="language-plaintext highlighter-rouge">en.yml</code> file. If you’re editing a module, add the string to the module’s <code class="language-plaintext highlighter-rouge">config/locales/en.yml</code> file.</p>
+
+<p>You should prefix your string unless its something very generic:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># ...</span>
+<span class="na">work_packages</span><span class="pi">:</span>
+  <span class="na">my_specific_page</span><span class="pi">:</span>
+<span class="err">  	</span><span class="na">my_button</span><span class="pi">:</span> <span class="s2">"</span><span class="s">My</span><span class="nv"> </span><span class="s">localized</span><span class="nv"> </span><span class="s">button</span><span class="nv"> </span><span class="s">label"</span>
+</code></pre></div></div>
+
+<p>You can then use the <code class="language-plaintext highlighter-rouge">t()</code> helper method in the Rails erb view to translate the string:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;</span><span class="err">%=</span> <span class="na">styled_button_tag</span> <span class="na">t</span><span class="err">('</span><span class="na">work_packages.my_specific_page.my_button</span><span class="err">')</span> <span class="err">%</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<p>Outside of the views and controllers, you need to use the module function <code class="language-plaintext highlighter-rouge">I18n.t</code> to be used, for example in Ruby tests:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">expect</span><span class="p">(</span><span class="n">page</span><span class="p">).</span><span class="nf">to</span> <span class="n">have_selector</span><span class="p">(</span><span class="s1">'button'</span><span class="p">,</span> <span class="ss">text: </span><span class="no">I18n</span><span class="p">.</span><span class="nf">t</span><span class="p">(</span><span class="s1">'work_packages.my_specific_page.my_button'</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>The Rails guide on translations will give advanced examples on variable interpolation and the like: https://guides.rubyonrails.org/i18n.html</p>
+
+<h2 id="using-i18n-in-your-frontend-code">Using I18n in your frontend code</h2>
+
+<p>The frontend receives all translations prefixed with <code class="language-plaintext highlighter-rouge">js.</code> (see above) through compiled javascript files from <code class="language-plaintext highlighter-rouge">frontend/src/locales/{language}.js</code> folder generated by I18n.js. These locales are loaded early on in the application in <a href="https://github.com/opf/openproject/blob/dev/frontend/src/main.ts">frontend/src/main.ts</a> to ensure they are present when the page loads. The import happens dynamically so only the language the user has selected is going to be loaded by webpack.</p>
+
+<p>If you want to create an angular component named ‘news’ and translate the text of a “save news” button and author of the news, you should go through this way:</p>
+
+<p>You have to add the below (exemplary) entry to the <code class="language-plaintext highlighter-rouge">js-en.yml</code> file</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">js</span><span class="pi">:</span>
+  <span class="c1"># ... other values</span>
+  <span class="na">news</span><span class="pi">:</span>
+    <span class="na">button_save</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Save</span><span class="nv"> </span><span class="s">news"</span>
+    <span class="na">label_added_by</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Added</span><span class="nv"> </span><span class="s">by</span><span class="nv"> </span><span class="s">%{author}"</span>
+</code></pre></div></div>
+
+<p>You will then need to access the Angular <a href="https://github.com/opf/openproject/blob/dev/frontend/src/app/modules/common/i18n/i18n.service.ts"> <code class="language-plaintext highlighter-rouge">I18nService</code></a> that provides access to the <code class="language-plaintext highlighter-rouge">I18n.js</code> helper. Right now, there is also a window global <code class="language-plaintext highlighter-rouge">I18n</code> that works, but it is not recommended to use that wherever you can inject the service instead.</p>
+
+<p>In the <code class="language-plaintext highlighter-rouge">news.component.ts</code>, you should import the <code class="language-plaintext highlighter-rouge">I18nService</code>. Then you have to define a property named ‘text’ used for all text in your component, like below:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="nx">text</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">saveButton</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">I18n</span><span class="p">.</span><span class="nx">t</span><span class="p">(</span><span class="dl">'</span><span class="s1">js.news.button_save</span><span class="dl">'</span><span class="p">),</span>
+  <span class="na">addedBy</span><span class="p">:</span> <span class="p">(</span><span class="na">news</span><span class="p">:</span><span class="nx">NewsResource</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">I18n</span><span class="p">.</span><span class="nx">t</span><span class="p">(</span><span class="dl">'</span><span class="s1">js.news.label_added_time_by</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span> <span class="na">author</span><span class="p">:</span> <span class="nx">news</span><span class="p">.</span><span class="nx">author</span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>Then you can use them as below in your template:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">class=</span><span class="s">"button -highlight"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"button—text"</span> <span class="na">[innerText]=</span><span class="s">”text.saveButton”</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;/button&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">*ngIf=</span><span class="s">"news.author"</span> <span class="na">class=</span><span class="s">"news-author"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">[innerText]=</span><span class="s">"text.addedBy(news)"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>For more information on formatting and other helpers of the <code class="language-plaintext highlighter-rouge">I18n.js</code> library, see https://github.com/fnando/i18n-js</p>
+:ET

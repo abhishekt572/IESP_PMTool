@@ -1,0 +1,24 @@
+I"Z<h1 id="openproject-3016">OpenProject 3.0.16</h1>
+
+<p>A new patch release for OpenProject 3 (3.0.16) has been released which
+contains several security updates and bug fixes.<br />
+We advise everyone to update their OpenProject installations.</p>
+
+<p>With OpenProject 3.0.16, the Rails version has been updated to 3.2.21
+(<a href="https://community.openproject.org/work_packages/17468" title="Updating Rails to 3.2.21 (closed)">#17468</a>).<br />
+In addition, an older version of Net-LDAP has been upgraded which caused
+problems in combination with Apache DS
+(<a href="https://community.openproject.org/work_packages/17498" title="Upgrade version of \&quot;Net-LDAP\&quot; (fixes problems with Apache DS) (closed)">#17498</a>).</p>
+
+<p>In the previous OpenProject version the permission for “Spent time” was
+not applied properly. This has been fixed with OpenProject 3.0.16
+(<a href="https://community.openproject.org/work_packages/17496" title="Permission for 'spent time' not applied on legacy WP view and list of time entries (closed)">#17496</a>).</p>
+
+<p>A big thanks goes to everyone involved in fixing and reporting those
+bugs!</p>
+
+<p>For a complete list of changes, please refer to the <a href="https://community.openproject.org/versions/544">Changelog
+v3.0.16</a> or have a look
+at <a href="https://github.com/opf/openproject/tree/v3.0.16">Github</a>.</p>
+
+:ET

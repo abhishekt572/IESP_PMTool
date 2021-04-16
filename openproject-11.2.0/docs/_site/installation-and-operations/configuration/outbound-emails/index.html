@@ -1,0 +1,67 @@
+<h1 id="configuring-outbound-emails">Configuring outbound emails</h1>
+
+<p>By default, both the docker and package-based installations will setup a postfix server to allow sending outgoing emails from your server. While it is a good starting point, it is not a recommended production setup since you will most likely run into delivery issues since your server will lack the trust of a proper email provider.</p>
+
+<p>In this guide we will describe how to configure outbound emails using an external SMTP server.</p>
+
+<h2 id="requirements">Requirements</h2>
+
+<p>You will need to have SMTP settings ready. Those can either be from a company
+SMTP server, a Gmail account, or a public provider such as
+<a href="https://www.sendgrid.com/">SendGrid</a>.</p>
+
+<p>Taking SendGrid as an example, you would need to sign up on their website (they
+offer a free plan with up to 12000 emails per month), and once your account is
+provisioned, generate a new API key and copy it somewhere (it looks like
+<code class="language-plaintext highlighter-rouge">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</code>). You
+could also simply use your SendGrid username and password, but this is less
+secure.</p>
+
+<p>You can adjust those settings for other SMTP providers, such as Gmail,
+Mandrill, etc. Please refer to the documentation of the corresponding provider
+to see what values should be used.</p>
+
+<h2 id="package-based-installation-debrpm">Package-based installation (DEB/RPM)</h2>
+
+<p>If you installed OpenProject with the package-based installation, simply run <code class="language-plaintext highlighter-rouge">sudo openproject reconfigure</code>, and when the email wizard is displayed, select the <strong>SMTP</strong> option and fill in the required details (<a href="../../installation/packaged/#step-4-outgoing-email-configuration">cf the initial configuration section</a>)</p>
+
+<h2 id="docker-installation">Docker installation</h2>
+
+<p>If you installed OpenProject with Docker, here is how you would enable outbound
+emails through the use of the SMTP environment variables (with SendGrid, the
+<code class="language-plaintext highlighter-rouge">SMTP_USER_NAME</code> is always <code class="language-plaintext highlighter-rouge">apikey</code>. Just replace <code class="language-plaintext highlighter-rouge">SMTP_PASSWORD</code> with the API
+key you’ve generated and you should be good to
+go):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">-d</span> <span class="se">\</span>
+  <span class="nt">-e</span> <span class="nv">EMAIL_DELIVERY_METHOD</span><span class="o">=</span>smtp <span class="se">\</span>
+  <span class="nt">-e</span> <span class="nv">SMTP_ADDRESS</span><span class="o">=</span>smtp.sendgrid.net <span class="se">\</span>
+  <span class="nt">-e</span> <span class="nv">SMTP_PORT</span><span class="o">=</span>587 <span class="se">\</span>
+  <span class="nt">-e</span> <span class="nv">SMTP_DOMAIN</span><span class="o">=</span>my.domain.com <span class="se">\</span>
+  <span class="nt">-e</span> <span class="nv">SMTP_AUTHENTICATION</span><span class="o">=</span>login <span class="se">\</span>
+  <span class="nt">-e</span> <span class="nv">SMTP_ENABLE_STARTTLS_AUTO</span><span class="o">=</span><span class="nb">true</span> <span class="se">\</span>
+  <span class="nt">-e</span> <span class="nv">SMTP_USER_NAME</span><span class="o">=</span><span class="s2">"apikey"</span> <span class="se">\</span>
+  <span class="nt">-e</span> <span class="nv">SMTP_PASSWORD</span><span class="o">=</span><span class="s2">"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"</span> <span class="se">\</span>
+  ...
+</code></pre></div></div>
+
+<h2 id="available-configuration-options">Available configuration options</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">email_delivery_method</code>: The way emails should be delivered. Possible values: <code class="language-plaintext highlighter-rouge">smtp</code> or <code class="language-plaintext highlighter-rouge">sendmail</code></li>
+</ul>
+
+<h2 id="smtp-options">SMTP Options</h2>
+
+<p>Please see the <a href="../">Configuration guide</a> and <a href="../environment">Environment variables guide</a> on how to set these values.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">smtp_address</code>: SMTP server hostname, e.g. <code class="language-plaintext highlighter-rouge">smtp.example.net</code></li>
+  <li><code class="language-plaintext highlighter-rouge">smtp_port</code>: SMTP server port. Common options are <code class="language-plaintext highlighter-rouge">25</code> and <code class="language-plaintext highlighter-rouge">587</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">smtp_domain</code>: The domain told to the SMTP server, probably the hostname of your OpenProject instance (sent in the HELO domain command). Example: <code class="language-plaintext highlighter-rouge">example.net</code></li>
+  <li><code class="language-plaintext highlighter-rouge">smtp_authentication</code>: Authentication method, possible values: <code class="language-plaintext highlighter-rouge">plain</code>, <code class="language-plaintext highlighter-rouge">login</code>, <code class="language-plaintext highlighter-rouge">cram_md5</code> (optional, only when authentication is required)</li>
+  <li><code class="language-plaintext highlighter-rouge">smtp_user_name</code>: Username for authentication against the SMTP server (optional, only when authentication is required)</li>
+  <li><code class="language-plaintext highlighter-rouge">smtp_password</code> (optional, only when authentication is required)</li>
+  <li><code class="language-plaintext highlighter-rouge">smtp_enable_starttls_auto</code>: You can disable STARTTLS here in case it doesn’t work. Make sure you don’t login to a SMTP server over a public network when using this. This setting can’t currently be used via environment variables, since setting options to <code class="language-plaintext highlighter-rouge">false</code> is only possible via a YAML file. (default: true, optional)</li>
+  <li><code class="language-plaintext highlighter-rouge">smtp_openssl_verify_mode</code>: Define how the SMTP server certificate is validated. Make sure you don’t just disable verification here unless both, OpenProject and SMTP servers are on a private network. Possible values: <code class="language-plaintext highlighter-rouge">none</code>, <code class="language-plaintext highlighter-rouge">peer</code>, <code class="language-plaintext highlighter-rouge">client_once</code> or <code class="language-plaintext highlighter-rouge">fail_if_no_peer_cert</code></li>
+</ul>

@@ -1,0 +1,137 @@
+<h1 id="work-package-relations-and-hierarchies">Work package relations and hierarchies</h1>
+
+<p>You can create work package relations and hierarchies.</p>
+
+<p>Relations indicate any functional or timely relation (e.g. follows or proceeds, blocked by, part of, etc.). Hierarchies are a hierarchical relation (parent-child relationship).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Topic</th>
+      <th style="text-align: left">Content</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#work-package-relations">Work packages relations</a></td>
+      <td style="text-align: left">How can I set a relation between two work packages and which relations can I set?</td>
+    </tr>
+    <tr>
+      <td><a href="#display-relations-in-work-package-list-(premium-feature)">Display relations in work package list</a></td>
+      <td style="text-align: left">How can I display the relations between two work packages in the work package list?</td>
+    </tr>
+    <tr>
+      <td><a href="#work-package-hierarchies">Work package hierarchies</a></td>
+      <td style="text-align: left">What are work package hierarchies? Learn about parent and children work packages.</td>
+    </tr>
+    <tr>
+      <td><a href="#adding-a-child-work-package">Adding a child work package</a></td>
+      <td style="text-align: left">What are the possibilities to add children work packages?</td>
+    </tr>
+    <tr>
+      <td><a href="#change-the-parent-work-package">Change the parent work package</a></td>
+      <td style="text-align: left">How can I change a work package’s parent?</td>
+    </tr>
+    <tr>
+      <td><a href="#display-work-package-hierarchies">Display work package hierarchies</a></td>
+      <td style="text-align: left">Where can I find out about a work package’s children and parent?</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="work-package-relations">Work package relations</h2>
+
+<p>Work package relations indicate that work packages address a similar topic or create status dependencies. To create a relationship between two work packages:</p>
+
+<ol>
+  <li>Select a work package, click on <strong>Relations</strong> to open the relations tab and click the <em>+ Create new relations</em> link.</li>
+  <li>Select the type of relationship from the dropdown menu.</li>
+  <li>Enter the ID or name of the work package, to which the relation should be created and choose an entry from the dropdown menu.</li>
+  <li>If necessary, press the Enter key</li>
+</ol>
+
+<p><img src="image-20201217124334984.png" alt="add-work-package-relations" /></p>
+
+<p>You can select one of the following relations:</p>
+
+<ul>
+  <li><strong>Related to</strong> - This option adds a link from the work package A to work package B, so that project members can immediately see the connection, even if the work packages are not members of the same hierarchy. There is no additional effect.</li>
+  <li><strong>Duplicates / Duplicated by</strong> - This option indicates that the work package A duplicates a work package B in one way or another, for example both address the same task. This can be useful if you have the same work package that needs to be a part of a closed and public projects at the same time. The connection in this case is semantic, the changes you make in work package A will need to be adapted in work package B manually.</li>
+  <li><strong>Blocks / Blocked by</strong> - This option defines status change restrictions between two work packages. If you set a work package A to be blocking work package B, the status of work package B cannot be set to closed or resolved until the work package A is closed (in a clode meta-status).</li>
+  <li><strong>Precedes / Follows</strong> - Defines a chronologically relation between two work packages. For example, if you set a work package A to precede a work package B, you will not be able to change the starting date of B to be earlier than the end date of A. In addition, when you move the start or due date of A, the start and due date of B will be updated as well.</li>
+  <li><strong>Includes / Part of</strong> - Defines if work package A includes or is part of work package B. This relation type can be used for example when you have a rollout work package and work packages which should be shown as included without using hierarchical relationships. There is no additional effect.</li>
+  <li><strong>Requires / Required by</strong> - Defines if work package A requires or is required by work package B. There is no additional effect.</li>
+</ul>
+
+<p>The selected relation status will be automatically displayed in the work package that you enter. For example if you select “Blocks” in the current work package A and specify work package B, work package B will automatically show that it is “Blocked by” A.</p>
+
+<h2 id="display-relations-in-work-package-list-premium-feature">Display relations in work package list (Premium feature)</h2>
+
+<p>As a user of the <a href="https://www.openproject.org/enterprise-edition/">Enterprise Edition</a> or <a href="https://www.openproject.org/hosting/">Cloud Edition</a> you can display relations as columns in the work package list.</p>
+
+<p>This is useful if you want to get an overview of certain types of relationships between work packages. You can for example see which work packages are blocking other work packages.</p>
+
+<p>To add relation columns, open the columns modal and select a relation from the dropdown menu (e.g. “blocked by relations”).</p>
+
+<p><img src="Add-relation-column.png" alt="Add-relation-column" /></p>
+
+<p>The relations column shows the number of relations each work package has for the relation type (e.g. “blocked by”).</p>
+
+<p>You can click on the number to display the work packages which have the relation type.</p>
+
+<p><img src="Relations_column.png" alt="Relations_column" /></p>
+
+<h2 id="work-package-hierarchies">Work package hierarchies</h2>
+
+<p>Work packages can be structured hierarchically, e.g. in order to break down a large work package into several smaller tasks. This means that there’s a parent work package that has at least one child work package.</p>
+
+<h2 id="adding-a-child-work-package">Adding a child work package</h2>
+
+<p>There are <strong>three ways to add or create a child work package</strong>:</p>
+
+<ol>
+  <li>Adding or creating a child in the <em>Relations</em> tab in a work package’s details view</li>
+  <li>Right-clicking on a work package in the work package list and select “Create new child”</li>
+  <li>Right-clicking on a work package in the work package list and select “Indent hierarchy” to add it as the child of the work package above it.</li>
+</ol>
+
+<h3 id="adding-a-child-in-the-relations-tab-in-a-work-packages-details-view">Adding a child in the <em>Relations</em> tab in a work package’s details view</h3>
+
+<p>Open a work package and select the tab <em>Relations</em>. Click on <em>+ Create new child</em> to create a child work package. Alternatively, you can assign an existing child work package with <em>+ Add existing child</em>.</p>
+
+<p><img src="User-guide-hierarchies.png" alt="User-guide-hierarchies" /></p>
+
+<p>Insert the name of the new work package and save the newly created work package by pressing <em>Enter</em>. You can make changes to the work package by clicking on the work package ID.</p>
+
+<p><img src="image-20200129144540902.png" alt="create work package children" /></p>
+
+<p>For more information on the work package creation take a look at the guideline on <a href="../create-work-package">creating a work package</a>.</p>
+
+<h2 id="change-the-parent-work-package">Change the parent work package</h2>
+
+<p>To edit or remove the parent of a work package open the work package. At the top of the details view of the work package you will see the work package hierarchy. Click on the Edit or delete icon to change the work package parent.</p>
+
+<p><img src="User-guide-edit-remove-parent.png" alt="User-guide-edit-remove-parent" /></p>
+
+<h2 id="display-work-package-hierarchies">Display work package hierarchies</h2>
+
+<p>After adding the parent and child work packages they are listed in the <em>Relations</em> tab.
+Note that only the direct parent and children are shown in the relations tab.</p>
+
+<p><img src="image-20200129145033802.png" alt="work package relations" /></p>
+
+<p>Hierarchies can also be displayed from the work package list view.
+To display work package hierarchies make sure the <em>Subject</em> column is displayed. You can activate or deactivate the hierarchy by pressing the icon next to the Subject.</p>
+
+<p><img src="User-guide-display-hierarchy.png" alt="User-guide-display-hierarchy" /></p>
+
+<p>You can also add a column with information about parent work packages:</p>
+
+<ol>
+  <li>In the work package settings menu, click on <em>Columns</em>.</li>
+  <li>Use auto-completion to search and add the <em>Parent</em> column.</li>
+  <li>Click on <em>Apply</em> to display the new parent column in the work package list.</li>
+</ol>
+
+<p><img src="image-20200129145338301.png" alt="parent" /></p>
+

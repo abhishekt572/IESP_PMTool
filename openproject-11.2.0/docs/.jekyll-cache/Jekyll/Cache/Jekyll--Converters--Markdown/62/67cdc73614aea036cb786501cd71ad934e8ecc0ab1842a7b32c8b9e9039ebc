@@ -1,0 +1,66 @@
+I"�<h1 id="manage-members">Manage members</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Topic</th>
+      <th>Content</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#add-members">Add members</a></td>
+      <td>How to add existing members or invite new members to a project?</td>
+    </tr>
+    <tr>
+      <td><a href="#edit-members">Edit members</a></td>
+      <td>How to change the role of a member in a project?</td>
+    </tr>
+    <tr>
+      <td><a href="#remove-members">Remove members</a></td>
+      <td>How to remove members from a project?</td>
+    </tr>
+    <tr>
+      <td><a href="#roles-and-permissions">Roles and permissions</a></td>
+      <td>How to manage roles and permissions for members?</td>
+    </tr>
+    <tr>
+      <td><a href="#groups">Groups</a></td>
+      <td>How to add members to a groups and add groups to a project?</td>
+    </tr>
+  </tbody>
+</table>
+
+<video src="https://www.openproject.org/wp-content/uploads/2020/12/OpenProject-Invite-and-Manage-Members.mp4" type="video/mp4" controls="" style="width:100%"></video>
+
+<h2 id="add-members">Add members</h2>
+
+<p>Find out <a href="../../getting-started/invite-members/#add-existing-members">here</a> how to add existing users to a project and <a href="../../getting-started/invite-members/#invite-new-members">here</a> how to invite new users to join a project.</p>
+
+<h2 id="edit-members">Edit members</h2>
+
+<p>To change the role of a member within a project, select the corresponding project and open the Members module.</p>
+
+<p>To edit an existing member of a project, click the <strong>Edit icon</strong> in the list next to the member on the right. Choose the new role and press the blue <strong>Change button</strong> so save your changes.</p>
+
+<p><img src="image-20210305183845729.png" alt="edit-project-members" /></p>
+
+<h2 id="remove-members">Remove members</h2>
+
+<p>To remove members from a project, <a href="../projects/#select-a-project">select the project</a> for which you want to remove the members. In the project menu on the left, select the <strong>Members</strong> module. In the members list, click the trash can icon at the right end of the row with the corresponding member name.</p>
+
+<p><img src="image-20210305184318093.png" alt="remove-project-members" /></p>
+
+<h2 id="roles-and-permissions">Roles and permissions</h2>
+
+<p>Members will have different roles with different permissions in a project. To find out how to configure roles and permissions click <a href="../../system-admin-guide/#roles-permissions">here</a>.</p>
+
+<div class="glossary">A **role** is defined as a set of permissions defined by a unique name. Project members are assigned to a project by specifying a user's, group's or placeholder user's name and the role(s) they should assume in the project.
+</div>
+
+<p>To assign work packages to a project member, the respective user’s or placeholder user’s role needs to be able to be assigned work packages. This is the default setting for default roles. You can check this setting in the <a href="../../system-admin-guide/users-permissions/roles-permissions/#create-a-new-role">Roles and Permissions section</a> of the system administration.</p>
+
+<h2 id="groups">Groups</h2>
+
+<p>Users can be added to groups. A group can be added to a project. With this, all users within a group will have the corresponding role in this project. Find out how to create and manage groups in OpenProject <a href="../../system-admin-guide/users-permissions/groups">here</a>.</p>
+:ET

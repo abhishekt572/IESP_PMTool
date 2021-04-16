@@ -1,0 +1,234 @@
+<h1 id="development-concept-hal-resources">Development concept: HAL resources</h1>
+
+<p>HAL resources are the frontend counterpart to the <code class="language-plaintext highlighter-rouge">HAL+JSON</code> API of OpenProject. They are class instance of the JSON resources with action links being turned into callable functions to perform requests.</p>
+
+<h2 id="key-takeaways">Key takeaways</h2>
+
+<p><em>HAL resources …</em></p>
+
+<ul>
+  <li>are requested from the APIv3 endpoints and generated from their JSON response by the <a href="https://github.com/opf/openproject/tree/dev/frontend/src/app/modules/hal/services/hal-resource.service.ts"><code class="language-plaintext highlighter-rouge">HALResourceService</code></a>.</li>
+  <li>contain <code class="language-plaintext highlighter-rouge">$links</code> and <code class="language-plaintext highlighter-rouge">$embedded</code> properties to map the original JSON object for linked resources, and the ones that were embedded to the response.</li>
+  <li>Can have an arbitrary number of properties on the object that map to the JSON properties, or elements from the <code class="language-plaintext highlighter-rouge">_links</code> and <code class="language-plaintext highlighter-rouge">_embedded</code> JSON segments.</li>
+  <li>They unfortunately are complex and mutable objects</li>
+</ul>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<p>HAL resources on the frontend have no explicit prerequisite on our frontend. You will likely want to take a look at the <a href="../../../api/introduction">API documentation and the section on HAL+JSON</a>.</p>
+
+<h2 id="primer-on-hal-json">Primer on HAL JSON</h2>
+
+<p>The JSON response in HAL standard can contain these things:</p>
+
+<ul>
+  <li>Basic properties on the base JSON itself (such as IDs, simple properties such as dates etc.)</li>
+  <li>Related HAL resources under <code class="language-plaintext highlighter-rouge">_links</code> that can be individually requested from the API (e.g., the link to a project the resource is contained in). Links often have a <code class="language-plaintext highlighter-rouge">title</code> attribute that is sufficient to render what the value of the link is.</li>
+  <li>Embedded HAL resources under <code class="language-plaintext highlighter-rouge">_embedded</code>. These are link properties themselves, but whose HAL JSON has been embedded into the parent JSON. You can think of this as calling the API and integrating the JSON response into the parent. This saves an additional request for resources that are often needed.</li>
+</ul>
+
+<p>The following is an example HAL JSON for a work package as it is retrieved by the API. This response is abbreviated, you can see the full response of <a href="https://community.openproject.com/api/v3/work_packages/34250">#34250 on our community</a>. You will see the three sections:</p>
+
+<ol>
+  <li>
+    <p>Immediate properties within the JSON such as <code class="language-plaintext highlighter-rouge">_type</code>, <code class="language-plaintext highlighter-rouge">id</code>, <code class="language-plaintext highlighter-rouge">lockVersion</code>, <code class="language-plaintext highlighter-rouge">description</code>. There are more properties like this, they are scalar values of the work package that are not linked to other resources</p>
+  </li>
+  <li>
+    <p>The <code class="language-plaintext highlighter-rouge">_links</code> section. It contains two sorts of links. For other resources such as <code class="language-plaintext highlighter-rouge">_links.project</code> and <code class="language-plaintext highlighter-rouge">_links.status</code>. Each resource link contains an <code class="language-plaintext highlighter-rouge">href</code> and most often a <code class="language-plaintext highlighter-rouge">title</code> attribute to provide a human readable name of the linked resource.</p>
+
+    <p>The other type of links are the action links such as <code class="language-plaintext highlighter-rouge">update</code> or <code class="language-plaintext highlighter-rouge">updateImmediately</code> which are annotated with the HTTP method to use for these actions.</p>
+  </li>
+  <li>
+    <p>The <code class="language-plaintext highlighter-rouge">_embedded</code> section. It contains <code class="language-plaintext highlighter-rouge">_links</code> that were embedded, i.e., have their own full JSON response included into the resource. This prevents additional requests, but increaeses the JSON payload and rendering complexity.</p>
+
+    <p>The frontend cannot decide which resources to embed, this is controlled by the backend and depends on the endpoint used. For example, resource collection endpoints will usually not embed links.</p>
+  </li>
+</ol>
+
+<pre><code class="language-JSON">{
+  "_type": "WorkPackage",
+  "id": 34250,
+  "lockVersion": 5,
+  "subject": "possible data loss on editing comments",
+  "description": {
+    "format": "markdown",
+    "raw": "# Title",
+    "html": "&lt;h1&gt;Title&lt;/h1&gt;"
+  },
+  "_links": {
+    "self": {
+      "href": "/api/v3/work_packages/34250",
+      "title": "possible data loss on editing comments"
+    },
+    "update": {
+      "href": "/api/v3/work_packages/34250/form",
+      "method": "post"
+    },
+    "schema": {
+      "href": "/api/v3/work_packages/schemas/14-1"
+    },
+    "updateImmediately": {
+      "href": "/api/v3/work_packages/34250",
+      "method": "patch"
+    },
+    "delete": {
+      "href": "/api/v3/work_packages/34250",
+      "method": "delete"
+    },
+    "project": {
+      "href": "/api/v3/projects/14",
+      "title": "OpenProject"
+    },
+    "status": {
+      "href": "/api/v3/statuses/7",
+      "title": "confirmed"
+    }
+    ...
+  },
+  "_embedded": {
+    "project": {
+      "_type": "Project",
+      "id": 14,
+      "identifier": "openproject",
+      "name": "OpenProject",
+      "active": true,
+      "public": true,
+      "description": {
+        "format": "markdown",
+        "raw": "Building the best open source project collaboration software.",
+        "html": "&lt;p&gt;Building the best open source project collaboration software.&lt;/p&gt;"
+      },
+      "_links": {
+        "self": {
+          "href": "/api/v3/projects/14",
+          "title": "OpenProject"
+        }
+        ...
+      }
+    },
+    "status": {
+      "_type": "Status",
+      "id": 7,
+      "name": "confirmed",
+      "isClosed": false,
+      "color": "#FFA8A8",
+      "isDefault": false,
+      "isReadonly": false,
+      "defaultDoneRatio": null,
+      "position": 6,
+      "_links": {
+        "self": {
+          "href": "/api/v3/statuses/7",
+          "title": "confirmed"
+        }
+      }
+    }
+  },
+}
+</code></pre>
+
+<p>In this linked example, only the <code class="language-plaintext highlighter-rouge">status</code> and <code class="language-plaintext highlighter-rouge">project</code> links and embedded resources were kept, as well as some work package properties removed.</p>
+
+<h2 id="halresourceservice">HalResourceService</h2>
+
+<p>On to loading the JSON resources from the API and turning them into usable class instances. This is the job of the the <a href="https://github.com/opf/openproject/tree/dev/frontend/src/app/modules/hal/services/hal-resource.service.ts"><code class="language-plaintext highlighter-rouge">HALResourceService</code></a>. It has two responsibilities:</p>
+
+<ol>
+  <li>It uses the Angular <code class="language-plaintext highlighter-rouge">HTTPModule</code> for performing API requests to the APIv3</li>
+  <li>It turns the responses of these requests  (or HAL JSON generated in the frontend) into a HAL resource class</li>
+</ol>
+
+<h3 id="performing-requests-against-hal-api-endpoints">Performing requests against HAL API endpoints</h3>
+
+<p>The service has HTTP <code class="language-plaintext highlighter-rouge">get</code>, <code class="language-plaintext highlighter-rouge">post</code>, <code class="language-plaintext highlighter-rouge">put</code>, etc. methods as well as a generic <code class="language-plaintext highlighter-rouge">request</code>  method that accept an URL and params/payload, and respond with an observable to the JSON transformed into a HAL resource.</p>
+
+<h3 id="error-handling">Error Handling</h3>
+
+<p>For errors returned by the HAL API (specific error <code class="language-plaintext highlighter-rouge">_type</code> response in the JSON) or when erroneous HTTP statuses are being returned, the <code class="language-plaintext highlighter-rouge">HALResourceService</code> will wrap these into <code class="language-plaintext highlighter-rouge">ErrorResources</code> for identifying the cause and potentially, additional details to present to the frontend. This is used for example when saving work packages and validation errors occur. The validations are being output in details for individual attributes.</p>
+
+<h2 id="linked-hal-resources">Linked HAL resources</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">_links</code>  entries of a HAL resource can have a <code class="language-plaintext highlighter-rouge">url</code>, <code class="language-plaintext highlighter-rouge">method</code>, and <code class="language-plaintext highlighter-rouge">title</code> property. They can also be <code class="language-plaintext highlighter-rouge">templated</code> if the link needs to be filled out by the frontend (e.g., to set a related ID to pass into it).</p>
+
+<p>In the process of building the HAL resource, action <code class="language-plaintext highlighter-rouge">_links</code> objects are being turned into resources themselves:</p>
+
+<ul>
+  <li>Either into a <code class="language-plaintext highlighter-rouge">HALResource</code> class themselves if the linked object is retrieved via <code class="language-plaintext highlighter-rouge">GET</code> from the API</li>
+  <li>Or into a <code class="language-plaintext highlighter-rouge">HalLink</code> class instance to perform an action link.</li>
+</ul>
+
+<p>The <a href="https://github.com/opf/openproject/tree/dev/frontend/src/app/modules/hal/hal-link/hal-link.ts"><code class="language-plaintext highlighter-rouge">HalLink</code></a> class is a wrapper around the <code class="language-plaintext highlighter-rouge">HalResourceService#request</code> method to call the action. This way, the action links can be called automatically by calling, e.g., <code class="language-plaintext highlighter-rouge">workPackage.update()</code> to request the form link with the URL defined in <code class="language-plaintext highlighter-rouge">_links.update.href</code>.</p>
+
+<p>For linked resources such as <code class="language-plaintext highlighter-rouge">_links.project</code>, this will result in the <code class="language-plaintext highlighter-rouge">workPackage.project</code> property being a HALResource that can be loaded from the API with <code class="language-plaintext highlighter-rouge">workPackage.project.$load()</code>. This will modify the project resource in the work package, mutating it in place.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Building source from object here, instead of loading from the API for demo purposes</span>
+<span class="kd">const</span> <span class="nx">source</span> <span class="o">=</span> <span class="p">{</span> 
+    <span class="na">id</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
+    <span class="na">_type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">WorkPackage</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">_links</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">project</span><span class="p">:</span> <span class="p">{</span> <span class="na">href</span><span class="p">:</span> <span class="dl">'</span><span class="s1">/api/v3/projects/1</span><span class="dl">'</span><span class="p">,</span> <span class="na">title</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Demo Project</span><span class="dl">'</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// HalResourceService looks up the `_type` to return the correct resource type</span>
+<span class="kd">const</span> <span class="nx">wp</span><span class="p">:</span><span class="nx">WorkPackageResource</span> <span class="o">=</span> <span class="nx">halResourceService</span><span class="p">.</span><span class="nx">createHalResource</span><span class="p">(</span><span class="nx">source</span><span class="p">);</span>
+
+<span class="c1">// Project link was turned into a resource</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">wp</span><span class="p">.</span><span class="nx">project</span><span class="p">.</span><span class="nx">href</span><span class="p">);</span> <span class="c1">// /api/v3/projects/1</span>
+
+<span class="c1">// The resource is not embedded, thus not loaded</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">wp</span><span class="p">.</span><span class="nx">project</span><span class="p">.</span><span class="nx">$loaded</span><span class="p">);</span> <span class="c1">// false</span>
+<span class="c1">// The name property is available from the title attribute</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">project</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// Demo Project</span>
+
+<span class="c1">// Explicitly load the HAL resource</span>
+<span class="kd">const</span> <span class="nx">project</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">wp</span><span class="p">.</span><span class="nx">project</span><span class="p">.</span><span class="nx">$load</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">project</span><span class="p">.</span><span class="nx">href</span><span class="p">);</span> <span class="c1">// /api/v3/projects/1</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">project</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// Demo Project</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">wp</span><span class="p">.</span><span class="nx">project</span><span class="p">.</span><span class="nx">$loaded</span><span class="p">);</span> <span class="c1">// true</span>
+</code></pre></div></div>
+
+<p>On first glance, it might look nice to be able to <code class="language-plaintext highlighter-rouge">$load()</code> the embedded project on the fly and use the returning promise. However, this request will not be cached anywhere, thus loading the same project on multiple work packages will result in multiple requests.</p>
+
+<p>Also, the <code class="language-plaintext highlighter-rouge">workPackage</code> state will be constantly mutated whenever these requests happen. You will always have to check whether the resource was loaded.</p>
+
+<p>Instead of explicitly loading embedded resources, the frontend now usually uses a <code class="language-plaintext highlighter-rouge">CacheService</code> to load and cache a resource of a specific type by its href. For example, for the project, there is a <code class="language-plaintext highlighter-rouge">ProjectCacheService#require(href)</code> method that will ensure a project is loaded, or fetched from cache and returns a promise to use. This will no longer mutate the work package resource.</p>
+
+<p>However, there are still use cases where <code class="language-plaintext highlighter-rouge">.$load()</code> is used and the resource is mutated.</p>
+
+<h2 id="hal-resource-builder">HAL resource builder</h2>
+
+<p>In order to turn the JSON properties from <code class="language-plaintext highlighter-rouge">_embedded</code> and <code class="language-plaintext highlighter-rouge">_links</code> into writable properties on the HAL resource, there is a set of functions called the <a href="https://github.com/opf/openproject/tree/dev/frontend/src/app/modules/hal/helpers/hal-resource-builder.ts"><code class="language-plaintext highlighter-rouge">HAL resource builder</code></a>. It will take care of:</p>
+
+<ul>
+  <li>
+    <p>Maintaining a <code class="language-plaintext highlighter-rouge">$source</code> property which is the pristine JSON response from the API.</p>
+  </li>
+  <li>
+    <p>Mapping the properties under <code class="language-plaintext highlighter-rouge">_links</code> into <code class="language-plaintext highlighter-rouge">$links</code> property with  <code class="language-plaintext highlighter-rouge">HalLinks</code> that can be called in the application. <code class="language-plaintext highlighter-rouge">e.g., workPackage.$links.update()</code> will call the API to the URL behind that link.</p>
+  </li>
+  <li>
+    <p>Mapping the properties under <code class="language-plaintext highlighter-rouge">_embedded</code> into <code class="language-plaintext highlighter-rouge">$embedded</code> and turning each of these into their own <code class="language-plaintext highlighter-rouge">HalResource</code> instance.</p>
+  </li>
+  <li>
+    <p>It definers setters to all properties of the HAL resource to modify the <code class="language-plaintext highlighter-rouge">$source</code> object. For example, if you have a link <code class="language-plaintext highlighter-rouge">_links.project</code> in your JSON, you can override the project used for the resource with <code class="language-plaintext highlighter-rouge">resource.project = projectResource</code> or <code class="language-plaintext highlighter-rouge">resource.project = { href: '/api/v3/projects/1234' }</code>. This will modify the <code class="language-plaintext highlighter-rouge">$source</code> object.</p>
+
+    <p>The frontend doesn’t really use this anymore due to it boiling down to a large mutable object. Instead, we use <code class="language-plaintext highlighter-rouge">ResourceChangesets</code> to modify resources and save them. <a href="../resource-changesets">Click here to see the separate concept on them</a>.</p>
+  </li>
+</ul>
+
+<h2 id="-code-references">🔗 Code references</h2>
+
+<ul>
+  <li><a href="https://github.com/opf/openproject/tree/dev/frontend/src/app/modules/hal/services/hal-resource.service.ts"><code class="language-plaintext highlighter-rouge">HALResourceService</code></a> for loading and and turning JSON responses into HAL resource classes</li>
+  <li><a href="https://github.com/opf/openproject/tree/dev/frontend/src/app/modules/hal/services/hal-resource.config.ts"><code class="language-plaintext highlighter-rouge">halResource.config.ts</code></a> for identifying what types in the JSON response and its members/links are being turned into which classes.</li>
+  <li><a href="https://github.com/opf/openproject/tree/dev/frontend/src/app/modules/hal/resources/hal-resource.ts"><code class="language-plaintext highlighter-rouge">HalResource</code></a> the base HAL resource class</li>
+  <li><a href="https://github.com/opf/openproject/tree/dev/frontend/src/app/modules/hal/helpers/hal-resource-builder.ts"><code class="language-plaintext highlighter-rouge">HAL resource builder</code></a> used for wiring up the links and embedded JSON properties into members of the HAL resource classes</li>
+</ul>
+
+<h2 id="discussions">Discussions</h2>
+
+<ul>
+  <li>Due to the dynamic properties of the HAL resource, it traditionally has an index map to <code class="language-plaintext highlighter-rouge">any</code> which is the source of many typing issues and in turn, quite a number of bugs: https://github.com/opf/openproject/blob/76823ca58179a87afbb5fc0925c3453780dec381/frontend/src/app/modules/hal/resources/hal-resource.ts#L56-L60</li>
+  <li>The way HAL resources work by embedding and allowing to load</li>
+</ul>

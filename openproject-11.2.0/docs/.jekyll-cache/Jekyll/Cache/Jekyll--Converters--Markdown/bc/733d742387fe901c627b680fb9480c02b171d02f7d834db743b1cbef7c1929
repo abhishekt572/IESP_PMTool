@@ -1,0 +1,27 @@
+I"É	<h1 id="openproject-1051">OpenProject 10.5.1</h1>
+
+<p>We released <a href="https://community.openproject.com/versions/1426">OpenProject 10.5.1</a>.
+The release contains several bug fixes and we recommend updating to the newest version.</p>
+
+<!--more-->
+<h4 id="bug-fixes-and-changes">Bug fixes and changes</h4>
+
+<ul>
+  <li>Fixed: Remove horizontal line in several modules above buttons [<a href="https://community.openproject.com/wp/32924">#32924</a>]</li>
+  <li>Fixed: Alignment for assignee in Gantt chart off [<a href="https://community.openproject.com/wp/33097">#33097</a>]</li>
+  <li>Fixed: Scale for spent time widget wrong (especially when logging a lot of time on same day) [<a href="https://community.openproject.com/wp/33128">#33128</a>]</li>
+  <li>Fixed: bcf api is called although bim is disabled for the instance [<a href="https://community.openproject.com/wp/33130">#33130</a>]</li>
+  <li>Fixed: Search instead of work package is shown when entering id and pressing enter in search in quick succession [<a href="https://community.openproject.com/wp/33137">#33137</a>]</li>
+  <li>Fixed: Wiki CKEditor5 toolbar no longer sticky [<a href="https://community.openproject.com/wp/33144">#33144</a>]</li>
+  <li>Fixed: Number vanishes in time logging widget [<a href="https://community.openproject.com/wp/33185">#33185</a>]</li>
+  <li>Fixed: Main menu doesnâ€™t open when resized to 0 width [<a href="https://community.openproject.com/wp/33188">#33188</a>]</li>
+  <li>Fixed: BCF thumbnail column available in non-bim instances [<a href="https://community.openproject.com/wp/33190">#33190</a>]</li>
+  <li>Fixed: Missing translation for default assignee board name [<a href="https://community.openproject.com/wp/33193">#33193</a>]</li>
+  <li>Fixed: Avoid selecting text while resizing main menu [<a href="https://community.openproject.com/wp/33194">#33194</a>]</li>
+  <li>Fixed: Assignee board breaks in sub url [<a href="https://community.openproject.com/wp/33202">#33202</a>]</li>
+  <li>Fixed: n+1 query in work package list (for bcf_issues) [<a href="https://community.openproject.com/wp/33234">#33234</a>]</li>
+  <li>Fixed: Avoid sending mails on seeding [<a href="https://community.openproject.com/wp/33245">#33245</a>]</li>
+  <li>Fixed: Error 500 when comparing meeting versions / diffs [<a href="https://community.openproject.com/wp/33253">#33253</a>]</li>
+  <li>Changed: Fulltext autocompletion for work packages 2.0 [<a href="https://community.openproject.com/wp/33133">#33133</a>]</li>
+</ul>
+:ET

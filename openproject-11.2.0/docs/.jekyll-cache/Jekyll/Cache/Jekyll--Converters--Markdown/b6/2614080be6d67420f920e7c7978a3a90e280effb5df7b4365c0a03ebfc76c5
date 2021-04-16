@@ -1,0 +1,20 @@
+I"ˆ<h1 id="enable-custom-fields-in-projects">Enable custom fields in projects</h1>
+
+<p><strong>Custom fields for work packages can be activated or deactivated in a project</strong>.</p>
+
+<div class="glossary">**Custom fields** are defined as additional attribute fields which can be added to existing attribute fields. The different sections that can use custom fields are work packages, spent time, projects, versions, users, groups, activities (time tracking), and work package priorities.</div>
+
+<p><strong>Please note:</strong> The instructions in this section <em>only</em> apply to custom fields for work packages.</p>
+
+<p>Before you can enable a custom field it needs to be created in the <a href="../../../../system-admin-guide/custom-fields">system administration</a>. Afterwards, open the respective project and go to -&gt; <em>Project settings</em> -&gt; <em>Custom fields</em>.</p>
+
+<ol>
+  <li>Manage the custom field by clicking on the name.</li>
+  <li><strong>Select if the custom fields shall be enabled in the project</strong>. If enabled globally in the custom fields settings in the system administration, it will automatically be displayed in all projects.</li>
+  <li>View the work package types for which the custom field is already enabled. Only for the displayed types the custom field will be active. You can add the custom field to additional work package types by <a href="../../../../system-admin-guide/manage-work-packages/work-package-types/#work-package-form-configuration">adding them to the respective work package form</a>.</li>
+  <li><strong>Create a new custom field</strong> with the green + Custom field button. You have to be a system administrator in order to create new custom fields.</li>
+  <li>Press the blue <strong>Save</strong> button to confirm your changes.</li>
+</ol>
+
+<p><img src="User-guide_project-settings-custom-fields.png" alt="User-guide_project-settings-custom-fields" /></p>
+:ET

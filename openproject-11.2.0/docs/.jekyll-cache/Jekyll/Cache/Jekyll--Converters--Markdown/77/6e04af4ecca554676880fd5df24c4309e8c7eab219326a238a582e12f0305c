@@ -1,0 +1,29 @@
+I"�<h1 id="openproject-747">OpenProject 7.4.7</h1>
+
+<p>We released OpenProject 7.4.7. The release contains some minor fixes
+regarding MessageBird adapter for Two-factor authentication.</p>
+
+<h4 id="work-packages-pdf-export-with-images">Work packages PDF export with images</h4>
+
+<p>Exporting a work package list can now optionally export image
+attachments of the work package. Additional options are added to the
+export modal.</p>
+
+<h4 id="bug-fixes-and-changes">Bug fixes and changes</h4>
+
+<ul>
+  <li>Fixed: [2FA] Device ID not transmitted when resending with
+different channel
+[<a href="https://community.openproject.com/wp/28033">#28033</a>]</li>
+  <li>Fixed: [2FA] MessageBird: Originator may not be longer than 11
+characters [<a href="https://community.openproject.com/wp/28034">#28034</a>]</li>
+  <li>Fixed: [2FA] MessageBird:
+<span class="explanatory-dictionary-highlight" data-definition="explanatory-dictionary-definition-12">User</span>
+language may be
+empty [<a href="https://community.openproject.com/wp/28035">#28035</a>]</li>
+  <li>Fixed: [Styling] Prevent scrolling body when reaching bottom of
+project autocompleter
+[<a href="https://community.openproject.com/wp/28039">#28039</a>]</li>
+</ul>
+
+:ET

@@ -1,0 +1,53 @@
+I"L	<h1 id="openproject-831">OpenProject 8.3.1</h1>
+
+<p>We released
+<a href="https://community.openproject.com/versions/1355">OpenProject 8.3.1</a>.<br />
+The release contains several bug and security related fixes and we urge
+updating to the newest version.</p>
+
+<h4 id="rails-security-fixes">Rails security fixes</h4>
+
+<p>####</p>
+
+<p>This upgrade include Rails 5.2.2.1 with fixes for <a href="https://weblog.rubyonrails.org/2019/3/13/Rails-4-2-5-1-5-1-6-2-have-been-released/">CVE-2019-5418, 
+CVE-2019-5419
+and CVE-2019-5420</a>.</p>
+
+<h4 id="bug-fixes-and-changes">Bug fixes and changes</h4>
+
+<ul>
+  <li>Fixed: Long Work Package titles not wrapped in
+<span class="explanatory-dictionary-highlight" data-definition="explanatory-dictionary-definition-84">Cost
+Reports</span>
+[<a href="https://community.openproject.com/wp/28766">#28766</a>]</li>
+  <li>Fixed: Cannot sort by custom field of type “Float” if named
+“Position”
+[<a href="https://community.openproject.com/wp/29655">#29655</a>]</li>
+  <li>Fixed: WorkPackage search results load results thrice and are slow
+because of it
+[<a href="https://community.openproject.com/wp/29715">#29715</a>]</li>
+  <li>Fixed: Internal error when accessing budget detail view
+[<a href="https://community.openproject.com/wp/29718">#29718</a>]</li>
+  <li>Fixed: Search page loads slowly initially
+[<a href="https://community.openproject.com/wp/29719">#29719</a>]</li>
+  <li>Fixed: Manually set admin flag being unset by SAML authentication
+[<a href="https://community.openproject.com/wp/29720">#29720</a>]</li>
+  <li>Fixed: Gantt Zoom buttons are inverted
+[<a href="https://community.openproject.com/wp/29721">#29721</a>]</li>
+  <li>Fixed: Attachments deleted on work package update via email
+[<a href="https://community.openproject.com/wp/29722">#29722</a>]</li>
+  <li>Changed: Allow instances to define a legal notice link to be
+rendered [<a href="https://community.openproject.com/wp/29697">#29697</a>]</li>
+  <li>Changed: Make Gravatar default image configurable again
+[<a href="https://community.openproject.com/wp/29711">#29711</a>]</li>
+</ul>
+
+<h4 id="contributions">Contributions</h4>
+
+<p>A big thanks to community members for reporting bugs and helping us
+identifying and providing fixes.</p>
+
+<p>Special thanks for reporting and finding bugs go to Michael Johannessen,
+Marc Vollmer, Klaus-Jürgen Weghorn, Ole Odendahl</p>
+
+:ET

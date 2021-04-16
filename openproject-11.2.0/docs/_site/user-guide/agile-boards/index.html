@@ -1,0 +1,229 @@
+<link rel="stylesheet" href="/style.css" />
+
+<h1 id="boards-for-agile-project-management-premium-feature">Boards for Agile Project Management (Premium feature)</h1>
+
+<p>Boards support agile project management methodologies, such as Scrum or Kanban.</p>
+
+<p>Our Agile boards can be for anything you would like to keep track of within your projects: Tasks to be done, Bugs to be fixed, Things to be reviewed,  Features to be developed, Risks to be monitored, Ideas to be spread, anything! The boards consist of lists (columns) and cards. You can choose between a Basic board and various Action boards.</p>
+
+<div class="alert alert-info" role="alert">
+**Note**: IESP PM TOOL Agile boards is a Premium Feature and can only be used with [Enterprise cloud]( ../../cloud-edition-guide/) or [Enterprise on-premises](../../enterprise-edition-guide/). An upgrade from the free Community Edition is easily possible.
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Topic</th>
+      <th>Content</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#create-a-new-board">Create new Boards</a></td>
+      <td>How to create a new Agile board.</td>
+    </tr>
+    <tr>
+      <td><a href="#choose-between-board-types">Choose between board types</a></td>
+      <td>What is the difference between the available board types?</td>
+    </tr>
+    <tr>
+      <td><a href="#give-the-board-a-title">Give the board a title</a></td>
+      <td>How to name a board.</td>
+    </tr>
+    <tr>
+      <td><a href="#add-lists-to-your-board">Add lists to your board</a></td>
+      <td>How to add lists to a board.</td>
+    </tr>
+    <tr>
+      <td><a href="#remove-lists">Remove lists</a></td>
+      <td>How to remove lists from a board.</td>
+    </tr>
+    <tr>
+      <td><a href="#add-cards-to-a-list">Add cards to a list</a></td>
+      <td>How to add cards to a list in a board.</td>
+    </tr>
+    <tr>
+      <td><a href="#update-cards">Update cards</a></td>
+      <td>How to update cards.</td>
+    </tr>
+    <tr>
+      <td><a href="#remove-cards">Remove cards</a></td>
+      <td>How to remove cards.</td>
+    </tr>
+    <tr>
+      <td><a href="#manage-boards">Manage boards</a></td>
+      <td>How to manage permissions for boards.</td>
+    </tr>
+  </tbody>
+</table>
+
+<video src="https://www.openproject.org/wp-content/uploads/2020/11/OpenProject-Agile-Boards.mp4" type="video/mp4" controls="" style="width:100%"></video>
+<h2 id="agile-boards-in-iesp-pm-tool">Agile boards in IESP PM TOOL</h2>
+
+<p>The new Boards are tightly integrated with all other project management functionalities in IESP PM TOOL, i.e. <a href="#work-pages">work packages</a> or <a href="#gantt-charts">Gantt charts</a>.  This makes it so easy and practical to include the Boards in your daily  project management routines and to gain a much quicker overview of  important topics in your project.</p>
+
+<p><img src="openproject-board-overview-1364050.png" alt="IESP PM TOOL-board-overview" /></p>
+
+<h2 id="create-a-new-board">Create a new Board</h2>
+
+<p>You can create as many Agile boards in a project as you need and configure them to your needs. First, you need to create a new Boards view.</p>
+
+<p>If you haven’t done so yet, <a href="../projects/project-settings/modules">activate the Boards module</a> within your project. Also, we recommend to verify <a href="../../system-admin-guide/users-permissions/roles-permissions/">Roles and Permissions</a> within your system’s Administration.</p>
+
+<p>Click on the green <strong>+Board</strong> button to create a new Board view.</p>
+
+<p><img src="OpenProject-Boards_create-new.png" alt="IESP PM TOOL-Boards_create-new" /></p>
+
+<h2 id="choose-between-board-types">Choose between board types</h2>
+
+<p>Next, you need to choose which kind of Agile board you want to create.</p>
+
+<h4 id="basic-board">Basic board</h4>
+<p>You can freely create lists, name them and order your work packages within. If you move work packages between  the lists, there will be <strong>NO changes</strong> to the work package itself. This allows you to create flexible boards for any kind of activity you would like to track, e.g. Management of Ideas.</p>
+
+<h4 id="action-boards">Action boards</h4>
+
+<p>In an Action board each lists represents a value of an attribute of the contained work packages (cards), e.g. there’s a list for the status “New” and a list for the status “In Progress” in the Status board.
+Moving work packages (cards) between two lists will update them automatically, based on the list to which they’re moved.
+After <a href="#add-lists-to-your-board">adding lists to your board</a> they will automatically be filled with the respective work packages.</p>
+
+<p>There are several <strong>types of Action boards</strong> available:</p>
+
+<p><strong>Status board:</strong> Each list represents a status. That means that e.g. all work packages with the status “New” will be automatically displayed in the column “New”. 
+When creating a new Status board a list with all work packages in the default status (usually this is the status “New”) will be added automatically, while additional lists need to be added manually.
+Please note: You can’t move work packages from or to every status. Please find out more about the work-flow logics restricting this here: <a href="../../system-admin-guide/manage-work-packages/work-package-workflows/">Allowed transitions between status</a></p>
+
+<p><strong>Assignee board:</strong> Every list represents one assignee. You can choose regular users, <a href="../../system-admin-guide/users-permissions/placeholder-user">placeholder users</a> and groups as assignees.</p>
+
+<p><strong>Version board:</strong> Every list represents a version. This board is ideal for product development or planning software releases. When creating a new Version board a list with all work packages in the version(s) belonging to the current project will be added automatically, while additional lists need to be added manually.</p>
+
+<p><strong>Subproject board:</strong> Every list represents a subproject. Within the list you will find the subproject’s work packages.</p>
+
+<p><strong>Parent-Child board:</strong> Every list represents a parent work package. Within the list you will find the work package’s children. 
+Only work packages from the current project can be selected as a list, i.e. can be chosen as the name of the list.
+The Parent-Child board is ideal for depicting a <strong>work breakdown structure</strong>.
+Please note: This will only display one hierarchy level below the displayed work package, i.e. only immediate children and no grandchildren.</p>
+
+<p><img src="image-20201005160802542.png" alt="image-20201005160802542" /></p>
+
+<h2 id="give-the-board-a-title">Give the board a title</h2>
+
+<p>Choose a meaningful title for your Board so that it is clear, e.g. for other team members, what you want to do.</p>
+
+<p><img src="OpenProject-Boards_title.png" alt="IESP PM TOOL-Boards_title" /></p>
+
+<h2 id="add-lists-to-your-board">Add lists to your board</h2>
+
+<p><strong>Lists</strong> usually represent a <strong>status workflow</strong>, <strong>assignees</strong>, a <strong>version</strong> or <strong>anything</strong> that you would like to track within your project. You can add as many lists that you need to a Board.</p>
+
+<p><strong>Action boards lists</strong>: The available lists depend on the <a href="#choose-between-board-types">type of board you choose</a>. Remember: if you change a card between the lists, the respective attribute (e.g. status) will be updated automatically.
+<strong>Basic board lists</strong>: You can create any kind of list and name them to your needs. Remember: No updates to the attributes will happen when moving cards between the lists.</p>
+
+<p><img src="OpenProject-Boards_lists.png" alt="IESP PM TOOL-Boards_lists" /></p>
+
+<p>Click <strong>+ add list</strong> to add lists to your board.</p>
+
+<p><img src="OpenProject-Boards_new-lists.png" alt="IESP PM TOOL-Boards_new-lists" /></p>
+
+<p><strong>Basic board lists:</strong> Give the list any meaningful name.
+<strong>Action board lists:</strong> The list’s name will depend on the type of Action board you chose, e.g. “New”, “In Progress”, etc. for the Status board.</p>
+
+<p><img src="image-20201006111714525.png" alt="image-20201006111714525" /></p>
+
+<h2 id="remove-lists">Remove lists</h2>
+
+<p>To remove lists, click on the three dots next to a list’s title, and select <strong>Delete list</strong>.<img src="OpenProject-Boards_delete-lists.png" alt="IESP PM TOOL-Boards_delete-lists" /></p>
+
+<h2 id="add-cards-to-a-list">Add cards to a list</h2>
+
+<p>You can add cards to a list. Cards represent a <a href="https://docs.openproject.org/user-guide/work-packages/">work package</a> in IESP PM TOOL. They can be any kind of work within a project, e.g. a Task, a Bug, a Feature, a Risk, anything.</p>
+
+<p><img src="OpenProject-Boards_cards-1568639967764.png" alt="IESP PM TOOL-Boards_cards" /></p>
+
+<p>Click <strong>+</strong> under the lists’ title to add a card: create a new card or choose an existing work package and add it as a card to your list.</p>
+
+<p><img src="OpenProject-Boards_add-cards-1568640084027.png" alt="IESP PM TOOL-Boards_add-cards" /></p>
+
+<p><strong>Add new card</strong>: enter a title and press Enter.
+<strong>Add existing</strong>: enter an existing title or an ID and press Enter.</p>
+
+<p><img src="OpenProject-Boards_create-cards-1568640108117.png" alt="IESP PM TOOL-Boards_create-cards" /></p>
+
+<h2 id="update-cards">Update cards</h2>
+
+<p>You can update cards in the following ways:</p>
+
+<p><strong>Move cards with drag and drop</strong> within a list or to a new list. Remember: Moving cards to another list in an Action board will update their attributes, e.g. status.</p>
+
+<p><img src="OpenProject-Boards_update-cards-1568640157240.png" alt="IESP PM TOOL-Boards_update-cards" /></p>
+
+<p>Apart from the Status board you can <strong>update a work package’s status</strong> directly in the card.</p>
+
+<p><img src="OpenProject-Boards_update-status-1568640175105.png" alt="IESP PM TOOL-Boards_update-status" /></p>
+
+<p>A <strong>double click on a card</strong> will open the work package’s <strong>fullscreen view.</strong> The <strong>arrow</strong> on top will bring you back to the boards view. <img src="OpenProject-Boards_card-details-1568640191629.png" alt="IESP PM TOOL-Boards_card-details" /></p>
+
+<p>Clicking on <strong>Open details view</strong> (the blue “i”) will open the work package’s <strong><a href="../work-packages/work-package-views/#work-package-split-screen-view">split screen view</a></strong>. You can close it by clicking on the <strong>“x”</strong> in its upper right corner.</p>
+
+<h2 id="remove-cards">Remove cards</h2>
+
+<p>To remove a card from a <strong>Basic board</strong> hover over the card and press the <strong>X</strong>.</p>
+
+<p><img src="OpenProject-Boards_remove-cards-1568640218366.png" alt="IESP PM TOOL-Boards_remove-cards" /></p>
+
+<p>Cards from <strong>Actions boards</strong> will be removed automatically from a list as soon as the respective attribute (e.g. Status) is changed.</p>
+
+<h2 id="manage-boards">Manage boards</h2>
+
+<p>To <strong>create new</strong> boards, <strong>open existing</strong> boards, or <strong>delete</strong> boards, navigate to the main Boards menu item.</p>
+
+<p><img src="OpenProject-manage-boards-1568640234856.png" alt="IESP PM TOOL-manage-boards" /></p>
+
+<p>Verify and <strong>update roles and permissions for boards</strong> in the <a href="../../system-admin-guide/users-permissions/">system’s Administration</a> if necessary.</p>
+
+<p><img src="image-20201006120925442.png" alt="image-20201006120925442" /></p>
+
+<h2 id="agile-boards-examples">Agile boards examples</h2>
+
+<p>We would like to show you some examples so that you get an idea on how to use Agile boards. 
+Also, once you have set up your custom boards, you can easily copy them along with your (whole) project to use them as a basis for new ones. Please note: The subprojects in the Subproject board won’t be copied.</p>
+
+<h3 id="basic-board-1">Basic board</h3>
+
+<p>Freely create any kind of list you need to organize your team in IESP PM TOOL. If it is organizing tasks for a department, planning a team event, collecting feedback for different topics, coordinating tasks in different locations, generating ideas and many more. Every team member can add tasks to this board and thus the board will be growing over time. It allows you to always know what tasks need to be done without using an Excel file and one coordinator. Everyone has access to the information at any time from anywhere.</p>
+
+<p><img src="basic-board-docs.png" alt="basic-board-docs" /></p>
+
+<h3 id="action-boards-1">Action boards</h3>
+
+<p><strong>Status board</strong></p>
+
+<p>The Status Action board is probably the most used Agile board. Start with the three basic status “new”, “in progress” and “closed” and see what status you might need according to your way of working. With a status action board, you can implement the KANBAN principle, continuously improving the flow of work.
+If you would for example like to map your order process in a board, you can use the status board to pass the tickets through the status. From an incoming order (new), to when it is being handled (in progress) to when it is done (closed). Accompanying work packages to the actual order process would also be shown in this board to give a good overview, e.g. adding a new payment option. Different people from different departments can work together and are up to date on where every work package stands without having to ask.</p>
+
+<p><img src="action-board-status-docs.png" alt="action-board-status-docs" /></p>
+
+<p><strong>Assignee board</strong></p>
+
+<p>Know who is working on what. If a cross-functional team is e.g. developing a product together, you would like to know who is working on what and if everything is on track. The assignee board gives you the opportunity to get an overview of responsibilities, how busy the teams are and if all tasks are distributed. It gives the teams clear responsibilities. The marketing team knows that the finance team is doing the product calculation but they have to check the overall product profitability themselves.
+Of course you don’t need to use groups as assignees, you can also use individual team members in the list.</p>
+
+<p><img src="action-board-assignee-docs.png" alt="action-board-assignee-docs" /></p>
+
+<p><strong>Version board</strong></p>
+
+<p>The Version board facilitates the planning of a product development in several iterations. With every iteration you can add and improve features and let your product become the best version for your customers. If a certain feature is e.g. too complex to be developed in one specific version because you have other features to develop with higher priority, just drag it to the next version and it will update automatically. This board gives you a perfect overview of what is coming and you can see at a glance if it fits your priorities. If not, adjust with drag and drop.</p>
+
+<p><img src="action-board-version-docs.png" alt="action-board-version-docs" /></p>
+
+<h2 id="frequently-asked-questions-faq">Frequently asked questions (FAQ)</h2>
+
+<h4 id="how-can-i-activate-boards-in-iesp-pm-tool">How can I activate Boards in IESP PM TOOL?</h4>
+
+<p>The Boards module is a premium feature of IESP PM TOOL Enterprise on-premises and IESP PM TOOL Enterprise cloud. You can upgrade your Community Edition installation by entering a valid subscription token in the application administration. You can purchase the token on our <a href="https://www.openproject.org/enterprise-edition/">website</a>.
+In addition, you need to activate the Boards module in the project settings.</p>
+
+<h4 id="what-does-the-error-message-parent-is-invalid-because-the-work-package--is-a-backlog-task-and-therefore-cannot-have-a-parent-outside-of-the-current-project-mean">What does the error message “Parent is invalid because the work package (…) is a backlog task and therefore cannot have a parent outside of the current project” mean?</h4>
+
+<p>This message appears when the Backlogs module is activated and you try to set a work package belonging to project A as a child of another work package belonging to project B. 
+In the Backlogs module work packages can only have children of the same version and the same project. To avoid displaying different information in the backlog and in the boards view this restriction is in place. You can solve it by disabling the Backlogs module or by changing the project (and if necessary version) of the work package you’d like to move.</p>

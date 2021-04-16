@@ -1,0 +1,53 @@
+<h1 id="manage-work-package-workflows">Manage work package workflows</h1>
+
+<p>A <strong>workflow</strong> in OpenProject is defined as the allowed transitions between status for a role and a type, i.e. which status changes can a certain role implement depending on the work package type.</p>
+
+<p>This means, a certain type of work package, e.g. a Task, can have the following workflows: News -&gt; In Progress -&gt; Closed -&gt; On Hold -&gt; Rejected -&gt; Closed. This workflow can be different depending on the <a href="../../users-permissions/roles-permissions">role in a project</a>.</p>
+
+<h2 id="edit-workflows">Edit workflows</h2>
+
+<p>To edit a workflow:</p>
+
+<ol>
+  <li>Select the <strong>role</strong> from the dropdown menu for which you want to edit the workflow.</li>
+  <li>Select the <strong>work package type</strong> from the dropdown menu for which you want to edit the workflow.</li>
+  <li>Check if you <strong>only want the statuses that are used by this type</strong> to be displayed (this option is selected automatically, but you can always uncheck it).</li>
+</ol>
+<div>
+**Note**: If you have created a [new status](../work-package-status) and want to add it to a workflow of a certain work package type, you need to deselect this option. Only this way also status that are not (yet) used by this type will appear in the list and can be added to a workflow.
+</div>
+
+<ol>
+  <li>Click the <strong>Edit</strong> button.</li>
+</ol>
+
+<p><img src="System-admin-guide-work-package-workflows.png" alt="System-admin-guide-work-package-workflows" /></p>
+
+<p>You will be able to adapt the following:</p>
+
+<ol>
+  <li>Adapt which <strong>status changes</strong> are allowed by the selected role for the selected work package type. Read the transitions from the Rows (Current status) to the columns (New status allowed), e.g. a status transition from NEW to IN PROGRESS and back would be allowed. Make sure to allow the “way back” in most cases, e.g. back from IN PROGRESS to NEW, to make sure you will be able to correct mistakes.</li>
+  <li>In addition, you can specify if this role is allowed to make specific status changes if the user who has been assigned this role also is the <strong>author of the work package</strong>.</li>
+  <li>Also you can set additional status transitions allowed if the user is the <strong>assignee to a work package</strong>.</li>
+  <li>Don’t forget to save your changes.</li>
+</ol>
+
+<p><img src="Sys-admin-edit-workflow-details.png" alt="Sys-admin-edit-workflow-details" /></p>
+
+<h2 id="copy-an-existing-workflow">Copy an existing workflow</h2>
+
+<p>You can copy an existing workflow by clicking <strong>Copy</strong> in the workflow overview.</p>
+
+<p><img src="Sys-admin-copy-workflow.png" alt="Sys-admin-copy-workflow" /></p>
+
+<p>You will then be able to determine which existing workflow should be copied to which other workflow.</p>
+
+<h2 id="view-the-workflow-summary">View the workflow summary</h2>
+
+<p>You can get a summary of the allowed status transitions of a work package type for a role by clicking on <strong>Summary</strong> in the workflow overview.</p>
+
+<p><img src="Sys-admin-workflow-summary.png" alt="Sys-admin-workflow-summary" /></p>
+
+<p>You will then view a summary of all the workflows. The number of possible status transitions for each type and role are shown in a matrix.</p>
+
+<p><img src="image-20200121155553061.png" alt="workflow summary overview" /></p>

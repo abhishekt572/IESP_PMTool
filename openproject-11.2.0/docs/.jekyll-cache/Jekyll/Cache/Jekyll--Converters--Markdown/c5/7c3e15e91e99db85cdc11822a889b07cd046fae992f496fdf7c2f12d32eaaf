@@ -1,0 +1,31 @@
+I"�<h1 id="openproject5015">OpenProject 5.0.15</h1>
+
+<p>OpenProject 5.0.15 contains several bug fixes:</p>
+
+<ul>
+  <li>The date on the project activity was based on UTC+0 and therefore
+showed the wrong date when being in a different time zone
+(<a href="https://community.openproject.org/work_packages/22641/activity">#22641</a>).</li>
+  <li>When selecting a query and updating several work packages at once
+using bulk edit, the focus was lost to the work package page. It now
+remains on the query
+(<a href="https://community.openproject.org/work_packages/22330/activity">#22330</a>).</li>
+  <li>Due to an error the search text for queries in the dark theme was
+not visible. This has been fixed
+(<a href="https://community.openproject.org/work_packages/22654">#22654</a>).</li>
+  <li>Several design improvements have been
+made (<a href="https://community.openproject.org/work_packages/21338/activity">#21338</a>,
+<a href="https://community.openproject.org/work_packages/21794/activity">#21794</a>).</li>
+</ul>
+
+<p>In addition, the accessibility has been improved
+(<a href="https://community.openproject.org/work_packages/21910/activity">#21910</a>,
+<a href="https://community.openproject.org/work_packages/22005/activity">#22005</a>).</p>
+
+<p>For further information on the release, please refer to the <a href="https://community.openproject.org/versions/783">Changelog
+v.5.0.15</a> or take a look
+at <a href="https://github.com/opf/openproject/tree/v5.0.15">GitHub</a>.</p>
+
+<p> </p>
+
+:ET

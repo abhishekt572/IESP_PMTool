@@ -1,0 +1,429 @@
+I"�{<h1 id="manual-installation-guide">Manual installation guide</h1>
+
+<p><strong>IMPORTANT: We strongly recommend to use one of the officially supported <a href="../../installation">installation methods</a>. This guide is simply provided as a reference, and is most likely NOT up to date with relation to the latest OpenProject releases.</strong></p>
+
+<p>Please be aware that:</p>
+
+<ul>
+  <li>
+    <p>This guide requires that you have a clean Ubuntu 18.04 <strong>x64</strong> installation
+with administrative rights (i.e. you must be able to <code class="language-plaintext highlighter-rouge">sudo</code>). We have tested
+the installation guide on an Ubuntu Server image, but it should work on any
+derivative. You may need to alter some of the commands to match your
+derivative.</p>
+  </li>
+  <li>
+    <p>OpenProject will be installed with a PostgreSQL database.</p>
+  </li>
+  <li>
+    <p>OpenProject will be served in a production environment with the Apache server
+(this guide should work similarly with other servers, like nginx and others)</p>
+  </li>
+</ul>
+
+<p>Note: We have highlighted commands to execute like this</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>user@host] <span class="nb">command </span>to execute
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">user</code> is the operating system user the command is executed with.
+In our case it will be <code class="language-plaintext highlighter-rouge">root</code> for most of the time or <code class="language-plaintext highlighter-rouge">openproject</code>.</p>
+
+<p>If you find any bugs or you have any recommendations for improving this
+tutorial, please, feel free to create a pull request against this guide.</p>
+
+<h2 id="create-a-dedicated-openproject-user">Create a dedicated OpenProject user</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>groupadd openproject
+<span class="nb">sudo </span>useradd <span class="nt">--create-home</span> <span class="nt">--gid</span> openproject openproject
+<span class="nb">sudo </span>passwd openproject <span class="c">#(enter desired password)</span>
+</code></pre></div></div>
+
+<h2 id="install-the-required-system-dependencies">Install the required system dependencies</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>root@host] apt-get update <span class="nt">-y</span>
+<span class="o">[</span>root@host] apt-get <span class="nb">install</span> <span class="nt">-y</span> zlib1g-dev build-essential           <span class="se">\</span>
+                    libssl-dev libreadline-dev                      <span class="se">\</span>
+                    libyaml-dev libgdbm-dev                         <span class="se">\</span>
+                    libncurses5-dev automake                        <span class="se">\</span>
+                    libtool bison libffi-dev git curl               <span class="se">\</span>
+                    poppler-utils unrtf tesseract-ocr catdoc        <span class="se">\</span>
+                    libxml2 libxml2-dev libxslt1-dev <span class="c"># nokogiri     \</span>
+                    imagemagick
+</code></pre></div></div>
+
+<h2 id="install-the-caching-server-memcached">Install the caching server (memcached)</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>root@host] apt-get <span class="nb">install</span> <span class="nt">-y</span> memcached
+</code></pre></div></div>
+
+<h2 id="install-and-setup-the-database-server-postgresql">Install and setup the database server (PostgreSQL)</h2>
+
+<p>OpenProject requires PostgreSQL v9.5+. If you system package is too old, you can check https://www.postgresql.org/download/ to get a newer version installed. In our case, Ubuntu 18.04 comes with a recent-enough version so we can use the system packages:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>root@host] apt-get <span class="nb">install </span>postgresql postgresql-contrib libpq-dev
+</code></pre></div></div>
+
+<p>Once installed, switch to the PostgreSQL system user.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>root@host] su - postgres
+</code></pre></div></div>
+
+<p>Then, as the PostgreSQL user, create the database user for OpenProject. This will prompt you for a password. We are going to assume in the following guide that this password is ‘openproject’. Of course, please choose a strong password and replace the values in the following guide with it!</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>postgres@host] createuser <span class="nt">-W</span> openproject
+</code></pre></div></div>
+
+<p>Next, create the database owned by the new user</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>postgres@host] createdb <span class="nt">-O</span> openproject openproject
+</code></pre></div></div>
+
+<p>Lastly, revert to the previous system user:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>postgres@host] <span class="nb">exit</span>
+<span class="c"># You will be root again now.</span>
+</code></pre></div></div>
+
+<h2 id="installation-of-ruby">Installation of Ruby</h2>
+
+<p>The are several possibilities to install Ruby on your machine. We will
+use <a href="http://rbenv.org/">rbenv</a>. Please be aware that the actual installation of a specific Ruby version takes some
+time to finish.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>root@host] su openproject <span class="nt">--login</span>
+<span class="o">[</span>openproject@host] git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+<span class="o">[</span>openproject@host] <span class="nb">echo</span> <span class="s1">'export PATH="$HOME/.rbenv/bin:$PATH"'</span> <span class="o">&gt;&gt;</span> ~/.profile
+<span class="o">[</span>openproject@host] <span class="nb">echo</span> <span class="s1">'eval "$(rbenv init -)"'</span> <span class="o">&gt;&gt;</span> ~/.profile
+<span class="o">[</span>openproject@host] <span class="nb">source</span> ~/.profile
+<span class="o">[</span>openproject@host] git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+
+<span class="o">[</span>openproject@host] rbenv <span class="nb">install </span>2.7.2
+<span class="o">[</span>openproject@host] rbenv rehash
+<span class="o">[</span>openproject@host] rbenv global 2.7.2
+</code></pre></div></div>
+
+<p>To check our Ruby installation we run <code class="language-plaintext highlighter-rouge">ruby --version</code>. It should output
+something very similar to:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ruby 2.7.2pXYZ (....) [x86_64-linux]
+</code></pre></div></div>
+
+<h2 id="installation-of-node">Installation of Node</h2>
+
+<p>The are several possibilities to install Node on your machine. We will
+use <a href="https://github.com/OiNutter/nodenv#installation">nodenv</a>. Please
+run <code class="language-plaintext highlighter-rouge">su openproject --login</code> if you are the <code class="language-plaintext highlighter-rouge">root</code> user. If you are
+already the <code class="language-plaintext highlighter-rouge">openproject</code> user you can skip this command. Please be
+aware that the actual installation of a specific node version takes some
+time to finish.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>openproject@host] git clone https://github.com/OiNutter/nodenv.git ~/.nodenv
+<span class="o">[</span>openproject@host] <span class="nb">echo</span> <span class="s1">'export PATH="$HOME/.nodenv/bin:$PATH"'</span> <span class="o">&gt;&gt;</span> ~/.profile
+<span class="o">[</span>openproject@host] <span class="nb">echo</span> <span class="s1">'eval "$(nodenv init -)"'</span> <span class="o">&gt;&gt;</span> ~/.profile
+<span class="o">[</span>openproject@host] <span class="nb">source</span> ~/.profile
+<span class="o">[</span>openproject@host] git clone git://github.com/OiNutter/node-build.git ~/.nodenv/plugins/node-build
+
+<span class="o">[</span>openproject@host] nodenv <span class="nb">install </span>8.12.0
+<span class="o">[</span>openproject@host] nodenv rehash
+<span class="o">[</span>openproject@host] nodenv global 8.12.0
+</code></pre></div></div>
+
+<p>To check our Node installation we run <code class="language-plaintext highlighter-rouge">node --version</code>. It should output something very similar to:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>v8.12.0
+</code></pre></div></div>
+
+<h2 id="installation-of-openproject">Installation of OpenProject</h2>
+
+<p>We will install the OpenProject Community Edition. It contains the recommended set of plugins for use
+with OpenProject. For more information, see https://github.com/opf/openproject.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>openproject@host] <span class="nb">cd</span> ~
+<span class="o">[</span>openproject@host] git clone https://github.com/opf/openproject.git <span class="nt">--branch</span> stable/9 <span class="nt">--depth</span> 1
+<span class="o">[</span>openproject@host] <span class="nb">cd </span>openproject
+<span class="c"># Ensure rubygems is up-to-date for bundler 2</span>
+<span class="o">[</span>openproject@host] gem update <span class="nt">--system</span>
+<span class="o">[</span>openproject@host] gem <span class="nb">install </span>bundler
+<span class="c"># Replace mysql with postgresql if you had to install MySQL</span>
+<span class="o">[</span>openproject@host] bundle <span class="nb">install</span> <span class="nt">--deployment</span> <span class="nt">--without</span> mysql2 sqlite development <span class="nb">test </span>therubyracer docker
+<span class="o">[</span>openproject@host] npm <span class="nb">install</span>
+</code></pre></div></div>
+
+<h2 id="configure-openproject">Configure OpenProject</h2>
+
+<p>Create and configure the database configuration file in config/database.yml
+(relative to the openproject directory).</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>openproject@host] <span class="nb">cp </span>config/database.yml.example config/database.yml
+</code></pre></div></div>
+
+<p>Now we edit the <code class="language-plaintext highlighter-rouge">config/database.yml</code> file and insert our database credentials for PostgreSQL.
+It should look like this (please keep in mind that you have to use the values
+you used above: user, database and password):</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">production</span><span class="pi">:</span>
+  <span class="na">adapter</span><span class="pi">:</span> <span class="s">postgresql</span>
+  <span class="na">encoding</span><span class="pi">:</span> <span class="s">unicode</span>
+  <span class="na">database</span><span class="pi">:</span> <span class="s">openproject</span>
+  <span class="na">pool</span><span class="pi">:</span> <span class="m">5</span>
+  <span class="na">username</span><span class="pi">:</span> <span class="s">openproject</span>
+  <span class="na">password</span><span class="pi">:</span> <span class="s">openproject</span>
+</code></pre></div></div>
+
+<p>Next we configure email notifications (this example uses a gmail account) by creating the <code class="language-plaintext highlighter-rouge">configuration.yml</code> in config directory.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>openproject@host] <span class="nb">cp </span>config/configuration.yml.example config/configuration.yml
+</code></pre></div></div>
+
+<p>Now we edit the <code class="language-plaintext highlighter-rouge">configuration.yml</code> file to suit our needs.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">production</span><span class="pi">:</span>                          <span class="c1">#main level</span>
+  <span class="na">email_delivery_method</span><span class="pi">:</span> <span class="s">:smtp</span>       <span class="c1">#settings for the production environment</span>
+  <span class="na">smtp_address</span><span class="pi">:</span> <span class="s">smtp.gmail.com</span>
+  <span class="na">smtp_port</span><span class="pi">:</span> <span class="m">587</span>
+  <span class="na">smtp_domain</span><span class="pi">:</span> <span class="s">smtp.gmail.com</span>
+  <span class="na">smtp_user_name</span><span class="pi">:</span> <span class="err">***@</span><span class="s">gmail.com</span>
+  <span class="na">smtp_password</span><span class="pi">:</span> <span class="err">****</span>
+  <span class="na">smtp_enable_starttls_auto</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">smtp_authentication</span><span class="pi">:</span> <span class="s">plain</span>
+</code></pre></div></div>
+
+<p>Add this line into <code class="language-plaintext highlighter-rouge">configuration.yml</code> file at the end of the file for
+a better performance of OpenProject:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">rails_cache_store</span><span class="pi">:</span> <span class="s">:memcache</span>
+</code></pre></div></div>
+
+<p><strong>NOTE:</strong> You should validate your <code class="language-plaintext highlighter-rouge">yml</code> files, for example with
+http://www.yamllint.com/. Both, the <code class="language-plaintext highlighter-rouge">database.yml</code> and <code class="language-plaintext highlighter-rouge">configuration.yml</code>
+file are sensitive to whitespace. It is pretty easy to write
+invalid <code class="language-plaintext highlighter-rouge">yml</code> files without seeing the error. Validating those files
+prevents you from such errors.</p>
+
+<h2 id="finish-the-installation-of-openproject">Finish the installation of OpenProject</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>openproject@host] <span class="nb">cd</span> ~/openproject
+<span class="o">[</span>openproject@host] <span class="nv">RAILS_ENV</span><span class="o">=</span><span class="s2">"production"</span> ./bin/rake db:create
+<span class="o">[</span>openproject@host] <span class="nv">RAILS_ENV</span><span class="o">=</span><span class="s2">"production"</span> ./bin/rake db:migrate
+<span class="o">[</span>openproject@host] <span class="nv">RAILS_ENV</span><span class="o">=</span><span class="s2">"production"</span> ./bin/rake db:seed
+<span class="o">[</span>openproject@host] <span class="nv">RAILS_ENV</span><span class="o">=</span><span class="s2">"production"</span> ./bin/rake assets:precompile
+</code></pre></div></div>
+
+<p><strong>NOTE:</strong> When not specified differently, the default data loaded via db:seed will have an english localization. You can choose to seed in a different language by specifying the language via the <code class="language-plaintext highlighter-rouge">LOCALE</code> environment variable on the call to <code class="language-plaintext highlighter-rouge">db:seed</code>. E.g.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>openproject@all] <span class="nv">RAILS_ENV</span><span class="o">=</span><span class="s2">"production"</span> <span class="nv">LOCALE</span><span class="o">=</span>fr ./bin/rake db:seed
+</code></pre></div></div>
+<p>will seed the database in the french language.</p>
+
+<h3 id="secret-token">Secret token</h3>
+
+<p>You need to generate a secret key base for the production environment with <code class="language-plaintext highlighter-rouge">./bin/rake secret</code> and make that available through the environment variable <code class="language-plaintext highlighter-rouge">SECRET_KEY_BASE</code>.
+In this installation guide, we will use the local <code class="language-plaintext highlighter-rouge">.profile</code> of the OpenProject user. You may alternatively set the environment variable in <code class="language-plaintext highlighter-rouge">/etc/environment</code> or pass it to the server upon start manually in <code class="language-plaintext highlighter-rouge">/etc/apache2/envvars</code>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>openproject@host] <span class="nb">echo</span> <span class="s2">"export SECRET_KEY_BASE=</span><span class="si">$(</span>./bin/rake secret<span class="si">)</span><span class="s2">"</span> <span class="o">&gt;&gt;</span> ~/.profile
+<span class="o">[</span>openproject@host] <span class="nb">source</span> ~/.profile
+</code></pre></div></div>
+
+<h2 id="serve-openproject-with-apache-and-passenger">Serve OpenProject with Apache and Passenger</h2>
+
+<p>First, we exit the current bash session with the openproject user,
+so that we are again in a root shell.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>openproject@ubuntu] <span class="nb">exit</span>
+</code></pre></div></div>
+
+<p>Then, we prepare apache and passenger:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>root@host] apt-get <span class="nb">install</span> <span class="nt">-y</span> apache2 libcurl4-gnutls-dev      <span class="se">\</span>
+                               apache2-dev libapr1-dev <span class="se">\</span>
+                               libaprutil1-dev
+<span class="o">[</span>root@ubuntu] <span class="nb">chmod </span>o+x <span class="s2">"/home/openproject"</span>
+</code></pre></div></div>
+
+<p>Now, the Passenger gem is installed and integrated into apache.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>root@ubuntu] su openproject <span class="nt">--login</span>
+<span class="o">[</span>openproject@ubuntu] <span class="nb">cd</span> ~/openproject
+<span class="o">[</span>openproject@ubuntu] gem <span class="nb">install </span>passenger
+<span class="o">[</span>openproject@ubuntu] passenger-install-apache2-module
+</code></pre></div></div>
+
+<p>If you are running on a Virtual Private Server, you need to make sure you have at least 1024mb of RAM before running the <code class="language-plaintext highlighter-rouge">passenger-install-apache2-module</code>.</p>
+
+<p>Follow the instructions passenger provides.
+The passenger installer will ask you the question in “Which languages are you
+interested in?”. We are interested only in ruby.</p>
+
+<p>The passenger installer tells us to edit the apache config files.
+To do this, continue as the root user:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>openproject@host] <span class="nb">exit</span>
+</code></pre></div></div>
+
+<p>As told by the installer, create the file /etc/apache2/mods-available/passenger.load and add the following line.
+But before copy&amp;pasting the following lines, check if the content (especially the version numbers!) is the same as the passenger-install-apache2-module installer said. When you’re in doubt, do what passenger tells you.</p>
+
+<div class="language-apache highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">LoadModule</span> passenger_module /home/openproject/.rbenv/versions/2.1.6/lib/ruby/gems/2.1.0/gems/passenger-5.0.14/buildout/apache2/mod_passenger.so
+</code></pre></div></div>
+
+<p>Then create the file /etc/apache2/mods-available/passenger.conf with the following contents (again, take care of the version numbers!):</p>
+
+<div class="language-apache highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="p">&lt;</span><span class="nl">IfModule</span><span class="sr"> mod_passenger.c</span><span class="p">&gt;
+</span>     PassengerRoot /home/openproject/.rbenv/versions/2.1.6/lib/ruby/gems/2.1.0/gems/passenger-5.0.14
+     PassengerDefaultRuby /home/openproject/.rbenv/versions/2.1.6/bin/ruby
+   <span class="p">&lt;/</span><span class="nl">IfModule</span><span class="p">&gt;
+</span></code></pre></div></div>
+
+<p>Then run:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>root@openproject] a2enmod passenger
+</code></pre></div></div>
+
+<p>As the root user, create the file /etc/apache2/sites-available/openproject.conf with the following contents:</p>
+
+<div class="language-apache highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">SetEnv</span> EXECJS_RUNTIME <span class="ss">Disabled</span>
+
+<span class="p">&lt;</span><span class="nl">VirtualHost</span><span class="sr"> *:80</span><span class="p">&gt;
+</span>   <span class="nc">ServerName</span> yourdomain.com
+   <span class="c"># !!! Be sure to point DocumentRoot to 'public'!</span>
+   <span class="nc">DocumentRoot</span> /home/openproject/openproject/public
+   <span class="p">&lt;</span><span class="nl">Directory</span><span class="sr"> /home/openproject/openproject/public</span><span class="p">&gt;
+</span>      <span class="c"># This relaxes Apache security settings.</span>
+      <span class="nc">AllowOverride</span> <span class="ss">all</span>
+      <span class="c"># MultiViews must be turned off.</span>
+      <span class="nc">Options</span> -MultiViews
+      <span class="c"># Uncomment this if you're on Apache &gt;= 2.4:</span>
+      <span class="nc">Require</span> <span class="ss">all</span> granted
+   <span class="p">&lt;/</span><span class="nl">Directory</span><span class="p">&gt;
+</span>
+   <span class="c"># Request browser to cache assets</span>
+   <span class="p">&lt;</span><span class="nl">Location</span><span class="sr"> /assets/</span><span class="p">&gt;
+</span>     <span class="nc">ExpiresActive</span> <span class="ss">On</span> <span class="ss">ExpiresDefault</span> "access plus 1 year"
+   <span class="p">&lt;/</span><span class="nl">Location</span><span class="p">&gt;
+</span>
+<span class="p">&lt;/</span><span class="nl">VirtualHost</span><span class="p">&gt;
+</span></code></pre></div></div>
+
+<p>Let’s enable our new openproject site (and disable the default site, if necessary)</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>root@host] a2dissite 000-default
+<span class="o">[</span>root@host] a2ensite openproject
+</code></pre></div></div>
+
+<p>Now, we (re-)start Apache:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>root@host] service apache2 restart
+</code></pre></div></div>
+
+<p>Your OpenProject installation should be accessible on port 80 (http). A default admin-account is created for you having the following credentials:</p>
+
+<p>Username: <code class="language-plaintext highlighter-rouge">admin</code>
+Password: <code class="language-plaintext highlighter-rouge">admin</code></p>
+
+<p>Please, change the password on the first login. Also, we highly recommend to configure the SSL module in Apache for https communication.</p>
+
+<h2 id="activate-background-jobs">Activate background jobs</h2>
+
+<p>OpenProject sends (some) mails asynchronously by using background jobs. All such jobs are collected in a queue, so that a separate process can work on them. This means that we have to start the background worker. To automate this, we put the background worker into a cronjob.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>root@all] su - openproject <span class="nt">-c</span> <span class="s2">"bash -l"</span>
+<span class="o">[</span>openproject@all] crontab <span class="nt">-e</span>
+</code></pre></div></div>
+
+<p>Now, the crontab file opens in the standard editor. Add the following entry to the file:</p>
+
+<pre><code class="language-cron">*/1 * * * * cd /home/openproject/openproject; /home/openproject/.rvm/gems/ruby-2.1.5/wrappers/rake jobs:workoff
+</code></pre>
+
+<p>This will start the worker job every minute.</p>
+
+<h2 id="follow-ups">Follow-Ups</h2>
+
+<p>Your OpenProject installation is ready to run. Please refer to the <a href="../../operation">Operation guides</a> or the <a href="../../configuration">Advanced configuration guides</a> for more details on how to operate and configure OpenProject.</p>
+
+<h2 id="plug-in-installation-optional">Plug-In installation (Optional)</h2>
+
+<p>This step is optional.</p>
+
+<p>OpenProject can be extended by various plug-ins, which extend OpenProject’s capabilities.
+For general information and a list of all plug-ins known to us, refer to to the <a href="https://community.openproject.org/projects/openproject/wiki/OpenProject_Plug-Ins">plug-in page</a>.</p>
+
+<p>OpenProject plug-ins are separated in ruby gems. You can install them by listing them in a file called <code class="language-plaintext highlighter-rouge">Gemfile.plugins</code>. An example <code class="language-plaintext highlighter-rouge">Gemfile.plugins</code> file looks like this:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Required by backlogs</span>
+<span class="n">gem</span> <span class="s2">"openproject-meeting"</span><span class="p">,</span> <span class="ss">git: </span><span class="s2">"https://github.com/finnlabs/openproject-meeting.git"</span><span class="p">,</span> <span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="s2">"v4.2.2"</span>
+</code></pre></div></div>
+
+<p>If you have modified the <code class="language-plaintext highlighter-rouge">Gemfile.plugin</code> file, always repeat the following steps of the OpenProject installation:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>openproject@all] <span class="nb">cd</span> ~/openproject
+<span class="o">[</span>openproject@all] bundle <span class="nb">install</span>
+<span class="o">[</span>openproject@all] npm <span class="nb">install</span>
+<span class="o">[</span>openproject@all] <span class="nv">RAILS_ENV</span><span class="o">=</span><span class="s2">"production"</span> ./bin/rake db:migrate
+<span class="o">[</span>openproject@all] <span class="nv">RAILS_ENV</span><span class="o">=</span><span class="s2">"production"</span> ./bin/rake db:seed
+<span class="o">[</span>openproject@all] <span class="nv">RAILS_ENV</span><span class="o">=</span><span class="s2">"production"</span> ./bin/rake assets:precompile
+</code></pre></div></div>
+
+<p>Restart the OpenProject server afterwards:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>openproject@all] <span class="nb">touch</span> ~/openproject/tmp/restart.txt
+</code></pre></div></div>
+
+<p>The next web-request to the server will take longer (as the application is restarted). All subsequent request should be as fast as always.</p>
+
+<p>We encourage you to extend OpenProject yourself by writing a plug-in. Please, read the <a href="https://community.openproject.org/projects/openproject/wiki/Developing_Plugins">plugin-contributions</a> guide for more information.</p>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<p>You can find the error logs for apache here:</p>
+<pre>/var/log/apache2/error.log</pre>
+
+<p>The OpenProject logfile can be found here:</p>
+<pre>/home/openproject/openproject/log/production.log</pre>
+
+<p>If an error occurs, it should be logged there.</p>
+
+<p>If you need to restart the server (for example after a configuration change), do</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>openproject@all] <span class="nb">touch</span> ~/openproject/tmp/restart.txt
+</code></pre></div></div>
+
+<h2 id="frequently-asked-questions-faq">Frequently asked questions (FAQ)</h2>
+
+<ul>
+  <li>
+    <p><strong>I followed the installation guide faithfully and OpenProject is running. Now, how do I log in?</strong></p>
+
+    <p>The <code class="language-plaintext highlighter-rouge">db:seed</code> command listed above creates a default admin-user. The username is <code class="language-plaintext highlighter-rouge">admin</code> and the default password is <code class="language-plaintext highlighter-rouge">admin</code>. You are forced to change the admin password on the first login.
+If you cannot login as the admin user, make sure that you have executed the <code class="language-plaintext highlighter-rouge">db:seed</code> command.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>openproject@all] <span class="nv">RAILS_ENV</span><span class="o">=</span><span class="s2">"production"</span> ./bin/rake db:seed
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><strong>When accessing OpenProject, I get an error page. How do I find out what went wrong?</strong></p>
+
+    <p>Things can go wrong on different levels. You can find the apache error logs here:</p>
+    <pre>/var/log/apache2/error.log</pre>
+    <p>The OpenProject log can be found here:</p>
+    <pre>/home/openproject/openproject/log/production.log</pre>
+  </li>
+  <li>
+    <p><strong>I cannot solve an error, not even with the log files. How do I get help?</strong></p>
+
+    <p>You can find help in <a href="https://community.openproject.org/projects/openproject/boards">the OpenProject forums</a>. Please tell us, if possible, what you have done (e.g. which guide you have used to install OpenProject), how to reproduce the error, and provide the appropriate error logs.
+It often helps to have a look at the already answered questions, or to search the Internet for the error. Most likely someone else has already solved the same problem.</p>
+  </li>
+  <li>
+    <p><strong>I get errors, since I have installed an OpenProject plug-in</strong></p>
+
+    <p>With each new OpenProject core version, the plug-ins might need to be updated. Please make sure that the plug-in versions of all you plug-ins works with the OpenProject version you use.
+Many plug-ins follow the OpenProject version with their version number (So, if you have installed OpenProject version 4.1.0, the plug-in should also have the version 4.1.0).</p>
+  </li>
+</ul>
+
+<h2 id="questions-comments-and-feedback">Questions, comments, and feedback</h2>
+
+<p>If you have any further questions, comments, feedback, or an idea to enhance this guide, please tell us at the appropriate community <a href="https://community.openproject.org/projects/openproject/boards/9">forum</a>.
+<a href="https://twitter.com/openproject">Follow OpenProject on twitter</a>, and follow the news on <a href="http://openproject.org">openproject.org</a> to stay up to date.</p>
+:ET

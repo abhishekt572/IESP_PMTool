@@ -1,0 +1,100 @@
+I"�<h1 id="placeholder-users-premium-feature">Placeholder users (Premium feature)</h1>
+
+<p>In <a href="https://www.openproject.org/enterprise-edition/">OpenProject Enterprise on-premises</a> and <a href="https://www.openproject.org/hosting/">OpenProject Enterprise cloud</a> you can add placeholder users to your instance. They can be created without an email address and do not need license seats.</p>
+
+<p>Placeholder users can be used to plan a project with or for users who haven’t been added to that project yet. This way you can set up projects before staffing them.
+Another use case would be to include customers, vendors or partners in your planning without them knowing it.</p>
+
+<p>Placeholder users can be managed by system admins and by users with the <a href="../roles-permissions/#global-roles">role</a> “Create, edit and delete placeholder users”.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Topic</th>
+      <th>Content</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#placeholder-user-list">Placeholder user list</a></td>
+      <td>Manage placeholder users in OpenProject.</td>
+    </tr>
+    <tr>
+      <td><a href="#create-placeholder-users">Create placeholder users</a></td>
+      <td>Add new placeholder users.</td>
+    </tr>
+    <tr>
+      <td><a href="#manage-placeholder-user-settings">Manage placeholder user settings</a></td>
+      <td>Change names and add placeholders users to projects.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="placeholder-user-list">Placeholder user list</h2>
+
+<p>To manage placeholder users navigate to <em>Administration -&gt; Users &amp; Permissions -&gt; Placeholder users</em>. The placeholder user list gives you an overview of all placeholder users with their names and creation dates. From here you can also <a href="#create-placeholder-users">add</a> placeholder users, <a href="#manage-placeholder-user-settings">edit</a> them and <a href="#delete-placeholder-users">delete</a> them.</p>
+
+<p>The column headers can be clicked to toggle sort direction. Arrows indicate sort order, up for ascending (a-z/0-9) and down for descending (z-a/9-0).</p>
+
+<p><img src="image-20210305150925563.png" alt="placeholder-users-overview" /></p>
+
+<h3 id="filter-placeholder-users">Filter placeholder users</h3>
+
+<p>The placeholder user list can be filtered by name.</p>
+
+<p>At the top of the user list is a filter box. Enter a name, then click the blue <strong>Apply</strong> button to filter the list. Click the <strong>Clear</strong> button to reset the filter field and refresh the list.
+You can enter any parts of a placeholder user name; this can also contain a “%” wild card for zero or more characters.</p>
+
+<h3 id="delete-placeholder-users">Delete placeholder users</h3>
+
+<p>To delete a placeholder user open the <a href="#placeholder-user-list">placeholder user list</a>. Click on the trash can symbol on the right to choose the placeholder user that you want to remove.</p>
+
+<p>You will then be asked to type in the placeholder user name to confirm the deletion.</p>
+
+<p><img src="image-20210305163225643.png" alt="delete-placeholder-users" /></p>
+
+<div class="alert alert-info" role="alert">
+**Note**: Deleting a placeholder user account is an irreversible action and cannot be revoked. The previous activities from this user will still be displayed in the system but reassigned to "Deleted user".
+</div>
+
+<h2 id="create-placeholder-users">Create placeholder users</h2>
+<p>To add a new placeholder, user click on <strong>+ Placeholder user</strong> in the upper right corner of the <a href="#placeholder-user-list">placeholder user list</a>.
+Enter a name and click on <strong>Create</strong> to save or on <strong>Create and continue</strong> to save and create another placeholder user.</p>
+
+<p><img src="image-20210305171333274.png" alt="create-new-placeholder-user" /></p>
+
+<p>It is not possible to create two placeholder users with the exact same name.</p>
+
+<h2 id="manage-placeholder-user-settings">Manage placeholder user settings</h2>
+
+<p>You can change a placeholder user’s name and add it to a project if you click on its name in the <a href="#placeholder-user-list">placeholder user list</a>.</p>
+
+<p>On the <strong>General</strong> tab you can change the placeholder user’s name.</p>
+
+<p>In order to be assigned to work packages and participate in a project, a placeholder user has to be a member of a project and needs to be added with a certain role to this project.
+On the <strong>Projects</strong> tab, select a project from the drop-down list, choose the <a href="../roles-permissions"><strong>role(s)</strong></a> for the placeholder user in this project and click the blue <strong>Add</strong> button.</p>
+
+<p><img src="image-20210305170745049.png" alt="add-placeholder-user-to-project" /></p>
+
+<p>To change a placeholder user’s role in a project or to remove it from the project use the edit button (pen) or delete button (X), respectively.
+If you edit the placeholder user’s role(s) don’t forget to use the <strong>Change</strong> button to save your changes.</p>
+
+<p><img src="image-20210305171118210.png" alt="edit-role-or-remove-placeholder" /></p>
+
+<p><strong>Note</strong>: You can also use a project’s <a href="../../../user-guide/members">member list</a> to manage a placeholder user’s participation in a project.</p>
+
+<h3 id="additional-settings">Additional settings</h3>
+
+<p>Placeholder users cannot be added to groups and cannot be assigned global roles. The avatar currently looks like that of users without a profile picture.
+In the future, additional changes and features for placeholder users will be implemented.</p>
+
+<h2 id="placeholder-user-profile">Placeholder user profile</h2>
+
+<p>Similar to users, placeholder users have a profile page which shows their name and project memberships.</p>
+
+<p>The projects are only visible for users who are allowed to see the project (e.g. user has permission to see this placeholder user in a common project or has a sufficient global role (e.g. system administrator)).</p>
+
+<p><img src="image-20210305180853254.png" alt="image-20210305180853254" /></p>
+
+<p>The profile page can be accessed via the <a href="#manage-placeholder-user-settings">placeholder user settings</a> and via the overview page of projects the placeholder user is a member of.</p>
+:ET

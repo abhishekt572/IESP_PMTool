@@ -1,0 +1,37 @@
+I"<h1 id="openproject-721">OpenProject 7.2.1</h1>
+
+<p>OpenProject 7.2.1 contains several bug fixes.</p>
+
+<h2 id="bug-fixes-3">Bug fixes (3)</h2>
+
+<ul>
+  <li>Wrong query results were shown when switching away from a timeline
+query
+[<a href="https://community.openproject.com/projects/openproject/work_packages/26086">#26086</a>]</li>
+  <li>Cost reports with custom field of type list were rendered using
+their internal ID, not their option text
+[<a href="https://community.openproject.com/wp/26050">#26050</a>]</li>
+  <li>With newer versions of Ruby 2.4., an internal error <em>LocalJumpError:
+unexpected return</em> when accessing the work package page has been
+resolved. [<a href="https://community.openproject.com/wp/26128">#26128</a>]</li>
+</ul>
+
+<h2 id="visual-changes">Visual changes</h2>
+
+<ul>
+  <li>The subject in work package show view was misaligned
+[<a href="https://community.openproject.com/projects/openproject/work_packages/26073">#26073</a>]</li>
+  <li>Additional parent elements in the work package table are rendered
+only with a different font color, no longer with a opaque background
+color
+[<a href="https://community.openproject.com/projects/openproject/work_packages/26052">#26052</a>]</li>
+</ul>
+
+<p>Thanks a lot to the community, in particular to Mark Brown for reporting
+bugs!</p>
+
+<p>For further information on the release, please refer to the <a href="https://community.openproject.com/versions/843">Changelog
+v7.2.1</a> or take a look
+at <a href="https://github.com/opf/openproject/tree/v7.2.1">GitHub</a>.</p>
+
+:ET

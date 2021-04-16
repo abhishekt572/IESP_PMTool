@@ -1,0 +1,36 @@
+I"Ù<h1 id="openproject-3012">OpenProject 3.0.12</h1>
+
+<p>With the release of version 3.0.12 several security threats in
+OpenProject are fixed.<br />
+These concern user permissions and the visibility of administration
+settings for logged out users. We advise everybody to update their
+OpenProject installation.</p>
+
+<p>In addition, an error concerning the API v2 has been solved
+(<a href="https://community.openproject.org/work_packages/6688" title="APIv2: ids-parameter ignored for planning_elements.json (closed)">#6688</a>)
+and several usability bug fixes in the meetings and documents plugin are
+included in 3.0.12:</p>
+
+<ul>
+  <li>Meetings plugin:<br />
+The preview function for the agenda and minutes which produced an
+internal error has been fixed and works properly now
+(<a href="https://community.openproject.org/work_packages/15208" title="Internal error when clicking on preview on agenda/minutes (closed)">#15208</a>).</li>
+</ul>
+
+<!-- end list -->
+
+<ul>
+  <li>Documents plugin:<br />
+With 3.0.12 an error in the documents plugin which caused an
+internal error when opening a user page
+(<a href="https://community.openproject.org/work_packages/12620" title="Missing event type cause 500 ERROR on user page. (closed)">#12620</a>)
+has been fixed. Many thanks to <a href="https://github.com/bjornblissing">Bj√∂rn
+Blissing</a> who reported and fixed
+this error.</li>
+</ul>
+
+<p>For a complete list of changes, pleas refer to the <a href="https://community.openproject.org/versions/450">OpenProject 3.0.12
+query</a>.</p>
+
+:ET

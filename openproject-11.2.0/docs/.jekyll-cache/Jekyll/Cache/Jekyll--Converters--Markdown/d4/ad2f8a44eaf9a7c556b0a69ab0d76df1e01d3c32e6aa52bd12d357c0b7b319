@@ -1,0 +1,157 @@
+I"y<link rel="stylesheet" href="/style.css" />
+
+<style>
+h1 {
+    font-size: 30px;
+    font-weight: 500;
+    border-bottom: 2px solid #707070;
+    padding-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px
+}
+table {
+     width: 100%;
+     border-collapse: collapse;
+     overflow-x: auto;
+     margin: 15px auto;
+     word-wrap: break-word;
+     clear: both
+}
+ table thead {
+     background: #f2f2f2
+}
+ table tbody {
+     border-top: 3px solid #dfdfdf
+}
+ table tbody:first-child {
+     border-top: 0
+}
+ table tbody tr>td {
+     max-width: 100%;
+     min-width: 100px
+}
+ table tbody code {
+     word-wrap: break-word
+}
+ table td,table th {
+     text-align: left;
+     padding: 7px 10px;
+     border: 1px solid #dfdfdf;
+     font-size: 15px
+}
+ html {
+     font-family: sans-serif;
+     line-height: 1.15;
+     -webkit-text-size-adjust: 100%;
+     -webkit-tap-highlight-color: rgba(51,51,51,0)
+}
+ hr {
+     box-sizing: content-box;
+     height: 0;
+     overflow: visible
+}
+ h1,h2,h3,h4,h5,h6 {
+     margin-top: 0;
+     margin-bottom: .5rem
+}
+ article,aside,figcaption,figure,footer,header,hgroup,main,nav,section {
+     display: block
+}
+ body {
+     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+     font-size: 1rem;
+     font-weight: 400;
+     line-height: 1.5;
+     text-align: left;
+     background-color: #f9f9f9;
+     width: 90%;
+     margin: auto
+}
+ code,code span {
+     font-family: Menlo,DejaVu Sans Mono,Liberation Mono,Consolas,Ubuntu Mono,Courier New,andale mono,lucida console,monospace
+}
+ li code,p code,table code {
+     color: #5f8341;
+     background-color: rgba(95,131,65,.1)
+}
+ a>code {
+     color: #1b69b6
+}
+ hr {
+     border: 0;
+     border-top: 1px solid #dfdfdf;
+     width: 100%
+}
+ h2,h3,h4,h5,h6 {
+     border-bottom: 1px solid #ccc;
+     line-height: 1.4;
+     padding-bottom: 5px
+}
+ h2 code,h3 code,h4 code,h5 code,h6 code {
+     color: #5f8341;
+     background-color: rgba(95,131,65,.1)
+}
+img {
+	width: 60%;
+	height: auto;
+	margin-left: 25%;
+}
+</style>
+
+<h1 id="openproject-documentation">OpenProject Documentation</h1>
+
+<div class="alert alert-info" role="alert">
+**Note**: To better read our OpenProject Documentation, please go to [docs.openproject.org](https://docs.openproject.org).
+</div>
+
+<p>ToDo: check all links.</p>
+
+<h2 id="installation">Installation</h2>
+
+<p>Get started with installing and upgrading OpenProject using <a href="https://docs.openproject.org/installation-and-operations/">our Installation Guide starting point</a>.</p>
+
+<p>The guides for <a href="./installation/manual/README.md">manual</a>, <a href="./installation/packaged/">packaged</a> and <a href="./installation/docker/README.md">Docker-based</a> installations are provided.</p>
+
+<h2 id="upgrading">Upgrading</h2>
+
+<p>The detailed upgrade instructions for our packaged installer are located on the <a href="https://www.openproject.org/download/upgrade-guides/">official website</a>.</p>
+
+<p>The guides for <a href="./operations/upgrading/manual/upgrading.md">manual</a>, <a href="./operations/upgrading/packaged/upgrading.md">packaged</a> and <a href="./operations/upgrading/docker/upgrading.md">Docker-based</a> upgrading are provided.</p>
+
+<h2 id="operation">Operation</h2>
+
+<ul>
+  <li>Backup guides for <a href="./operations/backup/manual/backup.md">manual</a>, <a href="./operations/backup/packaged/backup.md">packaged</a> and <a href="./operations/backup/docker/backup.md">Docker-based</a> installations</li>
+  <li><a href="./configuration/configuration.md">Alter configuration of OpenProject</a></li>
+  <li><a href="./repositories/README.md">Manual repository integration for Git and Subversion</a></li>
+  <li><a href="./configuration/incoming-emails.md">Configure incoming mails</a></li>
+  <li><a href="./plugins/plugins.md">Install custom plugins</a></li>
+</ul>
+
+<h2 id="user-guides">User Guides</h2>
+
+<p>Please see our <a href="https://docs.openproject.org/user-guide/">User Guide pages</a> for detailed documentation on the functionality of OpenProject.</p>
+
+<h2 id="development">Development</h2>
+
+<ul>
+  <li><a href="./development/quick-start.md">Quick Start for developers</a></li>
+  <li><a href="./development/development-environment-ubuntu.md">Full development environment for developers on Ubuntu</a> and <a href="./development/development-environment-osx.md">Mac OS X</a></li>
+  <li><a href="./development/create-openproject-plugin.md">Developing plugins</a></li>
+  <li><a href="./development/create-omniauth-plugin.md">Developing OmniAuth Plugins</a></li>
+  <li><a href="./development/running-tests.md">Running tests</a></li>
+  <li><a href="./development/code-review-guidelines.md">Code review guidelines</a></li>
+  <li><a href="./api/README.md">API documentation</a></li>
+</ul>
+
+<h2 id="apiv3-documentation-sources">APIv3 documentation sources</h2>
+
+<p>The documentation for APIv3 is written in the <a href="http://apiblueprint.org/">API Blueprint Format</a> and its sources are being built from the entry point <code class="language-plaintext highlighter-rouge">apiv3-documentation.apib</code>.</p>
+
+<p>You can use <a href="https://github.com/danielgtaylor/aglio">aglio</a> to generate HTML documentation, e.g. using the following command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aglio <span class="nt">-i</span> apiv3-documentation.apib <span class="nt">-o</span> api.html
+</code></pre></div></div>
+
+<p>The output of the API documentation at <code class="language-plaintext highlighter-rouge">dev</code> branch is continuously built and pushed to Github Pages at <a href="opf.github.io/apiv3-doc/">opf.github.io/apiv3-doc/</a>.</p>
+:ET

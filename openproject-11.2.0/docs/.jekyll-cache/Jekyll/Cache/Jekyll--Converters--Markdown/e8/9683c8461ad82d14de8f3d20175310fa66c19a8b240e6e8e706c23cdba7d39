@@ -1,0 +1,577 @@
+I"N�<h1 id="install-openproject-with-docker">Install OpenProject with Docker</h1>
+
+<p><a href="https://www.docker.com/">Docker</a> is a way to distribute self-contained applications easily. We
+provide a Docker image for the Community Edition that you can very easily
+install and upgrade on your servers. However, contrary to the manual or
+package-based installation, your machine needs to have the Docker Engine
+installed first, which usually requires a recent operating system. Please see
+the <a href="https://docs.docker.com/install">Docker Engine installation page</a> if you don’t have Docker
+installed.</p>
+
+<p>OpenProject with Docker can be launched in two ways:</p>
+
+<ol>
+  <li>
+    <p>Multiple containers (recommended), each with a single process inside, using a Compose file. Allows to easily choose which services you want to run, and simplifies scaling and monitoring aspects.</p>
+  </li>
+  <li>
+    <p>One container with all the processes inside. Easy but not recommended for production. This is the legacy behaviour.</p>
+  </li>
+</ol>
+
+<h2 id="one-container-per-process-recommended">One container per process (recommended)</h2>
+
+<h3 id="quick-start">Quick Start</h3>
+
+<p>First, you must clone the <a href="https://github.com/opf/openproject-deploy/tree/stable/11/compose">openproject-deploy</a> repository:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/opf/openproject-deploy <span class="nt">--depth</span><span class="o">=</span>1 <span class="nt">--branch</span><span class="o">=</span>stable/11 openproject
+</code></pre></div></div>
+
+<p>Then, go into the compose folder:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>openproject/compose
+</code></pre></div></div>
+
+<p>Make sure you are using the latest version of the Docker images:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose pull
+</code></pre></div></div>
+
+<p>Launch the containers:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose up <span class="nt">-d</span>
+</code></pre></div></div>
+
+<p>After a while, OpenProject should be up and running on <a href="http://localhost:8080">http://localhost:8080</a>. The default username and password is login: <code class="language-plaintext highlighter-rouge">admin</code>, and password: <code class="language-plaintext highlighter-rouge">admin</code>.</p>
+
+<p>Note that the <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> file present in the repository can be adjusted to your convenience. For instance you could mount specific configuration files, override environment variables, or switch off services you don’t need. Please refer to the official <a href="https://docs.docker.com/compose/extends/">Docker Compose documentation</a> for more details.</p>
+
+<p>You can stop the Compose stack by running:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose down
+</code></pre></div></div>
+
+<h2 id="all-in-one-container">All-in-one container</h2>
+
+<h3 id="quick-start-1">Quick Start</h3>
+
+<p>The fastest way to get an OpenProject instance up and running is to run the
+following command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">-it</span> <span class="nt">-p</span> 8080:80 <span class="nt">-e</span> <span class="nv">SECRET_KEY_BASE</span><span class="o">=</span>secret openproject/community:11
+</code></pre></div></div>
+
+<p>This will take a bit of time the first time you launch it, but after a few
+minutes you should see a success message indicating the default administration
+password (login: <code class="language-plaintext highlighter-rouge">admin</code>, password: <code class="language-plaintext highlighter-rouge">admin</code>).</p>
+
+<p>You can then launch a browser and access your new OpenProject installation at
+<a href="http://localhost:8080">http://localhost:8080</a>. Easy!</p>
+
+<p>To stop the container, simply hit CTRL-C.</p>
+
+<p>Note that the above command will not daemonize the container and will display
+the logs to your terminal, which helps with debugging if anything goes wrong.
+For normal usage you probably want to start it in the background, which can be
+achieved with the <code class="language-plaintext highlighter-rouge">-d</code> flag:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">-d</span> <span class="nt">-p</span> 8080:80 <span class="nt">-e</span> <span class="nv">SECRET_KEY_BASE</span><span class="o">=</span>secret openproject/community:11
+</code></pre></div></div>
+
+<p><strong>Note</strong>: We’ve had reports of people being unable to start OpenProject this way
+because of an <a href="https://github.com/moby/moby/issues/31243#issuecomment-406825071">issue regarding pseudo-TTY allocations</a>
+and permissions to write to <code class="language-plaintext highlighter-rouge">/dev/stdout</code>. If you run into this, a workaround
+seems to be to add <code class="language-plaintext highlighter-rouge">-t</code> to your run command, even if you run in detached mode.</p>
+
+<h3 id="recommended-usage">Recommended usage</h3>
+
+<p>The one-liner above is great to get started quickly, but if you want to run
+OpenProject in production you will likely want to ensure that your data is not
+lost if you restart the container.</p>
+
+<p>To achieve this, we recommend that you create a directory on your host system
+where the Docker Engine is installed (for instance: <code class="language-plaintext highlighter-rouge">/var/lib/openproject</code>)
+where all this data will be stored.</p>
+
+<p>You can use the following commands to create the local directories where the
+data will be stored across container restarts, and start the container with
+those directories mounted:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo mkdir</span> <span class="nt">-p</span> /var/lib/openproject/<span class="o">{</span>pgdata,assets<span class="o">}</span> 
+
+docker run <span class="nt">-d</span> <span class="nt">-p</span> 8080:80 <span class="nt">--name</span> openproject <span class="nt">-e</span> <span class="nv">SECRET_KEY_BASE</span><span class="o">=</span>secret <span class="se">\</span>
+  <span class="nt">-v</span> /var/lib/openproject/pgdata:/var/openproject/pgdata <span class="se">\</span>
+  <span class="nt">-v</span> /var/lib/openproject/assets:/var/openproject/assets <span class="se">\</span>
+  openproject/community:11
+</code></pre></div></div>
+
+<p><strong>Note</strong>: Make sure to replace <code class="language-plaintext highlighter-rouge">secret</code> with a random string. One way to generate one is to run <code class="language-plaintext highlighter-rouge">head /dev/urandom | tr -dc A-Za-z0-9 | head -c 32 ; echo ''</code> if you are on Linux.</p>
+
+<p><strong>Note</strong>: MacOS users might encounter an “Operation not permitted” error on the mounted directories. The fix for this is to create the two directories in a user-owned directory of the host machine.</p>
+
+<p>Since we named the container, you can now stop it by running:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker stop openproject
+</code></pre></div></div>
+
+<p>And start it again:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker start openproject
+</code></pre></div></div>
+
+<p>If you want to destroy the container, run the following commands</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker stop openproject
+docker <span class="nb">rm </span>openproject
+</code></pre></div></div>
+
+<h3 id="initial-configuration">Initial configuration</h3>
+
+<p>OpenProject is usually configured through a YAML file, but with the Docker
+image you need to pass all configuration through environment variables. You can
+overwrite any of the values usually found in the standard YAML file by using
+<a href="../../configuration/environment">environment variables</a>.</p>
+
+<p>Environment variables can be either passed directly on the command-line to the
+Docker Engine, or via an environment file:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">-d</span> <span class="nt">-e</span> <span class="nv">KEY1</span><span class="o">=</span>VALUE1 <span class="nt">-e</span> <span class="nv">KEY2</span><span class="o">=</span>VALUE2 ...
+<span class="c"># or</span>
+docker run <span class="nt">-d</span> <span class="nt">--env-file</span> path/to/file ...
+</code></pre></div></div>
+
+<p>For more advanced configuration, please have a look at the <a href="../../configuration">Advanced configuration</a> section.</p>
+
+<h3 id="apache-reverse-proxy-setup">Apache Reverse Proxy Setup</h3>
+
+<p>Often there will be an existing web server through which you want to make OpenProject accessible.
+There are two ways to run OpenProject. We’ll cover each configuration in a separate of the following sections.</p>
+
+<p>For both configurations the following Apache mods are required:</p>
+
+<ul>
+  <li>proxy</li>
+  <li>proxy_http</li>
+  <li>rewrite</li>
+  <li>ssl (optional)</li>
+</ul>
+
+<p>In each case you will create a file <code class="language-plaintext highlighter-rouge">/usr/local/apache2/conf/sites/openproject.conf</code>
+with the contents as described in the respective sections.</p>
+
+<p>Both configuration examples are based on the following assumptions:</p>
+
+<ul>
+  <li>the site is accessed via https</li>
+  <li>certificate and key are located under <code class="language-plaintext highlighter-rouge">/etc/ssl/crt/server.{crt, key}</code></li>
+  <li>the OpenProject docker container’s port 80 is mapped to the docker host’s port 8080</li>
+</ul>
+
+<p><em>Important:</em> Once OpenProject is running make sure to also set the host name and protocol
+accordingly under Administration -&gt; System Settings.</p>
+
+<h4 id="1-virtual-host-root">1) Virtual host root</h4>
+
+<p>The default scenario is to have OpenProject serve the whole virtual host.
+This requires no further configuration for the docker container beyond what is
+described above.</p>
+
+<p>Assuming the desired <em>server name</em> is <code class="language-plaintext highlighter-rouge">openproject.example.com</code> the configuration
+will look like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;VirtualHost *:80&gt;
+    ServerName openproject.example.com
+
+    RewriteEngine on
+    RewriteCond %{HTTPS} !=on
+    RewriteRule ^/?(.*)$ https://%{SERVER_NAME}/$1 [R,L]
+&lt;/VirtualHost&gt;
+
+&lt;VirtualHost *:443&gt;
+    ServerName openproject.example.com
+
+    SSLEngine on
+    SSLCertificateFile /etc/ssl/crt/server.crt
+    SSLCertificateKeyFile /etc/ssl/crt//server.key
+
+    RewriteEngine on
+    RewriteRule "^$" "/" [R,L]
+
+    ProxyRequests off
+
+    &lt;Location "/"&gt;
+      RequestHeader set X-Forwarded-Proto 'https'
+
+      ProxyPreserveHost On
+      ProxyPass http://127.0.0.1:8080/
+      ProxyPassReverse http://127.0.0.1:8080/
+    &lt;/Location&gt;
+&lt;/VirtualHost&gt;
+</code></pre></div></div>
+
+<h4 id="2-location-subdirectory">2) Location (subdirectory)</h4>
+
+<p>Let’s assume you want OpenProject to run on your host with the <em>server name</em> <code class="language-plaintext highlighter-rouge">example.com</code>
+under the <em>subdirectory</em> <code class="language-plaintext highlighter-rouge">/openproject</code>.</p>
+
+<p>If you want to run OpenProject in a subdirectory on your server, first you will
+need to configure OpenProject accordingly by adding the following options to the <code class="language-plaintext highlighter-rouge">docker run</code> call:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-e OPENPROJECT_RAILS__RELATIVE__URL__ROOT=/openproject \
+-e OPENPROJECT_RAILS__FORCE__SSL=true \
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">force ssl</code> option can be left out if you are not using HTTPS.</p>
+
+<p>The apache configuration for this configuration then looks like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;VirtualHost *:80&gt;
+    ServerName example.com
+
+    RewriteEngine on
+    RewriteCond %{HTTPS} !=on
+    RewriteRule ^/?(openproject.*)$ https://%{SERVER_NAME}/$1 [R,L]
+&lt;/VirtualHost&gt;
+
+&lt;VirtualHost *:443&gt;
+    ServerName example.com
+
+    SSLEngine on
+    SSLCertificateFile /etc/ssl/crt/server.crt
+    SSLCertificateKeyFile /etc/ssl/crt/server.key
+
+    RewriteEngine on
+    RewriteRule "^/openproject$" "/openproject/" [R,L]
+
+    ProxyRequests off
+
+    &lt;Location "/openproject/"&gt;
+      RequestHeader set X-Forwarded-Proto 'https'
+
+      ProxyPreserveHost On
+      ProxyPass http://127.0.0.1:8080/openproject/
+      ProxyPassReverse http://127.0.0.1:8080/openproject/
+    &lt;/Location&gt;
+&lt;/VirtualHost&gt;
+</code></pre></div></div>
+
+<h3 id="openproject-plugins">OpenProject plugins</h3>
+
+<p>The docker image itself does not support plugins. But you can create your own docker image to include plugins.</p>
+
+<p><strong>1. Create a new folder</strong> with any name, for instance <code class="language-plaintext highlighter-rouge">custom-openproject</code>. Change into that folder.</p>
+
+<p><strong>2. Create the file <code class="language-plaintext highlighter-rouge">Gemfile.plugins</code></strong> in that folder. In the file you declare the plugins you want to install.
+For instance:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>group :opf_plugins do
+  gem "openproject-slack", git: "https://github.com/opf/openproject-slack.git", branch: "release/11.0"
+end
+</code></pre></div></div>
+
+<p><strong>3. Create the <code class="language-plaintext highlighter-rouge">Dockerfile</code></strong> in the same folder. The contents have to look like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FROM openproject/community:11
+
+# If installing a local plugin (using `path:` in the `Gemfile.plugins` above),
+# you will have to copy the plugin code into the container here and use the
+# path inside of the container. Say for `/app/vendor/plugins/openproject-slack`:
+# COPY /path/to/my/local/openproject-slack /app/vendor/plugins/openproject-slack
+
+COPY Gemfile.plugins /app/
+
+# If the plugin uses any external NPM dependencies you have to install them here.
+# RUN npm add npm &lt;package-name&gt;*
+
+RUN bundle config unset deployment &amp;&amp; bundle install &amp;&amp; bundle config set deployment 'true'
+RUN ./docker/prod/setup/postinstall.sh
+</code></pre></div></div>
+
+<p>The file is based on the normal OpenProject docker image.
+All the Dockerfile does is copy your custom plugins gemfile into the image, install the gems and precompile any new assets.</p>
+
+<p><strong>4. Build the image</strong></p>
+
+<p>To actually build the docker image run:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker build -t openproject-with-slack .
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">-t</code> option is the tag for your image. You can choose what ever you want.</p>
+
+<p><strong>5. Run the image</strong></p>
+
+<p>You can run the image just like the normal OpenProject image (as shown earlier).
+You just have to use your chosen tag instead of <code class="language-plaintext highlighter-rouge">openproject/community:11</code>.
+To just give it a quick try you can run this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run -p 8080:80 --rm -it openproject-with-slack
+</code></pre></div></div>
+
+<p>After which you can access OpenProject under http://localhost:8080.</p>
+
+<h2 id="offlineair-gapped-installation">Offline/air-gapped installation</h2>
+
+<p>It’s possible to run the docker image on an a system with no internet access using <code class="language-plaintext highlighter-rouge">docker save</code> and <code class="language-plaintext highlighter-rouge">docker load</code>.
+The installation works the same as described above. The only difference is that you don’t download the image the usual way.</p>
+
+<p><strong>1) Save the image</strong></p>
+
+<p>On a system that has access to the internet run the following.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker pull openproject/community:11 &amp;&amp; docker save openproject/community:11 | gzip &gt; openproject-11.tar.gz
+</code></pre></div></div>
+
+<p>This creates a compressed archive containing the latest OpenProject docker image.
+The file will have a size of around 700mb.</p>
+
+<p><strong>2) Transfer the file onto the system</strong></p>
+
+<p>Copy the file onto the target system by any means that works.
+This could be sftp, scp or even via a USB stick in case of a truly air-gapped system.</p>
+
+<p><strong>3) Load the image</strong></p>
+
+<p>Once the file is on the system you can load it like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gunzip openproject-11.tar.gz &amp;&amp; docker load -i openproject-11.tar
+</code></pre></div></div>
+
+<p>This extracts the archive and loads the contained image layers into docker.
+The .tar file can be deleted after this.</p>
+
+<p><strong>4) Proceed with the installation</strong></p>
+
+<p>After this both installation and later upgrades work just as usual.
+You only replaced <code class="language-plaintext highlighter-rouge">docker-compose pull</code> or the normal, implicit download of the image with the steps described here.</p>
+
+<h2 id="docker-swarm">Docker Swarm</h2>
+
+<p>If you need to serve a very large number of users it’s time to scale up horizontally.
+One way to do that is to use your orchestration tool of choice such as <a href="../kubernetes/">Kubernetes</a> or <a href="https://docs.docker.com/engine/swarm/">Swarm</a>.
+Here we’ll cover how to scale up using the latter.</p>
+
+<h3 id="1-setup-swarm">1) Setup Swarm</h3>
+
+<p>Here we will go through a simple setup of a Swarm with a single manager.
+For more advanced setups and more information please consult the <a href="https://docs.docker.com/engine/swarm/swarm-tutorial/create-swarm/">docker swarm documentation</a>.</p>
+
+<p>First <a href="https://docs.docker.com/get-started/swarm-deploy/">initialize your swarm</a> on the host you wish to be the swarm manager.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker swarm init
+<span class="c"># You may need or want to specify the advertise address.</span>
+<span class="c"># Say your node manager host's IP is 10.0.2.77:</span>
+<span class="c">#</span>
+<span class="c">#   docker swarm init --advertise-addr=10.0.2.77</span>
+</code></pre></div></div>
+
+<p>The host will automatically also join the swarm as a node to host containers.</p>
+
+<p><strong>Add nodes</strong></p>
+
+<p>To add worker nodes run <code class="language-plaintext highlighter-rouge">docker swarm join-token worker</code>.
+This will print the necessary command (which includes the join token) which you need to run
+on the host you wish to add as a worker node. For instance:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker swarm <span class="nb">join</span> <span class="nt">--token</span> SWMTKN-1-2wnvro17w7w2u7878yflajyjfa93e8b2x58g9c04lavcee93eb-abig91iqb6e5vmupfvq2f33ni 10.0.2.77:2377
+</code></pre></div></div>
+
+<p>Where <code class="language-plaintext highlighter-rouge">10.0.2.77</code> is your swarm manager’s (advertise) IP address.</p>
+
+<h3 id="2-setup-shared-storage">2) Setup shared storage</h3>
+
+<p><strong>Note:</strong> This is only relevant if you have more than 1 node in your swarm.</p>
+
+<p>If your containers run distributed on multiple nodes you will need a shared network storage to store OpenProject’s attachments.
+The easiest way for this would be to setup an NFS drive that is shared among all nodes and mounted to the same path on each of them.
+Say <code class="language-plaintext highlighter-rouge">/mnt/openproject/</code>.</p>
+
+<p>Alternatively, if using S3 is an option, you can use S3 attachments instead.
+We will show both possibilities later in the configuration.</p>
+
+<h3 id="3-create-stack">3) Create stack</h3>
+
+<p>To create a stack you need a stack file. The easiest way is to just copy OpenProject’s <a href="https://github.com/opf/openproject/blob/release/11.0/docker-compose.yml">docker-compose.yml</a>. Just download it and save it as, say, <code class="language-plaintext highlighter-rouge">openproject-stack.yml</code>.</p>
+
+<h4 id="configuring-storage">Configuring storage</h4>
+
+<p><strong>Note:</strong> This is only necessary if your swarm runs on multiple nodes.</p>
+
+<h5 id="attachments">Attachments</h5>
+
+<p><strong>NFS</strong></p>
+
+<p>If you are using NFS to share attachments use a mounted docker volume to share the attachments folder.</p>
+
+<p>Per default the YAML file will include the following section:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">x-op-app</span><span class="pi">:</span> <span class="nl">&amp;app</span>
+  <span class="s">&lt;&lt;</span><span class="pi">:</span> <span class="nv">*image</span>
+  <span class="s">&lt;&lt;</span><span class="pi">:</span> <span class="nv">*restart_policy</span>
+  <span class="na">environment</span><span class="pi">:</span>
+    <span class="c1"># ...</span>
+  <span class="na">volumes</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">opdata:/var/openproject/assets"</span>
+  <span class="na">depends_on</span><span class="pi">:</span>
+    <span class="c1"># ...</span>
+</code></pre></div></div>
+
+<p>As you can see it already mounts a local directory by default.
+You can either change this to a path in your mounted NFS folder or just create a symlink:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ln -s /mnt/openproject/assets /var/openproject/assets
+</code></pre></div></div>
+
+<p><strong>S3</strong></p>
+
+<p>If you want to use S3 you will have to add the respective configuration to the <code class="language-plaintext highlighter-rouge">stack.yml</code>’s environment section for the <code class="language-plaintext highlighter-rouge">app</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x-op-app: &amp;app
+  &lt;&lt;: *image
+  &lt;&lt;: *restart_policy
+  environment:
+    # ...
+    # ADD THIS FOR S3 attachments substituting the respective credentials:
+    - "OPENPROJECT_ATTACHMENTS__STORAGE=fog"
+    - "OPENPROJECT_FOG_DIRECTORY="&lt;bucket-name&gt;"
+    - "OPENPROJECT_FOG_CREDENTIALS_PROVIDER=AWS"
+    - "OPENPROJECT_FOG_CREDENTIALS_AWS__ACCESS__KEY__ID=&lt;access-key-id&gt;"
+    - "OPENPROJECT_FOG_CREDENTIALS_AWS__SECRET__ACCESS__KEY=&lt;secret-access-key&gt;"
+    - "OPENPROJECT_FOG_CREDENTIALS_REGION=us-east-1"
+</code></pre></div></div>
+
+<h5 id="database">Database</h5>
+
+<p>The database’s data directory should also be shared so that the database service can be moved to another node
+in case the original node fails. The easiest way to do this would again be a shared NFS mount present on each node.
+This is also the easiest way to persist the database data so it remains even if you shutdown the whole stack.</p>
+
+<p>You could either use a new mounted NFS folder or use a sub-folder in the one we will use for attachments.
+Along the same lines as attachments you could adjust the <code class="language-plaintext highlighter-rouge">pgdata</code> volume in the <code class="language-plaintext highlighter-rouge">openproject-stack.yml</code> so it would look something like this:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">x-op-app</span><span class="pi">:</span> <span class="nl">&amp;app</span>
+  <span class="s">&lt;&lt;</span><span class="pi">:</span> <span class="nv">*image</span>
+  <span class="s">&lt;&lt;</span><span class="pi">:</span> <span class="nv">*restart_policy</span>
+  <span class="na">environment</span><span class="pi">:</span>
+    <span class="c1"># ...</span>
+  <span class="na">volumes</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">pgdata:/mnt/openproject/pgdata"</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">opdata:/mnt/openproject/assets"</span>
+  <span class="na">depends_on</span><span class="pi">:</span>
+    <span class="c1"># ...</span>
+</code></pre></div></div>
+
+<p><strong>Disclaimer</strong>: This may not be the best possible solution, but it is the most straight-forward one.</p>
+
+<h4 id="openproject-configuration">OpenProject Configuration</h4>
+
+<p>Any additional configuration of OpenProject happens in the environment section (like for S3 above) of the app inside of the <code class="language-plaintext highlighter-rouge">openproject-stack.yml</code>.
+For instance should you want to disable an OpenProject module globally, you would add the following:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x-op-app: &amp;app
+  &lt;&lt;: *image
+  &lt;&lt;: *restart_policy
+  environment:
+    # ...
+    - "OPENPROJECT_DISABLED__MODULES='backlogs meetings'"
+</code></pre></div></div>
+
+<p>Please refer to our documentation on the <a href="https://docs.openproject.org/installation-and-operations/configuration/">configuration</a>
+and <a href="https://docs.openproject.org/installation-and-operations/configuration/environment/">environment variables</a> for further information
+on what you can configure and how.</p>
+
+<h4 id="launching">Launching</h4>
+
+<p>Once you made any necessary adjustments to the <code class="language-plaintext highlighter-rouge">openproject-stack.yml</code> you are ready to launch the stack.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker stack deploy -c openproject-stack.yaml openproject
+</code></pre></div></div>
+
+<p>Once this has finished you should see something like this when running <code class="language-plaintext highlighter-rouge">docker service ls</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker service ls
+ID                  NAME                 MODE                REPLICAS            IMAGE                      PORTS
+kpdoc86ggema        openproject_cache    replicated          1/1                 memcached:latest           
+qrd8rx6ybg90        openproject_cron     replicated          1/1                 openproject/community:11   
+cvgd4c4at61i        openproject_db       replicated          1/1                 postgres:10                
+uvtfnc9dnlbn        openproject_proxy    replicated          1/1                 openproject/community:11   *:8080-&gt;80/tcp
+g8e3lannlpb8        openproject_seeder   replicated          0/1                 openproject/community:11   
+canb3m7ilkjn        openproject_web      replicated          1/1                 openproject/community:11   
+7ovn0sbu8a7w        openproject_worker   replicated          1/1                 openproject/community:11
+</code></pre></div></div>
+
+<p>You can now access OpenProject under <a href="http://0.0.0.0:8080">http://0.0.0.0:8080</a>.
+This endpoint then can be used in a apache reverse proxy setup as shown further up, for instance.</p>
+
+<p>Don’t worry about one of the services (openproject_seeder) having 0/1 replicas.
+That is intended. The service will only start once to initialize the seed data and then stop.</p>
+
+<h4 id="scaling">Scaling</h4>
+
+<p>Now the whole reason we are using swarm is to be able to scale.
+This is now easily done using the <code class="language-plaintext highlighter-rouge">docker service scale</code> command.</p>
+
+<p>We’ll keep the database and memcached at 1 which should be sufficient for any but huge amounts of users (several tens of thousands of users)
+assuming that the docker hosts (swarm nodes) are powerful enough.
+Even with the database’s data directory shared via NFS <strong>you cannot scale up the database</strong> in this setup.
+Scaling the database horizontally adds another level of complexity which we won’t cover here.</p>
+
+<p>What we can scale is both the proxy, and most importantly the web service.
+For a couple of thousand users we may want to use 6 web service (<code class="language-plaintext highlighter-rouge">openproject_web</code>) replicas.
+The proxy processes (<code class="language-plaintext highlighter-rouge">openproject_proxy</code>) in front of the actual OpenProject process does not need as many replicas.
+2 are fine here.</p>
+
+<p>Also at least 2 worker (<code class="language-plaintext highlighter-rouge">openproject_worker</code>) replicas make sense to handle the increased number of background tasks.
+If you find that it takes too long for those tasks (such as sending emails or work package exports) to complete
+you may want to increase this number further.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker service scale openproject_proxy=2 openproject_web=6 openproject_worker=2
+</code></pre></div></div>
+
+<p>This will take a moment to converge. Once done you should see something like the following when listing the services using <code class="language-plaintext highlighter-rouge">docker service ls</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker service ls
+ID                  NAME                 MODE                REPLICAS            IMAGE                      PORTS
+kpdoc86ggema        openproject_cache    replicated          1/1                 memcached:latest           
+qrd8rx6ybg90        openproject_cron     replicated          1/1                 openproject/community:11   
+cvgd4c4at61i        openproject_db       replicated          1/1                 postgres:10                
+uvtfnc9dnlbn        openproject_proxy    replicated          2/2                 openproject/community:11   *:8080-&gt;80/tcp
+g8e3lannlpb8        openproject_seeder   replicated          0/1                 openproject/community:11   
+canb3m7ilkjn        openproject_web      replicated          6/6                 openproject/community:11   
+7ovn0sbu8a7w        openproject_worker   replicated          1/1                 openproject/community:11
+</code></pre></div></div>
+
+<p>Docker swarm handles the networking necessary to distribute the load among the nodes.
+The application will still be accessible as before simply under <code class="language-plaintext highlighter-rouge">http://0.0.0.0:8080</code> on each node, e.g. <code class="language-plaintext highlighter-rouge">http://10.0.2.77:8080</code>, the manager node’s IP.</p>
+
+<h4 id="load-balancer-setup">Load balancer setup</h4>
+
+<p>Now as mentioned earlier you can simply use the manager node’s endpoint in a reverse proxy setup and the load will be balanced among the nodes.
+But that will be a single point of failure if the manager node goes down.</p>
+
+<p>To make this more redundant you can use the load balancer directive in your proxy configuration.
+For instance for apache this could look like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;Proxy balancer://swarm&gt;
+    BalancerMember http://10.0.2.77:8080 # swarm node 1 (manager)
+    BalancerMember http://10.0.2.78:8080 # swarm node 2
+    BalancerMember http://10.0.2.79:8080 # swarm node 3, etc.
+
+    ProxySet lbmethod=bytraffic
+&lt;/Proxy&gt;
+
+# ...
+
+ProxyPass "balancer://swarm/"
+ProxyPassReverse "balancer://swarm/"
+
+# instead of
+#   ProxyPass http://127.0.0.1:8080/
+#   ProxyPassReverse http://127.0.0.1:8080/
+# shown in the reverse proxy configuration example further up
+</code></pre></div></div>
+
+<p>The application will be accessible on any node even if the process isn’t running on the node itself.
+In that case it will use swarm’s <a href="https://docs.docker.com/engine/swarm/key-concepts/#load-balancing">internal load balancing</a> to route the request to a node that does run the service. So feel free to put all nodes into the load balancer configuration.</p>
+:ET

@@ -1,0 +1,17 @@
+I"‘<h1 id="openproject-427">OpenProject 4.2.7</h1>
+
+<p>OpenProject 4.2.7 contains a security fix, a bug fix and updated
+translations.</p>
+
+<p>The security fixÂ avoids redirecting to foreign host names for specific
+redirect URLs.</p>
+
+<p>Additionally, a bug was fixed which caused cache settings to be
+overwritten
+(<a href="https://community.openproject.org/projects/openproject/work_packages/21536/activity">#21536</a>).</p>
+
+<p>For further information on the release, please refer to the <a href="https://community.openproject.org/versions/763">Changelog
+v.4.2.7</a> or take a look
+at <a href="https://github.com/opf/openproject/tree/v4.2.7">GitHub</a>.</p>
+
+:ET

@@ -1,0 +1,72 @@
+<h1 id="authentication-settings">Authentication settings</h1>
+
+<p>To adapt general system <strong>authentication settings</strong>, navigate to -&gt; <em>Administration</em> -&gt; <em>Authentication</em> and choose -&gt; <em>Settings</em>.</p>
+
+<p>You can adapt the following under the authentication settings:</p>
+
+<h2 id="general-authentication-settings">General authentication settings</h2>
+
+<ol>
+  <li>
+    <p>Select if the <strong>authentication is required</strong> to access OpenProject. <strong>Watch out</strong>: If you un-tick this box your OpenProject instance will be visible to the general public without logging in. The visibility of individual projects depends on <a href="../../../user-guide/projects/#set-a-project-to-public">this setting</a>.</p>
+  </li>
+  <li>
+    <p>Select an option for <strong>self-registration</strong>. Self-registration can either be <strong>disabled</strong>, or it can be allowed with the following criteria:</p>
+
+    <p>a) <strong>Account activation by email</strong> means the user receives an email and needs to confirm the activation.</p>
+
+    <p>b) <strong>Manual account activatio</strong>n means that a system administrator needs to manually activate the newly registered user.</p>
+
+    <p>c) <strong>Automatic account activation</strong> means that a newly registered user will automatically be active.</p>
+  </li>
+  <li>
+    <p>Define if the <strong>email address should be used as login</strong> name.</p>
+  </li>
+  <li>
+    <p>Define after how many days the <strong>activation email sent to new users will expire</strong>. Afterwards, you will have the possibility to <a href="../../users-permissions/users/#resend-user-invitation-via-email">re-send the activation email</a> via the user settings.</p>
+  </li>
+</ol>
+
+<p><img src="Sys-admin-authentication-settings.png" alt="Sys-admin-authentication-settings" /></p>
+
+<h2 id="define-a-registration-footer-for-registration-emails">Define a registration footer for registration emails</h2>
+
+<p>You can define a footer for your registration emails under -&gt; <em>Administration</em> -&gt; <em>Authentication</em> -&gt; <em>Settings</em>.</p>
+
+<ol>
+  <li>Choose for which <strong>language</strong> you want to define the registration footer.</li>
+  <li>Enter a <strong>text for the registration footer</strong>.</li>
+</ol>
+
+<p><img src="Sys-admin-authentication-registration-footer.png" alt="Sys-admin-authentication-registration-footer" /></p>
+
+<h2 id="configure-password-settings">Configure password settings</h2>
+
+<p>You can change various settings to configure password preferences in OpenProject.</p>
+
+<ol>
+  <li>Define the <strong>minimum password length</strong>.</li>
+  <li>Define the password strength and select what <strong>character classes are a mandatory part of the password</strong>.</li>
+  <li>Define the <strong>minimum number of required character classes</strong>.</li>
+  <li>Define the number of days, after which a <strong>password change should be enforced</strong>.</li>
+  <li>Define the <strong>number of the most recently used passwords that a user should not be allowed to reuse</strong>.</li>
+  <li>Activate the <strong>Forgot your password.</strong> This way a user will be able to reset the own password via email.</li>
+</ol>
+
+<p><img src="Sys-admin-authentication-passwords-1579791010597.png" alt="Sys-admin-authentication-passwords" /></p>
+
+<h2 id="other-authentication-settings">Other authentication settings</h2>
+
+<p>There can be defined a number of other authentication settings.</p>
+
+<ol>
+  <li>Define the number of failed <strong>login attempts, after which a user will be temporarily blocked</strong>.</li>
+  <li>Define the <strong>duration of the time, for which the user will be blocked after failed login attempts</strong>.</li>
+  <li>Enable or disable the <strong>autologin option</strong>. This allows a user to remain logged in, even if he/she leaves the site. If this option is activated, the “Stay signed in” option will appear on the login screen to be selected.</li>
+  <li>Activate the <strong>session expiration option</strong>. If you select this option, an additional field will open, where you will be able to define the <strong>inactivity time duration before the session expiry</strong>.</li>
+  <li>Define to <strong>log user login, name, and mail address for all requests</strong>.</li>
+  <li><strong>Enable REST web service</strong>. This activates an API-Interface, which allows communication between external services (for example MS Office)  and the instance.</li>
+  <li>Do not forget to <strong>save</strong> your changes.</li>
+</ol>
+
+<p><img src="Sys-admin-authentication-other-settings.png" alt="Sys-admin-authentication-other-settings" /></p>

@@ -1,0 +1,26 @@
+I"�<h1 id="openproject5014">OpenProject 5.0.14</h1>
+
+<p>OpenProject 5.0.14 contains several bug fixes:</p>
+
+<ul>
+  <li>User avatars were not displayed unless a specific admin setting was
+selected. This has been adjusted
+(<a href="https://community.openproject.org/work_packages/22595/activity">#22595</a>).</li>
+  <li>Deleting a work package via bulk action was not possible when time
+was logged on a work package. This has been fixed
+(<a href="https://community.openproject.org/work_packages/22485/activity">#22485</a>).</li>
+  <li>An error in the incoming emails functionality has been resolved
+(<a href="https://community.openproject.org/work_packages/22607/activity">#22607</a>).</li>
+  <li>Several design errors have been fixed
+(<a href="https://community.openproject.org/work_packages/20714/activity">#20714</a>,
+<a href="https://community.openproject.org/work_packages/22497/activity">#22497</a>,
+<a href="https://community.openproject.org/work_packages/22498/activity">#22498</a>,
+<a href="https://community.openproject.org/work_packages/22562/activity">#22562</a>,
+<a href="https://community.openproject.org/work_packages/22597/activity">#22597</a>).</li>
+</ul>
+
+<p>For further information on the release, please refer to the <a href="https://community.openproject.org/versions/799">Changelog
+v.5.0.14</a> or take a look
+at <a href="https://github.com/opf/openproject/tree/v5.0.14">GitHub</a>.</p>
+
+:ET

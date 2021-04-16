@@ -1,0 +1,344 @@
+I"��<h1 id="openproject-1100">OpenProject 11.0.0</h1>
+
+<p>We released <a href="https://community.openproject.com/versions/1429">OpenProject 11.0.0</a>.</p>
+
+<p>This new release will bring all sorts of features that will improve  classical as well as agile project management. We have implemented a top-down scheduling which introduces the option to schedule tasks  manually in OpenProject. Also, we have done a lot of improvements to the agile boards, e.g. to create a work breakdown structure for your projects. Furthermore, we have developed project templates as well as  better project portfolio management.</p>
+
+<p>As always, the release contains many more improvements and bug fixes and we recommend updating to the newest version promptly.</p>
+
+<p><img src="openproject-11-0-release-blog.jpg" alt="openproject-11-0-release-blog" /></p>
+
+<h2 id="top-down-project-scheduling-with-new-manual-planning-mode">Top-down project scheduling with new manual planning mode</h2>
+
+<p>Top-down scheduling enables the project team to define all tasks  involved in a project, starting with a fixed start and finish date, and  breaking it down into smaller work packages. The new manual scheduling  mode in OpenProject allows to set a start and finish date of the parent  without being affected by the start and finish dates of its children.  You can now plan a project top-down without knowing all tasks at the  start of the project.</p>
+
+<p><img src="top-down-scheduling.png" alt="top-down-scheduling" /></p>
+
+<p>Moving a child element in the manual scheduling mode will not move  the dates of the parent element. It will now indicate the scheduling  differences with a blue or red bracket underneath (e.g. when a child is  shorter or longer than the parent phase). Also, we have added a grey background on hover to indicate the parent-child-relationships.</p>
+
+<p>Now, in OpenProject you can rely on both, top-down and bottom-up planning or even a combination of both. The approach you choose depends  on your specific planning goal.</p>
+
+<p><img src="Top-down-scheduling.gif" alt="Top-down-scheduling" /></p>
+
+<h2 id="flexible-agile-boards-give-you-more-options-premium-feature">Flexible agile boards give you more options (premium feature)</h2>
+
+<p>New action board types as well as further improvements to the boards allow you even better agile project management.</p>
+
+<h3 id="wbs-work-breakdown-structure-boards">WBS (work-breakdown-structure) boards</h3>
+
+<p>Now, you can create a work breakdown structure for your project by adding parent-child-elements as a board. Select the parent work packages from the list and create a board with all corresponding children work packages.</p>
+
+<p><img src="wbs-boards.png" alt="wbs-boards" /></p>
+
+<h3 id="agile-boards-for-subprojects">Agile boards for subprojects</h3>
+
+<p>Also, project hierarchies can now be displayed in the boards, e.g. to distribute tasks between subprojects. Subprojects can be selected as lists in a board from the parent project, the corresponding work packages from the respective subproject will appear underneath.</p>
+
+<p><img src="subproject-boards.png" alt="subproject-boards" /></p>
+
+<h3 id="new-boards-creation-screen-to-select-different-board-types">New boards creation screen to select different board types</h3>
+
+<p>Furthermore, we have implemented more improvements to the agile  boards, such as a better board creation modal. It is now much easier to  choose a new board from the available options.</p>
+
+<p><img src="boards-creation-modal.png" alt="boards-creation-modal" /></p>
+
+<h3 id="cards-with-details-view-in-boards">Cards with details view in boards</h3>
+
+<p>To get more information about the cards in a board and to enable  quick and easy updates of all work package attributes incl. custom  fields, we have enabled a split-screen view also for the boards view.  The new split screen view can be enabled via the info icon on the cards.</p>
+
+<p><img src="boards-split-screen.png" alt="boards-split-screen" /></p>
+
+<h2 id="project-templates-for-easy-project-creation">Project templates for easy project creation</h2>
+
+<p>The new project templates allow you to create projects based on predefined templates. When setting up a project you can define whether this project should be used as a project template. You will then have the possibility to select a predefined project template when creating a new project which already includes all configurations, e.g. assignee, project plan, work breakdown structure.</p>
+
+<p><img src="project-templates-creation.png" alt="project-templates-creation" /></p>
+
+<h2 id="improved-project-portfolio-management">Improved project portfolio management</h2>
+
+<p>The configuration of the “view all projects” page now enables better project portfolio management. You can configure the “view all projects”  list to show relevant project information for all projects, e.g. add custom fields for projects and remove columns which are not needed. With the link to the Gantt charts view you can directly open a global work  packages view for all projects, configured to your needs, e.g. to show all milestones across all projects.</p>
+
+<p><img src="project-portfolio-management.png" alt="project-portfolio-management" /></p>
+
+<h2 id="harmonization-of-the-time-and-costs-modules">Harmonization of the time and costs modules</h2>
+
+<p>Tracking spent time and costs is now much easier with the improved and harmonized modules for time and cost reporting. The modules <em>Time tracking</em> and <em>Cost reporting</em> have been combined. Whenever you want to track time and/or costs in a project, the new module <em>Time and costs</em> needs to be activated in the project settings. It automatically adds the time tracking and cost reporting functionality to the project.</p>
+
+<p>The <em>Budgets</em> module will remain unchanged and additionally enables project budgets to be tracked.</p>
+
+<p><img src="time-and-costs-module.png" alt="time-and-costs-module" /></p>
+
+<h2 id="improvements-of-the-wysiwyg-editor">Improvements of the WYSIWYG editor</h2>
+
+<p>We have again added many improvements to the WYSIWYG editor, i.e. for wiki pages or the work packages description. For example, you can now adjust the image size in the editor.</p>
+
+<p><img src="resize-imagesshort.gif" alt="resize-imagesshort" /></p>
+
+<p>Additionally, it is now possible to add macros to insert project or work packages attributes to the wiki or work package description.</p>
+
+<h2 id="attribute-help-texts-for-projects-premium-feature">Attribute help texts for projects (premium feature)</h2>
+
+<p>We have now also expanded the attribute help texts for projects. You can define help text for all project attributes, such as status or accountable or any custom field for projects. A small question mark icon will appear behind the attribute in order to make the entry of this  information easier and eliminate errors.</p>
+
+<p><img src="project-help-texts.png" alt="project-help-texts" /></p>
+
+<h2 id="copy-boards-and-project-dashboards">Copy boards and project dashboards</h2>
+
+<p>Boards and project dashboards can now also be copied when copying a project. This enables you to set up a default project and copy it to set up a new project.</p>
+
+<h2 id="as-always-theres-much-more">As always,…… there’s much more!</h2>
+
+<p>There are lots and lots of new things we packed into 11.0 to tell you about.</p>
+
+<h3 id="all-bug-fixes-and-changes-in-110">All bug fixes and changes in 11.0</h3>
+
+<ul>
+  <li>Fixed: Journal data is not removed upon work package deletion [<a href="https://community.openproject.com/wp/22048">#22048</a>]</li>
+  <li>Fixed: warning when data will be discarded [<a href="https://community.openproject.com/wp/25683">#25683</a>]</li>
+  <li>Fixed: WYSIWYG editor incorrectly interprets underscores in function names as italics [<a href="https://community.openproject.com/wp/28889">#28889</a>]</li>
+  <li>Fixed: The cost reports plugin is hidden unless the time tracking module is active [<a href="https://community.openproject.com/wp/30350">#30350</a>]</li>
+  <li>Fixed: Position of work package attribute changes when starting editing [<a href="https://community.openproject.com/wp/31614">#31614</a>]</li>
+  <li>Fixed: Work package no longer included in filter “Estimated time: none” when removing value for Estimated time [<a href="https://community.openproject.com/wp/32111">#32111</a>]</li>
+  <li>Fixed: Custom action lists archived projects as options [<a href="https://community.openproject.com/wp/32131">#32131</a>]</li>
+  <li>Fixed: Wrong display of work package widgets on project overview [<a href="https://community.openproject.com/wp/32457">#32457</a>]</li>
+  <li>Fixed: News create - undefined method `journaled_attributes’ for nil:NilClass: [<a href="https://community.openproject.com/wp/33038">#33038</a>]</li>
+  <li>Fixed: OP 10.4.x: Wrong message “Installation is already using MySQL, skipping postgres addon” [<a href="https://community.openproject.com/wp/33066">#33066</a>]</li>
+  <li>Fixed: Cannot create plugins [<a href="https://community.openproject.com/wp/33213">#33213</a>]</li>
+  <li>Fixed: Cannot drag &amp; drop work package outside of currently displayed browser window [<a href="https://community.openproject.com/wp/33247">#33247</a>]</li>
+  <li>Fixed: No default order for time entry api [<a href="https://community.openproject.com/wp/33328">#33328</a>]</li>
+  <li>Fixed: Add-list modal of version board is sometimes empty [<a href="https://community.openproject.com/wp/33346">#33346</a>]</li>
+  <li>Fixed: Mails do not respect OS dark mode [<a href="https://community.openproject.com/wp/33382">#33382</a>]</li>
+  <li>Fixed: Unit cost for units &lt; 1 are off by order of magnitude [<a href="https://community.openproject.com/wp/33383">#33383</a>]</li>
+  <li>Fixed: Overview activity does not update automatically in split screen [<a href="https://community.openproject.com/wp/33405">#33405</a>]</li>
+  <li>Fixed: Date fields of closed work packages are highlighted red [<a href="https://community.openproject.com/wp/33457">#33457</a>]</li>
+  <li>Fixed: Filter get lost after deleting search string from text filter [<a href="https://community.openproject.com/wp/33465">#33465</a>]</li>
+  <li>Fixed: Printing the wrong value in the report [<a href="https://community.openproject.com/wp/33496">#33496</a>]</li>
+  <li>Fixed: Selected board in the left sidebar loses color highligthing [<a href="https://community.openproject.com/wp/33514">#33514</a>]</li>
+  <li>Fixed: Unsolicited logout on community.openproject.com every day  [<a href="https://community.openproject.com/wp/33575">#33575</a>]</li>
+  <li>Fixed: Image removed from work package description when adding image to comment [<a href="https://community.openproject.com/wp/33578">#33578</a>]</li>
+  <li>Fixed: No German translation for Cost reports [<a href="https://community.openproject.com/wp/33584">#33584</a>]</li>
+  <li>Fixed: Type Form Configuration Not Saved [<a href="https://community.openproject.com/wp/33592">#33592</a>]</li>
+  <li>Fixed: ATOM feed link for all activities is not created as intended [<a href="https://community.openproject.com/wp/33650">#33650</a>]</li>
+  <li>Fixed: Mark priority as mandatory and remove “empty” option [<a href="https://community.openproject.com/wp/33678">#33678</a>]</li>
+  <li>Fixed: Work packages missing/duplicates when displayed on several pages [<a href="https://community.openproject.com/wp/33679">#33679</a>]</li>
+  <li>Fixed: Remapping oauth users fails if email or login contains upper case letters [<a href="https://community.openproject.com/wp/33687">#33687</a>]</li>
+  <li>Fixed: wiki after navigate on item in sidebar, the sidebar reset to top and lose the view of focus item [<a href="https://community.openproject.com/wp/33690">#33690</a>]</li>
+  <li>Fixed: Autologin breaks in conjunction with auth stages (e.g. consent, 2FA, recaptcha) [<a href="https://community.openproject.com/wp/33696">#33696</a>]</li>
+  <li>Fixed: Back button does not work when coming from Boards [<a href="https://community.openproject.com/wp/33747">#33747</a>]</li>
+  <li>Fixed: Missing padding in “Log time” widget [<a href="https://community.openproject.com/wp/33749">#33749</a>]</li>
+  <li>Fixed: Users can set the default work package status to read-only [<a href="https://community.openproject.com/wp/33750">#33750</a>]</li>
+  <li>Fixed: “New Board” modal is missing a header text [<a href="https://community.openproject.com/wp/33753">#33753</a>]</li>
+  <li>Fixed: WP still shown after deleting it [<a href="https://community.openproject.com/wp/33756">#33756</a>]</li>
+  <li>Fixed: Errors on project custom values are not displayed upon saving a project [<a href="https://community.openproject.com/wp/33766">#33766</a>]</li>
+  <li>Fixed: Cannot create user through API with auth_source, but no password [<a href="https://community.openproject.com/wp/33869">#33869</a>]</li>
+  <li>Fixed: Another error during form configuration  [<a href="https://community.openproject.com/wp/33892">#33892</a>]</li>
+  <li>Fixed: Parent’s due date can be edited in automatic scheduling mode [<a href="https://community.openproject.com/wp/33901">#33901</a>]</li>
+  <li>Fixed: Cost report layout broken [<a href="https://community.openproject.com/wp/33910">#33910</a>]</li>
+  <li>Fixed: Work package graph displays unnecessary scrollbar [<a href="https://community.openproject.com/wp/33911">#33911</a>]</li>
+  <li>Fixed: Custom action button not removed when condition is no longer met [<a href="https://community.openproject.com/wp/33912">#33912</a>]</li>
+  <li>Fixed: Inconsistent upper and lower case in “Remaing Hours” when compared with “Estimated time” [<a href="https://community.openproject.com/wp/33927">#33927</a>]</li>
+  <li>Fixed: Documents layout broken [<a href="https://community.openproject.com/wp/33930">#33930</a>]</li>
+  <li>Fixed: Problem with watchers  [<a href="https://community.openproject.com/wp/33936">#33936</a>]</li>
+  <li>Fixed: Selected dates in date picker not higlighted across months [<a href="https://community.openproject.com/wp/33957">#33957</a>]</li>
+  <li>Fixed: ScrollIntoView previous element  [<a href="https://community.openproject.com/wp/33966">#33966</a>]</li>
+  <li>Fixed: Users without permissions can see budgets in work package dropdown / internal error [<a href="https://community.openproject.com/wp/33981">#33981</a>]</li>
+  <li>Fixed: Work package on edge not shown correctly / cannot be edited [<a href="https://community.openproject.com/wp/33982">#33982</a>]</li>
+  <li>Fixed: Budgets module shown for users without permission “View budgets” [<a href="https://community.openproject.com/wp/33983">#33983</a>]</li>
+  <li>Fixed: Impossible to deactivate a project through the API [<a href="https://community.openproject.com/wp/33987">#33987</a>]</li>
+  <li>Fixed: Hide resizer when the wp detail page is shown in full view  [<a href="https://community.openproject.com/wp/33988">#33988</a>]</li>
+  <li>Fixed: Changes in widget titles are not saved sometime [<a href="https://community.openproject.com/wp/33998">#33998</a>]</li>
+  <li>Fixed: Cannot copy projects with user CF [<a href="https://community.openproject.com/wp/34000">#34000</a>]</li>
+  <li>Fixed: “An internal error has occurred” displayed when file size exceeded on direct upload [<a href="https://community.openproject.com/wp/34016">#34016</a>]</li>
+  <li>Fixed: Drag and drop parent/child [<a href="https://community.openproject.com/wp/34021">#34021</a>]</li>
+  <li>Fixed: Gantt chart: phases doesn’t have background color on hover [<a href="https://community.openproject.com/wp/34074">#34074</a>]</li>
+  <li>Fixed: Gantt chart: children not allowed to move out of its parent’s date range  [<a href="https://community.openproject.com/wp/34076">#34076</a>]</li>
+  <li>Fixed: Filters does not accept user id for principal in API memberships [<a href="https://community.openproject.com/wp/34108">#34108</a>]</li>
+  <li>Fixed: Order of work packages in XLS, PDF, CSV export differs from order in OpenProject [<a href="https://community.openproject.com/wp/34112">#34112</a>]</li>
+  <li>Fixed: Checkboxes in table not displayed correctly in WYSIWYG editor [<a href="https://community.openproject.com/wp/34113">#34113</a>]</li>
+  <li>Fixed: Archived projects not available via the API [<a href="https://community.openproject.com/wp/34120">#34120</a>]</li>
+  <li>Fixed: Gantt charts: rows misaligned when scrolling to bottom [<a href="https://community.openproject.com/wp/34127">#34127</a>]</li>
+  <li>Fixed: Logged time is always one hour instead of the entered value [<a href="https://community.openproject.com/wp/34130">#34130</a>]</li>
+  <li>Fixed: Cost types: Unable to add a new cost type [<a href="https://community.openproject.com/wp/34144">#34144</a>]</li>
+  <li>Fixed: Cost Types: rate not saved when a new type is created  [<a href="https://community.openproject.com/wp/34145">#34145</a>]</li>
+  <li>Fixed: Time entry modal form can send form multiple times when clicked quickly several times [<a href="https://community.openproject.com/wp/34163">#34163</a>]</li>
+  <li>Fixed: I18n: Settings label not found in /settings/plugin/costs [<a href="https://community.openproject.com/wp/34188">#34188</a>]</li>
+  <li>Fixed: [all projects overview] Todo-list: checkboxes are preceded by bullets [<a href="https://community.openproject.com/wp/34190">#34190</a>]</li>
+  <li>Fixed: Quick filter not applied for externally configured queries [<a href="https://community.openproject.com/wp/34239">#34239</a>]</li>
+  <li>Fixed: Gantt Chart: Back-end - Front-end discrepancies when dragging a work package produces an error [<a href="https://community.openproject.com/wp/34252">#34252</a>]</li>
+  <li>Fixed: “Undefined” shown when editing cost entry in “Log unit cost” screen [<a href="https://community.openproject.com/wp/34257">#34257</a>]</li>
+  <li>Fixed: All-in-one docker image on dev branch no longer works [<a href="https://community.openproject.com/wp/34272">#34272</a>]</li>
+  <li>Fixed: Error displayed when deleting work package with logged time [<a href="https://community.openproject.com/wp/34283">#34283</a>]</li>
+  <li>Fixed: Wiki side menu cuts of too high / doesn’t display bottom wiki pages [<a href="https://community.openproject.com/wp/34284">#34284</a>]</li>
+  <li>Fixed: Internal error when uploading attachment(s) to “Documents” module [<a href="https://community.openproject.com/wp/34285">#34285</a>]</li>
+  <li>Fixed: Two identical / very similar error message shown in custom field create screen [<a href="https://community.openproject.com/wp/34289">#34289</a>]</li>
+  <li>Fixed: Not possible to scroll page while move custom field in form configuration [<a href="https://community.openproject.com/wp/34290">#34290</a>]</li>
+  <li>Fixed: Date “null - null” shown when editing date of newly created work packages [<a href="https://community.openproject.com/wp/34291">#34291</a>]</li>
+  <li>Fixed: Typo and strange wording on board creation screen [<a href="https://community.openproject.com/wp/34292">#34292</a>]</li>
+  <li>Fixed: No translation / wrong translation for “Settings” [<a href="https://community.openproject.com/wp/34293">#34293</a>]</li>
+  <li>Fixed: Date picker in cost types settings (administration) opens in weird location [<a href="https://community.openproject.com/wp/34297">#34297</a>]</li>
+  <li>Fixed: Missing translations on copy project loading (and error) screen [<a href="https://community.openproject.com/wp/34298">#34298</a>]</li>
+  <li>Fixed: Budget positions disappear from budget when editing [<a href="https://community.openproject.com/wp/34299">#34299</a>]</li>
+  <li>Fixed: “Fixed date” in Budget not translated [<a href="https://community.openproject.com/wp/34300">#34300</a>]</li>
+  <li>Fixed: Work packages table: dropped element disappears when back-end error  [<a href="https://community.openproject.com/wp/34332">#34332</a>]</li>
+  <li>Fixed: Link to a particular activity doesn’t work [<a href="https://community.openproject.com/wp/34341">#34341</a>]</li>
+  <li>Fixed: Broken error message when creating task on backlogs page [<a href="https://community.openproject.com/wp/34345">#34345</a>]</li>
+  <li>Fixed: Date picker modal is cut off when switching from manual scheduling mode [<a href="https://community.openproject.com/wp/34346">#34346</a>]</li>
+  <li>Fixed: Internal error shown when uploading document to attribute help text (projects) [<a href="https://community.openproject.com/wp/34352">#34352</a>]</li>
+  <li>Fixed: Help text for custom fields (projects) not shown in project settings [<a href="https://community.openproject.com/wp/34353">#34353</a>]</li>
+  <li>Fixed: Date settings are not applied for date picker or calendar [<a href="https://community.openproject.com/wp/34356">#34356</a>]</li>
+  <li>Fixed: Unclear warning message displayed when filtered value for assignee board does not match any member [<a href="https://community.openproject.com/wp/34358">#34358</a>]</li>
+  <li>Fixed: Tasks added to subproject action board disappear automatically after adding [<a href="https://community.openproject.com/wp/34359">#34359</a>]</li>
+  <li>Fixed: Entry “Time and costs” not highlighted when selecting from side menu [<a href="https://community.openproject.com/wp/34373">#34373</a>]</li>
+  <li>Fixed: Project date custom fields takes a lot of space (more than other fields) [<a href="https://community.openproject.com/wp/34380">#34380</a>]</li>
+  <li>Fixed: Widget content is lost / widget collapsed (custom text) [<a href="https://community.openproject.com/wp/34381">#34381</a>]</li>
+  <li>Fixed: Default value of a custom field not passed [<a href="https://community.openproject.com/wp/34420">#34420</a>]</li>
+  <li>Fixed: Focus not set on project name when creating new project [<a href="https://community.openproject.com/wp/34424">#34424</a>]</li>
+  <li>Fixed: Low contrast for filter icon [<a href="https://community.openproject.com/wp/34425">#34425</a>]</li>
+  <li>Fixed: Broken success message shown when logging into OpenProject [<a href="https://community.openproject.com/wp/34427">#34427</a>]</li>
+  <li>Fixed: Project members not added when selecting multiple users from “Members” menu [<a href="https://community.openproject.com/wp/34428">#34428</a>]</li>
+  <li>Fixed: Assignee and author field cut off even though there is enough space [<a href="https://community.openproject.com/wp/34431">#34431</a>]</li>
+  <li>Fixed: When changing booked time entry, entry is no longer displayed in time and costs report [<a href="https://community.openproject.com/wp/34432">#34432</a>]</li>
+  <li>Fixed: Logged time cannot be changed once error message is shown [<a href="https://community.openproject.com/wp/34433">#34433</a>]</li>
+  <li>Fixed: Translation missing in Roadmap (time tracking) [<a href="https://community.openproject.com/wp/34434">#34434</a>]</li>
+  <li>Fixed: Date picker for version disconnected / border missing [<a href="https://community.openproject.com/wp/34435">#34435</a>]</li>
+  <li>Fixed: Burndown chart not displayed (from backlogs or taskboard page) [<a href="https://community.openproject.com/wp/34437">#34437</a>]</li>
+  <li>Fixed: Text size on taskboard page too large [<a href="https://community.openproject.com/wp/34438">#34438</a>]</li>
+  <li>Fixed: Spacing on meeting page looks crammed [<a href="https://community.openproject.com/wp/34439">#34439</a>]</li>
+  <li>Fixed: Month / week toggler on calendar page is separated [<a href="https://community.openproject.com/wp/34440">#34440</a>]</li>
+  <li>Fixed: Text color (e.g. for news module on project overview page) is hard to read [<a href="https://community.openproject.com/wp/34441">#34441</a>]</li>
+  <li>Fixed: Added widgets on overview page are removed automatically on reload [<a href="https://community.openproject.com/wp/34442">#34442</a>]</li>
+  <li>Fixed: Wrong translation for “Update” in German [<a href="https://community.openproject.com/wp/34445">#34445</a>]</li>
+  <li>Fixed: Internal error when adding user to group [<a href="https://community.openproject.com/wp/34446">#34446</a>]</li>
+  <li>Fixed: Icon for SSO with Google not shown [<a href="https://community.openproject.com/wp/34458">#34458</a>]</li>
+  <li>Fixed: Missing background for backlog error messages [<a href="https://community.openproject.com/wp/34476">#34476</a>]</li>
+  <li>Fixed: Onboarding tour on edge broken [<a href="https://community.openproject.com/wp/34507">#34507</a>]</li>
+  <li>Fixed: Custom fields of type long text are wrongly formatted in project list [<a href="https://community.openproject.com/wp/34509">#34509</a>]</li>
+  <li>Fixed: Wrong default settings for Gantt chart query in project [<a href="https://community.openproject.com/wp/34511">#34511</a>]</li>
+  <li>Fixed: OpenProject Logo in header missing [<a href="https://community.openproject.com/wp/34529">#34529</a>]</li>
+  <li>Fixed: Cost report filtered by custom field list does return an empty list [<a href="https://community.openproject.com/wp/34530">#34530</a>]</li>
+  <li>Fixed: With global subproject filter disabled, subproject boards do not work [<a href="https://community.openproject.com/wp/34535">#34535</a>]</li>
+  <li>Fixed: Clicking with modifier on global search results no longer works [<a href="https://community.openproject.com/wp/34544">#34544</a>]</li>
+  <li>Fixed: Deleted work packages don’t disappear in boards view [<a href="https://community.openproject.com/wp/34584">#34584</a>]</li>
+  <li>Fixed: Error 500 when bulk-editing work packages [<a href="https://community.openproject.com/wp/34588">#34588</a>]</li>
+  <li>Fixed: Year almost hidden in date picker for version [<a href="https://community.openproject.com/wp/34590">#34590</a>]</li>
+  <li>Fixed: Onboarding tour broken in multiple places [<a href="https://community.openproject.com/wp/34597">#34597</a>]</li>
+  <li>Fixed: Github Integration [<a href="https://community.openproject.com/wp/34598">#34598</a>]</li>
+  <li>Fixed: Google OpenID provider image not shown in login form [<a href="https://community.openproject.com/wp/34601">#34601</a>]</li>
+  <li>Fixed: Parent work package in manual scheduling mode without date cannot be scheduled from Gantt chart [<a href="https://community.openproject.com/wp/34710">#34710</a>]</li>
+  <li>Fixed: Menu too small/completely hidden on Roadmap [<a href="https://community.openproject.com/wp/34712">#34712</a>]</li>
+  <li>Fixed: QR code not displayed on 2FA device registration [<a href="https://community.openproject.com/wp/34793">#34793</a>]</li>
+  <li>Fixed: Internal error (500) when creating child work package of parent with only start or finish date set [<a href="https://community.openproject.com/wp/34797">#34797</a>]</li>
+  <li>Fixed: Text changes from German (Projekt kopieren) to English (Copy project) while loading [<a href="https://community.openproject.com/wp/34817">#34817</a>]</li>
+  <li>Fixed: 500er Bug when Drag and Drop position in Gantt chart [<a href="https://community.openproject.com/wp/34836">#34836</a>]</li>
+  <li>Fixed: Error messages in copy project modal (e.g. boards) not localized [<a href="https://community.openproject.com/wp/34843">#34843</a>]</li>
+  <li>Fixed: Work package description containing work package attribute macro not displayed at all [<a href="https://community.openproject.com/wp/34852">#34852</a>]</li>
+  <li>Fixed: Invalid or missing translation for format of project customfield in administration [<a href="https://community.openproject.com/wp/34863">#34863</a>]</li>
+  <li>Fixed: On mobile the project side menu can get stuck / cut off when scrolling [<a href="https://community.openproject.com/wp/34868">#34868</a>]</li>
+  <li>Fixed: Missing localization for “Subproject” and “Parent-Child” board heading [<a href="https://community.openproject.com/wp/34870">#34870</a>]</li>
+  <li>Changed: Allow PDFs to be inlined [<a href="https://community.openproject.com/wp/24343">#24343</a>]</li>
+  <li>Changed: Image size on Wiki [<a href="https://community.openproject.com/wp/24760">#24760</a>]</li>
+  <li>Changed: Project copying: Clarify which work packages are invalid and where not copied [<a href="https://community.openproject.com/wp/26366">#26366</a>]</li>
+  <li>Changed: Direct-to-S3 file uploads [<a href="https://community.openproject.com/wp/27157">#27157</a>]</li>
+  <li>Changed: Filter by budget in cost reports  [<a href="https://community.openproject.com/wp/29481">#29481</a>]</li>
+  <li>Changed: Add option to copy grids (boards, dashboards) [<a href="https://community.openproject.com/wp/30585">#30585</a>]</li>
+  <li>Changed: Add details view to boards view [<a href="https://community.openproject.com/wp/30918">#30918</a>]</li>
+  <li>Changed: Keep order of manually sorted work packages when copied to new project [<a href="https://community.openproject.com/wp/31317">#31317</a>]</li>
+  <li>Changed: Re-enable displaying of grouped sum rows [<a href="https://community.openproject.com/wp/31617">#31617</a>]</li>
+  <li>Changed: Rename the module Cost reports to Time and costs [<a href="https://community.openproject.com/wp/31728">#31728</a>]</li>
+  <li>Changed: Replace system settings tab by sub menu entries [<a href="https://community.openproject.com/wp/32051">#32051</a>]</li>
+  <li>Changed: Flexible width of edit field of widget title [<a href="https://community.openproject.com/wp/32176">#32176</a>]</li>
+  <li>Changed: Add scheduling mode to work package in back end (Database, Contracts, API) [<a href="https://community.openproject.com/wp/32877">#32877</a>]</li>
+  <li>Changed: Adhere to scheduling mode when scheduling [<a href="https://community.openproject.com/wp/32878">#32878</a>]</li>
+  <li>Changed: Display scheduling mode in work package list [<a href="https://community.openproject.com/wp/32879">#32879</a>]</li>
+  <li>Changed: Display scheduling mode in work package view (full &amp; split) [<a href="https://community.openproject.com/wp/32880">#32880</a>]</li>
+  <li>Changed: Show work package’s children duration bar on Gantt charts [<a href="https://community.openproject.com/wp/32881">#32881</a>]</li>
+  <li>Changed: New seed data for “Demo project” - work packages [<a href="https://community.openproject.com/wp/32882">#32882</a>]</li>
+  <li>Changed: Add descendant’s start/end date to work package representer [<a href="https://community.openproject.com/wp/32883">#32883</a>]</li>
+  <li>Changed: Add an option to add “Unassigned” column to assignee board [<a href="https://community.openproject.com/wp/33074">#33074</a>]</li>
+  <li>Changed: Remove “Schedule manually” attribute from work package form configuration [<a href="https://community.openproject.com/wp/33473">#33473</a>]</li>
+  <li>Changed: Update release teaser block [<a href="https://community.openproject.com/wp/33571">#33571</a>]</li>
+  <li>Changed: Allow sorting of project custom fields shown in “View all projects” [<a href="https://community.openproject.com/wp/33580">#33580</a>]</li>
+  <li>Changed: Allow setting dates of manually scheduled parent [<a href="https://community.openproject.com/wp/33609">#33609</a>]</li>
+  <li>Changed: Journalize scheduling mode changes [<a href="https://community.openproject.com/wp/33649">#33649</a>]</li>
+  <li>Changed: Make the project member invitation more appealing [<a href="https://community.openproject.com/wp/33654">#33654</a>]</li>
+  <li>Changed: Allow adding invited users to groups [<a href="https://community.openproject.com/wp/33657">#33657</a>]</li>
+  <li>Changed: Make tables scrollable with sticky header [<a href="https://community.openproject.com/wp/33674">#33674</a>]</li>
+  <li>Changed: Move “required disk storage” to the end of the projects table [<a href="https://community.openproject.com/wp/33675">#33675</a>]</li>
+  <li>Changed: Reduce complexity of boolean filters [<a href="https://community.openproject.com/wp/33677">#33677</a>]</li>
+  <li>Changed: Add “projects” to the global Modules menu [<a href="https://community.openproject.com/wp/33680">#33680</a>]</li>
+  <li>Changed: Extend Date picker to show two months next to each other [<a href="https://community.openproject.com/wp/33683">#33683</a>]</li>
+  <li>Changed: Extend Date picker to show “Today” link [<a href="https://community.openproject.com/wp/33684">#33684</a>]</li>
+  <li>Changed: Ability to filter views: Only show work packages from specified subproject, but not from father project [<a href="https://community.openproject.com/wp/33763">#33763</a>]</li>
+  <li>Changed: Custom help text for project attributes [<a href="https://community.openproject.com/wp/33830">#33830</a>]</li>
+  <li>Changed: Create subproject boards [<a href="https://community.openproject.com/wp/33864">#33864</a>]</li>
+  <li>Changed: Create subtasks boards (Parent-Child board) [<a href="https://community.openproject.com/wp/33865">#33865</a>]</li>
+  <li>Changed: Fine tune the design of the new date picker for the automatic scheduling mode [<a href="https://community.openproject.com/wp/33882">#33882</a>]</li>
+  <li>Changed: Combine time and cost tracking and reporting module [<a href="https://community.openproject.com/wp/33918">#33918</a>]</li>
+  <li>Changed: Prevent losing dates when adding the first child work package to an automatically scheduled work package [<a href="https://community.openproject.com/wp/33925">#33925</a>]</li>
+  <li>Changed: Calculate work packages group sums in database so we can re-enable performant group sums [<a href="https://community.openproject.com/wp/33935">#33935</a>]</li>
+  <li>Changed: Re-Add ## and ### capability to OpenProject [<a href="https://community.openproject.com/wp/33962">#33962</a>]</li>
+  <li>Changed: Allow rescheduling of manually scheduled parent work package (clamps) in gantt view [<a href="https://community.openproject.com/wp/34014">#34014</a>]</li>
+  <li>Changed: http redirect_uri from localhost domain [<a href="https://community.openproject.com/wp/34025">#34025</a>]</li>
+  <li>Changed: Gantt chart: Make row’s background translucent when hovered [<a href="https://community.openproject.com/wp/34028">#34028</a>]</li>
+  <li>Changed: change icons for manual scheduling mode [<a href="https://community.openproject.com/wp/34058">#34058</a>]</li>
+  <li>Changed: Improve board creation modal [<a href="https://community.openproject.com/wp/34070">#34070</a>]</li>
+  <li>Changed: Hide derived (Start/Finish) Date from work package forms [<a href="https://community.openproject.com/wp/34122">#34122</a>]</li>
+  <li>Changed: Extend search autocompleter with useful information [<a href="https://community.openproject.com/wp/34132">#34132</a>]</li>
+  <li>Changed: [all projects overview] (Add option to) show status-text in expanded view. [<a href="https://community.openproject.com/wp/34191">#34191</a>]</li>
+  <li>Changed: Map board subtasks columns when copying projects [<a href="https://community.openproject.com/wp/34238">#34238</a>]</li>
+  <li>Changed: Having meetings as a linkable resource [<a href="https://community.openproject.com/wp/34256">#34256</a>]</li>
+  <li>Changed: What’s new teaser OpenProject BIM 11.0 [<a href="https://community.openproject.com/wp/34514">#34514</a>]</li>
+  <li>Changed: New seed data for demo project - boards [<a href="https://community.openproject.com/wp/34526">#34526</a>]</li>
+  <li>Changed: Change text in the Action board creation modal [<a href="https://community.openproject.com/wp/34847">#34847</a>]</li>
+  <li>Epic: Switch between automatic and manual scheduling mode [<a href="https://community.openproject.com/wp/25624">#25624</a>]</li>
+  <li>Epic: Time tracking and cost control 2.0 [<a href="https://community.openproject.com/wp/32125">#32125</a>]</li>
+  <li>Epic: Wiki Macro functionality to allow retrieving work package and project attributes [<a href="https://community.openproject.com/wp/33648">#33648</a>]</li>
+  <li>Epic: Basic portfoliomanagement for project list [<a href="https://community.openproject.com/wp/34167">#34167</a>]</li>
+  <li>Epic: Projekt Templates [<a href="https://community.openproject.com/wp/34468">#34468</a>]</li>
+</ul>
+
+<h2 id="installation-and-updates">Installation and Updates</h2>
+
+<p>To use OpenProject 11.0 right away, create an instance and <a href="https://start.openproject.com/">test 14 days for free in the Cloud</a>.</p>
+
+<p>Prefer to run OpenProject 11.0 in your own infrastructure?
+Here you can find the <a href="../../installation-and-operations">Installation guidelines</a> for OpenProject.</p>
+
+<p>Want to upgrade from your self-managed Community version to try out the Enterprise premium features? <a href="https://www.openproject.org/enterprise-edition-upgrade-test-free/">Get a 14 days free trial token directly out of your current Community installation.</a></p>
+
+<p>Navigate to the -&gt; <em>Administration</em>-&gt; <em>Enterprise Edition</em> and request your trial token.</p>
+
+<h2 id="migrating-to-openproject-110">Migrating to OpenProject 11.0</h2>
+
+<p>Follow the <a href="../../installation-and-operations/operation/upgrading/">upgrade guide for the packaged installation or Docker installation</a> to update your OpenProject installation to OpenProject 11.0. Please note the blue box on top of the page.</p>
+
+<p>We update the hosted OpenProject environments (Enterprise Cloud) automatically.</p>
+
+<h2 id="credits-and-contributions">Credits and contributions</h2>
+
+<p>Special thanks go to all OpenProject contributors without whom this release would not have been possible:</p>
+
+<ul>
+  <li>
+    <p>All the developers, designers, project managers who have contributed to OpenProject 11.0.</p>
+  </li>
+  <li>
+    <p>The City of Cologne for sponsoring some of the open source features and thus contributing them to the Community.</p>
+  </li>
+  <li>
+    <p>Every dedicated user who has created feature request, <a href="../../development/report-a-bug/">reported bugs</a> for 11.0 and also supported the community by asking and answering questions in the <a href="https://community.openproject.org/projects/openproject/boards">forum</a>.</p>
+  </li>
+  <li>
+    <p>All the engaged users who provided translations on <a href="https://crowdin.com/projects/opf">CrowdIn</a>.</p>
+  </li>
+  <li>
+    <p>Special thanks for reporting and finding bugs go to:</p>
+
+    <p>Marc Vollmer, Andy Shilton, Christian Forgács, L B, Gábor Sift, Thyago Sanabio, Daniel Narberhaus, Harpan Budi Santoso, Çağlar Yeşilyurt, Rajiv Ranjan Sinha, Freddy Trotin, xin meng, Kris M, schermi schermi, Nick Bailey, Adam Vanko, Hartwin Leen, Sergey Anikin, Petros Christopoulos, Oscar Meier, Bert Regelink, Carsten Klein, Dagyo Lee, Jonatan Zint, Gio @ Enuan, Peter Pof, Sergey Shalikin, Benoit PETIT-DEMOULIERE</p>
+  </li>
+</ul>
+
+<h2 id="whats-next">What’s next?</h2>
+
+<p>We are continuously developing new features and improvements for  OpenProject. If you’d like to preview what’s coming in the next release, be sure to check out our <a href="https://community.openproject.com/projects/openproject/work_packages?query_id=918">development roadmap</a>.</p>
+:ET

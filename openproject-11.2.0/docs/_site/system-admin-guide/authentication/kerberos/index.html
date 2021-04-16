@@ -1,0 +1,140 @@
+<h1 id="kerberos-integration">Kerberos integration</h1>
+
+<div class="alert alert-info" role="alert">
+**Note**: This documentation is valid for the OpenProject Enterprise Edition only.
+</div>
+
+<p><a href="https://web.mit.edu/kerberos/">Kerberos</a> allows you to authenticate user requests to a service within a computer network. You can integrate it with OpenProject with the use of <a href="http://modauthkerb.sourceforge.net/">Kerberos Apache module</a> (<code class="language-plaintext highlighter-rouge">mod_auth_kerb</code>) plugging into the OpenProject packaged installation using Apache web server.</p>
+
+<p>This guide will also apply for Docker-based installation, if you have an outer proxying server such as Apache2 that you can configure to use Kerberos. This guide however focuses on the packaged installation of OpenProject.</p>
+
+<h2 id="step-1-creating-kerberos-service-and-keytab-for-openproject">Step 1: Creating Kerberos service and keytab for OpenProject</h2>
+
+<p>Assuming you have Kerberos set up with a realm, you need to create a Kerberos service Principal for the OpenProject HTTP service. In the course of this guide, we’re going to assume your realm is <code class="language-plaintext highlighter-rouge">EXAMPLE.COM</code> and your OpenProject installation is running at <code class="language-plaintext highlighter-rouge">openproject.example.com</code>.</p>
+
+<p>Create the service principal (e.g. using <code class="language-plaintext highlighter-rouge">kadmin</code>) and a keytab for OpenProject used for Apache with the following commands:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Assuming you're in the `kadmin.local` interactive command</span>
+
+addprinc <span class="nt">-randkey</span> HTTP/openproject.example.com
+ktadd <span class="nt">-k</span> /etc/openproject/openproject.keytab HTTP/openproject.example.com
+</code></pre></div></div>
+
+<p>This will output a keytab file for the realm selected by <code class="language-plaintext highlighter-rouge">kadmin</code> (in the above example, this would create all users from the default_realm) to <code class="language-plaintext highlighter-rouge">/etc/openproject/openproject.keytab</code></p>
+
+<p>You still need to make this file readable for Apache. For Debian/Ubuntu based systems, the Apache user and group is <code class="language-plaintext highlighter-rouge">www-data</code>. This will vary depending on your installation</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo chown </span>www-data:www-data /etc/openproject/openproject.keytab
+<span class="nb">sudo chmod </span>400 /etc/openproject/openproject.keytab
+</code></pre></div></div>
+
+<h2 id="step-2-configuration-of-apache-web-server">Step 2: Configuration of Apache web server</h2>
+
+<p>First, ensure that you install the <code class="language-plaintext highlighter-rouge">mod_auth_kerb</code> apache module. The command will vary depending on your installation. On Debian/Ubuntu based systems, use the following command to install:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>libapache2-mod-auth-kerb
+</code></pre></div></div>
+
+<p>You will then need to add the generated keytab to be used for the OpenProject installation. OpenProject allows you to specify additional directives for your installation VirtualHost.</p>
+
+<p>We are going to create a new file <code class="language-plaintext highlighter-rouge">/etc/openproject/addons/apache2/includes/vhost/kerberos.conf</code> with the following contents:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  &lt;Location /&gt;
+    AuthType Kerberos
+    # The Basic Auth dialog name shown to the user
+    # change this freely
+    AuthName "EXAMPLE.COM realm login"
+
+    # The realm used for Kerberos, you will want to
+    # change this to your actual domain
+    KrbAuthRealm EXAMPLE.COM
+
+    # Path to the Keytab generated in the previous step
+    Krb5Keytab /etc/openproject/openproject.keytab
+
+    # After authentication, Apache will set a header
+    # "X-Authenticated-User" to the logged in username
+    # appended with a configurable secret value
+    RequestHeader set X-Authenticated-User expr=%{REMOTE_USER}:MyPassword
+
+    # Apache directive to ensure a user is authenticated
+    Require valid-user
+  &lt;/Location&gt;
+</code></pre></div></div>
+
+<h2 id="step-3-configuration-of-openproject-to-use-apache-header">Step 3: Configuration of OpenProject to use Apache header</h2>
+
+<p>As the last step, you need to tell OpenProject to look for the <code class="language-plaintext highlighter-rouge">X-Authenticated-User</code> header and the <code class="language-plaintext highlighter-rouge">MyPassword</code> secret value.</p>
+
+<p>You can do that in two ways:</p>
+
+<h4 id="configure-using-the-configurationyml">Configure using the configuration.yml</h4>
+
+<p>In your OpenProject packaged installation, you can modify the <code class="language-plaintext highlighter-rouge">/opt/openproject/config/configuration.yml</code> file. This will contain the complete OpenProject configuration and can be extended  to include a section for the header checking.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">production</span><span class="pi">:</span>
+  <span class="c1"># &lt;-- other configuration --&gt;</span>
+
+  <span class="na">auth_source_sso</span><span class="pi">:</span>
+    <span class="c1"># The header name is configured here</span>
+    <span class="na">header</span><span class="pi">:</span> <span class="s">X-Authenticated-User</span>
+
+    <span class="c1"># The secret is configurable here</span>
+    <span class="c1"># You can comment it out to disable if your outer server</span>
+    <span class="c1"># fully controls this header value and you trust it.</span>
+    <span class="na">secret</span><span class="pi">:</span> <span class="s">MyPassword</span>
+
+    <span class="c1"># Uncomment to make the header optional.</span>
+    <span class="c1"># optional: true</span>
+
+    <span class="c1"># Specify a logout URL that gets redirected</span>
+    <span class="c1"># after the OpenProject internal logout flow</span>
+    <span class="c1"># logout_url: https://sso.example.com/logout</span>
+</code></pre></div></div>
+
+<p>Be sure to choose the correct indentation and base key. The <code class="language-plaintext highlighter-rouge">auth_source_sso</code> key should be indented two spaces (and all other keys accordingly) and the configuration should belong to the <code class="language-plaintext highlighter-rouge">production</code> group.</p>
+
+<p>The configuration can be provided in one of three ways:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">configuration.yml</code> file (1.1)</li>
+  <li>Environment variables (1.2)</li>
+  <li><code class="language-plaintext highlighter-rouge">settings.yml</code> file (1.3)</li>
+</ul>
+
+<p>Whatever means are chosen, the plugin simply passes all options to omniauth-saml. See <a href="https://github.com/omniauth/omniauth-saml#usage">their configuration
+documentation</a> for further details.</p>
+
+<p>The three options are mutually exclusive. I.e. if settings are already provided via the <code class="language-plaintext highlighter-rouge">configuration.yml</code> file, settings in a <code class="language-plaintext highlighter-rouge">settings.yml</code> file will be ignored. Environment variables will override the <code class="language-plaintext highlighter-rouge">configuration.yml</code> based configuration, though.</p>
+
+<h4 id="configure-using-environment-variables">Configure using environment variables</h4>
+
+<p>As with all the rest of the OpenProject configuration settings, the Kerberos header configuration can be provided via environment variables. For example:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openproject config:set <span class="nv">OPENPROJECT_AUTH__SOURCE__SSO_HEADER</span><span class="o">=</span><span class="s2">"X-Authenticated-User"</span>
+openproject config:set <span class="nv">OPENPROJECT_AUTH__SOURCE__SSO_SECRET</span><span class="o">=</span><span class="s2">"MyPassword"</span>
+</code></pre></div></div>
+
+<p>In case you want to make the header optional, i.e. the header may or may not be present for a subset of users going through Apache, you can set the following value:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  openproject config:set <span class="nv">OPENPROJECT_AUTH__SOURCE__SSO_OPTIONAL</span><span class="o">=</span><span class="nb">true</span>
+</code></pre></div></div>
+
+<p>Please note that every underscore (<code class="language-plaintext highlighter-rouge">_</code>) in the original configuration key has to be replaced by a duplicate underscore
+(<code class="language-plaintext highlighter-rouge">__</code>) in the environment variable as the single underscore denotes namespaces.</p>
+
+<h2 id="step-4-restarting-the-server">Step 4: Restarting the server</h2>
+
+<p>Once the configuration is completed, restart your OpenProject and Apache2 server with <code class="language-plaintext highlighter-rouge">service openproject restart</code> and  <code class="language-plaintext highlighter-rouge">service apache2 restart</code> . Again these commands might differ depending on your Linux distribution.</p>
+
+<h2 id="step-5-logging-in">Step 5: Logging in</h2>
+
+<p>From there on, you will be forced to the Kerberos login flow whenever accessing OpenProject. For existing users that will be found by their login attribute provided in the <code class="language-plaintext highlighter-rouge">X-Authenticated-User</code>, they will be automatically logged in.</p>
+
+<p>For non-existing users, if you have an LDAP configured with automatic user registration activated (check out our <a href="https://docs.openproject.org/system-admin-guide/authentication/ldap-authentication/">LDAP authentication guide</a> for that), users will be created automatically with the attributes retrieved from the LDAP.</p>
+
+<h1 id="additional--resources">Additional  resources</h1>
+
+<ul>
+  <li><a href="https://help.ubuntu.com/community/Kerberos">Kerberos documentation by Ubuntu</a></li>
+</ul>

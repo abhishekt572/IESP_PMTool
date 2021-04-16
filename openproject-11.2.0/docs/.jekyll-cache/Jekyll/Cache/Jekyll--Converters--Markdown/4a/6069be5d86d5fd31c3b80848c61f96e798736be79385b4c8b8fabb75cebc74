@@ -1,0 +1,84 @@
+I"^<h1 id="system-requirements">System requirements</h1>
+
+<p><strong>Note</strong>: The configurations described below are what we use and test against.
+This means that other configurations might also work but we do not
+provide any official support for them.</p>
+
+<h2 id="server">Server</h2>
+
+<h3 id="hardware">Hardware</h3>
+
+<ul>
+  <li><strong>Memory:</strong> 4096 MB</li>
+  <li><strong>Free disk space:</strong> 4 GB</li>
+</ul>
+
+<h3 id="operating-system">Operating system</h3>
+
+<p>The <a href="../installation/packaged">package-based installation</a> requires one of the following Linux distributions:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Distribution (<strong>64 bits only</strong>)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Ubuntu 20.04 Focal</td>
+    </tr>
+    <tr>
+      <td>Ubuntu 18.04 Bionic Beaver</td>
+    </tr>
+    <tr>
+      <td>Ubuntu 16.04 Xenial Xerus</td>
+    </tr>
+    <tr>
+      <td>Debian 10 Buster</td>
+    </tr>
+    <tr>
+      <td>Debian 9 Stretch</td>
+    </tr>
+    <tr>
+      <td>CentOS/RHEL 8.x</td>
+    </tr>
+    <tr>
+      <td>CentOS/RHEL 7.x</td>
+    </tr>
+    <tr>
+      <td>Suse Linux Enterprise Server 12</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The <a href="../installation/docker">docker-based installation</a> requires a system with Docker installed. Please see the <a href="https://docs.docker.com/install/">official Docker page</a> for the list of supported systems.</p>
+
+<h3 id="overview-of-dependencies">Overview of dependencies</h3>
+
+<p>Both the package and docker based installations will install and setup the following dependencies that are required by OpenProject to run:</p>
+
+<ul>
+  <li><strong>Runtime:</strong> <a href="https://www.ruby-lang.org/en/">Ruby</a> Version = 2.7.x</li>
+  <li><strong>Webserver:</strong> <a href="http://httpd.apache.org/">Apache</a>
+or <a href="http://nginx.org/en/docs/">nginx</a></li>
+  <li><strong>Application server:</strong> <a href="https://puma.io/">Puma</a></li>
+  <li><strong>Database</strong>: <a href="http://www.postgresql.org/">PostgreSQL</a> Version &gt;= 9.5</li>
+</ul>
+
+<h2 id="client">Client</h2>
+
+<p>OpenProject supports the latest versions of the major browsers.</p>
+
+<ul>
+  <li><a href="https://www.mozilla.org/en-US/firefox/products/">Mozilla Firefox</a> (at least ESR version 78.3.1)</li>
+  <li><a href="https://www.microsoft.com/de-de/windows/microsoft-edge">Microsoft Edge</a> (only MS Edge version based on Chromium is supported)</li>
+  <li><a href="https://www.google.com/chrome/browser/desktop/">Google Chrome</a></li>
+  <li><a href="https://www.apple.com/safari/">Apple Safari</a></li>
+</ul>
+
+<h2 id="frequently-asked-questions-faq">Frequently asked questions (FAQ)</h2>
+
+<h3 id="can-i-run-openproject-on-windows">Can I run OpenProject on Windows?</h3>
+
+<p>At the moment this is not officially supported, although the docker image might work. Check above regarding the system requirements.</p>
+:ET

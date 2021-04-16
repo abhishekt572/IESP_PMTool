@@ -1,0 +1,232 @@
+<h1 id="manage-users">Manage users</h1>
+
+<p>The user list provides an overview of all users in OpenProject. You can create new users, make changes to existing user accounts and block or delete users from the system.</p>
+
+<div class="glossary">
+**User** is defined as a person (described by an identifier) who uses OpenProject. Users can become project members by assigning them a role and adding them via the project settings.
+</div>
+<p>To manage users click on your avatar (top right corner) and select <em>Administration</em>. Select <em>Users &amp; Permissions -&gt; Users</em>. The list of current users is shown.</p>
+
+<p>In the Community Edition there is no limit to the number of users. In Enterprise editions (cloud and on-premises) the user limit is based on your subscription. The number of users for your subscription is thus not bound to names. For example, if you block a user you can add a new one without upgrading.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Topic</th>
+      <th>Content</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#user-list">User list</a></td>
+      <td>Manage all users in OpenProject.</td>
+    </tr>
+    <tr>
+      <td><a href="#filter-users">Filter users</a></td>
+      <td>Filter users in the list.</td>
+    </tr>
+    <tr>
+      <td><a href="#lock-and-unlock-users">Lock and unlock users</a></td>
+      <td>Block a user permanently in the system or unlock a user.</td>
+    </tr>
+    <tr>
+      <td><a href="#create-users">Create users</a></td>
+      <td>Invite or create new users. Resend or delete user invitations</td>
+    </tr>
+    <tr>
+      <td><a href="#manage-user-settings">Manage user settings</a></td>
+      <td>Manage user details.</td>
+    </tr>
+    <tr>
+      <td><a href="#authentication">Authentication</a></td>
+      <td>Set and use authentication methods.</td>
+    </tr>
+    <tr>
+      <td><a href="#delete-users">Delete users</a></td>
+      <td>Delete a user from the system.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="user-list">User list</h2>
+
+<p>The User list is where users are managed. They can be added, edited or deleted from this list, which can be filtered if required.</p>
+
+<p><img src="image-20200211141841492.png" alt="user list" /></p>
+
+<p>Column headers can be clicked to toggle sort direction. Arrows indicate sort order, up for ascending (a-z/0-9) and down for descending (z-a/9-0). Paging controls are shown at the bottom of the list. You will also see whether a user is a system administrator in OpenProject.</p>
+
+<h2 id="filter-users">Filter users</h2>
+
+<p>At the top of the user list is a filter box. Filter by status or name, then click the blue <strong>Apply</strong> button to filter the list. Click the <strong>Clear</strong> button to reset the filter fields and refresh the list.</p>
+
+<ul>
+  <li><strong>Status</strong> - select from Active, All or Locked Temporarily. Each selection shows the number of users.</li>
+  <li><strong>Name</strong> - enter any text; this can contain a “%” wild card for 0 or more characters. The filter applies to user name, first name, last name and email address.</li>
+</ul>
+
+<p><img src="image-20200115155456033.png" alt="filter users" /></p>
+
+<h2 id="lock-and-unlock-users">Lock and unlock users</h2>
+
+<p>Handling locking and unlocking of users is also done from the user list. To disable a user’s access click the <strong>Lock permanently</strong> link next to a user. Use the <strong>Unlock</strong> link to restore the user’s access.</p>
+
+<p>If you are using <a href="../../../cloud-edition-guide">Enterprise cloud</a> or <a href="../../../enterprise-edition-guide">Enterprise on-premises</a> locking a user will make a new user available to add to the system within your booked plan.</p>
+
+<div class="alert alert-info" role="alert">
+**Note**: The previous activities from a locked user will still be displayed in the system.
+</div>
+
+<p><img src="System-admin-guide_lock-users.png" alt="System-admin-guide_lock-users" /></p>
+
+<p>If a user has repeated failed logins the user will be locked temporarily and a “Reset failed logins” link is shown in the user list. Click the link to unlock it now, or wait and it will be unlocked automatically. Have a look at the section <a href="../../authentication/authentication-settings/#other-authentication-settings">Other authentication settings</a> for failed attempts and time blocked.</p>
+
+<h2 id="create-users">Create users</h2>
+
+<p>New users can be created and configured by an administrator or by the users themselves (if activated).</p>
+
+<h3 id="invite-user-as-administrator">Invite user (as administrator)</h3>
+
+<p>In the user list, click the <strong>+User</strong> button to open the “New user” form.</p>
+
+<p><img src="image-20200115155855409.png" alt="new user" /></p>
+
+<p>Enter the email address, first name, and last name of the new user. Tick the box to make them a system administrator user.</p>
+
+<p>Note: the email field must be a valid format and be unique or it will be rejected on clicking the button.</p>
+
+<p>Click the <strong>Create</strong> button to add the user and show that user’s details page. Click the <strong>Create and continue</strong> button to add the user and stay on the new user form to add another user. Either way, the new user will be invited via email.
+When adding the last of multiple users you can click on <strong>Create</strong> or click the <strong>Users</strong> link in the menu on the left. The Users list is shown. Click each user in turn to <a href="#set-initial-details">edit their details</a>.</p>
+
+<h3 id="create-user-via-self-registration">Create user (via self-registration)</h3>
+
+<p>To allow users to create their own user accounts allow self-registration in the <a href="../../authentication/authentication-settings">authentication settings</a>. A person can then create their own user from the home page by clicking on the “Sign in” button (top right), then on the “Create a new account” link in the sign in box.</p>
+
+<p>Enter values in all fields (they cannot be left blank). The email field must be a valid email address that is not used in this system. Click the <strong>Create</strong> button. Depending on the <a href="../../authentication/authentication-settings">settings</a> the account is created but it could be that it still needs to be activated by an administrator.</p>
+
+<h4 id="activate-users">Activate users</h4>
+
+<p>Open the user list. If a user has created their own account (and it has not been activated automatically) it is shown in the user list with an “Activate” link on the right. Click this link and continue to add details to this user as below. There is also an “Activate” button at the top of the user’s details page.</p>
+
+<h3 id="set-initial-details">Set initial details</h3>
+
+<p>You can edit the details of a newly created user. Useful fields might be Username, Language and Time zone. You might also fill Projects, Groups and Rates, or leave these to the “Project creator”.
+Also consider the <a href="#authentication">authentication</a> settings.</p>
+
+<p>See <a href="#manage-user-settings">Manage user settings</a> for full details.</p>
+
+<h3 id="resend-user-invitation-via-email">Resend user invitation via email</h3>
+
+<p>If a user did not receive the email invitation or shall change their authentication method to email, you can send the invitation to the user again if needed. In the user list, click on the user name to whom you want to resend the email with the invitation link to the system.</p>
+
+<p>In the top right, click the <strong>Send invitation</strong> button in order to send the email once again.</p>
+
+<p><img src="Sys-admin-resend-invitation.png" alt="Sys-admin-resend-invitation" /></p>
+
+<h3 id="delete-user-invitations">Delete user invitations</h3>
+<p>To invalidate or revoke a user’s invitation click on the user name and then on <strong>Delete</strong> in the upper right corner. This will prevent the invited user from logging in. 
+Please note: This only works for users who haven’t logged in yet. If the user is already active this will delete his/her whole profile and account. Deleting users can’t be easily revoked.</p>
+
+<h2 id="manage-user-settings">Manage user settings</h2>
+
+<p>You can manage individual user details if you click on the user name in the list. These settings will overwrite the individual user’s settings set in their My Account settings.</p>
+
+<h3 id="general-settings">General settings</h3>
+
+<p>On the General tab the following fields are shown:</p>
+
+<ol>
+  <li>User’s master date
+    <ul>
+      <li><strong>Status</strong> - this is set by the system.</li>
+      <li><strong>Username</strong> - this defaults to the email address for a new user (unless the user used the self registration). It can be changed on this page. Users cannot change their own user name.</li>
+      <li><strong>First name</strong>, <strong>Last name</strong>, <strong>Email</strong> - these fields are filled from the New user page. Users can change them on their Profile page; they are mandatory.</li>
+      <li><strong>Language</strong> - this defaults from the <a href="../settings/#default-preferences">user settings</a>. Users can change this on their Profile page.</li>
+      <li><strong>Administrator</strong> - activate or deactivate this global role. Users cannot change this.</li>
+      <li><strong>Custom Fields</strong> - if these have been created they are shown here. Use it for e.g. department or phone number.</li>
+    </ul>
+  </li>
+  <li><strong>User consent</strong> - if this has been <a href="../settings/#user-consent">configured</a> (i.e. if the box next to “Consent required” is ticked) the consent status is shown here.</li>
+  <li><strong>Authentication</strong> - the content of this section depends on the type of <a href="#authentication">authentication method</a> being used (e.g. password, OpenID, Kerberos, etc.)</li>
+  <li><strong>Email notifications</strong> - this defaults from the <a href="../../email/#email-notifications-settings">Email notification settings</a>. Users can change this on their Profile page.</li>
+  <li><strong>Preferences</strong> - users can change these on their Profile page. Time zone defaults from chosen language. “Auto-hide success notifications” means that notifications will automatically be removed after some seconds, not that there are no success notifications at all.</li>
+  <li>Do not forget to <strong>Save</strong> your changes.</li>
+</ol>
+
+<p><img src="image-20210302092958881.png" alt="administration-user-settings-manage-user" /></p>
+
+<h3 id="add-users-to-a-project">Add users to a project</h3>
+
+<p>In order to see and work in a project, a user has to be a member of a project and needs to be added with a certain role to this project.</p>
+
+<p>On the <strong>Projects</strong> tab, select the new project from the drop-down list, choose the <a href="../roles-permissions"><strong>roles</strong></a> for this project and click the blue <strong>Add</strong> button.</p>
+
+<p><img src="Sys-admin-add-project.gif" alt="Sys-admin-add-project" /></p>
+
+<h3 id="add-users-to-groups">Add users to groups</h3>
+
+<p>On the <strong>Groups</strong> tab you can see the groups the user belongs to. If a group is shown, click the group name link. If no groups are shown (i.e. the user does not belong to any group, yet), click the <strong>Manage groups</strong> link to <a href="../groups">edit groups</a>.</p>
+
+<p><img src="image-20210215185753826.png" alt="add-users-to-a-group" /></p>
+
+<p><strong>Please note</strong>: The Groups tab is only shown if at least one user group exists in OpenProject.</p>
+
+<h3 id="global-roles">Global roles</h3>
+
+<p>In order to add a global role to a user, at least one global role needs to be <a href="../roles-permissions">created</a> in the system (a role with the “Global role” field ticked).</p>
+
+<p>On the <strong>Global roles</strong> tab, select or de-select the global role(s) for this user. Click the <strong>Add</strong> button.</p>
+
+<h3 id="rate-history">Rate history</h3>
+
+<p>The rate history shows the hourly rates that have been defined for the user. The “Default rate” is applied to projects with no rate defined. All projects that the user is a member of are listed with the user’s rates.</p>
+
+<p>The “Valid from” date will effect the rate used when creating a <a href="../../../user-guide/budgets/">budget</a> and when <a href="../../../user-guide/time-and-costs/time-tracking/">logging time</a>. Find out more <a href="../../../user-guide/time-and-costs/time-tracking/#define-hourly-rate-for-labor-costs">here</a>.</p>
+
+<h3 id="avatar">Avatar</h3>
+
+<p>The <strong>Avatar</strong> tab shows the default icon to be shown for this user. A custom image can be uploaded as the avatar. In addition, the users can also use their <a href="https://en.wikipedia.org/wiki/Gravatar">Gravatar</a>. The user can manage this in their Profile. These features can be disabled in the <a href="../avatars">avatar settings</a>.</p>
+
+<h3 id="two-factor-authentication-2fa">Two-factor authentication (2FA)</h3>
+<p>This tab shows whether a user has activated a device for two-factor authentication in their account. You can see the devices and delete them if necessary. 
+Please note: As this is a <a href="https://www.openproject.org/enterprise-edition/#premium-features">premium feature</a> this tab won’t be visible in the Community Edition.</p>
+
+<h2 id="authentication">Authentication</h2>
+
+<p>The available authentication methods affect the content of the Authentication section in the General tab of the user details.</p>
+
+<p>Use the <strong>self-registration</strong> field to give the following controls over a new user’s access.</p>
+
+<h3 id="manual-account-activation">Manual account activation</h3>
+
+<p>The user details Authentication section has fields <strong>Assign random password</strong>, <strong>Password</strong>, <strong>Confirmation</strong> and <strong>Enforce password change</strong>.</p>
+
+<ul>
+  <li>If you are near the new user, you can enter a password and confirmation then tell the user what it is. They can then sign in. It is recommended that you also tick the enforce password change tickbox, so that the user is prompted to change their password after they sign in.</li>
+  <li>You can phone the new user or send them an email, not using OpenProject, to give them the password. In this case it is more important to tick the enforce password change tickbox.</li>
+  <li>Tick the Assign random password, and probably the enforce password change tickbox. When the details are saved OpenProject will send an email to the new user with their password.</li>
+</ul>
+
+<h3 id="account-activation-by-email">Account activation by email</h3>
+
+<p>Leave all fields blank. When the details are saved OpenProject will send an email to the new user with a link inviting the user to OpenProject. They click the link to get the registration page to complete creating their account.</p>
+
+<h2 id="delete-users">Delete users</h2>
+
+<p>Two <a href="../settings/#user-deletion/">settings</a> allow users to be deleted from the system:</p>
+<ul>
+  <li><strong>User accounts deletable by admins</strong> - if ticked, a “Delete” button is shown on the user details page.</li>
+  <li><strong>Users allowed to delete their accounts</strong> - if ticked, a “Delete account” menu entry is shown in the “My Account” page.</li>
+</ul>
+
+<p>To delete another user’s account open the <a href="#user-list">user list</a>. Click on the <strong>user name</strong> of the user which you want to delete. Click the <strong>Delete</strong> button at the top right.</p>
+
+<p><img src="Sys-admin-delete-user.png" alt="Sys-admin-delete-user" /></p>
+
+<p>You will then be asked to type in the username in order to delete the user permanently from the system, then confirm this with your password.</p>
+
+<p><img src="image-20200115162533470.png" alt="delete user" /></p>
+
+<div class="alert alert-info" role="alert">
+**Note**: Deleting a user account is an irreversible action and cannot be reversed. The previous activities from this user will still be displayed in the system but reassigned to "deleted user".
+</div>

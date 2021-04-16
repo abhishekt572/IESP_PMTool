@@ -1,0 +1,137 @@
+<h1 id="excel-synchronization-with-openproject">Excel synchronization with OpenProject</h1>
+
+<h2 id="video-tutorials">Video tutorials</h2>
+
+<h3 id="download-and-upload">Download and upload</h3>
+
+<p>See how to set up the synchronization between OpenProject work packages and MS Excel.</p>
+
+<video src="https://www.openproject.org/wp-content/uploads/2020/12/OpenProject-Excel-synchronization-1.-download-and-upload.mp4" type="video/mp4" controls="" style="width:100%"></video>
+
+<h3 id="synchronize-custom-queries-views">Synchronize custom queries (views)</h3>
+
+<p>See how to synchronize custom work package queries from OpenProject in MS Excel.</p>
+
+<video src="https://www.openproject.org/wp-content/uploads/2020/12/OpenProject-Excel-Synchronization-2.-custom-queries.mp4" type="video/mp4" controls="" style="width:100%"></video>
+
+<h3 id="synchronize-hierarchies">Synchronize hierarchies</h3>
+
+<p>See how to synchronize work package hierarchies in OpenProject with MS Excel.</p>
+
+<video src="https://www.openproject.org/wp-content/uploads/2020/12/OpenProject-Excel-synchronization-3.-hierarchies.mp4" type="video/mp4" controls="" style="width:100%"></video>
+
+<h2 id="step-by-step-guide">Step-by-step guide</h2>
+
+<h3 id="setting-up-the-excel-list">Setting-up the Excel list</h3>
+
+<ol>
+  <li>
+    <p>In order to upload your tasks from an existing Excel list to OpenProject, you need to go to <a href="https://github.com/opf/OpenProjectExcel">OpenProjectExcel on GitHub.</a></p>
+  </li>
+  <li>
+    <p>Click on the green <strong>Clone or download</strong> button.</p>
+  </li>
+  <li>
+    <p>Choose the option <strong>Download ZIP</strong>.</p>
+
+    <p><img src="Download-Excel.png" alt="Download-Excel" /></p>
+  </li>
+  <li>
+    <p>Then, you need to extract the ZIP file and open the <strong>OpenProjectAPI</strong> Excel document.</p>
+  </li>
+</ol>
+
+<p><img src="Open-Excel-900x479@2x-1594297430589.png" alt="Open-Excel-900x479@2x" /></p>
+
+<ol>
+  <li>
+    <p>Next, within the Excel document you are asked to <strong>Enable Editing.</strong></p>
+  </li>
+  <li>
+    <p>Enable <strong>Content</strong> to activate macros within your document.</p>
+  </li>
+</ol>
+
+<p><img src="Enable-content-and-macros-1594297486714.png" alt="Enable-content-and-macros" /></p>
+
+<ol>
+  <li>Enter settings (URL and API-Token) and choose a project (and  optional a work package query) which you want to synchronize your data  with.</li>
+</ol>
+
+<p><img src="Choose-project-900x479@2x.png" alt="Choose-project-900x479@2x" /></p>
+
+<p><strong>URL</strong>: the URL of your OpenProject instance.
+ <strong>API-Token</strong>: can be generated within your OpenProject installation -&gt;<em>My Account</em> -&gt; <em>Access token</em>. Generate a new API token and copy &amp; paste it to this form.
+ <strong>Project</strong>: this is the project identifier which can be found within the project you want to synchronize -&gt; <em>Project settings</em> -&gt; <em>Information</em>. It is also shown in the URL if you open a project.
+ Query ID (this field is optional): enter the ID of a work package query  within a project with that you want to synchronize your Excel list.</p>
+
+<ol>
+  <li>
+    <p>Set as default: enable to remember the settings as default.</p>
+  </li>
+  <li>
+    <p>Accept to start the synchronization.</p>
+  </li>
+  <li>
+    <p>You need to select a minimum of columns to start with the  synchronization. For column selection, click in the header and open the  drop down which opens next to the regular drop down icon: Select the  following column headers at a minimum:
+ <strong>Updatestatus</strong>
+ <strong>Lock Version</strong>
+ <strong>ID</strong>
+ <strong>Subject</strong></p>
+  </li>
+</ol>
+
+<p>Additionally, you can select as many other columns that should be  synchronized – always by clicking in the header and selecting the drop  down icon which appears next to the regular icon. You will have all  fields available, incl. custom fields.</p>
+
+<p><strong>Important</strong>: make sure you have all fields that need to be synchronized from your Excel list also available in OpenProject. <strong>Some might be <a href="https://docs.openproject.org/system-admin-guide/custom-fields/">created beforehand as custom fields</a> in OpenProject.</strong>
+ Attributes that do not exist in the selected project within OpenProject  are NOT available in the headline. They cannot be selected in the header (via the drop-down). Neither can you just create a new column with an  attribute that does not exist in OpenProject. This will generate an  error message.</p>
+
+<p>Copy and paste all data accordingly from your existing Excel list to this sheet.</p>
+
+<p><img src="Select-columns.png" alt="Select-columns" /></p>
+
+<ol>
+  <li>Important: <strong>Ctrl + B</strong> will open the synchronization module to choose between the following options:</li>
+</ol>
+
+<p><img src="Ctrl-B.png" alt="Ctrl-B" /></p>
+
+<p><strong>Download workpackages</strong>: intitially downloads all work packages from the selected project (and query).
+ <strong>Upload / update work packages</strong>: makes changes to the  work packages, e.g. adding new work packages or changing any information. This option needs to be chosen in order to initially import and  existing Excel list.
+ <strong>Show chosen project</strong>: Opens the settings to adapt URL, API key, project or query ID.</p>
+
+<p>Congratulations! You can now synchronize your data between Excel and OpenProject.</p>
+
+<p><img src="Excel-OpenProject-synch-900x630@2x.png" alt="Excel-OpenProject-synch-900x630@2x" /></p>
+
+<ol>
+  <li>To synchronize hierarchies (Parent and child relations), insert the column <strong>Parent</strong> within the header of the Excel Sheet as described above (screen 10).</li>
+</ol>
+
+<p>To add or edit a new parent-child relation, you have two possibilities:</p>
+
+<p><strong>A)</strong> You can add a child to a work package when you  enter 4 empty spaces (press 4x Shift) before typing the subject of the  child work package.</p>
+
+<p><img src="https://1t1rycb9er64f1pgy2iuseow-wpengine.netdna-ssl.com/wp-content/uploads/2019/01/Insert-children-1024x605.png" alt="insert-children" /></p>
+
+<p><strong>Expert tip</strong>: it does not have to be empty spaces  (default 4 empty spaces) to separate the next hierarchy. You can also  take a „-“ and for the next hierarchy „—“. But the disadvantage is that  the hyphen will also be displayed in the work package subject. Therefore we recommend the spaces, because they will not appear in OpenProject.</p>
+
+<ol>
+  <li>Pressing <strong>Ctrl + B</strong> and selecting <strong>Upload / update work packages</strong> will open a window to define a new character for setting a parent-child-relationship (default is 4 empty spaces).</li>
+</ol>
+
+<p>Click <em>OK</em> when the screen for the Search characters (screen 13) appears. The IDs in the <em>Parent</em> column will then be automatically updated.</p>
+
+<p><img src="Search-character-parent.png" alt="Search-character-parent" /></p>
+
+<p>Pressing <strong>Cancel</strong> will ignore the Hierarchy – no matter what has been inserted. This is relevant for option B:</p>
+
+<p><strong>B)</strong> you can edit the IDs in the parent column manually. If you have edited the IDs manually in the parent column, just click <em>Cancel</em> when the above Search character option (screen 13) appears. Then, the  hierarchy will be updated according to the IDs in the column <em>Parent</em>.</p>
+
+<ol>
+  <li>The parent-child-relation will be displayed in OpenProject.</li>
+</ol>
+
+<p><img src="Parent-child-OpenProject.png" alt="Parent-child-OpenProject" /></p>
+
+<p>Hopefully, this will save you lots of time to import all your old  Excel To-Do lists and get started with OpenProject for project  management.</p>

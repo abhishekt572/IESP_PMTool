@@ -1,0 +1,133 @@
+I"�/<h1 id="openproject-1120">OpenProject 11.2.0</h1>
+
+<p>Release date: 2021-03-09</p>
+
+<p>We released <a href="https://community.openproject.com/versions/1461">OpenProject 11.2.0</a>.
+This new release will bring many new features and bug fixes that will improve classical as well as agile project management.</p>
+
+<h2 id="placeholder-users-premium-feature">Placeholder users (premium feature)</h2>
+
+<p>A new concept of placeholder users has been introduced with 11.2. Within the <em>Administration</em> -&gt; <em>Users and permissions</em> you are now able to create placeholder users without an email address and without taking away any license seats.</p>
+
+<p><img src="add-placeholder-users.png" alt="add-placeholder-users" /></p>
+
+<p>These preliminary users can then be added to projects. You can plan  with these resources and already assign tasks to them. This is  especially helpful when setting up a project template. Later, you can  then replace the placeholder users with real users in a project.</p>
+
+<p><img src="assign-placeholder-users.png" alt="assign-placeholder-users" /></p>
+
+<p>In the upcoming release we will continue working on this concept,  i.e. creating a visual distinction between real users and placeholder  users.</p>
+
+<h2 id="extended-filter-options-by-parent-and-id">Extended filter options by parent and ID</h2>
+
+<p>The work package filters are extended by new work package  attributes. You are now able to also select the parent as a filter option either by entering the name or ID of the parent work package. This way you can easily see all direct related children of a work package.</p>
+
+<p><img src="filter-parent.png" alt="filter-parent" /></p>
+
+<p>Furthermore, you can filter the work package table by ID to include (or exclude) only these work packages in the list.</p>
+
+<p><img src="Filter-ID.png" alt="Filter-ID" />
+ For example, choose those work packages you want to discuss in a meeting or that needs to be displayed on the project overview by filtering for exactly these IDs.</p>
+
+<p><img src="filter-ID-meetings-example.png" alt="filter-ID-meetings-example" /></p>
+
+<h2 id="distribution-of-user-administration">Distribution of user administration</h2>
+
+<p>The user administration is now distributed to non-admins by a new  global role for more fine-grained user management. This way it is possible for non-admins to manage and invite users without having full admin privileges.</p>
+
+<p><img src="distribution-of-user-admin.png" alt="distribution-of-user-admin" /></p>
+
+<h2 id="ui-and-ux-improvements-and-various-bug-fixes">UI and UX improvements and various bug fixes</h2>
+
+<p>Furthermore, with 11.2 we have implemented various UI and UX  improvements for OpenProject. We harmonized the navigation for the time and costs module so that it is consistent with the other navigation.  Also, we adapted the background colors of sum rows and group rows in the work package list so that it is easier to understand. We introduced a group show page (similar to the users show page) in order to link this page in case of mentioning a group and be also available for non-admins.</p>
+
+<h3 id="all-bug-fixes-and-changes">All bug fixes and changes</h3>
+
+<ul>
+  <li>Changed: Make the cost reporting navigation consistent with the other modules [<a href="https://community.openproject.com/wp/32928">#32928</a>]</li>
+  <li>Changed: Add work package filter for child work packages [<a href="https://community.openproject.com/wp/33163">#33163</a>]</li>
+  <li>Changed: Swap background colors of sum rows and group rows [<a href="https://community.openproject.com/wp/34711">#34711</a>]</li>
+  <li>Changed: Backend: Introduce the concept of “placeholder users” in data layer, API, services, contracts [<a href="https://community.openproject.com/wp/35505">#35505</a>]</li>
+  <li>Changed: Backend: Disable all notifications for placeholder users [<a href="https://community.openproject.com/wp/35506">#35506</a>]</li>
+  <li>Changed: Backend: Add global permission for creating users (and invite)  [<a href="https://community.openproject.com/wp/35507">#35507</a>]</li>
+  <li>Changed: Backend: Add global permission for creating and editing placeholder users [<a href="https://community.openproject.com/wp/35508">#35508</a>]</li>
+  <li>Changed: Backend: Add global permission for modifying users [<a href="https://community.openproject.com/wp/35533">#35533</a>]</li>
+  <li>Changed: Backend: Don’t count placeholder users in user limits of plans/subscriptions [<a href="https://community.openproject.com/wp/35535">#35535</a>]</li>
+  <li>Changed: Backend: Show and manage placeholder users in user administration [<a href="https://community.openproject.com/wp/35536">#35536</a>]</li>
+  <li>Changed: Frontend: Show placeholder user in user type drop downs [<a href="https://community.openproject.com/wp/35571">#35571</a>]</li>
+  <li>Changed:  Backend: Delete placeholder user [<a href="https://community.openproject.com/wp/35648">#35648</a>]</li>
+  <li>Changed: Add group show page similar to users [<a href="https://community.openproject.com/wp/35815">#35815</a>]</li>
+  <li>Changed: Remove setting “Allow assignment to groups”  [<a href="https://community.openproject.com/wp/36056">#36056</a>]</li>
+  <li>Changed: Accomodate placeholder users in project members administration [<a href="https://community.openproject.com/wp/36136">#36136</a>]</li>
+  <li>Changed: Add work package filter by id [<a href="https://community.openproject.com/wp/36358">#36358</a>]</li>
+  <li>Fixed: OAuth login has CSP issues when user already had authorized the app [<a href="https://community.openproject.com/wp/34554">#34554</a>]</li>
+  <li>Fixed: Unclear error message when subproject column for action board cannot be displayed due to missing permissions [<a href="https://community.openproject.com/wp/34840">#34840</a>]</li>
+  <li>Fixed: Impossible to enter time with dots [<a href="https://community.openproject.com/wp/34922">#34922</a>]</li>
+  <li>Fixed: Cannot sort user columns (in administration) [<a href="https://community.openproject.com/wp/35012">#35012</a>]</li>
+  <li>Fixed: create new child returns version error (duplicate usage of type for backlogs sprint and task) [<a href="https://community.openproject.com/wp/35157">#35157</a>]</li>
+  <li>Fixed: Taskboard story height to be increased. Assignee and Story name out of box [<a href="https://community.openproject.com/wp/35735">#35735</a>]</li>
+  <li>Fixed: PDF export opens in same tab [<a href="https://community.openproject.com/wp/36051">#36051</a>]</li>
+  <li>Fixed: LDAP connection retrieves at max 1000 elements regardless of server limit [<a href="https://community.openproject.com/wp/36206">#36206</a>]</li>
+  <li>Fixed: Deletion of users and groups is incomplete and results in corrupted data [<a href="https://community.openproject.com/wp/36238">#36238</a>]</li>
+  <li>Fixed: Breadcrumbs missing for both users and placeholder users administration pages when not admin [<a href="https://community.openproject.com/wp/36250">#36250</a>]</li>
+  <li>Fixed: Section header “Custom fields” was removed in user details in administration [<a href="https://community.openproject.com/wp/36257">#36257</a>]</li>
+  <li>Fixed: Error “Project filter has invalid values” shown when filtering by Parent on global WP page [<a href="https://community.openproject.com/wp/36287">#36287</a>]</li>
+  <li>Fixed: Error “Project filter has invalid values” shown when filtering by Parent on My page [<a href="https://community.openproject.com/wp/36288">#36288</a>]</li>
+  <li>Fixed: Empty authentication section shown for some users in adminstration (for users who have global role to view / edit / create users) [<a href="https://community.openproject.com/wp/36294">#36294</a>]</li>
+  <li>Fixed: Error 500 when accessing “Member” list in project while user name display format is set to email [<a href="https://community.openproject.com/wp/36297">#36297</a>]</li>
+  <li>Fixed: Role “Create and edit users” can see GDPR and billing although not allowed to [<a href="https://community.openproject.com/wp/36298">#36298</a>]</li>
+  <li>Fixed: Role “Create and edit users” can not change user name [<a href="https://community.openproject.com/wp/36299">#36299</a>]</li>
+  <li>Fixed: Internal error when accessing project work package page after deleting placeholder user [<a href="https://community.openproject.com/wp/36300">#36300</a>]</li>
+  <li>Fixed: Translation missing for placeholder Enterprise Edition page [<a href="https://community.openproject.com/wp/36302">#36302</a>]</li>
+  <li>Fixed: Logged hours not visible in widget on My Page for languages other than English [<a href="https://community.openproject.com/wp/36304">#36304</a>]</li>
+  <li>Fixed: Grouping by assignee through settings menu does not work [<a href="https://community.openproject.com/wp/36318">#36318</a>]</li>
+  <li>Fixed: Work package alignment incorrect when updating work package values / opening details view [<a href="https://community.openproject.com/wp/36330">#36330</a>]</li>
+  <li>Fixed: Wrong error message when trying to log time for a placeholder user [<a href="https://community.openproject.com/wp/36353">#36353</a>]</li>
+  <li>Fixed: Cannot create work package if a version custom field is configured [<a href="https://community.openproject.com/wp/36395">#36395</a>]</li>
+  <li>Fixed: Buttons and queries not working after filtering for custom field [<a href="https://community.openproject.com/wp/36440">#36440</a>]</li>
+  <li>Fixed: Trying to sort placeholder users by name leads to Error 500 [<a href="https://community.openproject.com/wp/36517">#36517</a>]</li>
+  <li>Epic: Support for placeholder users that do not have an email address yet [<a href="https://community.openproject.com/wp/35933">#35933</a>]</li>
+</ul>
+
+<h2 id="installation-and-updates">Installation and Updates</h2>
+
+<p>To use OpenProject 11.2 right away, create a free trial instance for our <a href="https://start.openproject.com/">OpenProject Enterprise cloud.</a></p>
+
+<p>Prefer to run OpenProject 11.2 in your own infrastructure?
+ Here you can find the <a href="https://docs.openproject.org/installation-and-operations">Installation guidelines</a> for OpenProject.</p>
+
+<p>Want to upgrade from a Community version to try out the Enterprise premium features? <a href="https://www.openproject.org/enterprise-edition/">Get a 14 days free trial token directly out of your current Community installation.</a></p>
+
+<h2 id="migrating-to-openproject-112">Migrating to OpenProject 11.2</h2>
+
+<p>Follow the <a href="https://docs.openproject.org/installation-and-operations/operation/upgrading/">upgrade guide for the packaged installation or Docker installation</a> to update your OpenProject installation to OpenProject 11.2.</p>
+
+<p>We update hosted OpenProject environments (Enterprise cloud) automatically.</p>
+
+<h2 id="support">Support</h2>
+
+<p>You will find useful information in the OpenProject <a href="https://docs.openproject.org">Documentation</a> or you can post your questions in the <a href="https://community.openproject.org/projects/openproject/boards">Forum</a>.</p>
+
+<h2 id="credits">Credits</h2>
+
+<p>Special thanks go to all OpenProject contributors without whom this release would not have been possible:</p>
+
+<ul>
+  <li>
+    <p>All the developers, designers, project managers who have contributed to OpenProject. Special thanks for reporting and finding bugs go to</p>
+
+    <p>Rémi Schillinger, Sander Kleijwegt, Tibor Budai.</p>
+  </li>
+  <li>
+    <p>Special thanks for this release go to Mercedes-AMG for sponsoring features.</p>
+  </li>
+  <li>
+    <p>Thank you for the updates of our documentation, cugu, txsing, luzpaz, Amandine-Malo, marcelotm23, ivangriggs, Siltes, loganwedwards.</p>
+  </li>
+  <li>
+    <p>Every dedicated user who has <a href="https://docs.openproject.org/development/report-a-bug/">reported bugs</a> and supported the community by asking and answering questions in the <a href="https://community.openproject.org/projects/openproject/boards">forum</a>.</p>
+  </li>
+  <li>
+    <p>All the dedicated users who provided translations on <a href="https://crowdin.com/projects/opf">CrowdIn</a>.</p>
+  </li>
+</ul>
+:ET

@@ -1,0 +1,23 @@
+I"’<h1 id="instruction-for-specific-platforms">Instruction for specific platforms</h1>
+
+<p>OpenProject only comes either as <a href="../docker/">docker container</a> or a <a href="../packaged/">package</a>.
+The respective sections explain everything you need to know.</p>
+
+<p>To make things easier here we give further instructions on how to get up and running with OpenProject
+on different platforms which use either the docker container or the package:</p>
+
+<ul>
+  <li><a href="../kubernetes">Kubernetes</a></li>
+  <li><a href="../synology">Synology</a></li>
+  <li><a href="../manual">Manual (not recommended)</a></li>
+</ul>
+
+<h1 id="community-provided-installation-variants">Community provided installation variants</h1>
+
+<p>There are additional methods on installing OpenProject, which we will link below for reference. Please note that we do not officially support these methods, and cannot guarantee their stability or correctness.</p>
+
+<ul>
+  <li><a href="../univention">Installing OpenProject with Univention App Center</a></li>
+  <li><a href="https://en.opensuse.org/User:Matthewtrescott/OpenProject">Custom package for OpenSuse by Matthew Trescott</a></li>
+</ul>
+:ET

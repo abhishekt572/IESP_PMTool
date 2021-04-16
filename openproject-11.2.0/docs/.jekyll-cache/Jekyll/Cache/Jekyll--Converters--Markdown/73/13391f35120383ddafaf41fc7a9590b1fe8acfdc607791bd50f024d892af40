@@ -1,0 +1,89 @@
+I"
+<link rel="stylesheet" href="/style.css" />
+
+<h1 id="keyboard-shortcuts-and-access-keys">Keyboard Shortcuts and Access Keys</h1>
+
+<p>IESP PM TOOL (since version 3.0) offers useful keyboard shortcuts to  enhance your productivity. We use both access keys and regular  shortcuts. When using access keys, press the modifier keys and the  access key number. For the regular shortcuts just type the listed keys  on any IESP PM TOOL page.</p>
+
+<h2 id="shortcuts">Shortcuts</h2>
+
+<h3 id="regular-shortcuts">Regular Shortcuts</h3>
+
+<ul>
+  <li>Global Search: s</li>
+  <li>Project Search: p</li>
+  <li>Go to: My Page: g m</li>
+  <li>Open Help Page: –</li>
+  <li>Open regular shortcuts List: ?</li>
+  <li>Go to: Overview: g o</li>
+  <li>Go to: Work Packages: g w p</li>
+  <li>Go to: Wiki: g w i</li>
+  <li>Go to: Activity: g a</li>
+  <li>Go to: Calendar: g c</li>
+  <li>Go to: News: g n</li>
+  <li>Go to: Timelines: g t</li>
+  <li>New: Work Package: n w p</li>
+  <li>Go to: Edit (only on certain detail pages): g e</li>
+  <li>Open ‘More’ Menu (only on certain detail pages): m</li>
+  <li>Go to: Preview (only on edit pages): g p</li>
+  <li>Select previous list item (only on some lists): j</li>
+  <li>Select next list item (only on some lists): k</li>
+</ul>
+
+<h3 id="access-keys">Access Keys</h3>
+
+<ul>
+  <li>Global Search: 4</li>
+  <li>Project Search: 5</li>
+  <li>Go to: My Page: –</li>
+  <li>Open Help Page: 6</li>
+  <li>Open regular shortcuts List: –</li>
+  <li>Go to: Overview: –</li>
+  <li>Go to: Work Packages: –</li>
+  <li>Go to: Wiki: –</li>
+  <li>Go to: Activity: –</li>
+  <li>Go to: Calendar: –</li>
+  <li>Go to: News: –</li>
+  <li>Go to: Timelines: –</li>
+  <li>New: Work Package: 2</li>
+  <li>Go to: Edit (only on certain detail pages): 3</li>
+  <li>Open ‘More’ Menu (only on certain detail pages): 7</li>
+  <li>Go to: Preview (only on edit pages): 1</li>
+  <li>Select previous list item (only on some lists): –</li>
+  <li>Select next list item (only on some lists): –</li>
+</ul>
+
+<hr />
+
+<h2 id="modifier-keys">Modifier Keys</h2>
+
+<h3 id="windows">Windows</h3>
+
+<ul>
+  <li>Internet Exlorer: Alt + <access key="" number=""></access></li>
+  <li>Firefox: Alt + Shift + <access key="" number=""></access></li>
+  <li>Google Chrome: Alt + <access key="" number=""></access></li>
+  <li>Safari: Alt + <access key="" number=""></access></li>
+</ul>
+
+<hr />
+
+<h3 id="linux">Linux</h3>
+
+<ul>
+  <li>Firefox: Alt + Shift + <access key="" number=""></access></li>
+  <li>Google Chrome: Alt + Mod + <access key="" number=""></access></li>
+</ul>
+
+<hr />
+
+<h3 id="os-x">OS X</h3>
+
+<ul>
+  <li>Firefox:  Ctrl + Opt + <access key="" number=""></access></li>
+  <li>Google Chrome: Ctrl + Opt + <access key="" number=""></access></li>
+  <li>Safari: Ctrl + Opt + <access key="" number=""></access></li>
+</ul>
+
+<hr />
+:ET

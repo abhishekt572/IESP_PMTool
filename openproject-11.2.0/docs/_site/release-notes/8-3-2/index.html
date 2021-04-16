@@ -1,0 +1,31 @@
+<h1 id="openproject-832">OpenProject 8.3.2</h1>
+
+<p>We released OpenProject 8.3.2.<br />
+The release contains a security related fix and we urge updating to the
+newest version.</p>
+
+<p> </p>
+
+<h2 id="cve-2019-11600">CVE-2019-11600</h2>
+
+<p>A SQL injection vulnerability in the activities API in OpenProject
+before 8.3.2 allows a remote attacker to execute arbitrary SQL commands
+via the id parameter. The attack can be performed unauthenticated if
+OpenProject is configured not to require authentication for API access. 
+This vulnerability has been assigned the CVE identifier CVE-2019-11600.</p>
+
+<p>Versions Affected: 5.0.0 – 8.3.1<br />
+Not affected: Versions &lt; 5.0.0<br />
+Fixed Versions: 8.3.2, 9.0.0</p>
+
+<p>For the full advisory and patches for older unsupported versions,
+<a href="https://groups.google.com/d/msg/openproject-security/XlucAJMxmzM/hESpOaFVAwAJ">please see this
+post</a>.
+For our statement on security and further information on how to
+responsible disclose security related issues to us, please see our
+<a href="https://www.openproject.org/security/">statement on security</a>.</p>
+
+<p>Thanks to Thanaphon Soo from the <a href="https://www.sec-consult.com">SEC Consult Vulnerability
+Lab</a> for identifying and responsibly
+disclosing the identified issues.</p>
+

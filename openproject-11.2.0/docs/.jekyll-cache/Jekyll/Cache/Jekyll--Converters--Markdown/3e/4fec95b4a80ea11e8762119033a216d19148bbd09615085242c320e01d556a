@@ -1,0 +1,209 @@
+I"�O<hr />
+<h1 id="release-notes-openproject-1050">Release notes OpenProject 10.5.0</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Release notes</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#openproject-1050">OpenProject 10.5.0</a></td>
+      <td style="text-align: left">What is new for OpenProject 10.5.0?</td>
+    </tr>
+    <tr>
+      <td><a href="#openproject-105-bim-edition-for-construction-project-management">OpenProject 10.5 BIM Edition for construction project management</a></td>
+      <td style="text-align: left">What is new for the construction project management for the building industry in OpenProject 10.5.0?</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="openproject-1050">OpenProject 10.5.0</h1>
+
+<p>We released <a href="https://community.openproject.com/versions/1386">OpenProject 10.5.0</a>.
+The new release of the open source project management software contains new action boards for assignees, much more intuitive sorting of versions by name, the removed 24-hours booking restriction for time tracking, the summary of news on the project overview page, and much more usability improvements and bug fixes.</p>
+
+<p>We recommend updating to the newest version.</p>
+
+<!--more-->
+
+<h3 id="action-board-for-assignees">Action board for assignees</h3>
+
+<p>The new action boards for assignees allow to create agile boards with lists for individual users or groups. The assignee will automatically be updated when moving cards across lists. This allows very transparent prioritization of tasks and distribution of workload between individuals and teams.</p>
+
+<p><img src="Assignee-boards.png" alt="Assignee-boards" /></p>
+
+<h3 id="sort-versions-by-name">Sort versions by name</h3>
+
+<p>We have now changed the sorting of versions in the drop-down menu by name not by dates. This makes it much easier to select a version from the list, especially when there are multiple active versions in one project.</p>
+
+<p><img src="Sorting-versions.png" alt="Sorting-versions" /></p>
+
+<h3 id="no-more-24-hour-restriction-for-time-tracking">No more 24-hour restriction for time tracking</h3>
+
+<p>The restriction to only allow the booking of 24 hours per day has now been removed. You can now summarize your time bookings and track more than 24 hours.</p>
+
+<p><img src="Spent-time.png" alt="Spent-time" /></p>
+
+<h3 id="show-news-summary-on-project-overview-widget">Show news summary on project overview widget</h3>
+
+<p>The summary of news will now be displayed in the news widget on the project overview page. This way, the summary of the most recent news will be communicated at one sight.</p>
+
+<p><img src="news-summary.png" alt="news-summary" /></p>
+
+<h2 id="upgrade-to-the-openproject-enterprise-edition">Upgrade to the OpenProject Enterprise Edition</h2>
+
+<p>With OpenProject 10.5 it is now much easier to upgrade an existing Community installation to the Enterprise Edition. Within your system Administration under -&gt; Enterprise Edition you now have the possibility to start a 14 days free trial for the Enterprise Edition. Also, you can upgrade directly to get professional support, premium features, and additional security features. The Enterprise token will be generated and updated in your Community installation.</p>
+
+<p><img src="Enterprise-Edition-upgrade.png" alt="Enterprise-Edition-upgrade" /></p>
+
+<h2 id="openproject-105-bim-edition-for-construction-project-management">OpenProject 10.5 BIM Edition for construction project management</h2>
+
+<p>OpenProject BIM 10.5 will improvement BIM project management for the construction industry, especially with the support of the BIM Collaboration Format (BCF). With the BCF Management module, the OpenProject BIM Edition now offers a fast and intuitive form of central collaboration and coordination in your BIM projects. Release 10.4 has already added an IFC Viewer for the integration of 3D building models. Now, BCF issues can be created directly in the 3D model and managed centrally.</p>
+
+<h3 id="collaboration-and-coordination-in-one-central-bim-project-management-software">Collaboration and coordination in one central BIM project management software</h3>
+
+<p>OpenProject supports BIM project management with central planning, collaboration and coordination for BIM projects. The software thus connects all project participants in a web-based system. As a web-based coordination tool, all BIM issues can be created, managed and distributed centrally in OpenProject.</p>
+
+<p><img src="BCF-management.png" alt="BCF-management" /></p>
+
+<h3 id="bcf-management-for-the-construction-industry">BCF Management for the construction industry</h3>
+
+<p>The core scenario enabled by the new release of the BIM Edition is BIM Issue Management with BCF. This enables issues in a construction project (e.g. clashes, requests, questions) to be crated and communicated directly on a 3D model or between several submodels.
+Both, model-associated issues (BCFs) directly on the BIM model as well as non-model-associated tasks can be created and tracked.</p>
+
+<p><img src="BCF-management-details.png" alt="BCF-management-details" /></p>
+
+<h3 id="central-bcf-issue-management-and-bcf-communication-in-openproject">Central BCF issue management and BCF communication in OpenProject</h3>
+
+<p>The BCF Issue management and communication is thus done centrally in OpenProject. Issues can be created directly on the 3D building model, jointly prioritized and analyzed, and assigned to the responsible BIM modelers.</p>
+
+<p>OpenProject offers an ideal way to comment on and track BCFs. Powerful filter and search functions support fast and intuitive use and transparent tracking.</p>
+
+<p><img src="BCF-management-split-screen-details.png" alt="BCF-management-split-screen-details" /></p>
+
+<h3 id="support-of-open-formats-ifc-and-bcf">Support of open formats IFC and BCF</h3>
+
+<p>BCF Management in OpenProject is compatible with hundreds of applications that support the exchange formats IFC (Industry Foundation Classes) and BCF (BIM Collaboration Format).</p>
+
+<h3 id="robust-bcf-import-and-export">Robust BCF import and export</h3>
+
+<p>BIM Issues can be created wherever the user identifies them, i.e. in his favorite BIM tool. These issues can then be easily imported into OpenProject - the central BCF management system - for centralized tracking and consolidation.
+An export function can then be used to distribute the BCFs back to the local applications.</p>
+
+<h3 id="all-changes-and-bug-fixes">All changes and bug fixes</h3>
+
+<ul>
+  <li>Changed: Hide “Empty” work package updates  [<a href="https://community.openproject.com/wp/21471">#21471</a>]</li>
+  <li>Changed: Create a “Action board” with “Action attribute” -&gt; “Assignee” [<a href="https://community.openproject.com/wp/30157">#30157</a>]</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>Changed: Project Overwiew</td>
+          <td>news-widget: Show summary of news on widget [<a href="https://community.openproject.com/wp/32321">#32321</a>]</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>Changed: Change version, type, priority validations to case-insensitive [<a href="https://community.openproject.com/wp/32513">#32513</a>]</li>
+  <li>Changed: Sort versions by name not by dates [<a href="https://community.openproject.com/wp/32749">#32749</a>]</li>
+  <li>Changed: Remove 24 hour restriction for time tracking [<a href="https://community.openproject.com/wp/32811">#32811</a>]</li>
+  <li>Changed: What’s new teaser OpenProject 10.5 [<a href="https://community.openproject.com/wp/33105">#33105</a>]</li>
+  <li>Changed: Change the Billing image on the start page to the new icon set [<a href="https://community.openproject.com/wp/33114">#33114</a>]</li>
+  <li>Fixed: Noop on WorkPackage creates empty journal [<a href="https://community.openproject.com/wp/21816">#21816</a>]</li>
+  <li>Fixed: Markdown link behind reverse proxy [<a href="https://community.openproject.com/wp/29010">#29010</a>]</li>
+  <li>Fixed: User List limitation in CostReport [<a href="https://community.openproject.com/wp/29524">#29524</a>]</li>
+  <li>Fixed: Work Package preview trigger area is too small [<a href="https://community.openproject.com/wp/31366">#31366</a>]</li>
+  <li>Fixed: OP 9/10 Coping projects results in forums not being copied even when checked. [<a href="https://community.openproject.com/wp/31472">#31472</a>]</li>
+  <li>Fixed: Relation “grid_widgets” does not exist [<a href="https://community.openproject.com/wp/31567">#31567</a>]</li>
+  <li>Fixed: Missing warning message when reopening agenda [<a href="https://community.openproject.com/wp/31598">#31598</a>]</li>
+  <li>Fixed: Can not add existing work package to board [<a href="https://community.openproject.com/wp/31613">#31613</a>]</li>
+  <li>Fixed: Checkboxes are not displayed properly in viewing mode [<a href="https://community.openproject.com/wp/31628">#31628</a>]</li>
+  <li>Fixed: Inconsistent translation of “News” in German [<a href="https://community.openproject.com/wp/31674">#31674</a>]</li>
+  <li>Fixed: Wiki tables not responsive + CSS weird + no markdown [<a href="https://community.openproject.com/wp/31920">#31920</a>]</li>
+  <li>Fixed: Strings not localized (password settings) [<a href="https://community.openproject.com/wp/31976">#31976</a>]</li>
+  <li>Fixed: Multiple Work Package Widgets on MyPage - Groups can’t be reduced independently [<a href="https://community.openproject.com/wp/32030">#32030</a>]</li>
+  <li>Fixed: [Repository] Error 500 when trying to log time with unmapped changeset user [<a href="https://community.openproject.com/wp/32038">#32038</a>]</li>
+  <li>Fixed: Clean-up Administration -&gt; System settings and remove wiki history compression [<a href="https://community.openproject.com/wp/32045">#32045</a>]</li>
+  <li>Fixed: Work package ID cut off on right side [<a href="https://community.openproject.com/wp/32069">#32069</a>]</li>
+  <li>Fixed: Project sorting not working anymore [<a href="https://community.openproject.com/wp/32220">#32220</a>]</li>
+  <li>Fixed: Incoming Mail does not find case-insensitive attributes such as status [<a href="https://community.openproject.com/wp/32251">#32251</a>]</li>
+  <li>Fixed: BIM theme is applied in standard edition [<a href="https://community.openproject.com/wp/32374">#32374</a>]</li>
+  <li>Fixed: Since migrate to 10.4 version unable to create SVN respository [<a href="https://community.openproject.com/wp/32389">#32389</a>]</li>
+  <li>Fixed: Drag placeholder in boards should look like on the project overview page [<a href="https://community.openproject.com/wp/32396">#32396</a>]</li>
+  <li>Fixed: Toolbar is cut off when sidebar is very large [<a href="https://community.openproject.com/wp/32430">#32430</a>]</li>
+  <li>Fixed: Wrong field type of Default Value in custom fields [<a href="https://community.openproject.com/wp/32445">#32445</a>]</li>
+  <li>Fixed: Order of work packages in copied project different from source project [<a href="https://community.openproject.com/wp/32447">#32447</a>]</li>
+  <li>Fixed: “All open” query still shows the card view [<a href="https://community.openproject.com/wp/32464">#32464</a>]</li>
+  <li>Fixed: missing www-authenticate in http 401 header for api/v3/time_entries/form [<a href="https://community.openproject.com/wp/32486">#32486</a>]</li>
+  <li>Fixed: Missing create button in work packages module on iOS [<a href="https://community.openproject.com/wp/32496">#32496</a>]</li>
+  <li>Fixed: Search filter transmitted although removed by user [<a href="https://community.openproject.com/wp/32500">#32500</a>]</li>
+  <li>Fixed: Split screen content not reachable on medium screen sizes [<a href="https://community.openproject.com/wp/32525">#32525</a>]</li>
+  <li>Fixed: Widget: My Spent Time: Time entry Search Function broken [<a href="https://community.openproject.com/wp/32578">#32578</a>]</li>
+  <li>Fixed: Cancel button does not remove the create form [<a href="https://community.openproject.com/wp/32647">#32647</a>]</li>
+  <li>Fixed: Usability bug: breadcrumbs do not follow usability best practices [<a href="https://community.openproject.com/wp/32650">#32650</a>]</li>
+  <li>Fixed: Emails are being sent for all created work packages when copying a project (even when email settings deactivated) [<a href="https://community.openproject.com/wp/32663">#32663</a>]</li>
+  <li>Fixed: Work package details view cut off on smaller screen [<a href="https://community.openproject.com/wp/32665">#32665</a>]</li>
+  <li>Fixed: Watcher autcompleter broken [<a href="https://community.openproject.com/wp/32666">#32666</a>]</li>
+  <li>Fixed: Adding child work packages not possible [<a href="https://community.openproject.com/wp/32670">#32670</a>]</li>
+  <li>Fixed: Dockerfile does not work on Windows [<a href="https://community.openproject.com/wp/32674">#32674</a>]</li>
+  <li>Fixed: Assigning a buget to a work package fails [<a href="https://community.openproject.com/wp/32732">#32732</a>]</li>
+  <li>Fixed: JS-Error on login page [<a href="https://community.openproject.com/wp/32738">#32738</a>]</li>
+  <li>Fixed: Project settings “(check/uncheck all)” misalligned [<a href="https://community.openproject.com/wp/32740">#32740</a>]</li>
+  <li>Fixed: “translation missing: en.button_history” error in meeting history view. [<a href="https://community.openproject.com/wp/32742">#32742</a>]</li>
+  <li>Fixed: Username attribute should not maintain whitespace [<a href="https://community.openproject.com/wp/32748">#32748</a>]</li>
+  <li>Fixed: Unnecessary scrollbar in split screen. [<a href="https://community.openproject.com/wp/32751">#32751</a>]</li>
+  <li>Fixed: Cost report: Error 404 when displaying cash value [<a href="https://community.openproject.com/wp/32752">#32752</a>]</li>
+  <li>Fixed: In forum “Quote” and “Reply” button do not automatically scroll to quote / reply (unclear that button has been pressed) [<a href="https://community.openproject.com/wp/32754">#32754</a>]</li>
+  <li>Fixed: Label “Message content” in forums not correctly aligned [<a href="https://community.openproject.com/wp/32755">#32755</a>]</li>
+  <li>Fixed: Disable possibility to change the user name when login via Google [<a href="https://community.openproject.com/wp/32779">#32779</a>]</li>
+  <li>Fixed: Several styling bugs in tables [<a href="https://community.openproject.com/wp/32781">#32781</a>]</li>
+  <li>Fixed: Update the project description onboarding texts and activate the project description in the demo projects [<a href="https://community.openproject.com/wp/32782">#32782</a>]</li>
+  <li>Fixed: Changing filter does not reset to first page [<a href="https://community.openproject.com/wp/32785">#32785</a>]</li>
+  <li>Fixed: Can not switch between work packages in split view [<a href="https://community.openproject.com/wp/32786">#32786</a>]</li>
+  <li>Fixed: Missing demo data: Teaser image and GETTING STARTED box for Demo project and Scrum project [<a href="https://community.openproject.com/wp/32799">#32799</a>]</li>
+  <li>Fixed: work packages with empty values are not sorted descending [<a href="https://community.openproject.com/wp/32808">#32808</a>]</li>
+  <li>Fixed: Resizers don’t work on mobile devices [<a href="https://community.openproject.com/wp/32810">#32810</a>]</li>
+  <li>Fixed: Main menu state is not stored on page reload [<a href="https://community.openproject.com/wp/32814">#32814</a>]</li>
+  <li>Fixed: Planned cost increases by an order of magnitude (10x) when saving budget [<a href="https://community.openproject.com/wp/32822">#32822</a>]</li>
+  <li>Fixed: Cannot filter for Work package TYPE in Boards [<a href="https://community.openproject.com/wp/32824">#32824</a>]</li>
+  <li>Fixed: After adding or removing a column the change is not indicated in the query [<a href="https://community.openproject.com/wp/32835">#32835</a>]</li>
+  <li>Fixed: Query indicates unsaved changes without changes to query [<a href="https://community.openproject.com/wp/32843">#32843</a>]</li>
+  <li>Fixed: Avatars are incorrectly cached [<a href="https://community.openproject.com/wp/32870">#32870</a>]</li>
+  <li>Fixed: Hourly cron synchronization not executed in docker context [<a href="https://community.openproject.com/wp/32884">#32884</a>]</li>
+  <li>Fixed: Assignee list empty when creating a task in “modules” work package list [<a href="https://community.openproject.com/wp/32887">#32887</a>]</li>
+  <li>Fixed: [Docker] Attach files error “An internal error has occured. The attachment could not be saved due to lacking file system permissions” [<a href="https://community.openproject.com/wp/32890">#32890</a>]</li>
+  <li>Fixed: Inconsistent breadcrumb in Administration -&gt; Enterprise Edition [<a href="https://community.openproject.com/wp/32905">#32905</a>]</li>
+  <li>Fixed: Styling and consistency issues in the confirm deletion modal for the EE token [<a href="https://community.openproject.com/wp/32908">#32908</a>]</li>
+  <li>Fixed: Misaligned menu opener in Backlogs plugin [<a href="https://community.openproject.com/wp/32923">#32923</a>]</li>
+  <li>Fixed: Wrong space in members widget after a group [<a href="https://community.openproject.com/wp/32927">#32927</a>]</li>
+  <li>Fixed: Filter for Type does not work in the WIKI makro [<a href="https://community.openproject.com/wp/32983">#32983</a>]</li>
+  <li>Fixed: Cannot assign tasks to groups in assignee board [<a href="https://community.openproject.com/wp/33072">#33072</a>]</li>
+  <li>Fixed: Enterprise-Upgrade-Video re-starts multiple times on Boards page [<a href="https://community.openproject.com/wp/33078">#33078</a>]</li>
+  <li>Fixed: Error 503 when trying to activate EE trial [<a href="https://community.openproject.com/wp/33080">#33080</a>]</li>
+  <li>Fixed: Error 500 when trying to remove EE trial license (on PullPreview) [<a href="https://community.openproject.com/wp/33081">#33081</a>]</li>
+  <li>Fixed: Wrong link to data privacy information [<a href="https://community.openproject.com/wp/33083">#33083</a>]</li>
+  <li>Fixed: Confirm icon too close to text in EE trial modal [<a href="https://community.openproject.com/wp/33084">#33084</a>]</li>
+  <li>Fixed: Internal error when trying to request EE trial license with Chinese language settings [<a href="https://community.openproject.com/wp/33085">#33085</a>]</li>
+  <li>Fixed: Cannot resend email to activate EE trial license [<a href="https://community.openproject.com/wp/33086">#33086</a>]</li>
+  <li>Fixed: Enterprise Edition email confirmation page reloads automatically [<a href="https://community.openproject.com/wp/33087">#33087</a>]</li>
+  <li>Fixed: Button “Continue” when adding column to board should be named “Add” [<a href="https://community.openproject.com/wp/33090">#33090</a>]</li>
+  <li>Fixed: Internal error when trying to save manually sorted work package view [<a href="https://community.openproject.com/wp/33092">#33092</a>]</li>
+  <li>Fixed: Error when trying to export work packages [<a href="https://community.openproject.com/wp/33093">#33093</a>]</li>
+  <li>Fixed: Typo in change retraction message [<a href="https://community.openproject.com/wp/33094">#33094</a>]</li>
+  <li>Fixed: Export seems to be stuck in infinite loop when export with all columns [<a href="https://community.openproject.com/wp/33110">#33110</a>]</li>
+  <li>Fixed: Export ignores columns, order and groups when exporting grouped WP view [<a href="https://community.openproject.com/wp/33111">#33111</a>]</li>
+  <li>Fixed: String without translation in roles &amp; permissions [<a href="https://community.openproject.com/wp/33113">#33113</a>]</li>
+  <li>Fixed: Cannot find users anymore with “+” sign in user name / email to add to project [<a href="https://community.openproject.com/wp/33115">#33115</a>]</li>
+</ul>
+
+<h4 id="contributions">Contributions</h4>
+<p>A big thanks to community members for reporting bugs and helping us identifying and providing fixes.</p>
+
+<p>Special thanks for reporting and finding bugs go to</p>
+
+<p>Vikas Kedia, Fernando Meurer, Aurelien Barre, Adnan Abou-Rikab, Scott Sanders, York-Simon Johannsen, Joachim Schardt, Peter Pof, Tobias R, Frank Schmid, Harald Holzmann, Petr Zeman, Paul GARROUSTE, Marc Vollmer, Filter Punk, Mathias Gerlach, Gio @ Enuan, Per Bröms, Jason Culligan, Frank Long, Radovan Semancik, Frendy A. N.</p>
+:ET

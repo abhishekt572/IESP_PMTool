@@ -1,0 +1,123 @@
+I"'<h1 id="openproject-1110">OpenProject 11.1.0</h1>
+
+<p>Release date: 2020-12-17</p>
+
+<p>We released <a href="https://community.openproject.com/versions/1424">OpenProject 11.1.0</a>.
+This new release will bring many new features and bug fixes that will improve classical as well as agile project management.</p>
+
+<h2 id="improved-styling-of-the-wysiwyg-text-editor">Improved styling of the WYSIWYG text editor</h2>
+
+<p>The styling of texts, headlines, tables, the layout of the table of  contents, and much more have been improved in the WYSIWYG text editor.  This applies not only to wiki pages but also for other text fields, e.g. the description of work packages. To achieve these improvements, we  have, among other things, updated the <a href="https://ckeditor.com/ckeditor-5/">CK Editor 5</a> to version 23.0.0.</p>
+
+<p><img src="WYSIWYG-text-editor.png" alt="WYSIWYG-text-editor" /></p>
+
+<h2 id="direct-display-of-user-name-for-notifications">Direct display of user name for @notifications</h2>
+
+<p>While editing a work package comment and @-notify someone, the user  name will now directly be displayed even in the edit mode. This way,  it’s much more convenient to notify the correct team member.</p>
+
+<p><img src="@notifications.png" alt="@notifications" /></p>
+
+<h2 id="display-project-milestones-aggregated-for-projects-in-a-single-row-in-gantt-chart">Display project milestones aggregated for projects in a single row in Gantt chart</h2>
+
+<p>With OpenProject 11.1 users are now able to <strong>aggregate milestones for projects in the Gantt chart in one single row</strong>. When grouped by projects, the rows can be collapsed with the collapse  all button and the project milestones are still visible in one row. This way, you easily get a high level overview of all important due dates in a project.</p>
+
+<p><img src="Aggregated-milestones.png" alt="Aggregated-milestones" /></p>
+
+<h2 id="collapse-all-button-for-groups-in-the-work-packages-list">Collapse all button for groups in the work packages list</h2>
+
+<p>In the work package list it is possible to group by any attribute,  e.g. assignee, status, priority or type. Now, once grouped by an  attribute, you will have a <strong>collapse all button on top of the work packages list</strong> to close and open all attributes within a group at once.</p>
+
+<p><img src="Collapse-all-button.png" alt="Collapse-all-button" /></p>
+
+<h2 id="signing-data-processing-agreement-dpa-documents-in-enterprise-cloud">Signing Data Processing Agreement (DPA) documents in Enterprise cloud</h2>
+
+<p>For EU customers it is required by the GDPR to sign a data processing agreement (sometimes called data processing addendum) before using our Cloud edition. Until now, we processed these contracts manually. Users had to print the document, enter their information and send it to us. We then had to sign it too, and send it back to the customer.</p>
+
+<p>Luckily, we now automated this process in order to reduce manual effort on both sides. This way, it is even easier to comply with GDPR. Within -&gt; Administration -&gt; GDPR you can now online review and sign your DPA document with us.</p>
+
+<p><img src="DPA-OpenProject.png" alt="DPA-OpenProject" /></p>
+
+<h2 id="various-improvements-and-bug-fixes">Various improvements and bug fixes</h2>
+
+<p>Furthermore, we have extended the authentication profile with an <strong>OpenID Connect provider.</strong> Also, the printing, e.g. for wiki pages, has been optimized via the browser print function.</p>
+
+<h2 id="as-always-theres-much-more">As always,…… there’s much more!</h2>
+
+<p>There are a lot more things we packed into 11.1 to tell you about.</p>
+
+<h3 id="bug-fixes-and-changes-in-111">Bug fixes and changes in 11.1</h3>
+
+<ul>
+  <li>Changed: @ mention should show user name in the editor [<a href="https://community.openproject.com/wp/32645">#32645</a>]</li>
+  <li>Changed: Update CK Editor 5 to version 23.0.0 [<a href="https://community.openproject.com/wp/34595">#34595</a>]</li>
+  <li>Changed: Display project’s milestones in Gantt chart aggregated in single row [<a href="https://community.openproject.com/wp/34943">#34943</a>]</li>
+  <li>Changed: Add custom classes to the CKEditor elements [<a href="https://community.openproject.com/wp/35104">#35104</a>]</li>
+  <li>Changed: Change icon and text in menu item in project list [<a href="https://community.openproject.com/wp/35436">#35436</a>]</li>
+  <li>Fixed: Wrong default settings for Gantt chart button in project list [<a href="https://community.openproject.com/wp/34312">#34312</a>]</li>
+  <li>Fixed: Locked work packages do not copy on project copy [<a href="https://community.openproject.com/wp/34496">#34496</a>]</li>
+  <li>Fixed: Boards view doesn’t keep the list order (order of the columns) [<a href="https://community.openproject.com/wp/35004">#35004</a>]</li>
+  <li>Fixed: caption is copied into the description and multiplied [<a href="https://community.openproject.com/wp/35123">#35123</a>]</li>
+  <li>Fixed: Copy budget: Manually set cost are set back to cost deduced from number of units [<a href="https://community.openproject.com/wp/35484">#35484</a>]</li>
+  <li>Fixed: “Translation missing” shown in administration &gt; groups [<a href="https://community.openproject.com/wp/35578">#35578</a>]</li>
+  <li>Fixed: In WYSIWYG editor preview formatting not correctly applied [<a href="https://community.openproject.com/wp/35593">#35593</a>]</li>
+  <li>Fixed: Internal error in project when adding “.” in title of wiki page [<a href="https://community.openproject.com/wp/35594">#35594</a>]</li>
+  <li>Fixed: Missing lines under headings in WYSIWYG editor [<a href="https://community.openproject.com/wp/35603">#35603</a>]</li>
+  <li>Fixed: WYSIWYG table: Tiny column when adding to the left of header column / formatting header not applied in edit [<a href="https://community.openproject.com/wp/35610">#35610</a>]</li>
+  <li>Fixed: Links in table of content not functional when macro in same row as toc [<a href="https://community.openproject.com/wp/35611">#35611</a>]</li>
+  <li>Fixed: 500er server error when opening query [<a href="https://community.openproject.com/wp/35620">#35620</a>]</li>
+  <li>Fixed: 500 on accessing user specific activity page [<a href="https://community.openproject.com/wp/35621">#35621</a>]</li>
+  <li>Fixed: “no end date” instead of “no finish date” in work package form [<a href="https://community.openproject.com/wp/35624">#35624</a>]</li>
+  <li>Fixed: Code-Snippets are shown nested within each other after update to 11.1 [<a href="https://community.openproject.com/wp/35628">#35628</a>]</li>
+  <li>Fixed: Images are left-aligned after update to OpenProject 11.1 [<a href="https://community.openproject.com/wp/35629">#35629</a>]</li>
+  <li>Fixed: Internal error when selecting user link on qa-edge [<a href="https://community.openproject.com/wp/35640">#35640</a>]</li>
+  <li>Fixed: Line breaks within words in table cells [<a href="https://community.openproject.com/wp/35644">#35644</a>]</li>
+  <li>Fixed: Typo in DPA email [<a href="https://community.openproject.com/wp/35653">#35653</a>]</li>
+  <li>Fixed: Typo in DPA text in OpenProject [<a href="https://community.openproject.com/wp/35654">#35654</a>]</li>
+  <li>Fixed: Cannot set nummerated headings without duplicating nummeration in table of contents [<a href="https://community.openproject.com/wp/35656">#35656</a>]</li>
+</ul>
+
+<h2 id="installation-and-updates">Installation and Updates</h2>
+
+<p>To use OpenProject 11.1 right away, create an instance and <a href="https://start.openproject.com/">test 14 days for free in the Cloud</a>.</p>
+
+<p>Prefer to run OpenProject 11.1 in your own infrastructure?
+Here you can find the <a href="../../installation-and-operations">Installation guidelines</a> for OpenProject.</p>
+
+<p>Want to upgrade from your self-managed Community version to try out the Enterprise premium features? <a href="https://www.openproject.org/enterprise-edition-upgrade-test-free/">Get a 14 days free trial token directly out of your current Community installation.</a></p>
+
+<p>Navigate to the -&gt; <em>Administration</em>-&gt; <em>Enterprise Edition</em> and request your trial token.</p>
+
+<h2 id="migrating-to-openproject-110">Migrating to OpenProject 11.0</h2>
+
+<p>Follow the <a href="../../installation-and-operations/operation/upgrading/">upgrade guide for the packaged installation or Docker installation</a> to update your OpenProject installation to OpenProject 11.0. Please note the blue box on top of the page.</p>
+
+<p>We update the hosted OpenProject environments (Enterprise Cloud) automatically.</p>
+
+<h2 id="credits-and-contributions">Credits and contributions</h2>
+
+<p>Special thanks go to all OpenProject contributors without whom this release would not have been possible:</p>
+
+<ul>
+  <li>
+    <p>All the developers, designers, project managers who have contributed to OpenProject 11.1.</p>
+  </li>
+  <li>
+    <p>The City of Cologne for sponsoring some of the open source features and thus contributing them to the Community.</p>
+  </li>
+  <li>
+    <p>Every dedicated user who has created feature request, <a href="../../development/report-a-bug/">reported bugs</a> for 11.1 and also supported the community by asking and answering questions in the <a href="https://community.openproject.org/projects/openproject/boards">forum</a>.</p>
+  </li>
+  <li>
+    <p>All the engaged users who provided translations on <a href="https://crowdin.com/projects/opf">CrowdIn</a>.</p>
+  </li>
+  <li>
+    <p>Special thanks for reporting and finding bugs go to:</p>
+
+    <p>Gio @ Enuan, Klaas van Thoor, Paul Kernstock, Rainer Proehl</p>
+  </li>
+</ul>
+
+<h2 id="whats-next">What’s next?</h2>
+
+<p>We are continuously developing new features and improvements for  OpenProject. If you’d like to preview what’s coming in the next release, be sure to check out our <a href="https://community.openproject.com/projects/openproject/work_packages?query_id=918">development roadmap</a>.</p>
+:ET

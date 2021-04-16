@@ -1,0 +1,57 @@
+I"b<h1 id="openproject-744">OpenProject 7.4.4</h1>
+
+<p><span class="explanatory-dictionary-highlight" data-definition="explanatory-dictionary-definition-10">Version</span>
+7.4.4 of OpenProject has been released. This release contains the
+following bug
+    fixes:</p>
+
+<ul>
+  <li><span class="explanatory-dictionary-highlight" data-definition="explanatory-dictionary-definition-7">Work
+package</span> modification for regular users on MySQL-based
+instances (<a href="https://community.openproject.com/wp/27237">#27237</a>)</li>
+  <li>Child work packages were not deleted when the parent element is
+deleted (<a href="https://community.openproject.com/wp/27280">#27280</a>)</li>
+  <li>The fuzzy project autocompletion has been corrected to provide
+better matching when a substring is matched
+(<a href="https://community.openproject.com/wp/27447">#27447</a>)</li>
+  <li>The GitHub integration plugin did not properly receive events due to
+a naming clash
+(<a href="https://community.openproject.com/wp/27448">#27448</a>)</li>
+  <li>Creating new wiki pages from a wiki link (e.g,  <em>[[
+<span class="explanatory-dictionary-highlight" data-definition="explanatory-dictionary-definition-8">Wiki</span>
+page ]] </em>) now retains the correct title instead of the generated
+URL slug (<a href="https://community.openproject.com/wp/27462">#27462</a>)</li>
+  <li>A subsequent search for documents in the global search disabled the
+documents search checkbox
+(<a href="https://community.openproject.com/wp/27479">#27479</a>)</li>
+  <li>The reset button for RSS tokens generated a new API token instead
+(<a href="https://community.openproject.com/wp/27498">#27498</a>)</li>
+  <li><span class="explanatory-dictionary-highlight" data-definition="explanatory-dictionary-definition-8">Wiki</span>
+start pages
+(titled <em><span class="explanatory-dictionary-highlight" data-definition="explanatory-dictionary-definition-8">Wiki</span>)</em>
+could not be renamed back if the name was changed at one point
+(<a href="https://community.openproject.com/wp/27576">#27576</a>)</li>
+</ul>
+
+<p> </p>
+
+<h3 id="changes">Changes</h3>
+
+<ul>
+  <li><span class="explanatory-dictionary-highlight" data-definition="explanatory-dictionary-definition-62">Meetings</span>
+plugin: The <em>close</em> button of the show page now requires a
+confirmation before closing
+(<a href="https://community.openproject.com/wp/27336">#27336</a>)</li>
+  <li>The restriction to create a time entry with at maximum 1000 hours on
+a single work package has been lifted
+(<a href="https://community.openproject.com/wp/27457">#27457</a>)</li>
+</ul>
+
+<p> </p>
+
+<p>For more information, please see the <a href="https://community.openproject.com/versions/924">v7.4.4 version in our
+community</a> or <span style="font-size: 1.125rem;">take
+a look
+at </span><a href="https://github.com/opf/openproject/tree/v7.4.4">GitHub</a><span style="font-size: 1.125rem;">.</span></p>
+
+:ET

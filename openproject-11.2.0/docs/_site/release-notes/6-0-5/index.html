@@ -1,0 +1,123 @@
+<h1 id="openproject605">OpenProject 6.0.5</h1>
+
+<p>OpenProject 6.0.5 contains several bug fixes and improvements.</p>
+
+<p><strong>The following bugs have been fixed in OpenProject 6.0.5:</strong></p>
+
+<ul>
+  <li>Work packages
+    <ul>
+      <li>Links in the parent column in the work package list were not
+correctly displayed but showed an error
+(<a href="https://community.openproject.com/work_packages/23865/activity">#23865</a>).</li>
+      <li>The grouping of work packages was lost on export.</li>
+      <li>In work package custom fields the zero was displayed as not set
+(“-“)
+(<a href="https://community.openproject.com/work_packages/23975/activity">#23975</a>).</li>
+      <li>The right-click context menu on the work package list did not
+disappear when clicking an a work package ID or on attribute
+fields
+(<a href="https://community.openproject.com/work_packages/24005/activity">#24005</a>).</li>
+      <li>For users who were not allowed to make changes to work packages
+the attachment delete icon and the work package edit button was
+shown
+(<a href="https://community.openproject.com/work_packages/24032/activity">#24032</a>).</li>
+      <li>Custom fields of type “Long text” could sometimes not be saved,
+showed distracting icons on hover and were not accessible
+(<a href="https://community.openproject.com/work_packages/24033/activity">#24033</a>).</li>
+      <li>Curly braces in the work package description (e.g. to show code)
+were incorrectly displayed / escaped
+(<a href="https://community.openproject.com/work_packages/24050/activity">#24050</a>).</li>
+      <li>It was not possible to set the default “Objects per page” for
+the work package list
+(<a href="https://community.openproject.com/work_packages/23846/activity">#23846</a>).</li>
+      <li>There was a translation missing when displaying changes in the
+work package description
+(<a href="https://community.openproject.com/work_packages/23917/activity">#23917</a>).</li>
+    </ul>
+  </li>
+  <li><span class="explanatory-dictionary-highlight" data-definition="explanatory-dictionary-definition-8">Wiki</span>
+    <ul>
+      <li>An internal error occurred when renaming wiki pages to certain
+reserved names
+(<a href="https://community.openproject.com/work_packages/23961/activity">#23961</a>).</li>
+      <li>The macro list on the wiki page showed wrong entries / was not
+correctly escaped
+(<a href="https://community.openproject.com/work_packages/23835/activity">#23835</a>).</li>
+    </ul>
+  </li>
+  <li>Users
+    <ul>
+      <li>New users who created a hosted OpenProject instance had wrong
+email settings
+(<a href="https://community.openproject.com/work_packages/23856/activity">#23856</a>).</li>
+    </ul>
+  </li>
+  <li><span class="explanatory-dictionary-highlight" data-definition="explanatory-dictionary-definition-37">Repository</span>
+    <ul>
+      <li>There was an instance when the Git repository was producing an
+error 500
+(<a href="https://community.openproject.com/work_packages/23953/activity">#23953</a>).</li>
+      <li><span class="explanatory-dictionary-highlight" data-definition="explanatory-dictionary-definition-37">Repository</span>
+commit which referenced work packages were not shown on the work
+package
+(<a href="https://community.openproject.com/work_packages/24026/activity">#24026</a>).</li>
+    </ul>
+  </li>
+  <li>Costs / Budgets
+    <ul>
+      <li>The actual costs for the different entries were not shown in a
+budget
+(<a href="https://community.openproject.com/work_packages/24017/activity">#24017</a>).</li>
+    </ul>
+  </li>
+  <li>Cost report
+    <ul>
+      <li>The scrollbar for the cost report table was missing which made
+it impossible to see large reports
+(<a href="https://community.openproject.com/work_packages/23991/activity">#23991</a>).</li>
+      <li>An error occurred when using the cost report with Chinese
+language settings due to a missing translation
+(<a href="https://community.openproject.com/work_packages/23998/activity">#23998</a>).</li>
+    </ul>
+  </li>
+  <li><span class="explanatory-dictionary-highlight" data-definition="explanatory-dictionary-definition-92">Backlogs</span>
+    <ul>
+      <li>Clicking on an empty story point field in the backlogs to assign
+story points to a work package was not possible
+(<a href="https://community.openproject.com/work_packages/23994/activity">#23994</a>).</li>
+    </ul>
+  </li>
+  <li>Other
+    <ul>
+      <li>There were several design issues and improvements
+(<a href="https://community.openproject.com/work_packages/23868/activity">#23868</a>,
+<a href="https://community.openproject.com/work_packages/23916/activity">#23916</a>,
+<a href="https://community.openproject.com/work_packages/23925/activity">#23925</a>,
+<a href="https://community.openproject.com/work_packages/23948/activity">#23948</a>,
+<a href="https://community.openproject.com/work_packages/23977/activity">#23977</a>,
+<a href="https://community.openproject.com/work_packages/23978/activity">#23978</a>,
+<a href="https://community.openproject.com/work_packages/23980/activity">#23980</a>,
+<a href="https://community.openproject.com/work_packages/23989/activity">#23989</a>,
+<a href="https://community.openproject.com/work_packages/23992/activity">#23992</a>).</li>
+    </ul>
+  </li>
+</ul>
+
+<p>In addition the link to see and edit the logged time has been added to
+the work package list and work package page
+(<a href="https://community.openproject.com/work_packages/24023/activity">#24023</a>).</p>
+
+<p>Thanks a lot to the community, in particular to Marc Vollmer, Frank
+Schmid, Melroy van den Berg, Richard Su, Mikhail Podshivalin, Tilo
+Laufer, Artur Kokhansky, Martin Kleehaus, Filipe Dias, and Markus
+Berthold  for <a href="https://www.openproject.org/development/report-a-bug/">reporting
+bugs</a>!</p>
+
+<p>For further information on the release, please refer to the <a href="https://community.openproject.com/versions/817">Changelog
+v.6.0.5</a> or take a look
+at <a href="https://github.com/opf/openproject/tree/v6.0.5">GitHub</a>.</p>
+
+<p>You can try OpenProject for free. For a free 30 day trial create your
+OpenProject instance on <a href="https://openproject.org/">OpenProject.org</a>.</p>
+

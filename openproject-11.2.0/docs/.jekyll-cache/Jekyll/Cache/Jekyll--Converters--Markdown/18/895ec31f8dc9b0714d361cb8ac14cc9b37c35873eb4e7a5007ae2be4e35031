@@ -1,0 +1,226 @@
+I"�]<h1 id="openproject-100">OpenProject 10.0</h1>
+
+<p>OpenProject 10 introduces drag and drop ordering of work packages in the work package table and Gantt view. The project overview dashboard has been completely rewritten to provide a modern and flexible overview of the project. In addition, work package description and custom fields now have task lists you can create and manage within the CKEditor5 WYSIWYG editor. A new card view on the work package page provides quick overview of the tasks. Users of the Cloud and Enterprise Edition benefit from graphs which can be included in the project overview page.</p>
+
+<p>Read below to get a detailed overview of what is new in OpenProject 10.</p>
+
+<p><img src="release-teaser.jpg" alt="OpenProject 10" /></p>
+
+<h2 id="drag--drop-manual-sorting-in-work-package-table">Drag &amp; drop (manual sorting) in work package table</h2>
+
+<p>OpenProject 10 adds drag and drop to the work package list. You can easily change the work package order by simply dragging a work package to a desired place.</p>
+
+<p>This also allows you to change a work package’s hierarchy (e.g. by dragging a work package from the first hierarchy level below an existing work package).</p>
+
+<p>When you group the work package list based on an attribute (e.g. the assignee, project or status), you can easily change an attribute by dropping a work package to a different group. Want to change the assignee? Simply drag and drop a work package to a different assignee group.</p>
+
+<p><img src="drag-drop-1.png" alt="Drag &amp; Drop work packages" /></p>
+
+<h2 id="card-view-for-work-packages">Card view for work packages</h2>
+
+<p>The work package view is extended in OpenProject 10. In addition to the list view and the Gantt chart view, it is possible to display work packages in a card format.</p>
+
+<p>This provides an easy visual overview of the tasks in a project. Simply activate the details view to see more information about a work package.</p>
+
+<p><img src="card-view.png" alt="OpenProject card view" /></p>
+
+<h2 id="updated-project-overview">Updated Project Overview</h2>
+
+<p>OpenProject 10 introduces an updated project overview page. You can now easily add, edit and remove widgets - directly from the project overview page.</p>
+
+<p>Freely configure how many columns are displayed on the project overview page.</p>
+
+<p>The overview pages of users upgrading from earlier versions to OpenProject 10 will be updated automatically.</p>
+
+<p><img src="overview.png" alt="Updated project overview" /></p>
+
+<h2 id="graphs-on-project-overview-page-cloud--enterprise-edition">Graphs on project overview page (Cloud / Enterprise Edition)</h2>
+
+<p>As a user of the Cloud or Enterprise Edition, you can add graphs to the overview page. This enables you to visualize important project information - directly form the project overview page.</p>
+
+<p>Therefore, you can quickly communicate e.g. who is assigned to which work packages, how many tasks are still open and more. To give you maximum flexibility, you can choose from seven different types of graphs, such as bar charts, pie charts and line graphs.</p>
+
+<p>As a result, you quickly see your project’s status and can act accordingly.</p>
+
+<p><img src="graphs.png" alt="Graphs on overview page" /></p>
+
+<h2 id="updated-administration-menu-and-structure">Updated administration menu and structure</h2>
+
+<p>The administration area is completely remodeled in OpenProject 10. Due to the changes, the administration menu is much more clearly structured.</p>
+
+<p>Additionally, the administration overview page now highlights the different admin entries for quick access.</p>
+
+<p><img src="administration.png" alt="Updated administration" /></p>
+
+<h2 id="checkbox-lists">Checkbox lists</h2>
+
+<p>You can easily add checkboxes in order to create to do lists to wiki pages, work package descriptions and many other pages which support the wiki syntax.</p>
+
+<p>Afterwards, you can easily check off items which have been completed to keep track of your work.</p>
+
+<p><img src="checkbox-lists.png" alt="Check boxes and sticky header wiki pages" /></p>
+
+<h2 id="sticky-toolbar-for-wysiwyg-editor">Sticky toolbar for WYSIWYG editor</h2>
+
+<p>The toolbar for wiki pages is now fixed at the top and no longer scrolls along with the page. Thus, you can easily edit even long texts on a wiki page without having to scroll up and down.</p>
+
+<h2 id="performance-improvements">Performance improvements</h2>
+
+<p>OpenProject 10 significantly improves the performance, especially for the work package page. Due to description caching work packages are loaded swiftly.</p>
+
+<h4 id="bug-fixes-and-changes">Bug fixes and changes</h4>
+
+<ul>
+  <li>Added: [Wiki] Allow to create child pages via links without a target [<a href="https://community.openproject.com/wp/24167">#24167</a>]</li>
+  <li>Added: Sticky text editor toolbar that is visible above long text fields [<a href="https://community.openproject.com/wp/29738">#29738</a>]</li>
+  <li>Added: Checkbox lists for work package [<a href="https://community.openproject.com/wp/29804">#29804</a>]</li>
+  <li>Added: Custom Fields are now shown in Projects API [<a href="https://community.openproject.com/wp/30387">#30387</a>]</li>
+  <li>Changed: Render text field links in the backend independently of the user [<a href="https://community.openproject.com/wp/30501">#30501</a>]</li>
+  <li>Changed: Widget: add graphs with single dataset [<a href="https://community.openproject.com/wp/30522">#30522</a>]</li>
+  <li>Changed: When drag and drop work packages indicate drop zone in work package list as flat line instead of entire row [<a href="https://community.openproject.com/wp/30723">#30723</a>]</li>
+  <li>Changed: View selector to switch between Gantt view, tiles view and list view [<a href="https://community.openproject.com/wp/30746">#30746</a>]</li>
+  <li>Changed: Add menu items “Sort by…” and “Group by…” to the more menu of a work packages view so the features are more visible [<a href="https://community.openproject.com/wp/30751">#30751</a>]</li>
+  <li>Changed: Don’t highlight the first row in the split view [<a href="https://community.openproject.com/wp/30765">#30765</a>]</li>
+  <li>Fixed: Reminder mailer fails if assignee is not a user [<a href="https://community.openproject.com/wp/25689">#25689</a>]</li>
+  <li>Fixed: Unable to subscribe to member_updated or member_removed notifications [<a href="https://community.openproject.com/wp/29632">#29632</a>]</li>
+  <li>Fixed: SQL Injection Project orders [<a href="https://community.openproject.com/wp/30132">#30132</a>]</li>
+  <li>Fixed: Remove “new” badge of boards in Version 10.0 [<a href="https://community.openproject.com/wp/30213">#30213</a>]</li>
+  <li>Fixed: Insufficient space between user avatar and user name [<a href="https://community.openproject.com/wp/30357">#30357</a>]</li>
+  <li>Fixed: [DnD] Changing a WP changes the sort order [<a href="https://community.openproject.com/wp/30389">#30389</a>]</li>
+  <li>Fixed: Check spelling of e-mail vs. email [<a href="https://community.openproject.com/wp/30411">#30411</a>]</li>
+  <li>Fixed: Sorting relation sub elements influences the order of the rest of the table [<a href="https://community.openproject.com/wp/30421">#30421</a>]</li>
+  <li>Fixed: Boolean CF with unset values are shown empty in export [<a href="https://community.openproject.com/wp/30442">#30442</a>]</li>
+  <li>Fixed: Missing colors for work package status [<a href="https://community.openproject.com/wp/30483">#30483</a>]</li>
+  <li>Fixed: Table is not scrollable with enabled Gantt chart [<a href="https://community.openproject.com/wp/30490">#30490</a>]</li>
+  <li>Fixed: Fixed page size not forced in already-saved queries [<a href="https://community.openproject.com/wp/30561">#30561</a>]</li>
+  <li>Fixed: Subject fields in sync while creating 2 new board cards [<a href="https://community.openproject.com/wp/30586">#30586</a>]</li>
+  <li>Fixed: No warning when switching from project description to other page [<a href="https://community.openproject.com/wp/30587">#30587</a>]</li>
+  <li>Fixed: Sorting of card view is not the same as in the list [<a href="https://community.openproject.com/wp/30675">#30675</a>]</li>
+  <li>Fixed: Project resource not updated when changing a custom field [<a href="https://community.openproject.com/wp/30683">#30683</a>]</li>
+  <li>Fixed: Typo in German Enterprise Edition license Email (date) [<a href="https://community.openproject.com/wp/30732">#30732</a>]</li>
+  <li>Fixed: Users and permissions tile in the administration should link to the users table instead of the user settings [<a href="https://community.openproject.com/wp/30742">#30742</a>]</li>
+  <li>Fixed: After pressing enter in the work package widget title the cursor is still blinking [<a href="https://community.openproject.com/wp/30757">#30757</a>]</li>
+  <li>Fixed: Dropdown in WP list not centered (when next to subject) [<a href="https://community.openproject.com/wp/30760">#30760</a>]</li>
+  <li>Fixed: Context menu in Gantt not working [<a href="https://community.openproject.com/wp/30761">#30761</a>]</li>
+  <li>Fixed: Cannot drag &amp; drop WP (child) work package created from context menu [<a href="https://community.openproject.com/wp/30762">#30762</a>]</li>
+  <li>Fixed: Drag &amp; Drop: Order of other work package changed [<a href="https://community.openproject.com/wp/30763">#30763</a>]</li>
+  <li>Fixed: Missing border between tiles and split sceen and not aligned on the top [<a href="https://community.openproject.com/wp/30764">#30764</a>]</li>
+  <li>Fixed: Kosmetisch: Notification E-Mails manchmal schwarz / manchmal weiß [<a href="https://community.openproject.com/wp/30769">#30769</a>]</li>
+  <li>Fixed: New child work package that is created in the relations tab is not shown in the list view [<a href="https://community.openproject.com/wp/30777">#30777</a>]</li>
+  <li>Fixed: Typos in German language settings [<a href="https://community.openproject.com/wp/30785">#30785</a>]</li>
+  <li>Fixed: When changing WP type in Gantt shadow WPs are shown [<a href="https://community.openproject.com/wp/30787">#30787</a>]</li>
+  <li>Fixed: Enterprise Edition option shown in Cloud Administration (Page not found) [<a href="https://community.openproject.com/wp/30788">#30788</a>]</li>
+  <li>Fixed: Wrong side entry selected in administration when selecting “Work packages” [<a href="https://community.openproject.com/wp/30789">#30789</a>]</li>
+  <li>Fixed: Default descriptions get still applied even after deleting them. [<a href="https://community.openproject.com/wp/30795">#30795</a>]</li>
+  <li>Fixed: UX: Inconsistency when confirm-click on tick-button is needed (Adding an existing child vs. adding a relation). [<a href="https://community.openproject.com/wp/30796">#30796</a>]</li>
+  <li>Fixed: Switching from Gantt view back to table view will still display Gantt in the button [<a href="https://community.openproject.com/wp/30797">#30797</a>]</li>
+  <li>Fixed: Internal error when setting assignee [<a href="https://community.openproject.com/wp/30799">#30799</a>]</li>
+  <li>Fixed: View toggler not changing when activating Gantt in settings [<a href="https://community.openproject.com/wp/30800">#30800</a>]</li>
+  <li>Fixed: White space in Gantt when zooming out [<a href="https://community.openproject.com/wp/30801">#30801</a>]</li>
+  <li>Fixed: Zoom in Gantt loses WPs (zooms in on left side instead of center) [<a href="https://community.openproject.com/wp/30802">#30802</a>]</li>
+  <li>Fixed: Table and Gantt are off when many WPs are displayed [<a href="https://community.openproject.com/wp/30805">#30805</a>]</li>
+  <li>Fixed: Relations not translated in XLS export [<a href="https://community.openproject.com/wp/30806">#30806</a>]</li>
+  <li>Fixed: Watcher / relations numbers cut off in German (non-English languages) [<a href="https://community.openproject.com/wp/30807">#30807</a>]</li>
+  <li>Fixed: Cannot close set parent dialog with Escape right away / weird German text [<a href="https://community.openproject.com/wp/30808">#30808</a>]</li>
+  <li>Fixed: Empty parentheses briefly shown when creating new custom action [<a href="https://community.openproject.com/wp/30809">#30809</a>]</li>
+  <li>Fixed: Missing translation in administration (Status, Types, …) [<a href="https://community.openproject.com/wp/30811">#30811</a>]</li>
+  <li>Fixed: Missing translations for OAuth authentication [<a href="https://community.openproject.com/wp/30812">#30812</a>]</li>
+  <li>Fixed: Wrong focus / scroll on admin entries [<a href="https://community.openproject.com/wp/30814">#30814</a>]</li>
+  <li>Fixed: Gantt: Can’t move WP on time axis if follower has no finish date [<a href="https://community.openproject.com/wp/30816">#30816</a>]</li>
+  <li>Fixed: Type is wrongly changed in Action board on status change [<a href="https://community.openproject.com/wp/30817">#30817</a>]</li>
+  <li>Fixed: MS Edge: Dropzone for Drag &amp; Drop not shown [<a href="https://community.openproject.com/wp/30826">#30826</a>]</li>
+  <li>Fixed: Icon wrongly shown briefly in administration submenus [<a href="https://community.openproject.com/wp/30827">#30827</a>]</li>
+  <li>Fixed: Links in administration open in same tab [<a href="https://community.openproject.com/wp/30828">#30828</a>]</li>
+  <li>Fixed: Sorting arrow not shown next to columns (automatic sorting) [<a href="https://community.openproject.com/wp/30831">#30831</a>]</li>
+  <li>Fixed: Gantt view for filtered out parent work packages not updated correctly [<a href="https://community.openproject.com/wp/30837">#30837</a>]</li>
+  <li>Fixed: Inaccessible linked work package shown as active link [<a href="https://community.openproject.com/wp/30839">#30839</a>]</li>
+  <li>Fixed: Creating empty cards in different columns leads to weird behavior [<a href="https://community.openproject.com/wp/30842">#30842</a>]</li>
+  <li>Fixed: Focus not set when adding existing card to board [<a href="https://community.openproject.com/wp/30843">#30843</a>]</li>
+  <li>Fixed: Adding existing card and creating new card form can be open at same time [<a href="https://community.openproject.com/wp/30844">#30844</a>]</li>
+  <li>Fixed: Search field cannot be minimzed / closed again after being opened [<a href="https://community.openproject.com/wp/30846">#30846</a>]</li>
+  <li>Fixed: Work package from board not shown in fullscreen [<a href="https://community.openproject.com/wp/30848">#30848</a>]</li>
+  <li>Fixed: Drag &amp; Drop handle not shown in group mode when split screen was activated [<a href="https://community.openproject.com/wp/30852">#30852</a>]</li>
+  <li>Fixed: Author field is cut off even though there is plenty of space [<a href="https://community.openproject.com/wp/30853">#30853</a>]</li>
+  <li>Fixed: Dropdown menus not aligned [<a href="https://community.openproject.com/wp/30856">#30856</a>]</li>
+  <li>Fixed: Unnecessary scrollbars in work package view [<a href="https://community.openproject.com/wp/30857">#30857</a>]</li>
+  <li>Fixed: When clicking on “Webhooks” in admin menu, focus jumps to “Overview” [<a href="https://community.openproject.com/wp/30859">#30859</a>]</li>
+  <li>Fixed: Work package stays selected when clicking on WPs with split screen open [<a href="https://community.openproject.com/wp/30862">#30862</a>]</li>
+  <li>Fixed: Color of status button always shown in orange [<a href="https://community.openproject.com/wp/30863">#30863</a>]</li>
+  <li>Fixed: Project menu auto-closes in change project screen [<a href="https://community.openproject.com/wp/30867">#30867</a>]</li>
+  <li>Fixed: Versions not copied and copying slow [<a href="https://community.openproject.com/wp/30872">#30872</a>]</li>
+  <li>Fixed: Relations cannot be created [<a href="https://community.openproject.com/wp/30877">#30877</a>]</li>
+  <li>Fixed: Performance error on MyPage [<a href="https://community.openproject.com/wp/30878">#30878</a>]</li>
+  <li>Fixed: Bars in Roadmap graph are massive [<a href="https://community.openproject.com/wp/30890">#30890</a>]</li>
+  <li>Fixed: Words with umlauts are not found in PDF’s [<a href="https://community.openproject.com/wp/30891">#30891</a>]</li>
+  <li>Fixed: Lists in Copy Workflow could be bigger [<a href="https://community.openproject.com/wp/30892">#30892</a>]</li>
+  <li>Fixed: WP description confusing/wrong? [<a href="https://community.openproject.com/wp/30897">#30897</a>]</li>
+  <li>Fixed: Page not found when using sign in from public project [<a href="https://community.openproject.com/wp/30898">#30898</a>]</li>
+  <li>Fixed: Spacing in members widget on overview page slightly crammed [<a href="https://community.openproject.com/wp/30900">#30900</a>]</li>
+  <li>Fixed: Project description not shown for some projects [<a href="https://community.openproject.com/wp/30901">#30901</a>]</li>
+  <li>Fixed: Custom field not shown for work package [<a href="https://community.openproject.com/wp/30903">#30903</a>]</li>
+  <li>Fixed: Unclear tab description in work package graph [<a href="https://community.openproject.com/wp/30905">#30905</a>]</li>
+  <li>Fixed: Chart in Roadmap details view minimizes [<a href="https://community.openproject.com/wp/30907">#30907</a>]</li>
+  <li>Fixed: Header not aligned to widget boxes in Project Overview Page [<a href="https://community.openproject.com/wp/30911">#30911</a>]</li>
+  <li>Fixed: Work package attribute called “Story Punkte js” instead of “Story Punkte” [<a href="https://community.openproject.com/wp/30919">#30919</a>]</li>
+  <li>Fixed: Second click on “All open” view doesn’t reset the view toggle button [<a href="https://community.openproject.com/wp/30921">#30921</a>]</li>
+  <li>Fixed: Users in Members widget not correctly aligned [<a href="https://community.openproject.com/wp/30925">#30925</a>]</li>
+  <li>Fixed: Wiki TOC Error [<a href="https://community.openproject.com/wp/30926">#30926</a>]</li>
+  <li>Fixed: Wiki menu tree is still cached to old project when identifier renamed [<a href="https://community.openproject.com/wp/30927">#30927</a>]</li>
+  <li>Fixed: WorkPackage linked in comment text cannot be opened [<a href="https://community.openproject.com/wp/30928">#30928</a>]</li>
+  <li>Fixed: Error when creating new boards [<a href="https://community.openproject.com/wp/30930">#30930</a>]</li>
+  <li>Fixed: Unable to login [<a href="https://community.openproject.com/wp/30932">#30932</a>]</li>
+  <li>Fixed: Optimize text box formatting of header texts [<a href="https://community.openproject.com/wp/30940">#30940</a>]</li>
+  <li>Fixed: Harmonize drag and drop handle icons [<a href="https://community.openproject.com/wp/30941">#30941</a>]</li>
+  <li>Fixed: Project description and project details share the same icon [<a href="https://community.openproject.com/wp/30942">#30942</a>]</li>
+  <li>Fixed: Some widget titles can be edited which should be static [<a href="https://community.openproject.com/wp/30945">#30945</a>]</li>
+  <li>Fixed: grid is invisible during resizing and drag and drop of widgets [<a href="https://community.openproject.com/wp/30946">#30946</a>]</li>
+  <li>Fixed: Too long comment box when adding a picture to the text editor [<a href="https://community.openproject.com/wp/30947">#30947</a>]</li>
+  <li>Fixed: Overview page: click on link opens edit mode, instead of following the link [<a href="https://community.openproject.com/wp/30948">#30948</a>]</li>
+  <li>Fixed: Custom Action. Exception on OP Edge. “undefined method `iso8601’ for “%CURRENT_DATE%”:String” [<a href="https://community.openproject.com/wp/30949">#30949</a>]</li>
+  <li>Fixed: Wrong formatting of scroll bars on overview page in Windows [<a href="https://community.openproject.com/wp/30951">#30951</a>]</li>
+  <li>Fixed: Boards. EE ypsale. Translation missing. [<a href="https://community.openproject.com/wp/30954">#30954</a>]</li>
+  <li>Fixed: Drag and drop in embedded tables does not work (or should be deactivated for now) [<a href="https://community.openproject.com/wp/30967">#30967</a>]</li>
+  <li>Fixed: Picture slider in for BCF issues even if there is only one picture [<a href="https://community.openproject.com/wp/30969">#30969</a>]</li>
+  <li>Fixed: Members: Error message overlapping form but not X-icon to remove it [<a href="https://community.openproject.com/wp/30971">#30971</a>]</li>
+  <li>Fixed: Widget “Work packages overview” cuts off tooltip [<a href="https://community.openproject.com/wp/30972">#30972</a>]</li>
+  <li>Fixed: Missing save indication after renaming a widget [<a href="https://community.openproject.com/wp/30975">#30975</a>]</li>
+  <li>Fixed: Sorting board columns only applied after reload [<a href="https://community.openproject.com/wp/30981">#30981</a>]</li>
+  <li>Fixed: Overview grid widgets are not translated [<a href="https://community.openproject.com/wp/30988">#30988</a>]</li>
+  <li>Fixed: Crowdin JS translations not complete [<a href="https://community.openproject.com/wp/30989">#30989</a>]</li>
+  <li>Fixed: In- and Outdent create version conflicts with inline edition [<a href="https://community.openproject.com/wp/30994">#30994</a>]</li>
+  <li>Fixed: Inconsistent behavior to show add-widget buttons only after project creation [<a href="https://community.openproject.com/wp/31011">#31011</a>]</li>
+  <li>Fixed: Type colors lost in print of Gantt chart [<a href="https://community.openproject.com/wp/31021">#31021</a>]</li>
+  <li>Fixed: Graph titles get get lost after page reload [<a href="https://community.openproject.com/wp/31026">#31026</a>]</li>
+  <li>Fixed: Misaligned drag and drop handle in Members widget [<a href="https://community.openproject.com/wp/31027">#31027</a>]</li>
+  <li>Fixed: Single Sign on feature is available in Community Edition [<a href="https://community.openproject.com/wp/31045">#31045</a>]</li>
+  <li>Fixed: Cannot edit comment that was just created [<a href="https://community.openproject.com/wp/31057">#31057</a>]</li>
+</ul>
+
+<h2 id="support">Support</h2>
+
+<p>You will find useful information in the OpenProject <a href="">FAQ</a> or you can post your questions in the <a href="https://community.openproject.org/projects/openproject/boards">Forum</a>.</p>
+
+<h3 id="upgrading-your-installation-to-openproject-100">Upgrading your installation to OpenProject 10.0.</h3>
+
+<p>If you’re using the OpenProject Cloud Edition, you are already running on the latest version of OpenProject 10.0. For your local installations, there are some minor changes you need to do in order to perform the upgrade.</p>
+
+<p><a href="../../installation-and-operations/operation/upgrading">Please visit our upgrade guides for more information</a>.</p>
+
+<h2 id="credits">Credits</h2>
+
+<p>Special thanks go to all OpenProject contributors without whom this release would not have been possible:</p>
+
+<ul>
+  <li>All the developers, designers, project managers who have contributed to OpenProject.</li>
+  <li>Every dedicated user who has <a href="">reported bugs</a> and supported the community by asking and answering questions in the <a href="https://community.openproject.org/projects/openproject/boards">forum</a>.</li>
+  <li>All the engaged users who provided translations on <a href="https://crowdin.com/projects/opf">CrowdIn</a>.</li>
+</ul>
+
+<h2 id="whats-next">What’s next?</h2>
+
+<p>We are continuously developing new features and improvements for OpenProject.
+The next release will contain a dashboard and reporting view for OpenProject and also allow to communicate the project status using a traffic light.
+Take a look at the <a href="https://community.openproject.com/projects/openproject/work_packages?query_id=918">release timeline</a> to see the upcoming features and releases.</p>
+
+<p>To stay up to date with the recent development, feel free to follow OpenProject on <a href="https://twitter.com/openproject">Twitter</a> and like OpenProject on <a href="https://www.facebook.com/openprojectfoundation">Facebook</a>.</p>
+:ET
